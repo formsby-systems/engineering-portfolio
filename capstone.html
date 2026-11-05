@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Kinetic Wilbur: Dylan Becchetti’s design work and OpenSCAD models for a year-long team capstone."><title>Kinetic Wilbur · Dylan’s workbench</title><link rel="stylesheet" href="site.css?v=workbench-1"><link rel="icon" href="assets/mark.svg" type="image/svg+xml"><script src="site.js?v=workbench-1" defer></script></head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="shell mast"><a class="brand" href="./">Dylan Becchetti<span> / workbench</span></a><nav aria-label="Primary"><a href="index.html#work">Work</a><a href="resume.html">Résumé ↗</a></nav></div></header>
+<main class="document" id="main">
+<p class="eyebrow">Capstone notebook / Spring to fall 2026</p>
+<h1>Kinetic Wilbur.</h1>
+<p class="standfirst">The question was how to turn a visible planetary gear mechanism into a ceiling-hung kinetic sculpture. A year-long team capstone, with documented spring prototypes and a motorized installation design under revision in November.</p>
+<div class="actions"><a class="text-link" href="index.html#capstone">← See the assembled sculpture turn</a><a class="primary" href="#take-apart">Explore the assembly ↓</a></div>
+<section id="take-apart" aria-labelledby="explosion-title">
+<h2 id="explosion-title">Take it apart.</h2>
+<p>The center is the reference, the planets sit in the carrier, and the outside ring is both a gear and a surface for wheels. Scrub the view to follow the carrier and its cable stays lifting, then see the two plywood ring layers separate. The planet gears and fixed supports stay put.</p>
+<figure class="viewer explosion" data-viewer="explosion">
+<div class="viewer-stage">
+  <img src="assets/wilbur-explosion.jpg" width="960" height="800" alt="The November 2 CAD assembly, with the center support, gear ring and carrier visible.">
+  <video src="assets/wilbur-explosion.mp4" width="960" height="800" muted playsinline preload="none" hidden aria-label="Exploded CAD view showing the carrier and plywood ring layers separating"></video>
+</div>
+<div class="viewer-controls" hidden><button type="button" data-play>Play explosion</button><label class="visually-hidden" for="explosion-scrub">Exploded view position</label><input id="explosion-scrub" type="range" min="0" max="100" step="1" value="0"></div>
+<figcaption>Exploded mechanism view · 12 CAD states. <span>Not an assembly procedure or a loaded-motion simulation.</span></figcaption><p class="viewer-status" role="status" hidden></p>
+</figure>
+</section>
+<section aria-labelledby="role-title"><h2 id="role-title">My part of the work.</h2>
+<p>I designed and iterated the assembly in OpenSCAD, my preferred CAD tool. That included the carrier and how the wheel mounts, ring, and cable stays fit together. I also worked through materials and parts choices and updated planning documents as the geometry changed.</p>
+<p>I also helped prepare the ring profiles for CNC review and compared carrier concepts with and without cable stays. The team and sponsor contributed analysis, prototype fabrication and design review.</p>
+</section>
+<section aria-labelledby="history-title"><h2 id="history-title">How the design changed.</h2>
+<ol>
+<li><strong>Spring prototypes.</strong> Early models explored planetary gears with a lower base and a wave feature. The hanging revision removed that lower structure and vertical motion, leaving the gears easier to see from below.</li>
+<li><strong>Motorized installation.</strong> The larger design had to put the drive, carrier and supports into the same physical space. That meant revisiting where the ring is guided and how the wheel supports attach.</li>
+<li><strong>November 2.</strong> I worked on the widened-ring revision. It keeps the inside gear profile and makes a broader rolling surface. The team had heard noise in ball-transfer sample tests. In this revision I modeled direct-mounted fixed wheels instead, and the larger ring moved the drive and supports outward.</li>
+</ol>
+</section>
+<section aria-labelledby="materials-title"><h2 id="materials-title">What it’s made of, on paper.</h2>
+<p>The November proposal uses two plywood layers for the outer ring, steel tube for the carrier and supports, and catalog fixed casters as the wheel candidates. Staggering the ring’s seams allows it to be modeled as four stock-sized halves without one seam passing through both layers.</p>
+<div class="detail-grid">
+<figure><img src="assets/wilbur-wheel.jpg" width="900" height="590" alt="Upper wheels on direct mounts over the plywood ring, with steel carrier and cable stays." loading="lazy"><figcaption>Wheel interface. The current mount is a fit-check model.</figcaption></figure>
+<div><h3>What I would check next</h3><p>Measure the actual caster mount, test the sample on the real stock, confirm clearance through rotation, then review the glue-up and welded connections before releasing fabrication details.</p></div>
+</div>
+</section>
+<section aria-labelledby="status-title"><h2 id="status-title">Where it stands.</h2><p>The team CNC-cut a planet gear and welded an early sleeve and flange. The complete November assembly is still a proposal. I can show the model and its geometry checks; full loaded rotation, material behavior and the installation are still to be verified.</p></section>
+<div class="actions"><a class="text-link" href="index.html#work">← Back to the workbench</a><a class="text-link" href="resume.html">Read my résumé ↗</a></div>
+</main>
+<footer class="foot"><div class="shell"><span>Dylan Becchetti · Team capstone notebook</span><a href="./">Home ↗</a></div></footer>
+</body></html>
