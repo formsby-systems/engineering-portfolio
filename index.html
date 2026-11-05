@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Dylan Becchetti, mechanical engineering at Lehigh. Selected work in systems engineering, validation, CAD and manufacturing automation.">
+<link rel="canonical" href="https://formsby-systems.github.io/engineering-portfolio/">
+<meta property="og:title" content="Dylan Becchetti · Engineering portfolio">
+<meta property="og:description" content="Mechanical design, systems validation and manufacturing automation.">
+<meta property="og:image" content="https://formsby-systems.github.io/engineering-portfolio/assets/wilbur.jpg">
+<meta name="theme-color" content="#17211f">
+<title>Dylan Becchetti · Engineering portfolio</title>
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="shell mast"><a class="brand" href="./"><span class="mark" aria-hidden="true">DB</span> Dylan Becchetti</a><nav aria-label="Primary"><a href="#work">Work</a><a href="#about">About</a><a href="resume.html">Résumé <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main">
+<section class="hero" aria-labelledby="intro"><div class="shell hero-grid">
+  <div class="intro">
+  <p class="eyebrow"><span class="indicator"></span> Mechanical engineering · Lehigh University</p>
+  <h1 id="intro">Mechanical design.<br><em>Systems validation.</em></h1>
+  <p class="lead">I’m Dylan. I design mechanisms, build tools for production workflows, and test where systems break.</p>
+  <ul class="facts"><li>Three summers in manufacturing at Cardinal Glass</li><li>B.S. expected December 2026 · US remote from January 2027</li></ul>
+  <div class="actions"><a class="primary" href="#work">Inspect the work <span aria-hidden="true">↓</span></a><a class="secondary" href="resume.html">View résumé <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <figure class="assembly" id="assembly">
+    <div class="assembly-head"><span>FIG. 01 / KINETIC WILBUR</span><span>REV. NOV 02</span></div>
+    <div class="viewport">
+      <img id="cad-poster" src="assets/wilbur.jpg" width="960" height="720" alt="Kinetic Wilbur mechanism showing a wide outer gear ring, six planetary gears and the dark central carrier arms." fetchpriority="high">
+      <video id="cad-clip" src="assets/wilbur-orbit.mp4" width="960" height="720" muted playsinline preload="none" hidden aria-label="Camera orbit around the stationary November 2 Kinetic Wilbur CAD model"></video>
+    </div>
+    <div class="assembly-controls" id="motion-controls" hidden>
+      <button id="play" type="button">Play study</button>
+      <label class="visually-hidden" for="scrub">Position in the CAD study</label>
+      <input id="scrub" type="range" min="0" max="100" step="1" value="0">
+      <button id="scroll-mode" type="button" aria-pressed="false">Scroll mode</button>
+    </div>
+    <figcaption><span>Team capstone · CAD camera orbit</span><a href="#capstone">Model notes <span aria-hidden="true">↘</span></a></figcaption>
+    <p class="media-status" id="media-status" role="status" hidden></p>
+  </figure>
+</div></section>
+<section class="index-strip" aria-label="Engineering interests"><div class="shell lanes"><span><b>01</b> Systems engineering</span><span><b>02</b> Software validation</span><span><b>03</b> Manufacturing automation</span></div></section>
+<section id="work" class="shell work" aria-labelledby="work-title">
+  <div class="section-head"><p class="eyebrow">Selected work / 01–04</p><h2 id="work-title">What I’ve been building.</h2><p>From a shop-floor tracker to research replay. In each case, here’s the problem, what I did, and what the evidence can actually show.</p></div>
+  <article id="cardinal" class="case">
+    <div class="case-copy"><p class="eyebrow">01 / Manufacturing · Internship</p><h3>Cardinal Glass</h3><p class="case-lead">One daily tracker for an R&amp;D production line.</p><p>I built an Excel macro tool to combine source files into a daily production view and worked with engineers and operators on what the tracker needed to capture. In earlier summers I worked on assembly instructions, warehouse organization, equipment checks and layout drafts.</p><p class="boundary">The example uses fictional data. It does not reproduce the company workbook or claim measured savings.</p></div>
+    <div class="proof ledger"><div class="proof-head"><span>DAILY TRACKER</span><span>SYNTHETIC EXAMPLE</span></div>
+      <table><caption>Three sample inputs, three explicit dispositions</caption><thead><tr><th scope="col">Item</th><th scope="col">Units</th><th scope="col">Disposition</th></tr></thead><tbody><tr><th scope="row">Sample A</th><td>12</td><td><span class="tag">Matched</span></td></tr><tr><th scope="row">Sample B</th><td>8</td><td><span class="tag">Matched</span></td></tr><tr><th scope="row">Sample C</th><td>—</td><td><span class="tag hold">Review</span></td></tr></tbody></table>
+      <p class="proof-note">Keep missing input visible. A blank should not silently become zero.</p>
+    </div>
+  </article>
+  <article id="midas" class="case">
+    <div class="case-copy"><p class="eyebrow">02 / Python · Research validation</p><h3>Midas</h3><p class="case-lead">A research system that can show why a run stopped.</p><p>My independent work focuses on specifying replay boundaries, reviewing run evidence, and deciding when a result is ready to advance. The project separates simulated research from execution authority and records inputs and outcomes so a failure can be revisited.</p><p class="boundary">AI-assisted project. This is engineering evidence from an ongoing research effort. No trading returns or production deployment claimed.</p></div>
+    <div class="proof process"><div class="proof-head"><span>REPLAY &amp; REVIEW</span><span>ENGINEERING SCHEMATIC</span></div>
+      <ol><li><span>01</span><div><strong>Pin the inputs</strong><p>Bind the run to the inputs and configuration under review.</p></div></li><li><span>02</span><div><strong>Replay within limits</strong><p>Keep the research run separate from execution.</p></div></li><li><span>03</span><div><strong>Record the failure</strong><p>In a November 5 run, 20 control checks completed before a domain assertion failed. The result stayed open for review.</p></div></li></ol>
+    </div>
+  </article>
+  <article id="operalith" class="case">
+    <div class="case-copy"><p class="eyebrow">03 / Data quality · Human review</p><h3>Operalith</h3><p class="case-lead">Catch bad rows before they reach an import.</p><p>I shaped a workflow for validating CSV exports, showing proposed corrections, and making it clear which rows need a human decision. The prototype accounts for every source row and distinguishes candidate output from unresolved exceptions.</p><p class="boundary">AI-assisted prototype. The screenshot is from a fictional rehearsal, with no customer data, import approval or live deployment implied.</p></div>
+    <figure class="proof screenshot"><div class="proof-head"><span>REVIEWED HANDOFF</span><span>SYNTHETIC DEMO</span></div><a href="assets/operalith-review.jpg"><img src="assets/operalith-review.jpg" width="1440" height="1000" alt="Operalith synthetic demo: seven source rows, three candidates, four held and zero dropped." loading="lazy"></a><figcaption class="proof-note">7 source rows → 3 candidates + 4 held · 0 dropped. <a href="assets/operalith-review.jpg">View full screenshot ↗</a></figcaption></figure>
+  </article>
+  <article id="capstone" class="case">
+    <div class="case-copy"><p class="eyebrow">04 / Mechanical design · Team capstone</p><h3>Kinetic Wilbur</h3><p class="case-lead">A kinetic installation with a planetary gear assembly.</p><p>I work on the assembly CAD and design revisions in OpenSCAD, my current tool of choice. The November 2 model shows the widened ring and wheel interfaces in relation to the carrier and gear train.</p><p class="boundary">CAD study of a team design. The camera moves around a stationary model. The view illustrates geometry and interfaces; it does not establish load capacity, fabrication approval or operating behavior.</p></div>
+    <figure class="proof cad-detail"><div class="proof-head"><span>WHEEL INTERFACE</span><span>OPENSCAD</span></div><img src="assets/wilbur-wheel.jpg" width="900" height="590" alt="Two wheels and their mounting brackets above the widened outer gear ring, with cable stays attached to the carrier." loading="lazy"><figcaption class="proof-note"><a href="#assembly">Return to the assembly viewer ↑</a></figcaption></figure>
+  </article>
+</section>
+<section class="lab" aria-labelledby="lab-title"><div class="shell"><p class="eyebrow">From the lab</p><h2 id="lab-title">Other things I’ve tried.</h2><div class="lab-grid">
+  <article><h3>SLOP</h3><p class="lab-label">Scanned Leverage and Optimized Production</p><p>A game-building experiment in making research reusable: Python tooling validates configurations, pins inputs and generates artifacts for reusable Luau components. A lab project about production discipline.</p></article>
+  <article><h3>Formsby</h3><p class="lab-label">Earlier structured search prototype</p><p>I explored how to turn a housing request into a queued search with candidate checks and private ranked results. It’s an earlier prototype; the public monitoring feature was not enabled.</p></article>
+</div></div></section>
+<section class="shell about" id="about" aria-labelledby="about-title"><div><p class="eyebrow">About / Contact</p><h2 id="about-title">I like following a problem to where it actually breaks.</h2></div><div><p>I’m finishing mechanical engineering at Lehigh. I like the point where drawings, data, and the people using a system all have to agree. On independent projects I use AI assistance and focus my own work on direction, requirements, and evidence review.</p><p>I’m looking for a US remote role in systems engineering, software validation, or workflow automation starting January 2027.</p><div class="actions"><a class="primary" href="resume.html">Read my résumé ↗</a><a class="secondary" href="mailto:dylanbecc123@gmail.com">Email me ↗</a></div></div></section>
+</main>
+<footer class="foot"><div class="shell"><span>Dylan Becchetti · Engineering portfolio</span><a href="https://github.com/formsby-systems">GitHub profile ↗</a></div></footer>
+</body>
+</html>
