@@ -1,0 +1,5 @@
+record_id,date,part_id,operation,planned_qty
+A-01,2025-07-15,DEMO-101,Assembly,8
+A-02,2025-07-15,DEMO-102,Inspection,6
+A-03,2025-07-15,DEMO-103,Assembly,4
+A-04,2025-07-15,DEMO-104,Inspection,10

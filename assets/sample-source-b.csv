@@ -1,0 +1,5 @@
+record_id,date,part_id,status
+B-01,2025-07-15,DEMO-101,In progress
+B-02,2025-07-15,DEMO-102,Complete
+B-03,2025-07-15,DEMO-104,Awaiting review
+B-04,2025-07-15,,Complete

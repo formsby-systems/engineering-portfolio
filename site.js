@@ -1,93 +1,165 @@
-(() => {
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const init = viewer => {
-    const clip = viewer.querySelector('video');
-    if (!clip) return;
-    const controls = viewer.querySelector('.viewer-controls');
-    const play = viewer.querySelector('[data-play]');
-    const scroll = viewer.querySelector('[data-scroll]');
-    const range = viewer.querySelector('input[type=range]');
-    const status = viewer.querySelector('.viewer-status');
-    const orbit = viewer.dataset.viewer === 'orbit';
-    let active = false, paused = false, pending = null, raf = 0, timeout = 0, requested = false;
-    const finite = () => Number.isFinite(clip.duration) && clip.duration > 0;
-    const updateStatus = text => { status.textContent = text; status.hidden = !text; };
-    const sync = () => {
-      play.textContent = clip.paused ? (orbit ? 'Play orbit' : 'Play explosion') : 'Pause';
-      if (range && finite() && !clip.seeking) range.value = String(Math.round(100 * clip.currentTime / clip.duration));
-    };
-    const state = () => {
-      if (!scroll) return;
-      scroll.hidden = reduced.matches || !('IntersectionObserver' in window);
-      scroll.textContent = paused ? 'Resume scroll spin' : 'Pause scroll spin';
-      scroll.setAttribute('aria-pressed', String(paused));
-      const hint = viewer.querySelector('[data-scroll-hint]');
-      if (hint) hint.textContent = scroll.hidden ? 'Use Play orbit to turn the model.' : paused ? 'Scroll spin paused.' : 'Scroll to turn the model.';
-    };
-    const fail = () => {
-      clearTimeout(timeout);
-      clip.pause(); clip.hidden = true; paused = true; state();
-      updateStatus('The video is unavailable. The CAD still is shown.');
-    };
-    const request = () => {
-      if (requested) return;
-      requested = true;
-      clip.preload = 'metadata';
-      clip.load();
-      timeout = setTimeout(() => { if (!finite()) fail(); }, 7500);
-    };
-    const seek = progress => {
-      pending = Math.min(1, Math.max(0, progress));
-      if (!finite()) { request(); return; }
-      const time = Math.min(clip.duration - .015, pending * clip.duration);
-      if (!clip.seeking && Math.abs(time - clip.currentTime) > .025) clip.currentTime = time;
-    };
-    const frame = () => {
-      raf = 0;
-      if (!orbit || !active || paused || reduced.matches || !clip.paused) return;
-      const bounds = viewer.querySelector('.viewer-stage').getBoundingClientRect();
-      if (bounds.bottom > 0 && bounds.top < innerHeight) seek((innerHeight - bounds.top) / (innerHeight + bounds.height));
-    };
-    const schedule = () => { if (!raf) raf = requestAnimationFrame(frame); };
-    clip.addEventListener('loadedmetadata', () => { clearTimeout(timeout); if (pending !== null) seek(pending); });
-    for (const event of ['loadeddata','seeked','playing']) clip.addEventListener(event, () => { clip.hidden = false; updateStatus(''); sync();
-      if (event === 'seeked' && pending !== null && clip.paused) seek(pending);
-    });
-    for (const event of ['timeupdate','pause','ended']) clip.addEventListener(event, sync);
-    clip.addEventListener('error', fail);
-    play.addEventListener('click', async () => {
-      pending = null;
-      if (orbit) { paused = true; state(); }
-      if (!clip.paused) { clip.pause(); return; }
-      if (clip.ended) clip.currentTime = 0;
-      if (clip.readyState < 2) updateStatus('Loading the CAD study…');
-      clearTimeout(timeout);
-      timeout = setTimeout(() => { if (clip.readyState < 2) fail(); }, 7500);
-      try { await clip.play(); } catch (error) { if (error.name !== 'AbortError') fail(); }
-      finally { clearTimeout(timeout); }
-    });
-    scroll?.addEventListener('click', () => { clip.pause(); paused = !paused; state(); schedule(); });
-    range?.addEventListener('input', () => { clip.pause(); seek(Number(range.value)/100); });
-    if (orbit && 'IntersectionObserver' in window) {
-      new IntersectionObserver(([entry]) => {
-        active = entry.isIntersecting;
-        if (!active) clip.pause(); else schedule();
-      }).observe(viewer);
-      addEventListener('scroll', schedule, {passive:true});
-      addEventListener('resize', schedule);
-      reduced.addEventListener('change', () => { state(); if (reduced.matches) { clip.pause(); clip.hidden = true; } else schedule(); });
-    } else if (scroll) scroll.hidden = true;
-    state(); controls.hidden = false;
-  };
-  document.querySelectorAll('[data-viewer]').forEach(init);
-  const actions = document.querySelector('.scratch-actions');
-  if (actions) {
-    const buttons = [...actions.querySelectorAll('[data-check]')];
-    const result = document.querySelector('#scratch-result');
-    actions.hidden = false;
-    buttons.forEach(button => button.addEventListener('click', () => {
-      buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      result.textContent = button.dataset.check === 'dates' ? 'The dates match both columns: 20 sample units.' : 'No header contains “Week 16”. The cells hold dates, so that lookup can’t find the units.';
-    }));
-  }
-})();
+const hero = document.querySelector('.hero');
+const video = document.querySelector('[data-drive]');
+const range = document.querySelector('#drive-position');
+const play = document.querySelector('[data-play]');
+const scrollMode = document.querySelector('[data-scroll-mode]');
+const progress = document.querySelector('[data-position]');
+const note = document.querySelector('[data-note]');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+let following = !reduced.matches;
+let requested = false;
+let target = 0;
+let scheduled = false;
+
+function showProgress(value) {
+  const percent = Math.round(value * 100);
+  range.value = percent;
+  document.querySelector('.hero-figure').style.setProperty('--ring-turn', String(value * 360) + 'deg');
+  progress.value = String(percent).padStart(2, '0') + '%';
+}
+
+function seek() {
+  if (!Number.isFinite(video.duration) || video.seeking || !video.paused) return;
+  const time = Math.min(video.duration - 0.02, target * video.duration);
+  if (Math.abs(video.currentTime - time) > 0.015) video.currentTime = time;
+}
+
+function requestVideo() {
+  if (requested) return;
+  requested = true;
+  video.preload = 'auto';
+  video.load();
+}
+
+function scrub(value) {
+  target = Math.min(1, Math.max(0, value));
+  showProgress(target);
+  requestVideo();
+  seek();
+}
+
+function followScroll() {
+  scheduled = false;
+  if (!following) return;
+  const bounds = hero.getBoundingClientRect();
+  const stickyHeight = hero.firstElementChild.offsetHeight;
+  const distance = bounds.height - stickyHeight;
+  if (distance < 2) return;
+  const traveled = hero.firstElementChild.getBoundingClientRect().top - bounds.top;
+  if (traveled > 0 || requested) scrub(traveled / distance);
+}
+
+function schedule() {
+  if (scheduled) return;
+  scheduled = true;
+  requestAnimationFrame(followScroll);
+}
+
+function setFollowing(value) {
+  following = value;
+  scrollMode.setAttribute('aria-pressed', String(value));
+  scrollMode.textContent = value ? 'Scroll sync' : 'Sync off';
+  if (value) schedule();
+}
+
+if (video.getAttribute('src')) {
+  hero.classList.add('has-drive');
+  document.querySelector('[data-controls]').hidden = false;
+  note.textContent = reduced.matches ? 'Wilbur Powerhouse · Use the ring slider' : 'Wilbur Powerhouse · Scroll to drive the ring';
+  scrollMode.hidden = reduced.matches;
+  setFollowing(following);
+
+  addEventListener('scroll', schedule, {passive: true});
+  addEventListener('resize', schedule);
+  reduced.addEventListener('change', () => {
+    scrollMode.hidden = reduced.matches;
+    note.textContent = reduced.matches ? 'Wilbur Powerhouse · Use the ring slider' : 'Wilbur Powerhouse · Scroll to drive the ring';
+    if (reduced.matches) video.pause();
+    setFollowing(!reduced.matches);
+  });
+  video.addEventListener('loadedmetadata', seek);
+  video.addEventListener('loadeddata', () => { video.hidden = false; });
+  video.addEventListener('seeked', () => {
+    video.hidden = false;
+    seek();
+  });
+  video.addEventListener('timeupdate', () => {
+    if (!video.paused) showProgress(video.currentTime / video.duration);
+  });
+  video.addEventListener('play', () => { play.textContent = 'Pause'; });
+  video.addEventListener('pause', () => { play.textContent = 'Play'; });
+  video.addEventListener('ended', () => {
+    target = 1;
+    showProgress(target);
+    play.textContent = 'Replay';
+  });
+  video.addEventListener('error', () => {
+    video.hidden = true;
+    setFollowing(false);
+    hero.classList.remove('has-drive');
+    document.querySelector('[data-controls]').hidden = true;
+    note.textContent = 'Current CAD assembly · Motion unavailable';
+  });
+  range.addEventListener('input', () => {
+    const value = Number(range.value) / 100;
+    video.pause();
+    setFollowing(false);
+    scrub(value);
+  });
+  scrollMode.addEventListener('click', () => {
+    video.pause();
+    setFollowing(!following);
+  });
+  play.addEventListener('click', async () => {
+    if (!video.paused) {
+      video.pause();
+      target = video.currentTime / video.duration;
+      showProgress(target);
+      return;
+    }
+    setFollowing(false);
+    requestVideo();
+    if (video.ended || (Number.isFinite(video.duration) && video.duration - video.currentTime < .05)) video.currentTime = 0;
+    try { await video.play(); }
+    catch { note.textContent = 'Use the ring slider to move through the study.'; }
+  });
+}
+
+
+// Small workbench interactions: no tracking or external requests.
+const lightSwitch = document.querySelector('[data-light-switch]');
+const gapSwitch = document.querySelector('[data-gap]');
+lightSwitch.hidden = false;
+function setWorkbenchLight(night) {
+  document.body.dataset.theme = night ? 'night' : 'day';
+  lightSwitch.setAttribute('aria-pressed', String(night));
+  document.querySelector('[data-light-label]').textContent = night ? 'Lights on' : 'Lights out';
+}
+try { setWorkbenchLight(localStorage.getItem('workbench-light') === 'night'); }
+catch { setWorkbenchLight(false); }
+lightSwitch.addEventListener('click', () => {
+  const night = document.body.dataset.theme !== 'night';
+  setWorkbenchLight(night);
+  try { localStorage.setItem('workbench-light', night ? 'night' : 'day'); } catch {}
+});
+document.querySelector('.gap-controls').hidden = false;
+gapSwitch.addEventListener('click', () => {
+  const gap = gapSwitch.getAttribute('aria-pressed') !== 'true';
+  gapSwitch.setAttribute('aria-pressed', String(gap));
+  gapSwitch.innerHTML = gap ? 'Remove the gap <span aria-hidden="true">↙</span>' : 'Add a price gap <span aria-hidden="true">↗</span>';
+  document.querySelector('[data-gap-note]').textContent = gap ? '100 → 103 · The rules disagree.' : '100 → 100 · Both rules agree.';
+  document.querySelectorAll('[data-gap-case]').forEach(row => {
+    row.classList.toggle('selected-case', row.dataset.gapCase === (gap ? 'gap' : 'flat'));
+  });
+});
+let readingScheduled = false;
+function updateReading() {
+  readingScheduled = false;
+  const available = document.documentElement.scrollHeight - innerHeight;
+  document.querySelector('.reading-progress').style.transform = 'scaleX(' + (available > 0 ? scrollY / available : 0) + ')';
+}
+addEventListener('scroll', () => {
+  if (!readingScheduled) { readingScheduled = true; requestAnimationFrame(updateReading); }
+}, {passive: true});
+addEventListener('resize', updateReading);
+updateReading();
