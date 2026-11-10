@@ -1,10 +1,14 @@
 const hero = document.querySelector('.hero');
+const bar = document.querySelector('.bar');
 const video = document.querySelector('[data-drive]');
 const range = document.querySelector('#drive-position');
 const play = document.querySelector('[data-play]');
 const scrollMode = document.querySelector('[data-scroll-mode]');
 const progress = document.querySelector('[data-position]');
 const note = document.querySelector('[data-note]');
+const annotations = document.querySelector('[data-annotations]');
+const labelParts = document.querySelector('[data-label-parts]');
+const figure = document.querySelector('.hero-figure');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let following = !reduced.matches;
 let requested = false;
@@ -14,7 +18,7 @@ let scheduled = false;
 function showProgress(value) {
   const percent = Math.round(value * 100);
   range.value = percent;
-  document.querySelector('.hero-figure').style.setProperty('--ring-turn', String(value * 360) + 'deg');
+  figure.style.setProperty('--ring-turn', String(value * 360) + 'deg');
   progress.value = String(percent).padStart(2, '0') + '%';
 }
 
@@ -42,11 +46,14 @@ function followScroll() {
   scheduled = false;
   if (!following) return;
   const bounds = hero.getBoundingClientRect();
+  if (bounds.bottom <= bar.offsetHeight) return;
   const stickyHeight = hero.firstElementChild.offsetHeight;
   const distance = bounds.height - stickyHeight;
-  if (distance < 2) return;
-  const traveled = hero.firstElementChild.getBoundingClientRect().top - bounds.top;
-  if (traveled > 0 || requested) scrub(traveled / distance);
+  const traveled = distance >= 2
+    ? hero.firstElementChild.getBoundingClientRect().top - bounds.top
+    : bar.offsetHeight - bounds.top;
+  const scrollSpan = distance >= 2 ? distance : Math.min(270, bounds.height * .45);
+  if (traveled > 0 || requested) scrub(traveled / scrollSpan);
 }
 
 function schedule() {
@@ -55,11 +62,19 @@ function schedule() {
   requestAnimationFrame(followScroll);
 }
 
+function setPartLabels(show) {
+  annotations.hidden = !show;
+  labelParts.setAttribute('aria-pressed', String(show));
+  figure.classList.toggle('is-annotated', show);
+}
+
 function setFollowing(value) {
   following = value;
   scrollMode.setAttribute('aria-pressed', String(value));
-  scrollMode.textContent = value ? 'Scroll sync' : 'Sync off';
-  if (value) schedule();
+  if (value) {
+    setPartLabels(false);
+    schedule();
+  }
 }
 
 if (video.getAttribute('src')) {
@@ -100,7 +115,17 @@ if (video.getAttribute('src')) {
     document.querySelector('[data-controls]').hidden = true;
     note.textContent = 'Current CAD assembly · Motion unavailable';
   });
+  labelParts.addEventListener('click', () => {
+    const show = annotations.hidden;
+    if (show) {
+      video.pause();
+      setFollowing(false);
+      scrub(0);
+    }
+    setPartLabels(show);
+  });
   range.addEventListener('input', () => {
+    setPartLabels(false);
     const value = Number(range.value) / 100;
     video.pause();
     setFollowing(false);
@@ -111,6 +136,7 @@ if (video.getAttribute('src')) {
     setFollowing(!following);
   });
   play.addEventListener('click', async () => {
+    setPartLabels(false);
     if (!video.paused) {
       video.pause();
       target = video.currentTime / video.duration;
@@ -133,7 +159,7 @@ lightSwitch.hidden = false;
 function setWorkbenchLight(night) {
   document.body.dataset.theme = night ? 'night' : 'day';
   lightSwitch.setAttribute('aria-pressed', String(night));
-  document.querySelector('[data-light-label]').textContent = night ? 'Lights on' : 'Lights out';
+  document.querySelector('[data-light-label]').textContent = night ? 'Day mode' : 'Night mode';
 }
 try { setWorkbenchLight(localStorage.getItem('workbench-light') === 'night'); }
 catch { setWorkbenchLight(false); }
