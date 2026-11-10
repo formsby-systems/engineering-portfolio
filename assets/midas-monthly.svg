@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320" role="img" aria-labelledby="title desc">
+<title id="title">Cumulative modeled net P&amp;L</title>
+<desc id="desc">Month-end totals for the strategy and always-long and always-short controls, June 2024 through December 2025.</desc>
+<rect width="820" height="320" rx="5" fill="#172a22"/>
+<g font-family="system-ui, sans-serif" font-size="20" fill="#e2ebe3">
+<path d="M72 250.0H778" stroke="#c7d9cb" opacity="0.2"/><text x="62" y="255.0" text-anchor="end">−$5k</text>
+<path d="M72 180.0H778" stroke="#c7d9cb" opacity="0.53"/><text x="62" y="185.0" text-anchor="end">$0</text>
+<path d="M72 110.0H778" stroke="#c7d9cb" opacity="0.2"/><text x="62" y="115.0" text-anchor="end">$5k</text>
+<path d="M72 40.0H778" stroke="#c7d9cb" opacity="0.2"/><text x="62" y="45.0" text-anchor="end">$10k</text>
+<text x="109.2" y="290" text-anchor="middle">Jun 2024</text>
+<text x="332.1" y="290" text-anchor="middle">Dec 2024</text>
+<text x="555.1" y="290" text-anchor="middle">Jun 2025</text>
+<text x="778.0" y="290" text-anchor="end">Dec 2025</text>
+<polyline points="72.0,180.0 109.2,177.1 146.3,151.5 183.5,164.2 220.6,147.1 257.8,138.5 294.9,136.7 332.1,128.2 369.3,139.8 406.4,132.1 443.6,142.2 480.7,140.4 517.9,141.2 555.1,143.8 592.2,138.2 629.4,107.3 666.5,94.5 703.7,104.4 740.8,84.4 778.0,73.8" stroke="#e0e78c" stroke-width="3" fill="none" stroke-dasharray="" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="72.0,180.0 109.2,178.0 146.3,200.4 183.5,190.3 220.6,208.6 257.8,204.1 294.9,212.0 332.1,209.1 369.3,212.8 406.4,219.5 443.6,239.0 480.7,235.1 517.9,226.8 555.1,218.4 592.2,222.7 629.4,227.8 666.5,223.1 703.7,211.4 740.8,211.1 778.0,212.4" stroke="#c6d9ce" stroke-width="3" fill="none" stroke-dasharray="7 5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="72.0,180.0 109.2,184.8 146.3,166.7 183.5,181.2 220.6,167.0 257.8,176.0 294.9,171.8 332.1,178.5 369.3,178.4 406.4,175.2 443.6,159.9 480.7,168.1 517.9,180.0 555.1,192.5 592.2,192.5 629.4,191.4 666.5,200.0 703.7,216.1 740.8,219.8 778.0,221.6" stroke="#ffb6a6" stroke-width="3" fill="none" stroke-dasharray="2 5" stroke-linejoin="round" stroke-linecap="round"/>
+</g></svg>

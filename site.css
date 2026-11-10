@@ -414,3 +414,17 @@ body[data-theme=night] .hero-geometry{color:#92c6a8}
   .hero-geometry{top:auto;bottom:-90px;right:-165px;transform:none}
   .hero .intro{font-size:clamp(1.37rem,5.9vw,2rem)}
 }
+
+.artifact-view{margin-top:clamp(16px,3vw,35px)}
+.artifact-view a{display:block}
+.artifact-view a:hover img{filter:brightness(1.04)}
+.artifact-view figcaption{font:500 .88rem/1.4 Archivo,Arial,sans-serif;text-transform:none}
+.artifact-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,24px);align-items:start}
+.artifact-pair img{aspect-ratio:16/9;object-fit:contain;background:#f6f6f6}
+.history-chart{grid-column:1/-1;min-width:0}
+.history-chart img{display:block;width:min(100%,820px);height:auto}
+.history-chart ul{display:flex;flex-wrap:wrap;gap:5px 16px;list-style:none;margin:6px 0 10px;padding:0;font-size:.83rem}
+.history-chart li::before{content:"";display:inline-block;width:20px;margin-right:6px;vertical-align:middle;border-top:3px solid #e0e78c}
+.history-chart li:nth-child(2)::before{border-top:3px dashed #c6d9ce}
+.history-chart li:nth-child(3)::before{border-top:3px dotted #ffb6a6}
+@media(max-width:680px){.artifact-pair{grid-template-columns:1fr}.artifact-pair .artifact-view+.artifact-view{margin-top:0}}

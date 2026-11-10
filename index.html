@@ -68,7 +68,7 @@
 <div class="work-strip" id="work">
   <nav aria-label="Selected work">
     <a href="#midas"><strong>Midas Futures</strong><small>Research and execution systems</small></a>
-    <a href="#operalith"><strong>Operalith</strong><small>Workshop software</small></a>
+    <a href="#operalith"><strong>Operalith</strong><small>Customizable workspace</small></a>
     <a href="#wilbur"><strong>Wilbur Powerhouse</strong><small>Full-scale mechanical design</small></a>
     <a href="#experience"><strong>Cardinal Glass</strong><small>Manufacturing and automation</small></a>
     <a href="#production"><strong>Game production</strong><small>Market research and modular builds</small></a>
@@ -79,12 +79,17 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="midas-title">Midas Futures</h2>
-      <p class="deck">I started Midas as an equities scheduler and spent a year turning it into a Python platform for futures research and Practice trading. I designed how strategies plug in, how experiments are run and compared, and how a candidate can move from research into a controlled execution environment.</p>
+      <p class="deck">I started Midas as an equities scheduler, moved it to futures with streamed prices and a Raspberry Pi deployment, then built a Python research platform around it. I designed how strategies are defined, tested on historical data, and evaluated for broker Practice.</p>
     </div>
     <div class="case-prose midas-prose">
       <p>The tricky part was getting replay and forward evaluation to make the same decision from the same data. They disagreed on which completed bars counted toward volatility and which price to use at exit. I unified those rules in a shared state machine. A retained regression matched all <strong>228 session decisions</strong> and <strong>225 modeled trade lifecycles</strong> against a sealed reference.</p>
-      <p>I’m now connecting the research stages so cloud workers can repeat experiments and bring back evidence for the next round. Batch runs preserve their session samples, seeds and manifests. The Ablation Factory checkpoints its work, retries infrastructure failures and records why a candidate was rejected. Practice uses a separate authorization and order-reconciliation layer.</p>
+      <p>I built batch runs that record their session samples, random seeds and results. The Ablation Factory saves progress and can retry a failed worker without losing the experiment. In one cloud check, Railway reproduced all 11 decision files from a local run byte for byte. I’m working on connecting the full research and Practice loop.</p>
     </div>
+    <figure class="visual artifact-view">
+      <a href="assets/midas-research.jpg"><img src="assets/midas-research.jpg" width="1280" height="586" loading="lazy" alt="Midas Research dashboard with a modeled account case showing fees, a pass, a failure, and cash after fees."></a>
+      <figcaption>Actual Midas dashboard capture from an offline historical study. The selected case modeled a payout and still ended $1,286.85 down after fees.</figcaption>
+    </figure>
+    <p class="case-summary">I built the dashboard to distinguish research results, Practice fills and actual cash. One installed version showed <strong>1,410 modeled account cases across 705 strategy variants</strong>. It made it possible to see when a modeled account passed its evaluation but still lost money after fees.</p>
     <figure class="pipeline" data-pipeline>
       <figcaption><strong>Research pipeline</strong><span>End-to-end cloud loop in development</span></figcaption>
       <div class="pipeline-controls" role="group" aria-label="Research pipeline stages" hidden>
@@ -116,6 +121,11 @@
           <tr><th scope="row">Always short</th><td>−$2,974</td></tr>
         </tbody>
       </table>
+      <div class="history-chart">
+        <p><strong>Cumulative modeled net P&amp;L by month</strong></p>
+        <ul aria-label="Chart legend"><li>Strategy direction</li><li>Always long</li><li>Always short</li></ul>
+        <img src="assets/midas-monthly.svg" width="820" height="320" loading="lazy" alt="Month-end cumulative results from June 2024 to December 2025. The strategy finishes up $7,586, and both comparison runs finish down.">
+      </div>
       <figcaption>This was a historical benchmark on familiar data. In a separate strategy study, 200,000 selection-aware simulations found that an apparent gain was consistent with chance under the tested assumptions.</figcaption>
     </figure>
   </div>
@@ -125,14 +135,14 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="operalith-title">Operalith</h2>
-      <p class="deck">I founded and built Operalith, a personal workspace for planning, projects, inventory, equipment loans and customer enquiries. The product connects records across the tools so you can open the task, find its original project, and see the supplies it needs.</p>
+      <p class="deck">I founded Operalith so people could build a workspace around how they work. Start with the tools you need, add features as you go, and change how the workspace looks without moving your records. The current catalogue is the starting point for more tools and workflows.</p>
     </div>
     <div class="case-grid">
-      <figure class="visual product-view"><a href="https://www.operalith.com/#try"><img src="assets/operalith-workspace.jpg" width="1280" height="800" loading="lazy" alt="Operalith’s public connected example shows a workshop task linked to its project and repair kits."></a><figcaption>Public Operalith demo with fictional workshop records</figcaption></figure>
+      <figure class="visual product-view"><a href="https://www.operalith.com/"><img src="assets/operalith-home.jpg" width="1440" height="900" loading="lazy" alt="Operalith’s homepage with appearance choices and a connected workspace example."></a><figcaption>Operalith.com homepage</figcaption></figure>
       <div class="case-prose">
-        <p>I built shared records into the product. Converting an enquiry into a project preserves the link to the original enquiry. Equipment checkout and return keep a custody history. The public demo runs in your browser, and the separate solo account pilot can save sample work on the server.</p>
-        <p>For the account pilot, I designed PostgreSQL saves so a retried request returns the original result and an edit from a stale tab is rejected before it overwrites newer work. In a hosted test, the edit survived reload and undo restored the old value while keeping all <strong>11 prior history entries</strong>.</p>
-        <a class="case-link" href="https://www.operalith.com/#try">Try Operalith</a>
+        <p>I built a catalogue for choosing tools and adding compatible features. Records stay connected as the workspace changes. For example, a project can link to the original enquiry and the supplies it needs. The public demo keeps sample work in your browser. A separate, invited solo pilot saves fictional records to an account.</p>
+        <p>I designed account saves to prevent duplicate writes and stop an older browser tab from overwriting newer work. In a hosted test, an edit survived reload and undo restored the previous value while keeping all <strong>11 prior history entries</strong>.</p>
+        <a class="case-link" href="https://www.operalith.com/">Visit Operalith</a>
       </div>
     </div>
   </div>
@@ -144,14 +154,19 @@
       <h2 id="capstone-title">Wilbur Powerhouse</h2>
       <p class="deck">I did much of the mechanical design and built all of the parametric OpenSCAD models for our year-long Lehigh capstone. My team and I are fabricating a kinetic sculpture designed to hang above a classroom at Lehigh’s Wilbur Powerhouse. I used a 1:1 assembly model to design the parts we’ll build.</p>
     </div>
-    <dl class="case-measures"><div><dt>Outer ring diameter</dt><dd>79.5 in</dd></div><div><dt>Sculpture mass, earlier design estimate</dt><dd>365 lb</dd></div><div><dt>Project</dt><dd>Two semesters</dd></div></dl>
+    <dl class="case-measures"><div><dt>Outer ring diameter</dt><dd>79.5 in</dd></div><div><dt>Drive reduction after the ring revision</dt><dd>10:1</dd></div><div><dt>Project</dt><dd>Two semesters</dd></div></dl>
     <div class="case-grid">
       <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-explosion.jpg" aria-label="Exploded CAD view of the Wilbur Powerhouse mechanism"><source src="assets/wilbur-explosion.mp4" type="video/mp4"></video><figcaption>Exploded CAD view showing the ring, carrier and supports</figcaption></figure>
       <div class="case-prose">
-        <p>When we took the original concept to full scale, the problems changed. I revised the assembly through sponsor reviews, replacing a plywood carrier concept with welded steel arms and cable stays. To fit the rolling supports, I widened the laminated plywood ring, staggered its joints, and moved the drive without changing the inner tooth profile.</p>
-        <p>Our design reviews included finite element comparisons of the carrier with and without cable stays. My team and I CNC-cut a full-size planet gear and completed the first welded gear unit. We found that the real sleeve was slightly oversized, so the next cut needed more bore clearance. The remaining fabrication and installation are separate milestones.</p>
+        <p>When we took the original concept to full scale, the problems changed. I revised the assembly through sponsor reviews, replacing a plywood carrier concept with welded steel arms and cable stays. To fit the rolling supports, I widened the plywood ring from 1,880 to 2,020 mm. I kept the inner teeth that mesh with the planet gears, staggered the plywood seams, and moved the motor mount 70 mm to keep the drive engaged.</p>
+        <p>My team and I CNC-cut a full-size plywood planet gear and completed the first welded gear unit. The real sleeve measured about 1.02 inches across, so the first gear needed sanding and the next cut needed more bore clearance. That was a fit check on a physical part while the rest of the assembly was still in fabrication.</p>
       </div>
     </div>
+    <div class="artifact-pair">
+      <figure class="visual artifact-view"><a href="assets/wilbur-caster.jpg"><img src="assets/wilbur-caster.jpg" width="1200" height="788" loading="lazy" alt="OpenSCAD close-up of two caster mounts rolling on the plywood ring beside its teeth."></a><figcaption>My OpenSCAD model of the paired casters on the widened ring.</figcaption></figure>
+      <figure class="visual artifact-view"><a href="assets/wilbur-carrier-fea.jpg"><img src="assets/wilbur-carrier-fea.jpg" width="1440" height="720" loading="lazy" alt="Finite element model of an earlier carrier under gravity with and without the cable stays."></a><figcaption>Earlier carrier model with and without cable stays. The plot magnifies movement 70 times.</figcaption></figure>
+    </div>
+    <p class="case-summary">In the earlier carrier study, the model predicted <strong>0.94 mm of downward movement at the planet support without cable stays and 0.41 mm with them</strong>. The stays reduced movement there and shifted more load to the center bearing. That study informed the design. The later caster geometry and installed assembly require their own checks.</p>
   </div>
 </section>
 
@@ -186,7 +201,7 @@
       <div class="sheet-total">4 planned parts / 28 planned units / 3 matched updates / 1 missing update / 1 held record</div>
       <div class="sheet-downloads"><a href="assets/sample-source-a.csv" download>Planned work CSV</a><a href="assets/sample-source-b.csv" download>Updates CSV</a><a href="assets/sample-output.csv" download>Shift view CSV</a></div>
     </figure>
-    <p class="case-summary">Across three summers, I also wrote illustrated assembly instructions, worked on spare-parts inventory and storage, checked cleanroom airflow, inspected pilot-line equipment, analyzed data in Minitab, and drafted layouts in AutoCAD.</p>
+    <p class="case-summary">Across three summers, I wrote illustrated sample-assembly instructions, planned spare-parts storage and rack signage across 14 locations, and measured cleanroom airflow with a hood and micromanometer. I also inspected pilot-line equipment, analyzed data in Minitab, and drafted layouts in AutoCAD.</p>
   </div>
 </section>
 
@@ -203,7 +218,7 @@
       <li><strong>Prototype builds</strong><span>Compile different configurations into separate Roblox places</span></li>
     </ol>
     <div class="case-prose case-summary">
-      <p>I built the Python pipeline to compile two distinct Roblox places from the same hash-pinned Luau components. CI checks that the source stays pinned, that configurations produce different builds, and that invalid inputs are rejected. I also published a separate private Signal Break test build. Player testing and a fully automated market-to-game loop are still ahead.</p>
+      <p>I built a Python pipeline that compiled Copper Yard and Stone Yard from the same Luau components. Automated tests confirm that different settings change the generated place and reject invalid inputs. One reusable producer also verifies the source and license fingerprints. I also published a separate private Signal Break test build. I stopped one collector concept at the storyboard stage because the second trip looked too much like the first and the danger wasn’t clear. Player testing and a fully automated market-to-game loop are still ahead.</p>
     </div>
   </div>
 </section>
@@ -220,7 +235,7 @@
         <figcaption>Housing prototype workflow</figcaption>
       </figure>
       <div class="case-prose">
-        <p>I built the Next.js and PostgreSQL prototype around queued search jobs and a signed-in results dashboard. In an early test, I could extract the request but couldn’t verify a qualifying apartment. That made source quality and listing verification part of the architecture.</p>
+        <p>I built the Next.js and PostgreSQL prototype around queued searches and a private results dashboard. An early test captured the request but couldn’t verify a qualifying apartment. I added listing freshness checks, kept results tied to the latest search, and made queue failures visible so an empty result could be distinguished from a failed run.</p>
         <p>I also designed how the matching engine could support additional search types and a community resource service. Those were product plans. Housing was the prototype I implemented.</p>
       </div>
     </div>
