@@ -6,12 +6,12 @@
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://formsby-systems.github.io/engineering-portfolio/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dylan Becchetti · Engineering, software & things that move">
+<meta property="og:title" content="Dylan Becchetti · Mechanical Engineering &amp; Software">
 <meta property="og:description" content="Midas research systems, Operalith, manufacturing tools and kinetic mechanical design.">
 <meta property="og:url" content="https://formsby-systems.github.io/engineering-portfolio/">
 <meta property="og:image" content="https://formsby-systems.github.io/engineering-portfolio/assets/portfolio-social.png">
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
-<meta name="theme-color" content="#e6edf1">
+<meta name="theme-color" content="#edf0e9">
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
 <link rel="stylesheet" href="site.css">
@@ -21,23 +21,29 @@
 <a class="skip" href="#work">Skip to selected work</a>
 <header class="bar">
   <a class="brand" href="#top"><span class="stamp" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32"><path d="M14 3h4v5h-4zm0 21h4v5h-4zM3 14h5v4H3zm21 0h5v4h-5z" fill="currentColor"/><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="2" fill="currentColor"/></svg></span><span>Dylan Becchetti</span></a>
-  <nav aria-label="Main"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#resume">Résumé</a><button class="light-switch" data-light-switch aria-pressed="false" hidden><span aria-hidden="true">◐</span> <span data-light-label>Night mode</span></button></nav>
+  <nav aria-label="Main"><a href="#work">Work</a><a href="#experience">Experience</a><a href="resume.pdf">Résumé</a><button class="light-switch" data-light-switch aria-pressed="false" hidden><span aria-hidden="true">◐</span> <span data-light-label>Night mode</span></button></nav>
 </header>
 <div class="reading-progress" aria-hidden="true"></div>
 <main id="top">
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero-sticky">
     <div class="hero-scene">
+      <svg class="hero-geometry" viewBox="0 0 600 600" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="300" cy="300" r="280"/><circle cx="300" cy="300" r="262"/><circle cx="300" cy="300" r="222"/>
+        <circle cx="300" cy="300" r="152" stroke-dasharray="3 9"/><circle cx="300" cy="300" r="56"/>
+        <path d="M0 300h600M300 0v600M90 90l420 420M90 510 510 90" stroke-dasharray="3 9"/>
+        <circle cx="300" cy="148" r="66"/><circle cx="432" cy="224" r="66"/><circle cx="432" cy="376" r="66"/>
+        <circle cx="300" cy="452" r="66"/><circle cx="168" cy="376" r="66"/><circle cx="168" cy="224" r="66"/>
+      </svg>
       <div class="hero-copy">
-        <p class="tag eyebrow">Mechanical engineer &amp; software builder</p>
-        <h1 id="hero-title">Dylan <br>Becchetti<span>.</span></h1>
-        <p class="intro">I build tools for the work people actually do.</p>
-        <p class="hero-story">At Cardinal Glass, I built the tracker an R&amp;D line used for shift debriefs. On my own time, I spent a year building a reproducible futures research system. I designed the gear assembly on this page in OpenSCAD for my team capstone.</p>
-        <div class="hero-cta"><a class="primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="resume.pdf">View résumé <span aria-hidden="true">↗</span></a></div>
+        <h1 id="hero-title">Dylan <br>Becchetti</h1>
+        <p class="intro">Mechanical engineer working across software and manufacturing.</p>
+        <p class="hero-story">I spent a year building Midas, a futures research and execution platform. At Cardinal Glass I built an R&amp;D production tracker. At Lehigh I designed the full-scale gear assembly you see here.</p>
+        <div class="hero-cta"><a class="primary" href="#work">Selected work <span aria-hidden="true">↓</span></a><a href="resume.pdf">View résumé <span aria-hidden="true">↗</span></a></div>
         <p class="availability">Lehigh B.S. ’26 · U.S. remote from January 2027<br>Engineering automation, systems and software tooling</p>
       </div>
       <figure class="hero-figure">
-        <div class="stage-label"><span>From my workbench</span><span>Drawing 04 <b>Motion study</b></span></div>
+        <div class="stage-label"><span>Wilbur Powerhouse</span><span>OpenSCAD</span></div>
         <div class="hero-stage" data-stage>
           <img src="assets/wilbur-poster.jpg" alt="Wilbur Powerhouse CAD assembly: a large outer ring surrounding six planet gears with hanging signs." width="1120" height="840" fetchpriority="high">
           <div class="stage-annotations" data-annotations hidden>
@@ -50,7 +56,7 @@
           <video data-drive poster="assets/wilbur-poster.jpg" src="assets/wilbur-drive.mp4" muted playsinline preload="none" hidden aria-label="Wilbur Powerhouse ring-driven CAD motion"></video>
         </div>
         <figcaption class="stage-foot">
-          <div class="stage-caption"><span data-note>Wilbur Powerhouse · Fixed-camera CAD study</span><a href="#wilbur">How I designed it ↓</a></div>
+          <div class="stage-caption"><span data-note>Scroll to turn the gear assembly</span><a href="#wilbur">Capstone details ↓</a></div>
           <p class="motion-key"><span>Ring turns</span><span>Planets spin</span><span>Signs orbit</span></p>
           <div class="drive" data-controls hidden><label for="drive-position">Motion position</label><input type="range" id="drive-position" min="0" max="100" value="0"><output data-position for="drive-position">00%</output><button type="button" data-play>Play</button><button type="button" data-scroll-mode aria-pressed="true">Scroll sync</button><button type="button" data-label-parts aria-pressed="false">Label gears</button></div>
         </figcaption>
@@ -60,79 +66,103 @@
 </section>
 
 <div class="work-strip" id="work">
-  <p class="tag">Three places to start</p>
-  <nav aria-label="Featured case studies">
-    <a href="#midas"><span>01 / Research software</span><strong>228 of 228 decisions matched</strong><small>Midas Futures · historical replay</small></a>
-    <a href="#operalith"><span>02 / Product engineering</span><strong>A workshop app I started and built</strong><small>Operalith · live product walkthrough</small></a>
-    <a href="#experience"><span>03 / Manufacturing</span><strong>One production view for shift handoff</strong><small>Cardinal Glass · three summers in manufacturing</small></a>
+  <nav aria-label="Selected work">
+    <a href="#midas"><strong>Midas Futures</strong><small>Research and execution systems</small></a>
+    <a href="#operalith"><strong>Operalith</strong><small>Workshop software</small></a>
+    <a href="#wilbur"><strong>Wilbur Powerhouse</strong><small>Full-scale mechanical design</small></a>
+    <a href="#experience"><strong>Cardinal Glass</strong><small>Manufacturing and automation</small></a>
+    <a href="#production"><strong>Game production</strong><small>Market research and modular builds</small></a>
+    <a href="#formsby"><strong>Formsby</strong><small>Structured search and product design</small></a>
   </nav>
-  <nav class="more-work" aria-label="More selected work"><a href="#wilbur">04 Wilbur Powerhouse</a><a href="#production">05 Game production</a><a href="#formsby">06 Formsby</a></nav>
 </div>
 <section class="chapter midas" id="midas" aria-labelledby="midas-title">
   <div class="frame">
-    <p class="section-index"><b>01</b> Independent research and execution infrastructure</p>
     <div class="chapter-head">
-      <h2 id="midas-title">Midas Futures<span>.</span></h2>
-      <p class="deck">I’ve led Midas from its first equities scheduler through a year of daily work on futures research and execution. I built replay and forward evaluation around a shared strategy engine, then verified that it reproduced a sealed historical reference while keeping order authority in a separate layer.</p>
+      <h2 id="midas-title">Midas Futures</h2>
+      <p class="deck">I started Midas as an equities scheduler and spent a year turning it into a Python platform for futures research and Practice trading. I designed how strategies plug in, how experiments are run and compared, and how a candidate can move from research into a controlled execution environment.</p>
     </div>
-    <div class="case-grid">
-      <figure class="readout">
-        <p class="tag">Retained run / Historical comparison</p>
-        <p class="big-data">228<span>/228</span></p>
-        <p class="readout-caption">Session decisions matched</p>
-        <dl><div><dt>Sealed event lifecycles</dt><dd>225</dd></div><div><dt>Missing, new or mismatched events</dt><dd>0 / 0 / 0</dd></div></dl>
-        <figcaption>One strategy, comparing a shared historical implementation with its sealed reference. This check measured decision parity; it did not measure broker fills or returns.</figcaption>
-      </figure>
-      <div class="notes">
-        <div><p class="tag">Research</p><h3>Make the next run explain the last one.</h3><p>I built replay around a simulated clock, isolated state and a broker stand-in that refuses order changes. One retained walk-forward study stopped before selection when required data was missing, leaving its final holdout untouched.</p></div>
-        <div><p class="tag">Execution</p><h3>Give orders their own controls.</h3><p>Paper execution stays disarmed until it sees a matching authorization and qualification record. Reconciliation checks the order ID, tag, contract and fills against the original intent. Missing fill data stays unknown.</p></div>
+    <div class="case-prose midas-prose">
+      <p>The tricky part was getting replay and forward evaluation to make the same decision from the same data. They disagreed on which completed bars counted toward volatility and which price to use at exit. I unified those rules in a shared state machine. A retained regression matched all <strong>228 session decisions</strong> and <strong>225 modeled trade lifecycles</strong> against a sealed reference.</p>
+      <p>I’m now connecting the research stages so cloud workers can repeat experiments and bring back evidence for the next round. Batch runs preserve their session samples, seeds and manifests. The Ablation Factory checkpoints its work, retries infrastructure failures and records why a candidate was rejected. Practice uses a separate authorization and order-reconciliation layer.</p>
+    </div>
+    <figure class="pipeline" data-pipeline>
+      <figcaption><strong>Research pipeline</strong><span>End-to-end cloud loop in development</span></figcaption>
+      <div class="pipeline-controls" role="group" aria-label="Research pipeline stages" hidden>
+        <button type="button" data-step="0" aria-pressed="true"><span>01</span> Strategy</button>
+        <button type="button" data-step="1" aria-pressed="false"><span>02</span> Batch campaigns</button>
+        <button type="button" data-step="2" aria-pressed="false"><span>03</span> Ablation Factory</button>
+        <button type="button" data-step="3" aria-pressed="false"><span>04</span> Monte Carlo</button>
+        <button type="button" data-step="4" aria-pressed="false"><span>05</span> Practice</button>
       </div>
-    </div>
-    <ol class="timeline" aria-label="How Midas evolved">
-      <li><span>01 / EQUITIES</span><h3>Get the whole loop working.</h3><p>I started with scheduled Alpaca workflows, trade monitoring, daily state and parameter experiments. That first version made the trade lifecycle visible and exposed how tightly the strategy and execution were coupled.</p></li>
-      <li><span>02 / FUTURES</span><h3>Take control of the data.</h3><p>I moved to ProjectX market streams and historical candles, with a Raspberry Pi deployment path. I also added an opening-range strategy that reused order plumbing without inheriting the original strategy’s assumptions.</p></li>
-      <li><span>03 / RESEARCH + EXECUTION</span><h3>Share decisions. Separate authority.</h3><p>Replay and forward evaluation disagreed on which bars counted toward volatility and which price to use at exit. I moved both to one state machine that consumes completed bars in order and checked it against the sealed historical reference.</p></li>
-    </ol>
-    <aside class="regression-example" aria-labelledby="example-title">
-      <div><p class="tag">Fictional example / Why the mismatch hid</p><h3 id="example-title">Two rules can agree until prices gap.</h3><p>One rule took the previous bar’s close. The reference rule took the scheduled exit bar’s open. If those prices are the same, a spot check cannot tell the rules apart.</p><a href="assets/exit-price-example.py" download>Run the Python example ↓</a><div class="gap-controls" hidden><button type="button" data-gap aria-pressed="false">Add a price gap <span aria-hidden="true">↗</span></button><output data-gap-note aria-live="polite">100 → 100 · Both rules agree.</output></div></div>
-      <table><thead><tr><th scope="col">Input</th><th scope="col">Prior close</th><th scope="col">Exit open</th><th scope="col">Comparison</th></tr></thead><tbody><tr data-gap-case="flat" class="selected-case"><th scope="row">No gap</th><td>100</td><td>100</td><td>Same</td></tr><tr data-gap-case="gap"><th scope="row">Gap</th><td>100</td><td>103</td><td>Disagrees</td></tr></tbody></table>
-    </aside>
-    <p class="case-foot">Python · Strategy state machines · Event replay · Broker reconciliation · Research provenance</p>
+      <ol class="pipeline-detail" aria-live="polite">
+        <li><strong>Strategy.</strong> A validated strategy spec and parameter pack define what to run. The registry keeps a strategy’s decisions separate from market data and order handling.</li>
+        <li><strong>Batch campaigns.</strong> Replay candidates over deterministic session samples. Keep the inputs, random seeds and ranked results so the comparison can be reproduced.</li>
+        <li><strong>Ablation Factory.</strong> Run defined variants against a frozen experiment inventory, checkpoint the work and preserve the evidence for each decision.</li>
+        <li><strong>Monte Carlo.</strong> Test whether a result could have appeared by chance. One diagnostic repeated the original selection process across two sets of 100,000 randomized draws.</li>
+        <li><strong>Practice.</strong> The target workflow advances qualified strategies or combinations to broker Practice. The execution layer checks authorization and reconciles orders and fills independently of the research ranking.</li>
+      </ol>
+    </figure>
+    <figure class="backtest">
+      <div>
+        <h3>Historical backtest</h3>
+        <p class="test-result">+$7,586</p>
+        <p>Modeled net P&amp;L across 365 signals and 374 dates, June 2024–December 2025. The comparison used one micro Nasdaq futures contract, a fixed 58-minute hold and $7.24 in modeled round-trip costs. The strategy’s modeled max drawdown was $2,089.</p>
+      </div>
+      <table>
+        <thead><tr><th scope="col">Same dates and cost model</th><th scope="col">Net P&amp;L</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Strategy direction</th><td>+$7,586</td></tr>
+          <tr><th scope="row">Always long</th><td>−$2,311</td></tr>
+          <tr><th scope="row">Always short</th><td>−$2,974</td></tr>
+        </tbody>
+      </table>
+      <figcaption>This was a historical benchmark on familiar data. In a separate strategy study, 200,000 selection-aware simulations found that an apparent gain was consistent with chance under the tested assumptions.</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="chapter operalith" id="operalith" aria-labelledby="operalith-title">
   <div class="frame">
-    <p class="section-index"><b>02</b> Product and software / Founder &amp; Product Lead</p>
     <div class="chapter-head">
-      <h2 id="operalith-title">Operalith<span>.</span></h2>
-      <p class="deck">I started Operalith because I wanted one place to see what’s next in a workshop, which job it belongs to, and whether the supplies are there. I designed and built the workspace, from the navigation down to how PostgreSQL handles a retry or a stale edit.</p>
+      <h2 id="operalith-title">Operalith</h2>
+      <p class="deck">I founded and built Operalith, a personal workspace for planning, projects, inventory, equipment loans and customer enquiries. The product connects records across the tools so you can open the task, find its original project, and see the supplies it needs.</p>
     </div>
     <div class="case-grid">
-      <figure class="visual"><img src="assets/operalith-workspace.jpg" width="1440" height="1000" loading="lazy" alt="Operalith's Next actions view shows a fictional task linked to its original record."><figcaption>Operalith workspace / Fictional records</figcaption></figure>
-      <div class="notes">
-        <div><p class="tag">Product</p><h3>One workshop, five tools.</h3><p>Planner, projects, inventory, equipment loans and enquiries can live together. The overview takes you to the exact task, project or stock record so you can follow up where the work lives.</p></div>
-        <div><p class="tag">Account beta</p><h3>A save you can recover.</h3><p>I designed the save path to handle two things differently: a retry of a request already accepted, and a new edit made from an out-of-date tab. PostgreSQL stores the original result so a retry can return it. A revision check rejects a stale edit before it overwrites anything.</p></div>
-        <a class="case-link" href="https://www.operalith.com/#try">Try the live workshop ↗</a>
+      <figure class="visual product-view"><a href="https://www.operalith.com/#try"><img src="assets/operalith-workspace.jpg" width="1280" height="800" loading="lazy" alt="Operalith’s public connected example shows a workshop task linked to its project and repair kits."></a><figcaption>Public Operalith demo with fictional workshop records</figcaption></figure>
+      <div class="case-prose">
+        <p>I built shared records into the product. Converting an enquiry into a project preserves the link to the original enquiry. Equipment checkout and return keep a custody history. The public demo runs in your browser, and the separate solo account pilot can save sample work on the server.</p>
+        <p>For the account pilot, I designed PostgreSQL saves so a retried request returns the original result and an edit from a stale tab is rejected before it overwrites newer work. In a hosted test, the edit survived reload and undo restored the old value while keeping all <strong>11 prior history entries</strong>.</p>
+        <a class="case-link" href="https://www.operalith.com/#try">Try Operalith</a>
       </div>
     </div>
-    <aside class="test-strip" aria-label="Operalith hosted beta test">
-      <div class="test-label"><p class="tag">Hosted account beta / Test record</p><h3>Could I undo one edit without losing the rest?</h3></div>
-      <ol><li><b>01 / Save</b><span>The account accepted the edit.</span></li><li><b>02 / Reload</b><span>The edited value persisted.</span></li><li><b>03 / Undo</b><span>The old value returned. All 11 earlier history entries stayed.</span></li></ol>
-    </aside>
-    <p class="case-foot">Next.js · PostgreSQL · Revision checks · Audit history · Product design</p>
+  </div>
+</section>
+
+<section class="chapter capstone" id="wilbur" aria-labelledby="capstone-title">
+  <div class="frame">
+    <div class="chapter-head">
+      <h2 id="capstone-title">Wilbur Powerhouse</h2>
+      <p class="deck">I did much of the mechanical design and built all of the parametric OpenSCAD models for our year-long Lehigh capstone. My team and I are fabricating a kinetic sculpture designed to hang above a classroom at Lehigh’s Wilbur Powerhouse. I used a 1:1 assembly model to design the parts we’ll build.</p>
+    </div>
+    <dl class="case-measures"><div><dt>Outer ring diameter</dt><dd>79.5 in</dd></div><div><dt>Sculpture mass, earlier design estimate</dt><dd>365 lb</dd></div><div><dt>Project</dt><dd>Two semesters</dd></div></dl>
+    <div class="case-grid">
+      <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-explosion.jpg" aria-label="Exploded CAD view of the Wilbur Powerhouse mechanism"><source src="assets/wilbur-explosion.mp4" type="video/mp4"></video><figcaption>Exploded CAD view showing the ring, carrier and supports</figcaption></figure>
+      <div class="case-prose">
+        <p>When we took the original concept to full scale, the problems changed. I revised the assembly through sponsor reviews, replacing a plywood carrier concept with welded steel arms and cable stays. To fit the rolling supports, I widened the laminated plywood ring, staggered its joints, and moved the drive without changing the inner tooth profile.</p>
+        <p>Our design reviews included finite element comparisons of the carrier with and without cable stays. My team and I CNC-cut a full-size planet gear and completed the first welded gear unit. We found that the real sleeve was slightly oversized, so the next cut needed more bore clearance. The remaining fabrication and installation are separate milestones.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="chapter experience" id="experience" aria-labelledby="experience-title">
   <div class="frame">
-    <p class="section-index"><b>03</b> Manufacturing / Three summer internships</p>
     <div class="chapter-head">
-      <h2 id="experience-title">Cardinal Glass<span>.</span></h2>
+      <h2 id="experience-title">Cardinal Glass</h2>
       <p class="deck">In my third summer at Cardinal, I built an Excel/VBA production tracker for an R&amp;D line. I brought separate source files together into a daily view the team used for shift debriefs. The project was mine from problem definition through handoff.</p>
     </div>
     <figure class="shift-sheet">
-      <figcaption><span><b>From raw files to shift handoff</b><small>Fictional reconstruction · Sample data</small></span><span class="sheet-mark" aria-hidden="true">03 / CI</span></figcaption>
+      <figcaption><span><b>Production tracker example</b><small>Fictional reconstruction · Sample data</small></span><span class="sheet-mark" aria-hidden="true">03 / CI</span></figcaption>
       <div class="sheet-grid">
         <div>
           <p class="tag">01 / Planned work</p>
@@ -156,83 +186,51 @@
       <div class="sheet-total">4 planned parts / 28 planned units / 3 matched updates / 1 missing update / 1 held record</div>
       <div class="sheet-downloads"><a href="assets/sample-source-a.csv" download>Planned work CSV</a><a href="assets/sample-source-b.csv" download>Updates CSV</a><a href="assets/sample-output.csv" download>Shift view CSV</a></div>
     </figure>
-    <div class="triptych">
-      <div><p class="tag">2025 / Process data</p><h3>The blank cell was a clue.</h3><p>On a separate scorecard, I found that a merged header contained only a date range. After the revised calculation worked in one cell, I reproduced a second failure: dragging or copying the cell returned blank, while pasting the formula directly worked. In another 2025 assignment, I used a hood and micromanometer and questioned whether airflow alone could identify a degrading filter.</p></div>
-      <div><p class="tag">2024 / Continuous improvement</p><h3>Make the build teachable.</h3><p>I wrote illustrated work instructions for customer sample assemblies and worked on spare-parts inventory and storage layouts.</p></div>
-      <div><p class="tag">2023 / Engineering</p><h3>Make space for the equipment.</h3><p>I inspected pilot-line equipment, analyzed data in Minitab and drafted equipment layouts in AutoCAD. I also contributed to design failure mode and effects analysis discussions.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="chapter capstone" id="wilbur" aria-labelledby="capstone-title">
-  <div class="frame">
-    <p class="section-index"><b>04</b> Mechanical design / Year-long Lehigh team capstone</p>
-    <div class="chapter-head">
-      <h2 id="capstone-title">Wilbur Powerhouse<span>.</span></h2>
-      <p class="deck">Our team designed a ceiling-hung kinetic sculpture that turns a planetary gearset into moving signage. I designed and iterated the parametric OpenSCAD assembly, the carrier and wheel interfaces, and contributed to material choices, CNC preparation and fit checks.</p>
-    </div>
-    <div class="case-grid">
-      <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-explosion.jpg" aria-label="Exploded CAD view of the Wilbur Powerhouse mechanism"><source src="assets/wilbur-explosion.mp4" type="video/mp4"></video><figcaption>Exploded mechanism study / Ring layers, carrier and supports</figcaption></figure>
-      <div class="notes">
-        <div><p class="tag">How it moves</p><h3>The outer ring drives the show.</h3><p>The motor pinion turns the outer ring. With the sun fixed, six planets spin while the carrier rotates. Each hanging sign follows its planet.</p></div>
-        <div><p class="tag">What I changed</p><h3>More room for the wheels.</h3><p>Widening the wheel path while retaining the gear tooth profile moved the drive and enlarged the installation envelope. I revised the ring and carrier interfaces around the new geometry.</p></div>
-        <div><p class="tag">How we checked it</p><h3>Put a clash into the model.</h3><p>I wanted to know whether our clearance check could catch a real interference, so the review included a model with a deliberately introduced overlap.</p></div>
-      </div>
-    </div>
-    <div class="build-record" aria-label="Wilbur project evidence">
-      <div><b>Designed</b><p>Parametric assembly, carrier and wheel interfaces in OpenSCAD.</p></div>
-      <div><b>Built by the team</b><p>CNC-cut planet gear and early welded assembly.</p></div>
-      <div><b>Checked</b><p>Nominal CAD clearance and an intentional overlap. Installation and loaded performance remain outside that check.</p></div>
-    </div>
-    <p class="case-foot">OpenSCAD · Kinematics · Tolerance and fit · Materials · CNC preparation</p>
+    <p class="case-summary">Across three summers, I also wrote illustrated assembly instructions, worked on spare-parts inventory and storage, checked cleanroom airflow, inspected pilot-line equipment, analyzed data in Minitab, and drafted layouts in AutoCAD.</p>
   </div>
 </section>
 
 <section class="chapter slop" id="production" aria-labelledby="slop-title">
   <div class="frame">
-    <p class="section-index"><b>05</b> Product research / Reproducible game production</p>
     <div class="chapter-head">
-      <h2 id="slop-title">Scanned Leverage and Optimized Production<span>.</span></h2>
-      <p class="deck">I started this project to find out what should be reused when building a game: which ideas are worth testing, which components travel between concepts, and whether I can prove exactly what went into each build.</p>
+      <h2 id="slop-title">Scanned Leverage and Optimized Production</h2>
+      <p class="deck">I’m building a system to go from Roblox market research to original playable prototypes. It collects market data, identifies recurring mechanics and asset needs, and uses that research to decide what I should build once and reuse across experiments.</p>
     </div>
-    <div class="case-grid">
-      <figure class="visual"><img src="assets/slop-scene.jpg" width="1200" height="900" loading="lazy" alt="Offline collector-game scene study with a home area and two habitats."><figcaption>Collector concept / Offline scene study</figcaption></figure>
-      <div class="notes">
-        <div><p class="tag">Build proof</p><h3>Same source. Two different places.</h3><p>I built a configurable Python production pipeline. It compiled Copper Yard and Stone Yard into distinct Roblox place files using the same hash-pinned Luau components. Five focused CI checks covered source binding, configuration differences and invalid input.</p></div>
-        <div><p class="tag">Product judgment</p><h3>Passing CI doesn’t make it fun.</h3><p>I held back the collector concept shown here after reviewing the game itself. The build checks answered what the tooling had produced; judging the game concept was a different test.</p></div>
-      </div>
+    <ol class="factory-flow" aria-label="Game production workflow">
+      <li><strong>Market scan</strong><span>98 game identities in one official-data discovery run</span></li>
+      <li><strong>Pattern research</strong><span>Record recurring mechanics and production needs</span></li>
+      <li><strong>Component library</strong><span>Pin the exact Luau modules each build uses</span></li>
+      <li><strong>Prototype builds</strong><span>Compile different configurations into separate Roblox places</span></li>
+    </ol>
+    <div class="case-prose case-summary">
+      <p>I built the Python pipeline to compile two distinct Roblox places from the same hash-pinned Luau components. CI checks that the source stays pinned, that configurations produce different builds, and that invalid inputs are rejected. I also published a separate private Signal Break test build. Player testing and a fully automated market-to-game loop are still ahead.</p>
     </div>
-    <p class="case-foot">Python · Pydantic · Luau · Artifact provenance · GitHub Actions</p>
   </div>
 </section>
 
 <section class="chapter formsby" id="formsby" aria-labelledby="formsby-title">
   <div class="frame">
-    <p class="section-index"><b>06</b> Product concept / Search prototype</p>
     <div class="chapter-head">
-      <h2 id="formsby-title">Formsby<span>.</span></h2>
-      <p class="deck">I wanted to give people one place to describe what they needed, then help them find the right listing or resource wherever it already lived. Housing was my first test of whether that idea could work.</p>
+      <h2 id="formsby-title">Formsby</h2>
+      <p class="deck">I designed Formsby around a simple idea: tell one service what you need, then let it find relevant options across the sites that already have them. I chose housing as the first test because requests have real constraints such as budget, location and move-in date.</p>
     </div>
     <div class="case-grid">
-      <figure class="visual search-study">
-        <p class="tag">Early housing test / Run notes illustrated</p>
-        <ol><li><span>01</span><b>Collect a request</b><small>Capture the lead and source.</small></li><li><span>02</span><b>Extract the criteria</b><small>Example: two bedrooms, a maximum rent and a move-in window.</small></li><li><span>03</span><b>Find a listing that fits</b><small>Reject generic directory pages. No valid match in the retained run.</small></li></ol>
-        <figcaption>Illustration based on the original run notes.</figcaption>
+      <figure class="search-study">
+        <ol><li><span>01</span><b>Capture the request</b><small>Extract criteria and store the search job.</small></li><li><span>02</span><b>Search public listings</b><small>Plan queries and normalize listing candidates.</small></li><li><span>03</span><b>Review results privately</b><small>Check listing freshness, rank matches and save them to the user’s dashboard.</small></li></ol>
+        <figcaption>Housing prototype workflow</figcaption>
       </figure>
-      <div class="notes">
-        <div><p class="tag">What I built</p><h3>Separate the search from the request.</h3><p>The later Next.js prototype accepts structured criteria, queues the search, evaluates listings and persists results in PostgreSQL for private access. My early run notes show request extraction working and no valid apartment match. That helped set the bar for what the search needed to return.</p></div>
-        <div><p class="tag">What I designed next</p><h3>One engine, several front doors.</h3><p>I moved from a lead-discovery experiment toward a search the user starts and a private page they control. I planned the matching engine first, then public intake and a community-resource version. The wider network stayed at the planning stage.</p></div>
+      <div class="case-prose">
+        <p>I built the Next.js and PostgreSQL prototype around queued search jobs and a signed-in results dashboard. In an early test, I could extract the request but couldn’t verify a qualifying apartment. That made source quality and listing verification part of the architecture.</p>
+        <p>I also designed how the matching engine could support additional search types and a community resource service. Those were product plans. Housing was the prototype I implemented.</p>
       </div>
     </div>
-    <p class="case-foot">Next.js · Prisma · PostgreSQL · Inngest · Search quality</p>
   </div>
 </section>
 
 <section class="chapter close" id="resume" aria-labelledby="resume-title">
   <div class="frame">
-    <p class="section-index"><b>DB</b> Available January 2027 / U.S. remote</p>
-    <h2 id="resume-title">Let’s talk shop<span>.</span></h2>
-    <p class="deck">I’m a May 2026 Lehigh mechanical engineering graduate, staying an extra semester for my Materials Science and Engineering minor. I’m looking for work where I can build useful tools, get close to the problem, and see the result through.</p>
+    <h2 id="resume-title">Résumé &amp; contact</h2>
+    <p class="deck">I graduated from Lehigh in May 2026 with a B.S. in Mechanical Engineering and stayed an extra semester for a Materials Science and Engineering minor. I’m looking for full-time, U.S. remote engineering work starting January 2027.</p>
     <div class="contact"><a class="primary" href="resume.pdf">View résumé ↗</a><a href="mailto:dylanbecc123@gmail.com">Email me</a><a href="https://www.linkedin.com/in/dylan-becchetti-637535278/">LinkedIn ↗</a></div>
   </div>
 </section>

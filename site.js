@@ -80,7 +80,7 @@ function setFollowing(value) {
 if (video.getAttribute('src')) {
   hero.classList.add('has-drive');
   document.querySelector('[data-controls]').hidden = false;
-  note.textContent = reduced.matches ? 'Wilbur Powerhouse · Use the ring slider' : 'Wilbur Powerhouse · Scroll to drive the ring';
+  note.textContent = reduced.matches ? 'Use the slider to turn the assembly' : 'Scroll to turn the assembly';
   scrollMode.hidden = reduced.matches;
   setFollowing(following);
 
@@ -88,7 +88,7 @@ if (video.getAttribute('src')) {
   addEventListener('resize', schedule);
   reduced.addEventListener('change', () => {
     scrollMode.hidden = reduced.matches;
-    note.textContent = reduced.matches ? 'Wilbur Powerhouse · Use the ring slider' : 'Wilbur Powerhouse · Scroll to drive the ring';
+    note.textContent = reduced.matches ? 'Use the slider to turn the assembly' : 'Scroll to turn the assembly';
     if (reduced.matches) video.pause();
     setFollowing(!reduced.matches);
   });
@@ -113,7 +113,7 @@ if (video.getAttribute('src')) {
     setFollowing(false);
     hero.classList.remove('has-drive');
     document.querySelector('[data-controls]').hidden = true;
-    note.textContent = 'Current CAD assembly · Motion unavailable';
+    note.textContent = 'Wilbur Powerhouse CAD';
   });
   labelParts.addEventListener('click', () => {
     const show = annotations.hidden;
@@ -154,7 +154,6 @@ if (video.getAttribute('src')) {
 
 // Small workbench interactions: no tracking or external requests.
 const lightSwitch = document.querySelector('[data-light-switch]');
-const gapSwitch = document.querySelector('[data-gap]');
 lightSwitch.hidden = false;
 function setWorkbenchLight(night) {
   document.body.dataset.theme = night ? 'night' : 'day';
@@ -168,16 +167,25 @@ lightSwitch.addEventListener('click', () => {
   setWorkbenchLight(night);
   try { localStorage.setItem('workbench-light', night ? 'night' : 'day'); } catch {}
 });
-document.querySelector('.gap-controls').hidden = false;
-gapSwitch.addEventListener('click', () => {
-  const gap = gapSwitch.getAttribute('aria-pressed') !== 'true';
-  gapSwitch.setAttribute('aria-pressed', String(gap));
-  gapSwitch.innerHTML = gap ? 'Remove the gap <span aria-hidden="true">↙</span>' : 'Add a price gap <span aria-hidden="true">↗</span>';
-  document.querySelector('[data-gap-note]').textContent = gap ? '100 → 103 · The rules disagree.' : '100 → 100 · Both rules agree.';
-  document.querySelectorAll('[data-gap-case]').forEach(row => {
-    row.classList.toggle('selected-case', row.dataset.gapCase === (gap ? 'gap' : 'flat'));
+const pipeline = document.querySelector('[data-pipeline]');
+const pipelineControls = pipeline.querySelector('.pipeline-controls');
+const pipelineSteps = [...pipelineControls.querySelectorAll('button')];
+const pipelineDetails = [...pipeline.querySelectorAll('.pipeline-detail li')];
+
+function showPipelineStep(activeStep) {
+  pipelineSteps.forEach((button, step) => {
+    button.setAttribute('aria-pressed', String(step === activeStep));
+    pipelineDetails[step].hidden = step !== activeStep;
   });
+}
+
+showPipelineStep(0);
+pipelineControls.hidden = false;
+pipelineControls.addEventListener('click', event => {
+  const button = event.target.closest('button[data-step]');
+  if (button) showPipelineStep(Number(button.dataset.step));
 });
+
 let readingScheduled = false;
 function updateReading() {
   readingScheduled = false;
