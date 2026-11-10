@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://formsby-systems.github.io/engineering-portfolio/">
 <meta property="og:image" content="https://formsby-systems.github.io/engineering-portfolio/assets/portfolio-social.png">
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
-<meta name="theme-color" content="#edf0e9">
+<meta name="theme-color" content="#172a37">
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
 <link rel="stylesheet" href="site.css">
@@ -21,7 +21,7 @@
 <a class="skip" href="#work">Skip to selected work</a>
 <header class="bar">
   <a class="brand" href="#top"><span class="stamp" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32"><path d="M14 3h4v5h-4zm0 21h4v5h-4zM3 14h5v4H3zm21 0h5v4h-5z" fill="currentColor"/><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="2" fill="currentColor"/></svg></span><span>Dylan Becchetti</span></a>
-  <nav aria-label="Main"><a href="#work">Work</a><a href="#experience">Experience</a><a href="resume.pdf">Résumé</a><button class="light-switch" data-light-switch aria-pressed="false" hidden><span aria-hidden="true">◐</span> <span data-light-label>Night mode</span></button></nav>
+  <nav aria-label="Main"><a href="#work">Work</a><a href="#about">About</a><a href="resume.pdf">Résumé</a><button class="light-switch" data-light-switch aria-pressed="false" hidden><span aria-hidden="true">◐</span> <span data-light-label>Night mode</span></button></nav>
 </header>
 <div class="reading-progress" aria-hidden="true"></div>
 <main id="top">
@@ -37,10 +37,10 @@
       </svg>
       <div class="hero-copy">
         <h1 id="hero-title">Dylan <br>Becchetti</h1>
-        <p class="intro">Mechanical engineer building manufacturing tools and engineering software.</p>
-        <p class="hero-story">At Cardinal Glass, I built a production tracker the R&amp;D team used at shift handoff. At Lehigh, I designed the gear assembly shown here. I also built Midas, a platform for running and checking research experiments.</p>
-        <div class="hero-cta"><a class="primary" href="#experience">Manufacturing work <span aria-hidden="true">↓</span></a><a href="#midas">Software work <span aria-hidden="true">↓</span></a><a href="resume.pdf">Résumé <span aria-hidden="true">↗</span></a></div>
-        <p class="availability">Lehigh B.S. expected January 2027 · U.S. remote<br>Engineering automation, systems and software tooling</p>
+        <p class="intro">Mechanical engineering. Manufacturing. Software.</p>
+        <p class="hero-story">I built the scorecard my coworkers looked at every day, modeled the gears you can turn here, and started a futures research system that I still work on in my own time.</p>
+        <div class="hero-cta"><a class="primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="#about">About me</a></div>
+        <p class="availability">Lehigh B.S. expected January 2027</p>
       </div>
       <figure class="hero-figure">
         <div class="stage-label"><span>Wilbur Powerhouse</span><span>OpenSCAD</span></div>
@@ -56,7 +56,7 @@
           <video data-drive poster="assets/wilbur-poster.jpg" src="assets/wilbur-drive.mp4" muted playsinline preload="none" hidden aria-label="Wilbur Powerhouse ring-driven CAD motion"></video>
         </div>
         <figcaption class="stage-foot">
-          <div class="stage-caption"><span data-note>Scroll to turn the gear assembly</span><a href="#wilbur">Capstone details ↓</a></div>
+          <div class="stage-caption"><span data-note>Scroll to turn the gear assembly</span><a href="#wilbur">How I designed it ↓</a></div>
           <p class="motion-key"><span>Ring turns</span><span>Planets spin</span><span>Signs orbit</span></p>
           <div class="drive" data-controls hidden><label for="drive-position">Motion position</label><input type="range" id="drive-position" min="0" max="100" value="0"><output data-position for="drive-position">00%</output><button type="button" data-play>Play</button><button type="button" data-scroll-mode aria-pressed="true">Scroll sync</button><button type="button" data-label-parts aria-pressed="false">Label gears</button></div>
         </figcaption>
@@ -66,55 +66,69 @@
 </section>
 
 <div class="work-strip" id="work">
-  <nav aria-label="Selected work">
-    <a href="#experience"><strong>Cardinal Glass</strong><small>Production reporting</small></a>
-    <a href="#wilbur"><strong>Wilbur Powerhouse</strong><small>Full-scale mechanical design</small></a>
-    <a href="#midas"><strong>Midas Futures</strong><small>Research and software validation</small></a>
-    <a href="#operalith"><strong>Operalith</strong><small>Customizable workspace</small></a>
-    <a href="#formsby"><strong>Formsby</strong><small>Matching and search software</small></a>
-    <a href="#production"><strong>Game production</strong><small>Additional project</small></a>
+  <nav aria-label="Selected work" class="work-index">
+    <div>
+      <h2>Manufacturing &amp; design</h2>
+      <a href="#experience"><strong>Cardinal Glass</strong><small>The scorecard my coworkers used daily</small></a>
+      <a href="#wilbur"><strong>Wilbur Powerhouse</strong><small>A 79.5-inch ring gear, modeled at full scale</small></a>
+    </div>
+    <div>
+      <h2>Software &amp; research</h2>
+      <a href="#midas"><strong>Midas Futures</strong><small>From trade replay to account simulation</small></a>
+      <a href="#production"><strong>Scanned Leverage and Optimized Production</strong><small>Market analysis and modular production</small></a>
+      <a href="#operalith"><strong>Operalith</strong><small>A workspace built around linked records</small></a>
+      <a href="#formsby"><strong>Formsby</strong><small>From a specific request to an actionable match</small></a>
+    </div>
   </nav>
 </div>
+<section class="chapter about" id="about" aria-labelledby="about-title">
+  <div class="frame about-layout">
+    <h2 id="about-title">About me</h2>
+    <div class="case-prose">
+      <p class="about-lead">I came up with Formsby during breaks and lunches at Cardinal Glass.</p>
+      <p>At work, I liked taking information that was scattered across files and putting it in front of the people who needed it. Outside work, I kept thinking about a similar problem. If someone had already posted what they needed, could a system find a useful answer somewhere else? That’s the idea behind Formsby.</p>
+      <p>Midas is where I spend much of my own build time now. I keep finding things a backtest leaves out, then figuring out how to model them. I’m also building Operalith around a simple preference of mine. When I open a task, I want to be able to get to the project and the supplies it depends on.</p>
+      <p>I’m finishing mechanical engineering at Lehigh with a minor in Materials Science and Engineering.</p>
+    </div>
+  </div>
+</section>
 <section class="chapter experience" id="experience" aria-labelledby="experience-title">
   <div class="frame">
     <div class="chapter-head">
-      <h2 id="experience-title">Cardinal Glass</h2>
-      <p class="deck">Across three summers, I worked on manufacturing problems with engineers and operators. In 2025, I built an Excel/VBA tracker for R&amp;D shift debriefs. I also worked on weekly reporting that brought unit-level quality records, production reports and work orders into one operations scorecard.</p>
+      <div><p class="chapter-label">Three summer internships · 2023–2025</p><h2 id="experience-title">Cardinal Glass</h2></div>
+      <p class="deck">I built the scorecard my coworkers looked at in the end-of-day meeting. The people working the line already had the information they needed, but it lived in separate files. I wanted the team to be able to sit down together and see what had happened.</p>
     </div>
-    <figure class="shift-sheet">
-      <figcaption><span><b>From inspection records to a weekly quality review</b><small>Functional reconstruction · Fictional data · June 5–11, 2025</small></span><span class="sheet-mark" aria-hidden="true">01 / CI</span></figcaption>
-      <div class="sheet-grid">
-        <div>
-          <p class="tag">01 / Source logic</p>
-          <table><thead><tr><th scope="col">Input</th><th scope="col">Reporting rule</th></tr></thead><tbody>
-          <tr><th scope="row">Unit ID</th><td>YYMMDD + sequence</td></tr><tr><th scope="row">Week bounds</th><td>250605000–250611999</td></tr><tr><th scope="row">Quality result</th><td>Pass / Fail</td></tr><tr><th scope="row">Defects</th><td>Up to three per unit</td></tr>
-          </tbody></table>
-        </div>
-        <div>
-          <p class="tag">02 / Weekly scorecard</p>
-          <table><thead><tr><th scope="col">Metric</th><th scope="col">Demo result</th></tr></thead><tbody>
-          <tr><th scope="row">Units inspected</th><td>42</td></tr><tr><th scope="row">Failed units</th><td>12</td></tr><tr><th scope="row">Primary particle failures</th><td>6</td></tr><tr><th scope="row">Particle / all units</th><td>14.3%</td></tr>
-          </tbody></table>
-        </div>
-        <div class="sheet-result">
-          <p class="tag">03 / Primary defect frequency</p>
-          <table><thead><tr><th scope="col">Defect</th><th scope="col">Occurrences</th></tr></thead><tbody>
-          <tr><th scope="row">Particle · Surface</th><td>6</td></tr><tr><th scope="row">Coating · Pinholes</th><td>3</td></tr><tr><th scope="row">Handling · Scratch</th><td>3</td></tr>
-          </tbody></table>
-        </div>
+    <div class="case-grid cardinal-lead">
+      <div class="case-prose">
+        <h3>One place to review the day</h3>
+        <p>For an R&amp;D production line, I built a daily Excel/VBA tracker and developed the connected weekly operations scorecard. The scorecard pulled from inspection records, end-of-day production, a separate yield workbook and work orders.</p>
+        <p>Quality reporting had meant filtering a log of more than 10,000 unit records by date-coded ID and copying the counts. I automated the weekly defect counts and report navigation. I also worked through meters that rolled over, downtime that could be counted twice, and missing measurements that needed to stay blank.</p>
       </div>
-      <div class="sheet-total">12 failed units / 12 primary defects · Final documented report: descending counts</div>
-      <div class="sheet-downloads"><a href="assets/cardinal-demo.html">Explore the working reconstruction →</a><a href="assets/cardinal-demo-data.json" download>Download synthetic source records</a></div>
-    </figure>
-    <div class="case-prose case-summary">
-      <p><strong>Reporting that follows the manufacturing process.</strong> I built reporting around a quality log with more than 10,000 unit records, linking date-coded IDs to weekly failure counts, defect reports and delivery review. The scorecard also drew from wide end-of-day reports and a separate yield workbook. I worked through rolling meter counters, downtime allocation, date-based yield averages and three week selectors that navigated existing reports without losing their formulas or comments.</p>
-      <p><strong>Purchasing records with usable context.</strong> In a separate Smartsheet workflow, I brought a legacy Excel inventory alongside the existing purchase-order log. I kept the familiar entry layout, added part-description lookups and identifier reconciliation, and created a separate maintenance-priority report so reviewing parts would not disturb the purchasing records. Debugging same-day orders exposed a crucial limit: purchase history alone cannot establish actual stock on hand.</p>
+      <figure class="scorecard-preview">
+        <figcaption><strong>Weekly operations scorecard</strong><small>Reconstruction using fictional data</small></figcaption>
+        <div class="scorecard-week"><strong>June 5–11</strong><span>Week ending June 11, 2025</span></div>
+        <dl>
+          <div><dt>Inspected</dt><dd>42</dd></div><div><dt>Failed</dt><dd>12</dd></div><div><dt>Primary particle defects</dt><dd>6</dd></div>
+        </dl>
+        <ul aria-label="Source files feeding the scorecard">
+          <li><b>Inspection log</b><span>Count defects by reporting week.</span></li>
+          <li><b>Production report</b><span>Track time, output and downtime.</span></li>
+          <li><b>Yield workbook</b><span>Aggregate yields for the selected dates.</span></li>
+          <li><b>Work orders</b><span>Update delivery risk for the active week.</span></li>
+        </ul>
+        <a class="case-link" href="assets/cardinal-demo.html">Try the working reconstruction →</a>
+      </figure>
     </div>
-    <div class="case-grid">
-      <figure class="visual"><img src="assets/cardinal-airflow.svg" loading="lazy" width="1120" height="620" alt="Synthetic airflow reconstruction: twenty paired outlets show both substantial increases and decreases, while average flow changes from 515.5 to 526 CFM."><figcaption>Excel airflow analysis reconstructed with synthetic readings</figcaption></figure>
-      <div class="case-prose"><p class="tag">Measurement → analysis → investigation</p><h3>The average was only part of the story.</h3><p>I measured cleanroom outlet airflow using a capture hood and micromanometer, then compared repeat readings in Excel. I corrected blank-value and structured-reference errors, used paired summaries and conditional formatting to examine local variation, and brought system-level questions to engineering leadership.</p><p>Flow changes guided further investigation; they did not establish filter leakage or a proven quality improvement.</p></div>
+    <ol class="internships" aria-label="Cardinal internships by summer">
+      <li><strong>2023</strong><div><h3>Engineering</h3><p>Rotated through maintenance, quality and R&amp;D. Inspected units, analyzed data in Minitab, drafted equipment layouts in AutoCAD and contributed to design failure mode reviews.</p></div></li>
+      <li><strong>2024</strong><div><h3>Continuous improvement</h3><p>Wrote illustrated build instructions for customer samples, planned spare-parts organization and signage across 14 warehouse locations, and measured cleanroom airflow with a capture hood and micromanometer.</p></div></li>
+      <li><strong>2025</strong><div><h3>Continuous improvement</h3><p>Built Excel/VBA reporting for the R&amp;D line and worked with engineers and operators to bring daily production data into the shift debrief.</p></div></li>
+    </ol>
+    <div class="artifact-pair cardinal-artifacts">
+      <figure class="visual artifact-view"><a href="assets/cardinal-inventory-view.svg"><img src="assets/cardinal-inventory-view.svg" loading="lazy" width="1480" height="820" alt="Reconstructed purchasing log and inventory master shown side by side."></a><figcaption>Purchasing reconstruction. I linked an existing purchasing log and inventory master in Smartsheet, kept the familiar entry layout, and added a separate maintenance review. Order history could identify recurring purchases. Stock on hand required receipts and usage records.</figcaption></figure>
+      <figure class="visual artifact-view"><a href="assets/cardinal-airflow.svg"><img src="assets/cardinal-airflow.svg" loading="lazy" width="1120" height="620" alt="Reconstructed airflow measurements showing increases and decreases across outlets despite a small change in the average."></a><figcaption>Airflow reconstruction. I compared readings outlet by outlet and corrected formulas so an untested follow-up did not become a zero in the average.</figcaption></figure>
     </div>
-    <p class="case-foot">Public reconstructions use fictional records. Original employer workbooks, production measurements and facility layouts are not shown. The daily debrief tracker and weekly scorecard were separate tools; this demo reconstructs the better-documented weekly system. Inventory stock forecasting and timed Excel refresh had unresolved limits. Measured savings are not established.</p>
+    <p class="case-foot">The figures use fictional records. The interactive demo reconstructs the weekly reporting system, which is documented in more detail than the daily debrief tracker.</p>
   </div>
 </section>
 
@@ -144,51 +158,51 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="midas-title">Midas Futures</h2>
-      <p class="deck">I built Midas to test whether a futures strategy can survive trading costs and the rules of funded-account evaluations in a market where independent traders compete with professional firms. I started with an equities scheduler, rebuilt it for live futures data and a Raspberry Pi, then developed the Python research and validation system around it.</p>
+      <p class="deck">I wanted to know what happens after a backtest looks good. Can the same rules make the same decisions in replay and forward evaluation? Can those trades survive costs and a funded account’s rules?</p>
     </div>
     <div class="case-prose midas-prose">
-      <p>The tricky part was getting replay and forward evaluation to make the same decision from the same data. They disagreed on which completed bars counted toward volatility and which price to use at exit. I unified those rules in a shared state machine. A retained regression matched all <strong>228 session decisions</strong> and <strong>225 modeled trade lifecycles</strong> against a sealed reference.</p>
-      <p>I built a cloud runner that saves progress between simulations. It can resume a campaign from verified results and reuse unchanged controls. The simulator makes strategies share one account’s risk limits and follows the account through evaluation, funding, fees, payouts and failures. A separate Railway check reproduced all 11 decision files from a local run byte for byte.</p>
+        <p>I started Midas as an equities scheduler and rebuilt it around futures. I’ve spent the past year directing its development, from a Raspberry Pi execution setup to Python strategy modules, cloud research batches, account simulation and a dashboard for reviewing results.</p>
+      <p>One of the hardest problems was getting historical replay and forward evaluation to agree on when a bar had closed and which price an exit could use. I unified the rules in a shared state machine. A retained check matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p>
     </div>
-    <figure class="backtest" aria-labelledby="midas-current">
-      <div>
-        <p class="tag">Cloud experiment · November 10, 2026</p>
-        <h3 id="midas-current">Would adding a second signal rule help?</h3>
-        <p>I ran <strong>72 new account simulations</strong> and compared them with <strong>144 saved controls</strong>. Each path models one account over a historical window under a fixed set of trading rules and costs. The primary comparison matched eight starting dates per signal source over 180 sessions with higher modeled costs.</p>
-      </div>
-      <table>
-        <caption>Change after adding the rule in the primary comparison</caption>
-        <thead><tr><th scope="col">Signal source</th><th scope="col">Median modeled cash change</th><th scope="col">Funded failures</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Source A</th><td>+$491</td><td>3 → 1</td></tr>
-          <tr><th scope="row">Source B</th><td>+$485</td><td>0 → 1</td></tr>
-        </tbody>
-      </table>
-      <figcaption>Both sources had to improve median modeled cash without reducing the number of paths with a payout or increasing account failures. Funded failures rose for the second source, so the experiment failed overall and did not advance to broker Practice. The simulations reuse historical data and do not measure live returns.</figcaption>
-    </figure>
-    <p class="case-summary">A separate November 10 screen tested <strong>288 session and exit variants</strong> under two cost settings. It used the prior 60 sessions to choose each policy, then tested it on the next 30. Both groups with a selected policy had negative results at higher costs. The other four groups produced no selection, and none advanced to account simulation.</p>
-    <figure class="visual artifact-view">
-      <a href="assets/midas-research.jpg"><img src="assets/midas-research.jpg" width="1280" height="586" loading="lazy" alt="Midas Research dashboard with a modeled account case showing fees, a pass, a failure, and cash after fees."></a>
-      <figcaption>Midas dashboard from an earlier offline study. The selected case modeled a payout and still ended $1,286.85 down after fees.</figcaption>
-    </figure>
-    <p class="case-summary">I built the dashboard to distinguish research results, Practice fills and actual cash. One installed version showed <strong>1,410 modeled account cases across 705 strategy variants</strong>. It made it possible to see when a modeled account passed its evaluation but still lost money after fees.</p>
     <figure class="pipeline" data-pipeline>
-      <figcaption><strong>Research pipeline</strong><span>Cloud runs verified · Practice requires separate authorization</span></figcaption>
+      <figcaption><strong>How an idea moves through Midas</strong><span>Select a stage</span></figcaption>
       <div class="pipeline-controls" role="group" aria-label="Research pipeline stages" hidden>
-        <button type="button" data-step="0" aria-pressed="true"><span>01</span> Strategy</button>
-        <button type="button" data-step="1" aria-pressed="false"><span>02</span> Batch campaigns</button>
-        <button type="button" data-step="2" aria-pressed="false"><span>03</span> Ablation Factory</button>
-        <button type="button" data-step="3" aria-pressed="false"><span>04</span> Monte Carlo</button>
-        <button type="button" data-step="4" aria-pressed="false"><span>05</span> Practice</button>
+        <button type="button" data-step="0" aria-pressed="true">Define the strategy</button>
+        <button type="button" data-step="1" aria-pressed="false">Replay and compare</button>
+        <button type="button" data-step="2" aria-pressed="false">Model the account</button>
+        <button type="button" data-step="3" aria-pressed="false">Review the evidence</button>
+        <button type="button" data-step="4" aria-pressed="false">Practice approval</button>
       </div>
       <ol class="pipeline-detail" aria-live="polite">
-        <li><strong>Strategy.</strong> A validated strategy spec and parameter pack define what to run. The registry keeps a strategy’s decisions separate from market data and order handling.</li>
-        <li><strong>Batch campaigns.</strong> Freeze the historical windows, cost settings, strategy inputs and expected case IDs. The cloud runner writes a checkpoint for each completed case and checks it before skipping work on resume.</li>
-        <li><strong>Ablation Factory.</strong> Change one part of a strategy and compare it against saved controls. Preserve each account’s fees, payouts, failures and the inputs that produced them.</li>
-        <li><strong>Monte Carlo.</strong> Test whether a result could have appeared by chance. One diagnostic repeated the original selection process across two sets of 100,000 randomized draws.</li>
-        <li><strong>Practice.</strong> Research results are reviewed before any separate authorization for broker Practice. The execution layer reconciles orders and fills independently of the research ranking.</li>
+        <li><strong>Define the strategy.</strong> I freeze the signal, exit and risk rules along with the code, data, costs and time windows. Each run carries those identities so I can trace a result back to the exact experiment.</li>
+        <li><strong>Replay and compare.</strong> A simulated clock drives replay. Batches record which variants finished. The runner checks case IDs and input fingerprints before it combines results or skips completed cases on resume.</li>
+        <li><strong>Model the account.</strong> Strategies share one account’s risk limits. The simulator follows evaluation and funded stages and accounts for fees, resets and payouts. I can see when winning trades still leave the account down.</li>
+        <li><strong>Review the evidence.</strong> I change one part of the system and compare it with saved controls. Cost stress and Monte Carlo tests help determine whether an apparent improvement deserves further research.</li>
+        <li><strong>Practice approval.</strong> Replay rejects broker orders. A separate Practice runtime checks authorization and records decisions, orders and fills so I can reconcile them with the model.</li>
       </ol>
     </figure>
+    <div class="case-grid midas-evidence">
+      <figure class="visual artifact-view">
+        <a href="assets/midas-research.jpg"><img src="assets/midas-research.jpg" width="1280" height="586" loading="lazy" alt="Midas Research dashboard showing evaluation fees, a modeled payout and a negative balance after fees."></a>
+        <figcaption>Earlier offline Midas dashboard. This account had a modeled payout and ended $1,286.85 down after fees.</figcaption>
+      </figure>
+      <div class="case-prose">
+        <h3>A payout can still leave an account down</h3>
+        <p>In a November cloud study, I evaluated <strong>108 new account paths</strong> and preserved all <strong>216 prior comparison rows</strong>. One new path recorded a modeled payout. All 108 finished the observed window with negative modeled cash, so the candidate stayed in research.</p>
+        <p>The dashboard keeps research results, Practice fills and actual cash separate. The simulations cover finite historical windows.</p>
+      </div>
+    </div>
+    <div class="case-grid midas-queue">
+      <div class="case-prose">
+        <h3>What happens when a research request comes in twice?</h3>
+        <p>I built a Mac queue to run a defined campaign unattended. It claims a request by its identity, verifies the inputs and records the result. A separate cloud run verified and skipped the first 12 finished cases before resuming the rest.</p>
+      </div>
+      <table class="evidence-table">
+        <caption>Observed Mac queue run · November 10</caption>
+        <thead><tr><th scope="col">Request</th><th scope="col">What Midas did</th></tr></thead>
+        <tbody><tr><th scope="row">First delivery</th><td>Ran 288 variants at two cost settings and recorded eight batches.</td></tr><tr><th scope="row">Duplicate delivery</th><td>Reused the completed result.</td></tr><tr><th scope="row">Malformed request</th><td>Rejected it before creating a run.</td></tr></tbody>
+      </table>
+    </div>
     <details class="historical-results">
       <summary>Historical backtest and comparison runs</summary>
     <figure class="backtest">
@@ -216,18 +230,34 @@
   </div>
 </section>
 
+<section class="chapter slop" id="production" aria-labelledby="slop-title">
+  <div class="frame">
+    <div class="chapter-head">
+      <h2 id="slop-title">Scanned Leverage and Optimized Production</h2>
+      <p class="deck">I wanted to see if I could study what players respond to, turn those observations into reusable mechanics, and build original games from them. Roblox gives me a market to test a larger idea about how research can feed production.</p>
+    </div>
+    <p class="case-summary">The research side brings together game rankings, descriptions and recorded gameplay. I built the processing around exact game identities and source records, so an observed interaction can be traced back to its evidence. It turns annotated gameplay into sequences of actions, state changes and rewards, while keeping unobserved behavior separate. I use that record to decide what might make a good experiment, then test the idea in an original design.</p>
+    <p class="case-summary">The production side is Python and Luau. Configurations control world layout and interaction rules; shared components provide the game logic and interface. In one original prototype, Signal Break, two players face a choice between a longer open route and a contested shortcut. The build system produces two versions with different cover, starting positions and pickup locations from the same runtime. Checks reject invalid settings and blocked routes before a place is generated.</p>
+    <figure class="visual artifact-view slop-proof">
+      <a href="assets/slop-config-proof.svg"><img src="assets/slop-config-proof.svg" alt="Open full-size plans of Signal Break configurations A and B, showing changed cover, player starts, pickup and exit positions." loading="lazy" width="1200" height="670"></a>
+      <figcaption>Two original prototype configurations from one producer. Both saved outputs were reproduced exactly; the prototype is awaiting player testing.</figcaption>
+    </figure>
+    <p class="case-summary">The research can also tell me to stop. I held a separate collector concept at storyboard review because the second trip repeated too much of the first. The same structure could take feedback on a different product, record the behavior worth investigating, and build test versions from shared components. Player testing is the next step for Signal Break.</p>
+  </div>
+</section>
+
 <section class="chapter operalith" id="operalith" aria-labelledby="operalith-title">
   <div class="frame">
     <div class="chapter-head">
       <h2 id="operalith-title">Operalith</h2>
-      <p class="deck">I founded Operalith so people could build a workspace around how they work. Start with the tools you need, add features as you go, and change how the workspace looks without moving your records. I’m building it into a product where users can pick tools and add workflows from one catalogue as their needs change.</p>
+      <p class="deck">I started Operalith because a task is rarely just a task. It can be part of a project, depend on supplies and start with a customer enquiry. I wanted someone to choose the tools they need and still be able to follow those connections.</p>
     </div>
     <div class="case-grid">
       <figure class="visual product-view"><a href="https://www.operalith.com/"><img src="assets/operalith-home.jpg" width="1440" height="900" loading="lazy" alt="Operalith’s homepage with appearance choices and a connected workspace example."></a><figcaption>Operalith.com homepage</figcaption></figure>
       <div class="case-prose">
         <p>I built a catalogue for choosing tools and adding compatible features. Records stay connected as the workspace changes. For example, a project can link to the original enquiry and the supplies it needs. The public demo keeps sample work in your browser. A separate, invited solo pilot saves fictional records to an account.</p>
         <p>I designed account saves to prevent duplicate writes and stop an older browser tab from overwriting newer work. In a hosted test, an edit survived reload and undo restored the previous value while keeping all <strong>11 prior history entries</strong>.</p>
-        <a class="case-link" href="https://www.operalith.com/">Visit Operalith</a>
+        <a class="case-link" href="https://www.operalith.com/#try">Try the connected workspace →</a>
       </div>
     </div>
   </div>
@@ -237,7 +267,7 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="formsby-title">Formsby</h2>
-      <p class="deck">I started Formsby to connect people with what they’re looking for across the websites they already use. Someone’s request on one site might have an answer on another. My idea was to build one system that could understand the need, find a relevant person or resource, and help make the connection. Housing was my first test of a much broader product.</p>
+      <p class="deck">Someone’s request on one site might have an answer on another. I started Formsby to build one system that could understand the need, find a relevant person or resource, and help make the connection. Housing was my first test of that idea.</p>
     </div>
     <div class="case-grid">
       <figure class="search-study">
@@ -265,20 +295,7 @@
       <p><strong>Fictional example of the code paths.</strong> A renter asks for a one-bedroom under $1,500 that allows cats. Two sources return the same listing URL, and a third source times out. The job keeps one copy of the listing, evaluates it against the request and records the failed source.</p>
       <p>The run can return the candidate with a partial status. The dashboard reads results from that run for the signed-in renter, so an older listing from a previous run does not reappear as a new result. The example illustrates the behavior of the code and does not use live listings.</p>
     </details>
-    <p class="case-foot">Started in 2025, paused after the later housing build, and now returning to development. Python · Next.js / React · PostgreSQL / Prisma · Inngest · Stripe</p>
-  </div>
-</section>
-
-<section class="chapter slop additional" id="production" aria-labelledby="slop-title">
-  <div class="frame">
-    <div class="chapter-head">
-      <h2 id="slop-title">Game production tools</h2>
-      <p class="deck">With Scanned Leverage and Optimized Production, I’m testing a factory approach to game development. I collect Roblox market data, look for recurring mechanics and asset needs, and turn those findings into reusable components. A build pipeline can then combine the components under different settings to test original game concepts.</p>
-    </div>
-    <details class="historical-results">
-      <summary>How I tested the build pipeline</summary>
-      <p>I built a Python pipeline that compiled two Roblox places from the same Luau components. Tests check that different settings change the output and invalid inputs are rejected. I stopped a separate collector prototype at storyboard review when its second trip offered too little variation. The same approach can be used for other products that need to turn research into reusable modules and test multiple configurations before choosing which to build.</p>
-    </details>
+    <p class="case-foot">Housing prototype · Last code update March 2026 · Python, Next.js, PostgreSQL, Prisma, Inngest and Stripe</p>
   </div>
 </section>
 
