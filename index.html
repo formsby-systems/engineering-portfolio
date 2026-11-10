@@ -79,37 +79,42 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="experience-title">Cardinal Glass</h2>
-      <p class="deck">I spent three summers at Cardinal Glass. In 2025, I worked with engineers and operators to define what they needed at shift handoff, then built an Excel/VBA tracker that combined separate R&amp;D production files into one daily part-status view. The team used it in shift debriefs.</p>
+      <p class="deck">Across three summers, I worked on manufacturing problems with engineers and operators. In 2025, I built an Excel/VBA tracker for R&amp;D shift debriefs. I also worked on weekly reporting that brought unit-level quality records, production reports and work orders into one operations scorecard.</p>
     </div>
     <figure class="shift-sheet">
-      <figcaption><span><b>Production tracker example</b><small>Fictional reconstruction · Sample data</small></span><span class="sheet-mark" aria-hidden="true">03 / CI</span></figcaption>
+      <figcaption><span><b>From inspection records to a weekly quality review</b><small>Functional reconstruction · Fictional data · June 5–11, 2025</small></span><span class="sheet-mark" aria-hidden="true">01 / CI</span></figcaption>
       <div class="sheet-grid">
         <div>
-          <p class="tag">01 / Planned work</p>
-          <table><thead><tr><th scope="col">Part</th><th scope="col">Op.</th><th scope="col">Qty</th></tr></thead><tbody>
-          <tr><th scope="row">101</th><td>Assembly</td><td>8</td></tr><tr><th scope="row">102</th><td>Inspection</td><td>6</td></tr><tr><th scope="row">103</th><td>Assembly</td><td>4</td></tr><tr><th scope="row">104</th><td>Inspection</td><td>10</td></tr>
+          <p class="tag">01 / Source logic</p>
+          <table><thead><tr><th scope="col">Input</th><th scope="col">Reporting rule</th></tr></thead><tbody>
+          <tr><th scope="row">Unit ID</th><td>YYMMDD + sequence</td></tr><tr><th scope="row">Week bounds</th><td>250605000–250611999</td></tr><tr><th scope="row">Quality result</th><td>Pass / Fail</td></tr><tr><th scope="row">Defects</th><td>Up to three per unit</td></tr>
           </tbody></table>
         </div>
         <div>
-          <p class="tag">02 / Reported updates</p>
-          <table><thead><tr><th scope="col">Part</th><th scope="col">Status</th></tr></thead><tbody>
-          <tr><th scope="row">101</th><td>In progress</td></tr><tr><th scope="row">102</th><td>Complete</td></tr><tr><th scope="row">104</th><td>Awaiting review</td></tr><tr><th scope="row">No ID</th><td>Complete</td></tr>
+          <p class="tag">02 / Weekly scorecard</p>
+          <table><thead><tr><th scope="col">Metric</th><th scope="col">Demo result</th></tr></thead><tbody>
+          <tr><th scope="row">Units inspected</th><td>42</td></tr><tr><th scope="row">Failed units</th><td>12</td></tr><tr><th scope="row">Primary particle failures</th><td>6</td></tr><tr><th scope="row">Particle / all units</th><td>14.3%</td></tr>
           </tbody></table>
         </div>
         <div class="sheet-result">
-          <p class="tag">03 / Daily shift view</p>
-          <table><thead><tr><th scope="col">Part</th><th scope="col">What the lead sees</th></tr></thead><tbody>
-          <tr><th scope="row">101</th><td>In progress</td></tr><tr><th scope="row">102</th><td>Complete</td></tr><tr class="exception"><th scope="row">103</th><td>No update received</td></tr><tr><th scope="row">104</th><td>Awaiting review</td></tr><tr class="exception"><th scope="row">No ID</th><td>Held for review</td></tr>
+          <p class="tag">03 / Grouped defect frequency</p>
+          <table><thead><tr><th scope="col">Defect</th><th scope="col">Occurrences</th></tr></thead><tbody>
+          <tr><th scope="row">Particle · Surface</th><td>6</td></tr><tr><th scope="row">Particle · Edge</th><td>3</td></tr><tr><th scope="row">Coating · Pinholes</th><td>3</td></tr><tr><th scope="row">Handling · Scratch</th><td>3</td></tr>
           </tbody></table>
         </div>
       </div>
-      <div class="sheet-total">4 planned parts / 28 planned units / 3 matched updates / 1 missing update / 1 held record</div>
-      <div class="sheet-downloads"><a href="assets/sample-source-a.csv" download>Planned work CSV</a><a href="assets/sample-source-b.csv" download>Updates CSV</a><a href="assets/sample-output.csv" download>Shift view CSV</a></div>
+      <div class="sheet-total">12 failed units / 15 defect occurrences · One failed unit can have several defects</div>
+      <div class="sheet-downloads"><a href="assets/cardinal-demo.html">Explore the working reconstruction →</a><a href="assets/cardinal-demo-data.json" download>Download synthetic source records</a></div>
     </figure>
     <div class="case-prose case-summary">
-      <p>In a separate scrap-tracking investigation, I found a problem with subtracting finished units from the order total. Unfinished work and a usable pane waiting for its match could both show up as apparent scrap. I used that distinction to define what the count would need to track.</p>
-      <p>I also wrote illustrated assembly instructions for customer sample units, planned rack locations and signage across 14 storage areas, and measured cleanroom airflow with a hood and micromanometer.</p>
+      <p><strong>Reporting that follows the manufacturing process.</strong> I automated weekly quality calculations, built a selectable defect-frequency report, and developed delivery KPI and report-navigation macros. The work included date-coded unit IDs, external workbook dependencies, and preserving completed reporting periods while updating the active week.</p>
+      <p><strong>Purchasing records with usable context.</strong> In a separate Smartsheet workflow, I integrated a legacy Excel inventory with a purchase-order log, adding part-description lookups, identifier reconciliation and a filtered maintenance-priority report. Debugging same-day orders exposed a crucial limit: purchase history alone cannot establish actual stock on hand.</p>
     </div>
+    <div class="case-grid">
+      <figure class="visual"><img src="assets/cardinal-airflow.svg" loading="lazy" width="1120" height="620" alt="Synthetic airflow reconstruction: twenty paired outlets show both substantial increases and decreases, while average flow changes from 515.5 to 526 CFM."><figcaption>Excel airflow analysis reconstructed with synthetic readings</figcaption></figure>
+      <div class="case-prose"><p class="tag">Measurement → analysis → investigation</p><h3>The average was only part of the story.</h3><p>I measured cleanroom outlet airflow using a capture hood and micromanometer, then compared repeat readings in Excel. I corrected blank-value and structured-reference errors, used paired summaries and conditional formatting to examine local variation, and brought system-level questions to engineering leadership.</p><p>Flow changes guided further investigation; they did not establish filter leakage or a proven quality improvement.</p></div>
+    </div>
+    <p class="case-foot">Public reconstructions use fictional records. Original employer workbooks, production measurements and facility layouts are not shown. The inventory stock model remained experimental; measured savings and later adoption are not established.</p>
   </div>
 </section>
 
@@ -139,11 +144,11 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="midas-title">Midas Futures</h2>
-      <p class="deck">I started Midas as an equities scheduler, moved it to futures with streamed prices and a Raspberry Pi deployment, then built a Python research platform around it. I designed how strategies are defined, tested on historical data, and evaluated for broker Practice.</p>
+      <p class="deck">I built Midas to test whether a futures strategy can survive trading costs and the rules of funded-account evaluations in a market where independent traders compete with professional firms. I started with an equities scheduler, rebuilt it for live futures data and a Raspberry Pi, then developed the Python research and validation system around it.</p>
     </div>
     <div class="case-prose midas-prose">
       <p>The tricky part was getting replay and forward evaluation to make the same decision from the same data. They disagreed on which completed bars counted toward volatility and which price to use at exit. I unified those rules in a shared state machine. A retained regression matched all <strong>228 session decisions</strong> and <strong>225 modeled trade lifecycles</strong> against a sealed reference.</p>
-      <p>I built batch runs that record their session samples, random seeds and results. The Ablation Factory saves progress and can retry a failed worker without losing the experiment. In one cloud check, Railway reproduced all 11 decision files from a local run byte for byte. I’m working on connecting the full research and Practice loop.</p>
+      <p>I built batch runs that record their session samples, random seeds and results. The Ablation Factory tests what happens when I remove or change one part of a strategy. It checkpoints progress, records when a strategy declines to trade, and limits worker memory. In a separate cloud check, Railway reproduced all 11 decision files from a local run byte for byte. I’m connecting those pieces into a cloud loop that can run campaigns, retain their evidence, and advance qualified candidates to broker Practice.</p>
     </div>
     <figure class="visual artifact-view">
       <a href="assets/midas-research.jpg"><img src="assets/midas-research.jpg" width="1280" height="586" loading="lazy" alt="Midas Research dashboard with a modeled account case showing fees, a pass, a failure, and cash after fees."></a>
@@ -198,7 +203,7 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="operalith-title">Operalith</h2>
-      <p class="deck">I founded Operalith so people could build a workspace around how they work. Start with the tools you need, add features as you go, and change how the workspace looks without moving your records. The current catalogue is the starting point for more tools and workflows.</p>
+      <p class="deck">I founded Operalith so people could build a workspace around how they work. Start with the tools you need, add features as you go, and change how the workspace looks without moving your records. I’m building it into a product where users can pick tools and add workflows from one catalogue as their needs change.</p>
     </div>
     <div class="case-grid">
       <figure class="visual product-view"><a href="https://www.operalith.com/"><img src="assets/operalith-home.jpg" width="1440" height="900" loading="lazy" alt="Operalith’s homepage with appearance choices and a connected workspace example."></a><figcaption>Operalith.com homepage</figcaption></figure>
@@ -215,7 +220,7 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="formsby-title">Formsby</h2>
-      <p class="deck">I built Formsby to turn a housing request into a private shortlist of actual listings. I chose housing because each result has to satisfy real constraints such as budget, location and move-in date.</p>
+      <p class="deck">The original idea for Formsby was simple. Describe what you need once, and get a shortlist you can act on. I prototyped that idea in Python in 2025, then narrowed it to housing, where a useful result has to meet real constraints such as budget, location and move-in date.</p>
     </div>
     <div class="case-grid">
       <figure class="search-study">
@@ -223,8 +228,8 @@
         <figcaption>Housing prototype workflow</figcaption>
       </figure>
       <div class="case-prose">
-        <p>An early test captured the request but found no qualifying apartment. A link to a general housing site didn’t help someone find a place, so I made specific listings the target. The Next.js prototype queues a search, normalizes listing details, rechecks previously seen listings, and ranks the results in a private dashboard.</p>
-        <p>I tied results to the latest search and made failed jobs show a separate status. That way, an empty shortlist could be distinguished from a search that never finished.</p>
+        <p>My first prototype turned a free-text request into structured criteria, tracked leads between runs and simulated the next action. An early housing test found no qualifying apartment. General housing directories weren’t useful answers, so I rebuilt the flow around individual listings. The Next.js version queues each search, merges duplicate listings, rechecks known listings and ranks candidates in a private dashboard.</p>
+        <p>I tied the dashboard to the user’s latest run and gave failed jobs their own status so a broken search could not look like an empty result. I paused the project after building that version. As I return to it, I want to test whether the shortlists actually help people make a housing decision before expanding to other searches.</p>
       </div>
     </div>
   </div>
@@ -234,11 +239,11 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="slop-title">Game production tools</h2>
-      <p class="deck">I’m building a system to go from Roblox market research to original playable prototypes. It collects market data, identifies recurring mechanics and asset needs, and uses that research to decide what I should build once and reuse across experiments.</p>
+      <p class="deck">With Scanned Leverage and Optimized Production, I’m testing a factory approach to game development. I collect Roblox market data, look for recurring mechanics and asset needs, and turn those findings into reusable components. A build pipeline can then combine the components under different settings to test original game concepts.</p>
     </div>
     <details class="historical-results">
       <summary>How I tested the build pipeline</summary>
-      <p>For Scanned Leverage and Optimized Production, I built a Python pipeline that compiled two Roblox places from the same Luau components. Tests check that different settings change the output and invalid inputs are rejected. I also stopped a separate collector prototype at storyboard review when its second trip offered too little variation.</p>
+      <p>I built a Python pipeline that compiled two Roblox places from the same Luau components. Tests check that different settings change the output and invalid inputs are rejected. I stopped a separate collector prototype at storyboard review when its second trip offered too little variation. The same approach can be used for other products that need to turn research into reusable modules and test multiple configurations before choosing which to build.</p>
     </details>
   </div>
 </section>

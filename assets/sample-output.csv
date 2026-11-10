@@ -1,6 +1,0 @@
-date,part_id,operation,planned_qty,status,disposition,source_reference
-2025-07-15,DEMO-101,Assembly,8,In progress,matched,A-01 + B-01
-2025-07-15,DEMO-102,Inspection,6,Complete,matched,A-02 + B-02
-2025-07-15,DEMO-103,Assembly,4,No update received,no_update,A-03
-2025-07-15,DEMO-104,Inspection,10,Awaiting review,matched,A-04 + B-03
-2025-07-15,,,,Complete,held_missing_part_id,B-04

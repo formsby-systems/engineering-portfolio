@@ -1,0 +1,902 @@
+{
+  "provenance": "All records fictional; browser reconstruction of historical mechanics, not original employer software.",
+  "units": [
+    {
+      "uid": "250605001",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface",
+        "Particle - Edge"
+      ]
+    },
+    {
+      "uid": "250605002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250605003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250605004",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250605005",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250605006",
+      "result": "Fail",
+      "defects": [
+        "Coating - Pinholes"
+      ]
+    },
+    {
+      "uid": "250606001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250606002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250606003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250606004",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250606005",
+      "result": "Fail",
+      "defects": [
+        "Handling - Scratch"
+      ]
+    },
+    {
+      "uid": "250606006",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface"
+      ]
+    },
+    {
+      "uid": "250607001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250607002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250607003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250607004",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface"
+      ]
+    },
+    {
+      "uid": "250607005",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250607006",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250608001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250608002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250608003",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface",
+        "Particle - Edge"
+      ]
+    },
+    {
+      "uid": "250608004",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250608005",
+      "result": "Fail",
+      "defects": [
+        "Handling - Scratch"
+      ]
+    },
+    {
+      "uid": "250608006",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250609001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250609002",
+      "result": "Fail",
+      "defects": [
+        "Coating - Pinholes"
+      ]
+    },
+    {
+      "uid": "250609003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250609004",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250609005",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250609006",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250610001",
+      "result": "Fail",
+      "defects": [
+        "Handling - Scratch"
+      ]
+    },
+    {
+      "uid": "250610002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250610003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250610004",
+      "result": "Fail",
+      "defects": [
+        "Coating - Pinholes"
+      ]
+    },
+    {
+      "uid": "250610005",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250610006",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface"
+      ]
+    },
+    {
+      "uid": "250611001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250611002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250611003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250611004",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250611005",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface",
+        "Particle - Edge"
+      ]
+    },
+    {
+      "uid": "250611006",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250612001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250612002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250612003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250612004",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250612005",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface",
+        "Particle - Edge"
+      ]
+    },
+    {
+      "uid": "250612006",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250613001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250613002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250613003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250613004",
+      "result": "Fail",
+      "defects": [
+        "Coating - Pinholes"
+      ]
+    },
+    {
+      "uid": "250613005",
+      "result": "Fail",
+      "defects": [
+        "Handling - Scratch"
+      ]
+    },
+    {
+      "uid": "250613006",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250614001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250614002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250614003",
+      "result": "Fail",
+      "defects": [
+        "Handling - Scratch"
+      ]
+    },
+    {
+      "uid": "250614004",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250614005",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250614006",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250615001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250615002",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface"
+      ]
+    },
+    {
+      "uid": "250615003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250615004",
+      "result": "Fail",
+      "defects": [
+        "Coating - Pinholes"
+      ]
+    },
+    {
+      "uid": "250615005",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250615006",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250616001",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface",
+        "Particle - Edge"
+      ]
+    },
+    {
+      "uid": "250616002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250616003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250616004",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250616005",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250616006",
+      "result": "Fail",
+      "defects": [
+        "Coating - Pinholes"
+      ]
+    },
+    {
+      "uid": "250617001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250617002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250617003",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface",
+        "Particle - Edge"
+      ]
+    },
+    {
+      "uid": "250617004",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250617005",
+      "result": "Fail",
+      "defects": [
+        "Handling - Scratch"
+      ]
+    },
+    {
+      "uid": "250617006",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250618001",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250618002",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250618003",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250618004",
+      "result": "Fail",
+      "defects": [
+        "Particle - Surface"
+      ]
+    },
+    {
+      "uid": "250618005",
+      "result": "Pass",
+      "defects": []
+    },
+    {
+      "uid": "250618006",
+      "result": "Pass",
+      "defects": []
+    }
+  ],
+  "po": [
+    {
+      "PO Line ID": "LINE-0001",
+      "PO #": "PO-21001",
+      "Part Number": "00394720",
+      "Description": "Process Treatment A",
+      "Date Created": "2024-01-10",
+      "Order Quantity": "2",
+      "Status": "Received",
+      "Shipping Method": "Pickup",
+      "ETA": "2024-01-15",
+      "Notes": "",
+      "Creator": "User A"
+    },
+    {
+      "PO Line ID": "LINE-0002",
+      "PO #": "PO-21007",
+      "Part Number": "394720",
+      "Description": "Process Treatment A",
+      "Date Created": "2024-02-09",
+      "Order Quantity": "3",
+      "Status": "Received",
+      "Shipping Method": "Standard",
+      "ETA": "2024-02-16",
+      "Notes": "",
+      "Creator": "User B"
+    },
+    {
+      "PO Line ID": "LINE-0003",
+      "PO #": "PO-21018",
+      "Part Number": "00394720",
+      "Description": "Process Treatment A",
+      "Date Created": "2024-03-10",
+      "Order Quantity": "4",
+      "Status": "Received",
+      "Shipping Method": "Pickup",
+      "ETA": "2024-03-15",
+      "Notes": "",
+      "Creator": "User A"
+    },
+    {
+      "PO Line ID": "LINE-0004",
+      "PO #": "PO-21025",
+      "Part Number": "00394720",
+      "Description": "Process Treatment A",
+      "Date Created": "2024-04-09",
+      "Order Quantity": "3",
+      "Status": "Received",
+      "Shipping Method": "Standard",
+      "ETA": "2024-04-16",
+      "Notes": "",
+      "Creator": "User A"
+    },
+    {
+      "PO Line ID": "LINE-0005",
+      "PO #": "PO-21031",
+      "Part Number": "00426080",
+      "Description": "Finishing Wheel B",
+      "Date Created": "2024-02-01",
+      "Order Quantity": "2",
+      "Status": "Received",
+      "Shipping Method": "Standard",
+      "ETA": "2024-02-13",
+      "Notes": "",
+      "Creator": "User B"
+    },
+    {
+      "PO Line ID": "LINE-0006",
+      "PO #": "PO-21042",
+      "Part Number": "426080",
+      "Description": "Finishing Wheel B",
+      "Date Created": "2024-05-01",
+      "Order Quantity": "2",
+      "Status": "Received",
+      "Shipping Method": "Pickup",
+      "ETA": "2024-05-07",
+      "Notes": "",
+      "Creator": "User A"
+    },
+    {
+      "PO Line ID": "LINE-0007",
+      "PO #": "PO-21043",
+      "Part Number": "426080",
+      "Description": "Finishing Wheel B",
+      "Date Created": "2024-05-01",
+      "Order Quantity": "3",
+      "Status": "Received",
+      "Shipping Method": "Pickup",
+      "ETA": "2024-05-07",
+      "Notes": "Second same-day line",
+      "Creator": "User B"
+    },
+    {
+      "PO Line ID": "LINE-0008",
+      "PO #": "PO-21050",
+      "Part Number": "AB-0042",
+      "Description": "Sensor Module C",
+      "Date Created": "2024-05-15",
+      "Order Quantity": "1",
+      "Status": "Pending",
+      "Shipping Method": "Standard",
+      "ETA": "2024-06-01",
+      "Notes": "",
+      "Creator": "User C"
+    },
+    {
+      "PO Line ID": "LINE-0009",
+      "PO #": "PO-21055",
+      "Part Number": "00250670",
+      "Description": "Grease Cartridge D",
+      "Date Created": "2024-06-04",
+      "Order Quantity": "6",
+      "Status": "Received",
+      "Shipping Method": "Drop ship",
+      "ETA": "2024-06-12",
+      "Notes": "",
+      "Creator": "User A"
+    },
+    {
+      "PO Line ID": "LINE-0010",
+      "PO #": "PO-21058",
+      "Part Number": "00509310",
+      "Description": "Valve Assembly E",
+      "Date Created": "2024-07-07",
+      "Order Quantity": "2",
+      "Status": "Received",
+      "Shipping Method": "Pickup",
+      "ETA": "2024-07-09",
+      "Notes": "",
+      "Creator": "User B"
+    },
+    {
+      "PO Line ID": "LINE-0011",
+      "PO #": "PO-21058",
+      "Part Number": "00509310",
+      "Description": "Valve Assembly E",
+      "Date Created": "2024-07-07",
+      "Order Quantity": "3",
+      "Status": "Received",
+      "Shipping Method": "Pickup",
+      "ETA": "2024-07-09",
+      "Notes": "Multiple lines same date",
+      "Creator": "User B"
+    },
+    {
+      "PO Line ID": "LINE-0012",
+      "PO #": "PO-21064",
+      "Part Number": "00447560",
+      "Description": "Metering Hose F",
+      "Date Created": "2024-08-02",
+      "Order Quantity": "1",
+      "Status": "Back Ordered",
+      "Shipping Method": "Standard",
+      "ETA": "2024-08-15",
+      "Notes": "Partial information",
+      "Creator": "User C"
+    },
+    {
+      "PO Line ID": "LINE-0013",
+      "PO #": "PO-21070",
+      "Part Number": "00396120",
+      "Description": "Filter Bag G",
+      "Date Created": "2024-08-23",
+      "Order Quantity": "6",
+      "Status": "Received",
+      "Shipping Method": "Standard",
+      "ETA": "2024-08-31",
+      "Notes": "",
+      "Creator": "User C"
+    },
+    {
+      "PO Line ID": "LINE-0014",
+      "PO #": "PO-21077",
+      "Part Number": "NEW-990",
+      "Description": "New Part Pending Master",
+      "Date Created": "2024-09-04",
+      "Order Quantity": "1",
+      "Status": "Pending",
+      "Shipping Method": "Pickup",
+      "ETA": "2024-09-07",
+      "Notes": "Expected Add to Inventory",
+      "Creator": "User B"
+    }
+  ],
+  "inventory": [
+    {
+      "Inventory Part Number": "00394720",
+      "Inventory Description": "Process Treatment A",
+      "Inv Quantity on Hand": "2",
+      "Location": "B-01"
+    },
+    {
+      "Inventory Part Number": "00426080",
+      "Inventory Description": "Finishing Wheel B",
+      "Inv Quantity on Hand": "4",
+      "Location": "B-05"
+    },
+    {
+      "Inventory Part Number": "AB-0042",
+      "Inventory Description": "Sensor Module C",
+      "Inv Quantity on Hand": "1",
+      "Location": "C-02"
+    },
+    {
+      "Inventory Part Number": "00250670",
+      "Inventory Description": "Grease Cartridge D",
+      "Inv Quantity on Hand": "6",
+      "Location": "C-08"
+    },
+    {
+      "Inventory Part Number": "00509310",
+      "Inventory Description": "Valve Assembly E",
+      "Inv Quantity on Hand": "3",
+      "Location": "A-03"
+    },
+    {
+      "Inventory Part Number": "00447560",
+      "Inventory Description": "Metering Hose F",
+      "Inv Quantity on Hand": "2",
+      "Location": "D-04"
+    },
+    {
+      "Inventory Part Number": "00396120",
+      "Inventory Description": "Filter Bag G",
+      "Inv Quantity on Hand": "5",
+      "Location": "B-07"
+    },
+    {
+      "Inventory Part Number": "N-091/IT",
+      "Inventory Description": "Bracket H",
+      "Inv Quantity on Hand": "1",
+      "Location": "A-06"
+    },
+    {
+      "Inventory Part Number": "00530950",
+      "Inventory Description": "Pump Kit I",
+      "Inv Quantity on Hand": "4",
+      "Location": "C-10"
+    },
+    {
+      "Inventory Part Number": "00489080",
+      "Inventory Description": "Switch J",
+      "Inv Quantity on Hand": "2",
+      "Location": "D-01"
+    }
+  ],
+  "airflow": [
+    {
+      "id": "DEMO-01",
+      "baseline": 542.0,
+      "updated": 434.0
+    },
+    {
+      "id": "DEMO-02",
+      "baseline": 563.0,
+      "updated": 465.0
+    },
+    {
+      "id": "DEMO-03",
+      "baseline": 509.0,
+      "updated": 422.0
+    },
+    {
+      "id": "DEMO-04",
+      "baseline": 526.0,
+      "updated": 484.0
+    },
+    {
+      "id": "DEMO-05",
+      "baseline": 517.0,
+      "updated": 482.0
+    },
+    {
+      "id": "DEMO-06",
+      "baseline": 575.0,
+      "updated": 547.0
+    },
+    {
+      "id": "DEMO-07",
+      "baseline": 598.0,
+      "updated": 573.0
+    },
+    {
+      "id": "DEMO-08",
+      "baseline": 564.0,
+      "updated": 544.0
+    },
+    {
+      "id": "DEMO-09",
+      "baseline": 504.0,
+      "updated": 491.0
+    },
+    {
+      "id": "DEMO-10",
+      "baseline": 513.0,
+      "updated": 505.0
+    },
+    {
+      "id": "DEMO-11",
+      "baseline": 538.0,
+      "updated": 534.0
+    },
+    {
+      "id": "DEMO-12",
+      "baseline": 517.0,
+      "updated": 524.0
+    },
+    {
+      "id": "DEMO-13",
+      "baseline": 554.0,
+      "updated": 578.0
+    },
+    {
+      "id": "DEMO-14",
+      "baseline": 508.0,
+      "updated": 543.0
+    },
+    {
+      "id": "DEMO-15",
+      "baseline": 477.0,
+      "updated": 526.0
+    },
+    {
+      "id": "DEMO-16",
+      "baseline": 463.0,
+      "updated": 524.0
+    },
+    {
+      "id": "DEMO-17",
+      "baseline": 427.0,
+      "updated": 515.0
+    },
+    {
+      "id": "DEMO-18",
+      "baseline": 558.0,
+      "updated": 668.0
+    },
+    {
+      "id": "DEMO-19",
+      "baseline": 445.0,
+      "updated": 581.0
+    },
+    {
+      "id": "DEMO-20",
+      "baseline": 412.0,
+      "updated": 580.0
+    },
+    {
+      "id": "DEMO-21",
+      "baseline": 251.0,
+      "updated": null
+    },
+    {
+      "id": "DEMO-22",
+      "baseline": 289.0,
+      "updated": null
+    },
+    {
+      "id": "DEMO-23",
+      "baseline": 520.0,
+      "updated": null
+    },
+    {
+      "id": "DEMO-24",
+      "baseline": 574.0,
+      "updated": null
+    },
+    {
+      "id": "DEMO-25",
+      "baseline": 612.0,
+      "updated": null
+    },
+    {
+      "id": "DEMO-26",
+      "baseline": 501.0,
+      "updated": null
+    }
+  ],
+  "deliveryExample": [
+    {
+      "id": "WO-A01",
+      "daysUntilDue": -2,
+      "highlighted": false
+    },
+    {
+      "id": "WO-A02",
+      "daysUntilDue": 0,
+      "highlighted": false
+    },
+    {
+      "id": "WO-A03",
+      "daysUntilDue": 21,
+      "highlighted": false
+    },
+    {
+      "id": "WO-A04",
+      "daysUntilDue": 22,
+      "highlighted": false
+    },
+    {
+      "id": "WO-A05",
+      "daysUntilDue": 28,
+      "highlighted": false
+    },
+    {
+      "id": "WO-A06",
+      "daysUntilDue": 29,
+      "highlighted": false
+    },
+    {
+      "id": "WO-A07",
+      "daysUntilDue": -4,
+      "highlighted": true
+    },
+    {
+      "id": "WO-A08",
+      "daysUntilDue": 31,
+      "highlighted": true
+    },
+    {
+      "id": "WO-A09",
+      "daysUntilDue": null,
+      "highlighted": false
+    }
+  ]
+}
