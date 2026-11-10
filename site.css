@@ -428,3 +428,11 @@ body[data-theme=night] .hero-geometry{color:#92c6a8}
 .history-chart li:nth-child(2)::before{border-top:3px dashed #c6d9ce}
 .history-chart li:nth-child(3)::before{border-top:3px dotted #ffb6a6}
 @media(max-width:680px){.artifact-pair{grid-template-columns:1fr}.artifact-pair .artifact-view+.artifact-view{margin-top:0}}
+
+.historical-results{margin-top:clamp(22px,4vw,42px);border-top:1px solid var(--rule)}
+.historical-results summary{padding:15px 0;font-weight:750;cursor:pointer}
+.historical-results summary:hover{color:var(--accent)}
+.historical-results .backtest{margin-top:0}
+.historical-results>p{max-width:72ch;margin:0 0 16px}
+.additional{padding-block:clamp(36px,5vw,70px)}
+.additional h2{font-size:clamp(2.2rem,4.3vw,4.3rem)}

@@ -37,9 +37,9 @@
       </svg>
       <div class="hero-copy">
         <h1 id="hero-title">Dylan <br>Becchetti</h1>
-        <p class="intro">Mechanical engineer working across software and manufacturing.</p>
-        <p class="hero-story">I spent a year building Midas, a futures research and execution platform. At Cardinal Glass I built an R&amp;D production tracker. At Lehigh I designed the full-scale gear assembly you see here.</p>
-        <div class="hero-cta"><a class="primary" href="#work">Selected work <span aria-hidden="true">↓</span></a><a href="resume.pdf">View résumé <span aria-hidden="true">↗</span></a></div>
+        <p class="intro">Mechanical engineer building manufacturing tools and engineering software.</p>
+        <p class="hero-story">At Cardinal Glass, I built a production tracker the R&amp;D team used at shift handoff. At Lehigh, I designed the gear assembly shown here. I also built Midas, a platform for running and checking research experiments.</p>
+        <div class="hero-cta"><a class="primary" href="#experience">Manufacturing work <span aria-hidden="true">↓</span></a><a href="#midas">Software work <span aria-hidden="true">↓</span></a><a href="resume.pdf">Résumé <span aria-hidden="true">↗</span></a></div>
         <p class="availability">Lehigh B.S. ’26 · U.S. remote from January 2027<br>Engineering automation, systems and software tooling</p>
       </div>
       <figure class="hero-figure">
@@ -67,14 +67,74 @@
 
 <div class="work-strip" id="work">
   <nav aria-label="Selected work">
-    <a href="#midas"><strong>Midas Futures</strong><small>Research and execution systems</small></a>
-    <a href="#operalith"><strong>Operalith</strong><small>Customizable workspace</small></a>
+    <a href="#experience"><strong>Cardinal Glass</strong><small>Production reporting</small></a>
     <a href="#wilbur"><strong>Wilbur Powerhouse</strong><small>Full-scale mechanical design</small></a>
-    <a href="#experience"><strong>Cardinal Glass</strong><small>Manufacturing and automation</small></a>
-    <a href="#production"><strong>Game production</strong><small>Market research and modular builds</small></a>
-    <a href="#formsby"><strong>Formsby</strong><small>Structured search and product design</small></a>
+    <a href="#midas"><strong>Midas Futures</strong><small>Research and software validation</small></a>
+    <a href="#operalith"><strong>Operalith</strong><small>Customizable workspace</small></a>
+    <a href="#formsby"><strong>Formsby</strong><small>Housing search pipeline</small></a>
+    <a href="#production"><strong>Game production</strong><small>Additional project</small></a>
   </nav>
 </div>
+<section class="chapter experience" id="experience" aria-labelledby="experience-title">
+  <div class="frame">
+    <div class="chapter-head">
+      <h2 id="experience-title">Cardinal Glass</h2>
+      <p class="deck">I spent three summers at Cardinal Glass. In 2025, I worked with engineers and operators to define what they needed at shift handoff, then built an Excel/VBA tracker that combined separate R&amp;D production files into one daily part-status view. The team used it in shift debriefs.</p>
+    </div>
+    <figure class="shift-sheet">
+      <figcaption><span><b>Production tracker example</b><small>Fictional reconstruction · Sample data</small></span><span class="sheet-mark" aria-hidden="true">03 / CI</span></figcaption>
+      <div class="sheet-grid">
+        <div>
+          <p class="tag">01 / Planned work</p>
+          <table><thead><tr><th scope="col">Part</th><th scope="col">Op.</th><th scope="col">Qty</th></tr></thead><tbody>
+          <tr><th scope="row">101</th><td>Assembly</td><td>8</td></tr><tr><th scope="row">102</th><td>Inspection</td><td>6</td></tr><tr><th scope="row">103</th><td>Assembly</td><td>4</td></tr><tr><th scope="row">104</th><td>Inspection</td><td>10</td></tr>
+          </tbody></table>
+        </div>
+        <div>
+          <p class="tag">02 / Reported updates</p>
+          <table><thead><tr><th scope="col">Part</th><th scope="col">Status</th></tr></thead><tbody>
+          <tr><th scope="row">101</th><td>In progress</td></tr><tr><th scope="row">102</th><td>Complete</td></tr><tr><th scope="row">104</th><td>Awaiting review</td></tr><tr><th scope="row">No ID</th><td>Complete</td></tr>
+          </tbody></table>
+        </div>
+        <div class="sheet-result">
+          <p class="tag">03 / Daily shift view</p>
+          <table><thead><tr><th scope="col">Part</th><th scope="col">What the lead sees</th></tr></thead><tbody>
+          <tr><th scope="row">101</th><td>In progress</td></tr><tr><th scope="row">102</th><td>Complete</td></tr><tr class="exception"><th scope="row">103</th><td>No update received</td></tr><tr><th scope="row">104</th><td>Awaiting review</td></tr><tr class="exception"><th scope="row">No ID</th><td>Held for review</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div class="sheet-total">4 planned parts / 28 planned units / 3 matched updates / 1 missing update / 1 held record</div>
+      <div class="sheet-downloads"><a href="assets/sample-source-a.csv" download>Planned work CSV</a><a href="assets/sample-source-b.csv" download>Updates CSV</a><a href="assets/sample-output.csv" download>Shift view CSV</a></div>
+    </figure>
+    <div class="case-prose case-summary">
+      <p>In a separate scrap-tracking investigation, I found a problem with subtracting finished units from the order total. Unfinished work and a usable pane waiting for its match could both show up as apparent scrap. I used that distinction to define what the count would need to track.</p>
+      <p>I also wrote illustrated assembly instructions for customer sample units, planned rack locations and signage across 14 storage areas, and measured cleanroom airflow with a hood and micromanometer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter capstone" id="wilbur" aria-labelledby="capstone-title">
+  <div class="frame">
+    <div class="chapter-head">
+      <h2 id="capstone-title">Wilbur Powerhouse</h2>
+      <p class="deck">I did much of the mechanical design and built all of the parametric OpenSCAD models for our year-long Lehigh capstone. My team and I are fabricating a kinetic sculpture designed to hang above a classroom at Lehigh’s Wilbur Powerhouse. I used a 1:1 assembly model to design the parts we’ll build.</p>
+    </div>
+    <dl class="case-measures"><div><dt>Outer ring diameter</dt><dd>79.5 in</dd></div><div><dt>Drive reduction after the ring revision</dt><dd>10:1</dd></div><div><dt>Project</dt><dd>Two semesters</dd></div></dl>
+    <div class="case-grid">
+      <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-explosion.jpg" aria-label="Exploded CAD view of the Wilbur Powerhouse mechanism"><source src="assets/wilbur-explosion.mp4" type="video/mp4"></video><figcaption>Exploded CAD view showing the ring, carrier and supports</figcaption></figure>
+      <div class="case-prose">
+        <p>When we took the original concept to full scale, the problems changed. I revised the assembly through sponsor reviews, replacing a plywood carrier concept with welded steel arms and cable stays. To fit the rolling supports, I widened the plywood ring from 1,880 to 2,020 mm. I kept the inner teeth that mesh with the planet gears, staggered the plywood seams, and moved the motor mount 70 mm to keep the drive engaged.</p>
+        <p>My team and I CNC-cut a full-size plywood planet gear and completed the first welded gear unit. The real sleeve measured about 1.02 inches across, so the first gear needed sanding and the next cut needed more bore clearance. That was a fit check on a physical part while the rest of the assembly was still in fabrication.</p>
+      </div>
+    </div>
+    <div class="artifact-pair">
+      <figure class="visual artifact-view"><a href="assets/wilbur-caster.jpg"><img src="assets/wilbur-caster.jpg" width="1200" height="788" loading="lazy" alt="OpenSCAD close-up of two caster mounts rolling on the plywood ring beside its teeth."></a><figcaption>My OpenSCAD model of the paired casters on the widened ring.</figcaption></figure>
+      <figure class="visual artifact-view"><a href="assets/wilbur-carrier-fea.jpg"><img src="assets/wilbur-carrier-fea.jpg" width="1440" height="720" loading="lazy" alt="Finite element model of an earlier carrier under gravity with and without the cable stays."></a><figcaption>Earlier carrier model. Predicted downward movement at the planet support fell from 0.94 to 0.41 mm with cable stays. Motion is magnified 70× in the plot.</figcaption></figure>
+    </div>
+    <p class="case-summary">Adding cable stays reduced predicted movement at the planet support and shifted more load to the center bearing. I used the earlier study to inform the carrier design. The later caster geometry and installed assembly require their own checks.</p>
+  </div>
+</section>
+
 <section class="chapter midas" id="midas" aria-labelledby="midas-title">
   <div class="frame">
     <div class="chapter-head">
@@ -107,6 +167,8 @@
         <li><strong>Practice.</strong> The target workflow advances qualified strategies or combinations to broker Practice. The execution layer checks authorization and reconciles orders and fills independently of the research ranking.</li>
       </ol>
     </figure>
+    <details class="historical-results">
+      <summary>Historical backtest and comparison runs</summary>
     <figure class="backtest">
       <div>
         <h3>Historical backtest</h3>
@@ -128,6 +190,7 @@
       </div>
       <figcaption>This was a historical benchmark on familiar data. In a separate strategy study, 200,000 selection-aware simulations found that an apparent gain was consistent with chance under the tested assumptions.</figcaption>
     </figure>
+    </details>
   </div>
 </section>
 
@@ -148,97 +211,35 @@
   </div>
 </section>
 
-<section class="chapter capstone" id="wilbur" aria-labelledby="capstone-title">
-  <div class="frame">
-    <div class="chapter-head">
-      <h2 id="capstone-title">Wilbur Powerhouse</h2>
-      <p class="deck">I did much of the mechanical design and built all of the parametric OpenSCAD models for our year-long Lehigh capstone. My team and I are fabricating a kinetic sculpture designed to hang above a classroom at Lehigh’s Wilbur Powerhouse. I used a 1:1 assembly model to design the parts we’ll build.</p>
-    </div>
-    <dl class="case-measures"><div><dt>Outer ring diameter</dt><dd>79.5 in</dd></div><div><dt>Drive reduction after the ring revision</dt><dd>10:1</dd></div><div><dt>Project</dt><dd>Two semesters</dd></div></dl>
-    <div class="case-grid">
-      <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-explosion.jpg" aria-label="Exploded CAD view of the Wilbur Powerhouse mechanism"><source src="assets/wilbur-explosion.mp4" type="video/mp4"></video><figcaption>Exploded CAD view showing the ring, carrier and supports</figcaption></figure>
-      <div class="case-prose">
-        <p>When we took the original concept to full scale, the problems changed. I revised the assembly through sponsor reviews, replacing a plywood carrier concept with welded steel arms and cable stays. To fit the rolling supports, I widened the plywood ring from 1,880 to 2,020 mm. I kept the inner teeth that mesh with the planet gears, staggered the plywood seams, and moved the motor mount 70 mm to keep the drive engaged.</p>
-        <p>My team and I CNC-cut a full-size plywood planet gear and completed the first welded gear unit. The real sleeve measured about 1.02 inches across, so the first gear needed sanding and the next cut needed more bore clearance. That was a fit check on a physical part while the rest of the assembly was still in fabrication.</p>
-      </div>
-    </div>
-    <div class="artifact-pair">
-      <figure class="visual artifact-view"><a href="assets/wilbur-caster.jpg"><img src="assets/wilbur-caster.jpg" width="1200" height="788" loading="lazy" alt="OpenSCAD close-up of two caster mounts rolling on the plywood ring beside its teeth."></a><figcaption>My OpenSCAD model of the paired casters on the widened ring.</figcaption></figure>
-      <figure class="visual artifact-view"><a href="assets/wilbur-carrier-fea.jpg"><img src="assets/wilbur-carrier-fea.jpg" width="1440" height="720" loading="lazy" alt="Finite element model of an earlier carrier under gravity with and without the cable stays."></a><figcaption>Earlier carrier model with and without cable stays. The plot magnifies movement 70 times.</figcaption></figure>
-    </div>
-    <p class="case-summary">In the earlier carrier study, the model predicted <strong>0.94 mm of downward movement at the planet support without cable stays and 0.41 mm with them</strong>. The stays reduced movement there and shifted more load to the center bearing. That study informed the design. The later caster geometry and installed assembly require their own checks.</p>
-  </div>
-</section>
-
-<section class="chapter experience" id="experience" aria-labelledby="experience-title">
-  <div class="frame">
-    <div class="chapter-head">
-      <h2 id="experience-title">Cardinal Glass</h2>
-      <p class="deck">In my third summer at Cardinal, I built an Excel/VBA production tracker for an R&amp;D line. I brought separate source files together into a daily view the team used for shift debriefs. The project was mine from problem definition through handoff.</p>
-    </div>
-    <figure class="shift-sheet">
-      <figcaption><span><b>Production tracker example</b><small>Fictional reconstruction · Sample data</small></span><span class="sheet-mark" aria-hidden="true">03 / CI</span></figcaption>
-      <div class="sheet-grid">
-        <div>
-          <p class="tag">01 / Planned work</p>
-          <table><thead><tr><th scope="col">Part</th><th scope="col">Op.</th><th scope="col">Qty</th></tr></thead><tbody>
-          <tr><th scope="row">101</th><td>Assembly</td><td>8</td></tr><tr><th scope="row">102</th><td>Inspection</td><td>6</td></tr><tr><th scope="row">103</th><td>Assembly</td><td>4</td></tr><tr><th scope="row">104</th><td>Inspection</td><td>10</td></tr>
-          </tbody></table>
-        </div>
-        <div>
-          <p class="tag">02 / Reported updates</p>
-          <table><thead><tr><th scope="col">Part</th><th scope="col">Status</th></tr></thead><tbody>
-          <tr><th scope="row">101</th><td>In progress</td></tr><tr><th scope="row">102</th><td>Complete</td></tr><tr><th scope="row">104</th><td>Awaiting review</td></tr><tr><th scope="row">No ID</th><td>Complete</td></tr>
-          </tbody></table>
-        </div>
-        <div class="sheet-result">
-          <p class="tag">03 / Daily shift view</p>
-          <table><thead><tr><th scope="col">Part</th><th scope="col">What the lead sees</th></tr></thead><tbody>
-          <tr><th scope="row">101</th><td>In progress</td></tr><tr><th scope="row">102</th><td>Complete</td></tr><tr class="exception"><th scope="row">103</th><td>No update received</td></tr><tr><th scope="row">104</th><td>Awaiting review</td></tr><tr class="exception"><th scope="row">No ID</th><td>Held for review</td></tr>
-          </tbody></table>
-        </div>
-      </div>
-      <div class="sheet-total">4 planned parts / 28 planned units / 3 matched updates / 1 missing update / 1 held record</div>
-      <div class="sheet-downloads"><a href="assets/sample-source-a.csv" download>Planned work CSV</a><a href="assets/sample-source-b.csv" download>Updates CSV</a><a href="assets/sample-output.csv" download>Shift view CSV</a></div>
-    </figure>
-    <p class="case-summary">Across three summers, I wrote illustrated sample-assembly instructions, planned spare-parts storage and rack signage across 14 locations, and measured cleanroom airflow with a hood and micromanometer. I also inspected pilot-line equipment, analyzed data in Minitab, and drafted layouts in AutoCAD.</p>
-  </div>
-</section>
-
-<section class="chapter slop" id="production" aria-labelledby="slop-title">
-  <div class="frame">
-    <div class="chapter-head">
-      <h2 id="slop-title">Scanned Leverage and Optimized Production</h2>
-      <p class="deck">I’m building a system to go from Roblox market research to original playable prototypes. It collects market data, identifies recurring mechanics and asset needs, and uses that research to decide what I should build once and reuse across experiments.</p>
-    </div>
-    <ol class="factory-flow" aria-label="Game production workflow">
-      <li><strong>Market scan</strong><span>98 game identities in one official-data discovery run</span></li>
-      <li><strong>Pattern research</strong><span>Record recurring mechanics and production needs</span></li>
-      <li><strong>Component library</strong><span>Pin the exact Luau modules each build uses</span></li>
-      <li><strong>Prototype builds</strong><span>Compile different configurations into separate Roblox places</span></li>
-    </ol>
-    <div class="case-prose case-summary">
-      <p>I built a Python pipeline that compiled Copper Yard and Stone Yard from the same Luau components. Automated tests confirm that different settings change the generated place and reject invalid inputs. One reusable producer also verifies the source and license fingerprints. I also published a separate private Signal Break test build. I stopped one collector concept at the storyboard stage because the second trip looked too much like the first and the danger wasn’t clear. Player testing and a fully automated market-to-game loop are still ahead.</p>
-    </div>
-  </div>
-</section>
-
 <section class="chapter formsby" id="formsby" aria-labelledby="formsby-title">
   <div class="frame">
     <div class="chapter-head">
       <h2 id="formsby-title">Formsby</h2>
-      <p class="deck">I designed Formsby around a simple idea: tell one service what you need, then let it find relevant options across the sites that already have them. I chose housing as the first test because requests have real constraints such as budget, location and move-in date.</p>
+      <p class="deck">I built Formsby to turn a housing request into a private shortlist of actual listings. I chose housing because each result has to satisfy real constraints such as budget, location and move-in date.</p>
     </div>
     <div class="case-grid">
       <figure class="search-study">
-        <ol><li><span>01</span><b>Capture the request</b><small>Extract criteria and store the search job.</small></li><li><span>02</span><b>Search public listings</b><small>Plan queries and normalize listing candidates.</small></li><li><span>03</span><b>Review results privately</b><small>Check listing freshness, rank matches and save them to the user’s dashboard.</small></li></ol>
+        <ol><li><span>01</span><b>Capture the request</b><small>Extract criteria and store the search job.</small></li><li><span>02</span><b>Search public listings</b><small>Plan queries and normalize listing candidates.</small></li><li><span>03</span><b>Review results privately</b><small>Recheck known listings, rank matches and save them to the user’s dashboard.</small></li></ol>
         <figcaption>Housing prototype workflow</figcaption>
       </figure>
       <div class="case-prose">
-        <p>I built the Next.js and PostgreSQL prototype around queued searches and a private results dashboard. An early test captured the request but couldn’t verify a qualifying apartment. I added listing freshness checks, kept results tied to the latest search, and made queue failures visible so an empty result could be distinguished from a failed run.</p>
-        <p>I also designed how the matching engine could support additional search types and a community resource service. Those were product plans. Housing was the prototype I implemented.</p>
+        <p>An early test captured the request but found no qualifying apartment. A link to a general housing site didn’t help someone find a place, so I made specific listings the target. The Next.js prototype queues a search, normalizes listing details, rechecks previously seen listings, and ranks the results in a private dashboard.</p>
+        <p>I tied results to the latest search and made failed jobs show a separate status. That way, an empty shortlist could be distinguished from a search that never finished.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="chapter slop additional" id="production" aria-labelledby="slop-title">
+  <div class="frame">
+    <div class="chapter-head">
+      <h2 id="slop-title">Game production tools</h2>
+      <p class="deck">I’m building a system to go from Roblox market research to original playable prototypes. It collects market data, identifies recurring mechanics and asset needs, and uses that research to decide what I should build once and reuse across experiments.</p>
+    </div>
+    <details class="historical-results">
+      <summary>How I tested the build pipeline</summary>
+      <p>For Scanned Leverage and Optimized Production, I built a Python pipeline that compiled two Roblox places from the same Luau components. Tests check that different settings change the output and invalid inputs are rejected. I also stopped a separate collector prototype at storyboard review when its second trip offered too little variation.</p>
+    </details>
   </div>
 </section>
 
