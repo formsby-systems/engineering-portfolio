@@ -71,7 +71,7 @@
     <a href="#wilbur"><strong>Wilbur Powerhouse</strong><small>Full-scale mechanical design</small></a>
     <a href="#midas"><strong>Midas Futures</strong><small>Research and software validation</small></a>
     <a href="#operalith"><strong>Operalith</strong><small>Customizable workspace</small></a>
-    <a href="#formsby"><strong>Formsby</strong><small>Housing search pipeline</small></a>
+    <a href="#formsby"><strong>Formsby</strong><small>Matching and search software</small></a>
     <a href="#production"><strong>Game production</strong><small>Additional project</small></a>
   </nav>
 </div>
@@ -97,24 +97,24 @@
           </tbody></table>
         </div>
         <div class="sheet-result">
-          <p class="tag">03 / Grouped defect frequency</p>
+          <p class="tag">03 / Primary defect frequency</p>
           <table><thead><tr><th scope="col">Defect</th><th scope="col">Occurrences</th></tr></thead><tbody>
-          <tr><th scope="row">Particle · Surface</th><td>6</td></tr><tr><th scope="row">Particle · Edge</th><td>3</td></tr><tr><th scope="row">Coating · Pinholes</th><td>3</td></tr><tr><th scope="row">Handling · Scratch</th><td>3</td></tr>
+          <tr><th scope="row">Particle · Surface</th><td>6</td></tr><tr><th scope="row">Coating · Pinholes</th><td>3</td></tr><tr><th scope="row">Handling · Scratch</th><td>3</td></tr>
           </tbody></table>
         </div>
       </div>
-      <div class="sheet-total">12 failed units / 15 defect occurrences · One failed unit can have several defects</div>
+      <div class="sheet-total">12 failed units / 12 primary defects · Final documented report: descending counts</div>
       <div class="sheet-downloads"><a href="assets/cardinal-demo.html">Explore the working reconstruction →</a><a href="assets/cardinal-demo-data.json" download>Download synthetic source records</a></div>
     </figure>
     <div class="case-prose case-summary">
-      <p><strong>Reporting that follows the manufacturing process.</strong> I automated weekly quality calculations, built a selectable defect-frequency report, and developed delivery KPI and report-navigation macros. The work included date-coded unit IDs, external workbook dependencies, and preserving completed reporting periods while updating the active week.</p>
-      <p><strong>Purchasing records with usable context.</strong> In a separate Smartsheet workflow, I integrated a legacy Excel inventory with a purchase-order log, adding part-description lookups, identifier reconciliation and a filtered maintenance-priority report. Debugging same-day orders exposed a crucial limit: purchase history alone cannot establish actual stock on hand.</p>
+      <p><strong>Reporting that follows the manufacturing process.</strong> I built reporting around a quality log with more than 10,000 unit records, linking date-coded IDs to weekly failure counts, defect reports and delivery review. The scorecard also drew from wide end-of-day reports and a separate yield workbook. I worked through rolling meter counters, downtime allocation, date-based yield averages and three week selectors that navigated existing reports without losing their formulas or comments.</p>
+      <p><strong>Purchasing records with usable context.</strong> In a separate Smartsheet workflow, I brought a legacy Excel inventory alongside the existing purchase-order log. I kept the familiar entry layout, added part-description lookups and identifier reconciliation, and created a separate maintenance-priority report so reviewing parts would not disturb the purchasing records. Debugging same-day orders exposed a crucial limit: purchase history alone cannot establish actual stock on hand.</p>
     </div>
     <div class="case-grid">
       <figure class="visual"><img src="assets/cardinal-airflow.svg" loading="lazy" width="1120" height="620" alt="Synthetic airflow reconstruction: twenty paired outlets show both substantial increases and decreases, while average flow changes from 515.5 to 526 CFM."><figcaption>Excel airflow analysis reconstructed with synthetic readings</figcaption></figure>
       <div class="case-prose"><p class="tag">Measurement → analysis → investigation</p><h3>The average was only part of the story.</h3><p>I measured cleanroom outlet airflow using a capture hood and micromanometer, then compared repeat readings in Excel. I corrected blank-value and structured-reference errors, used paired summaries and conditional formatting to examine local variation, and brought system-level questions to engineering leadership.</p><p>Flow changes guided further investigation; they did not establish filter leakage or a proven quality improvement.</p></div>
     </div>
-    <p class="case-foot">Public reconstructions use fictional records. Original employer workbooks, production measurements and facility layouts are not shown. The inventory stock model remained experimental; measured savings and later adoption are not established.</p>
+    <p class="case-foot">Public reconstructions use fictional records. Original employer workbooks, production measurements and facility layouts are not shown. The daily debrief tracker and weekly scorecard were separate tools; this demo reconstructs the better-documented weekly system. Inventory stock forecasting and timed Excel refresh had unresolved limits. Measured savings are not established.</p>
   </div>
 </section>
 
@@ -148,15 +148,31 @@
     </div>
     <div class="case-prose midas-prose">
       <p>The tricky part was getting replay and forward evaluation to make the same decision from the same data. They disagreed on which completed bars counted toward volatility and which price to use at exit. I unified those rules in a shared state machine. A retained regression matched all <strong>228 session decisions</strong> and <strong>225 modeled trade lifecycles</strong> against a sealed reference.</p>
-      <p>I built batch runs that record their session samples, random seeds and results. The Ablation Factory tests what happens when I remove or change one part of a strategy. It checkpoints progress, records when a strategy declines to trade, and limits worker memory. In a separate cloud check, Railway reproduced all 11 decision files from a local run byte for byte. I’m connecting those pieces into a cloud loop that can run campaigns, retain their evidence, and advance qualified candidates to broker Practice.</p>
+      <p>I built a cloud runner that saves progress between simulations. It can resume a campaign from verified results and reuse unchanged controls. The simulator makes strategies share one account’s risk limits and follows the account through evaluation, funding, fees, payouts and failures. A separate Railway check reproduced all 11 decision files from a local run byte for byte.</p>
     </div>
+    <figure class="backtest" aria-labelledby="midas-current">
+      <div>
+        <p class="tag">Cloud experiment · November 10, 2026</p>
+        <h3 id="midas-current">Would adding a second signal rule help?</h3>
+        <p>I ran <strong>72 new account simulations</strong> and compared them with <strong>144 saved controls</strong>. Each path models one account over a historical window under a fixed set of trading rules and costs. The primary comparison matched eight starting dates per signal source over 180 sessions with higher modeled costs.</p>
+      </div>
+      <table>
+        <caption>Change after adding the rule in the primary comparison</caption>
+        <thead><tr><th scope="col">Signal source</th><th scope="col">Median modeled cash change</th><th scope="col">Funded failures</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Source A</th><td>+$491</td><td>3 → 1</td></tr>
+          <tr><th scope="row">Source B</th><td>+$485</td><td>0 → 1</td></tr>
+        </tbody>
+      </table>
+      <figcaption>Both sources had to improve median modeled cash without reducing the number of paths with a payout or increasing account failures. Funded failures rose for the second source, so the experiment failed overall and did not advance to broker Practice. The simulations reuse historical data and do not measure live returns.</figcaption>
+    </figure>
     <figure class="visual artifact-view">
       <a href="assets/midas-research.jpg"><img src="assets/midas-research.jpg" width="1280" height="586" loading="lazy" alt="Midas Research dashboard with a modeled account case showing fees, a pass, a failure, and cash after fees."></a>
-      <figcaption>Actual Midas dashboard capture from an offline historical study. The selected case modeled a payout and still ended $1,286.85 down after fees.</figcaption>
+      <figcaption>Midas dashboard from an earlier offline study. The selected case modeled a payout and still ended $1,286.85 down after fees.</figcaption>
     </figure>
     <p class="case-summary">I built the dashboard to distinguish research results, Practice fills and actual cash. One installed version showed <strong>1,410 modeled account cases across 705 strategy variants</strong>. It made it possible to see when a modeled account passed its evaluation but still lost money after fees.</p>
     <figure class="pipeline" data-pipeline>
-      <figcaption><strong>Research pipeline</strong><span>End-to-end cloud loop in development</span></figcaption>
+      <figcaption><strong>Research pipeline</strong><span>Cloud runs verified · Practice requires separate authorization</span></figcaption>
       <div class="pipeline-controls" role="group" aria-label="Research pipeline stages" hidden>
         <button type="button" data-step="0" aria-pressed="true"><span>01</span> Strategy</button>
         <button type="button" data-step="1" aria-pressed="false"><span>02</span> Batch campaigns</button>
@@ -166,10 +182,10 @@
       </div>
       <ol class="pipeline-detail" aria-live="polite">
         <li><strong>Strategy.</strong> A validated strategy spec and parameter pack define what to run. The registry keeps a strategy’s decisions separate from market data and order handling.</li>
-        <li><strong>Batch campaigns.</strong> Replay candidates over deterministic session samples. Keep the inputs, random seeds and ranked results so the comparison can be reproduced.</li>
-        <li><strong>Ablation Factory.</strong> Run defined variants against a frozen experiment inventory, checkpoint the work and preserve the evidence for each decision.</li>
+        <li><strong>Batch campaigns.</strong> Freeze the historical windows, cost settings, strategy inputs and expected case IDs. The cloud runner writes a checkpoint for each completed case and checks it before skipping work on resume.</li>
+        <li><strong>Ablation Factory.</strong> Change one part of a strategy and compare it against saved controls. Preserve each account’s fees, payouts, failures and the inputs that produced them.</li>
         <li><strong>Monte Carlo.</strong> Test whether a result could have appeared by chance. One diagnostic repeated the original selection process across two sets of 100,000 randomized draws.</li>
-        <li><strong>Practice.</strong> The target workflow advances qualified strategies or combinations to broker Practice. The execution layer checks authorization and reconciles orders and fills independently of the research ranking.</li>
+        <li><strong>Practice.</strong> Research results are reviewed before any separate authorization for broker Practice. The execution layer reconciles orders and fills independently of the research ranking.</li>
       </ol>
     </figure>
     <details class="historical-results">
@@ -220,18 +236,35 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="formsby-title">Formsby</h2>
-      <p class="deck">The original idea for Formsby was simple. Describe what you need once, and get a shortlist you can act on. I prototyped that idea in Python in 2025, then narrowed it to housing, where a useful result has to meet real constraints such as budget, location and move-in date.</p>
+      <p class="deck">I started Formsby to connect people with what they’re looking for across the websites they already use. Someone’s request on one site might have an answer on another. My idea was to build one system that could understand the need, find a relevant person or resource, and help make the connection. Housing was my first test of a much broader product.</p>
     </div>
     <div class="case-grid">
       <figure class="search-study">
-        <ol><li><span>01</span><b>Capture the request</b><small>Extract criteria and store the search job.</small></li><li><span>02</span><b>Search public listings</b><small>Plan queries and normalize listing candidates.</small></li><li><span>03</span><b>Review results privately</b><small>Recheck known listings, rank matches and save them to the user’s dashboard.</small></li></ol>
-        <figcaption>Housing prototype workflow</figcaption>
+        <p class="tag">Inside the housing application</p>
+        <ol>
+          <li><span>01</span><b>Save the request</b><small>Keep the signed-in user, original form and search settings together.</small></li>
+          <li><span>02</span><b>Interpret the need</b><small>Separate budget, location, timing, must-haves and preferences.</small></li>
+          <li><span>03</span><b>Search across sources</b><small>Run source adapters, merge duplicate URLs and record connector failures.</small></li>
+          <li><span>04</span><b>Evaluate each candidate</b><small>Save the source evidence, score, explanation and search-run identity.</small></li>
+          <li><span>05</span><b>Return the latest results</b><small>Keep private results tied to their run, with separate partial and failed states.</small></li>
+        </ol>
+        <figcaption>Workflow represented in the Next.js / PostgreSQL source</figcaption>
       </figure>
       <div class="case-prose">
-        <p>My first prototype turned a free-text request into structured criteria, tracked leads between runs and simulated the next action. An early housing test found no qualifying apartment. General housing directories weren’t useful answers, so I rebuilt the flow around individual listings. The Next.js version queues each search, merges duplicate listings, rechecks known listings and ranks candidates in a private dashboard.</p>
-        <p>I tied the dashboard to the user’s latest run and gave failed jobs their own status so a broken search could not look like an empty result. I paused the project after building that version. As I return to it, I want to test whether the shortlists actually help people make a housing decision before expanding to other searches.</p>
+        <p>I spent months working through the product and its Python prototype. I separated discovery, interpretation, matching and communication so new categories could share the same core. I built city and category lookups, persistent lead IDs and parent-linked match IDs. When a source returned HTML but no records, I traced the problem to outdated selectors and restored full-text extraction in a five-result test.</p>
+        <p>The harder problem was deciding what counted as a useful match. A directory link or a plausible description wasn’t enough. I wanted a specific option with enough source information for someone to act on. That requirement led me toward fetching and evaluating individual offers, keeping the original request attached, and recording why a candidate was selected.</p>
+        <p>In the later housing build, I implemented signed-in intake, background job dispatch, source adapters, duplicate removal, ranked results and payment handling. Requests, runs, listings and evaluations have separate records. If one connector fails, the run can retain the other results and show a partial status. The dashboard returns the latest run’s results for the signed-in user.</p>
       </div>
     </div>
+    <div class="case-prose case-summary">
+      <p><strong>A design decision beyond the housing prototype.</strong> For the original paid-introduction concept, I designed a flow that prepared a match packet before checkout and tied it to a persistent ID. Payment would retrieve the saved packet instead of repeating the search and producing a different answer. The Python prototype included file-based unlock logic. Completing that delivery flow, expanding categories and adding private conversations are part of the broader product I want to build.</p>
+    </div>
+    <details class="historical-results">
+      <summary>Walk through a search with a duplicate and a failed source</summary>
+      <p><strong>Fictional example of the code paths.</strong> A renter asks for a one-bedroom under $1,500 that allows cats. Two sources return the same listing URL, and a third source times out. The job keeps one copy of the listing, evaluates it against the request and records the failed source.</p>
+      <p>The run can return the candidate with a partial status. The dashboard reads results from that run for the signed-in renter, so an older listing from a previous run does not reappear as a new result. The example illustrates the behavior of the code and does not use live listings.</p>
+    </details>
+    <p class="case-foot">Started in 2025, paused after the later housing build, and now returning to development. Python · Next.js / React · PostgreSQL / Prisma · Inngest · Stripe</p>
   </div>
 </section>
 
