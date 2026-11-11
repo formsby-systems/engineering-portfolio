@@ -14,8 +14,8 @@
 <meta name="theme-color" content="#172a37">
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
-<link rel="stylesheet" href="site.css">
-<script src="site.js" defer></script>
+<link rel="stylesheet" href="site.css?v=20261110-work">
+<script src="site.js?v=20261110-work" defer></script>
 </head>
 <body>
 <a class="skip" href="#work">Skip to selected work</a>
@@ -38,7 +38,7 @@
       <div class="hero-copy">
         <h1 id="hero-title">Dylan <br>Becchetti</h1>
         <p class="intro">Mechanical engineering. Manufacturing. Software.</p>
-        <p class="hero-story">I built the scorecard my coworkers looked at every day, modeled the gears you can turn here, and started a futures research system that I still work on in my own time.</p>
+        <p class="hero-story">I spent three summers at Cardinal building tools coworkers used in daily production meetings. At Lehigh I modeled the gears you can turn here. In my own time I build systems like Midas and SLOP, where I can take an idea all the way to something I can test.</p>
         <div class="hero-cta"><a class="primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="#about">About me</a></div>
         <p class="availability">Lehigh B.S. expected January 2027</p>
       </div>
@@ -74,8 +74,8 @@
     </div>
     <div>
       <h2>Software &amp; research</h2>
-      <a href="#midas"><strong>Midas Futures</strong><small>From trade replay to account simulation</small></a>
-      <a href="#production"><strong>Scanned Leverage and Optimized Production</strong><small>Market analysis and modular production</small></a>
+      <a href="#midas"><strong>Midas Futures</strong><small>Explore a real account experiment</small></a>
+      <a href="#production"><strong>Scanned Leverage and Optimized Production</strong><small>Compare two builds from one game</small></a>
       <a href="#operalith"><strong>Operalith</strong><small>A workspace built around linked records</small></a>
       <a href="#formsby"><strong>Formsby</strong><small>From a specific request to an actionable match</small></a>
     </div>
@@ -87,7 +87,7 @@
     <div class="case-prose">
       <p class="about-lead">I came up with Formsby during breaks and lunches at Cardinal Glass.</p>
       <p>At work, I liked taking information that was scattered across files and putting it in front of the people who needed it. Outside work, I kept thinking about a similar problem. If someone had already posted what they needed, could a system find a useful answer somewhere else? That’s the idea behind Formsby.</p>
-      <p>Midas is where I spend much of my own build time now. I keep finding things a backtest leaves out, then figuring out how to model them. I’m also building Operalith around a simple preference of mine. When I open a task, I want to be able to get to the project and the supplies it depends on.</p>
+      <p>I keep coming back to Midas because there is always another part of the problem to work through. A trade can make money in a backtest and still fail the account rules. With SLOP, I wanted to turn an observation into something original I could build and test. With Operalith, I wanted the task in front of me to stay connected to the rest of the work.</p>
       <p>I’m finishing mechanical engineering at Lehigh with a minor in Materials Science and Engineering.</p>
     </div>
   </div>
@@ -158,50 +158,64 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="midas-title">Midas Futures</h2>
-      <p class="deck">I wanted to know what happens after a backtest looks good. Can the same rules make the same decisions in replay and forward evaluation? Can those trades survive costs and a funded account’s rules?</p>
-    </div>
-    <div class="case-prose midas-prose">
-        <p>I started Midas as an equities scheduler and rebuilt it around futures. I’ve spent the past year directing its development, from a Raspberry Pi execution setup to Python strategy modules, cloud research batches, account simulation and a dashboard for reviewing results.</p>
-      <p>One of the hardest problems was getting historical replay and forward evaluation to agree on when a bar had closed and which price an exit could use. I unified the rules in a shared state machine. A retained check matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p>
-    </div>
-    <figure class="pipeline" data-pipeline>
-      <figcaption><strong>How an idea moves through Midas</strong><span>Select a stage</span></figcaption>
-      <div class="pipeline-controls" role="group" aria-label="Research pipeline stages" hidden>
-        <button type="button" data-step="0" aria-pressed="true">Define the strategy</button>
-        <button type="button" data-step="1" aria-pressed="false">Replay and compare</button>
-        <button type="button" data-step="2" aria-pressed="false">Model the account</button>
-        <button type="button" data-step="3" aria-pressed="false">Review the evidence</button>
-        <button type="button" data-step="4" aria-pressed="false">Practice approval</button>
+      <div class="case-prose">
+        <p class="deck">I started with an equities scheduler. I kept building because I wanted to see what happens between a good-looking backtest and a strategy you can actually trust to run.</p>
+        <p>I built a research pipeline around that question. It runs batches of strategy variations, tests what happens when I add or remove a signal, and simulates what it would cost to keep an account going. I can test strategies together under one set of risk limits and see which results hold up. A separate Practice system handles execution and reconciliation.</p>
       </div>
-      <ol class="pipeline-detail" aria-live="polite">
-        <li><strong>Define the strategy.</strong> I freeze the signal, exit and risk rules along with the code, data, costs and time windows. Each run carries those identities so I can trace a result back to the exact experiment.</li>
-        <li><strong>Replay and compare.</strong> A simulated clock drives replay. Batches record which variants finished. The runner checks case IDs and input fingerprints before it combines results or skips completed cases on resume.</li>
-        <li><strong>Model the account.</strong> Strategies share one account’s risk limits. The simulator follows evaluation and funded stages and accounts for fees, resets and payouts. I can see when winning trades still leave the account down.</li>
-        <li><strong>Review the evidence.</strong> I change one part of the system and compare it with saved controls. Cost stress and Monte Carlo tests help determine whether an apparent improvement deserves further research.</li>
-        <li><strong>Practice approval.</strong> Replay rejects broker orders. A separate Practice runtime checks authorization and records decisions, orders and fills so I can reconcile them with the model.</li>
-      </ol>
-    </figure>
+    </div>
+    <ol class="system-flow" aria-label="Midas research and Practice workflow">
+      <li><h3>Define the experiment</h3><p>Freeze the strategy, code, data, time window and costs so each result belongs to a specific run.</p></li>
+      <li><h3>Replay and compare</h3><p>Use shared decision rules and a simulated clock. Run variants in batches and resume from verified checkpoints.</p></li>
+      <li><h3>Simulate the account</h3><p>Put strategies under shared risk limits. Track evaluations, resets, fees and payouts across the observation window.</p></li>
+      <li><h3>Review before Practice</h3><p>Compare with retained controls. Practice has its own authorization, execution ledger and reconciliation.</p></li>
+    </ol>
+    <section class="project-explorer midas-explorer" id="midas-explore" data-explorer aria-labelledby="midas-explore-title">
+      <div class="explorer-intro">
+        <div><p class="explorer-note">Historical account simulation · November 10, 2026</p><h3 id="midas-explore-title">Could this signal work on its own?</h3></div>
+        <p>I started the campaign to test one signal on its own and compare it with earlier configurations. The records below are from the completed cloud experiment.</p>
+      </div>
+      <div class="explorer-controls" role="group" aria-label="Explore the Midas run" hidden>
+        <button type="button" aria-controls="midas-run" aria-pressed="true">Run history</button>
+        <button type="button" aria-controls="midas-120" aria-pressed="false">120 sessions</button>
+        <button type="button" aria-controls="midas-180" aria-pressed="false">180 sessions</button>
+      </div>
+      <div id="midas-run" class="explorer-panel" data-explorer-panel>
+        <ol class="run-history">
+          <li><strong>52 requested</strong><span>16 lacked a complete historical window.</span></li>
+          <li><strong>18 of 36 saved</strong><span>Stopped at the planned checkpoint.</span></li>
+          <li><strong>36 completed</strong><span>Resumed automatically from that checkpoint.</span></li>
+          <li><strong>252 compared</strong><span>Added 36 new results and kept 216 earlier rows intact.</span></li>
+        </ol>
+        <p class="explorer-result"><strong>Decision: keep it in research.</strong> All 36 cases were still in evaluation at cutoff. None had passed evaluation or received a payout.</p>
+      </div>
+      <div id="midas-120" class="explorer-panel cohort" data-explorer-panel>
+        <div><h4>120-session windows</h4><p>Each cost setting contains 10 cases. The observed median after modeled costs was the same under both settings.</p></div>
+        <table class="evidence-table">
+          <caption>Modeled cash at the observation cutoff</caption>
+          <thead><tr><th scope="col">Cost setting</th><th scope="col">Cases</th><th scope="col">Median cash</th></tr></thead>
+          <tbody><tr><th scope="row">Baseline</th><td>10</td><td>−$546</td></tr><tr><th scope="row">Higher costs</th><td>10</td><td>−$546</td></tr></tbody>
+        </table>
+      </div>
+      <div id="midas-180" class="explorer-panel cohort" data-explorer-panel>
+        <div><h4>180-session windows</h4><p>Each cost setting contains eight cases. The higher-cost comparison was the one specified in advance for the decision. It failed the cash and payout gates.</p></div>
+        <table class="evidence-table">
+          <caption>Modeled cash at the observation cutoff</caption>
+          <thead><tr><th scope="col">Cost setting</th><th scope="col">Cases</th><th scope="col">Median cash</th></tr></thead>
+          <tbody><tr><th scope="row">Baseline</th><td>8</td><td>−$780</td></tr><tr><th scope="row">Higher costs</th><td>8</td><td>−$780</td></tr></tbody>
+        </table>
+      </div>
+      <p class="explorer-foot">The windows can overlap. The case counts describe the experiment, and the cash figures are simulated.</p>
+    </section>
     <div class="case-grid midas-evidence">
       <figure class="visual artifact-view">
         <a href="assets/midas-research.jpg"><img src="assets/midas-research.jpg" width="1280" height="586" loading="lazy" alt="Midas Research dashboard showing evaluation fees, a modeled payout and a negative balance after fees."></a>
-        <figcaption>Earlier offline Midas dashboard. This account had a modeled payout and ended $1,286.85 down after fees.</figcaption>
+        <figcaption>Earlier Midas dashboard capture. This simulated account received a modeled payout and ended $1,286.85 down after fees.</figcaption>
       </figure>
       <div class="case-prose">
-        <h3>A payout can still leave an account down</h3>
-        <p>In a November cloud study, I evaluated <strong>108 new account paths</strong> and preserved all <strong>216 prior comparison rows</strong>. One new path recorded a modeled payout. All 108 finished the observed window with negative modeled cash, so the candidate stayed in research.</p>
-        <p>The dashboard keeps research results, Practice fills and actual cash separate. The simulations cover finite historical windows.</p>
+        <h3>Making the system agree with itself</h3>
+        <p>Replay and forward evaluation once disagreed on when a bar was complete and which price an exit could use. I put those decisions into a shared state machine. A retained check matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p>
+        <p>I also built a Mac queue that ran 288 variants at two cost settings in one observed campaign. It returned the saved result for a duplicate and rejected an invalid request before starting a run.</p>
       </div>
-    </div>
-    <div class="case-grid midas-queue">
-      <div class="case-prose">
-        <h3>What happens when a research request comes in twice?</h3>
-        <p>I built a Mac queue to run a defined campaign unattended. It claims a request by its identity, verifies the inputs and records the result. A separate cloud run verified and skipped the first 12 finished cases before resuming the rest.</p>
-      </div>
-      <table class="evidence-table">
-        <caption>Observed Mac queue run · November 10</caption>
-        <thead><tr><th scope="col">Request</th><th scope="col">What Midas did</th></tr></thead>
-        <tbody><tr><th scope="row">First delivery</th><td>Ran 288 variants at two cost settings and recorded eight batches.</td></tr><tr><th scope="row">Duplicate delivery</th><td>Reused the completed result.</td></tr><tr><th scope="row">Malformed request</th><td>Rejected it before creating a run.</td></tr></tbody>
-      </table>
     </div>
     <details class="historical-results">
       <summary>Historical backtest and comparison runs</summary>
@@ -234,15 +248,57 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="slop-title">Scanned Leverage and Optimized Production</h2>
-      <p class="deck">I wanted to see if I could study what players respond to, turn those observations into reusable mechanics, and build original games from them. Roblox gives me a market to test a larger idea about how research can feed production.</p>
+      <div class="case-prose">
+        <p class="deck">I wanted to build a repeatable way to study a market, turn what I observed into design questions, and make original prototypes I could test.</p>
+        <p>Roblox is the first market. I built a research side that organizes rankings, descriptions and annotated gameplay by source and game. It gives me a way to compare how different games handle the same action or reward. I built the production side so I can turn those questions into my own designs, then change a map or rule without starting the next build from scratch.</p>
+      </div>
     </div>
-    <p class="case-summary">The research side brings together game rankings, descriptions and recorded gameplay. I built the processing around exact game identities and source records, so an observed interaction can be traced back to its evidence. It turns annotated gameplay into sequences of actions, state changes and rewards, while keeping unobserved behavior separate. I use that record to decide what might make a good experiment, then test the idea in an original design.</p>
-    <p class="case-summary">The production side is Python and Luau. Configurations control world layout and interaction rules; shared components provide the game logic and interface. In one original prototype, Signal Break, two players face a choice between a longer open route and a contested shortcut. The build system produces two versions with different cover, starting positions and pickup locations from the same runtime. Checks reject invalid settings and blocked routes before a place is generated.</p>
-    <figure class="visual artifact-view slop-proof">
-      <a href="assets/slop-config-proof.svg"><img src="assets/slop-config-proof.svg" alt="Open full-size plans of Signal Break configurations A and B, showing changed cover, player starts, pickup and exit positions." loading="lazy" width="1200" height="670"></a>
-      <figcaption>Two original prototype configurations from one producer. Both saved outputs were reproduced exactly; the prototype is awaiting player testing.</figcaption>
-    </figure>
-    <p class="case-summary">The research can also tell me to stop. I held a separate collector concept at storyboard review because the second trip repeated too much of the first. The same structure could take feedback on a different product, record the behavior worth investigating, and build test versions from shared components. Player testing is the next step for Signal Break.</p>
+    <ol class="system-flow" aria-label="SLOP research and production workflow">
+      <li><h3>Scan the market</h3><p>Join market observations to the right game and keep their original source.</p></li>
+      <li><h3>Break down play</h3><p>Turn annotated gameplay into actions, state changes and rewards. Leave gaps visible.</p></li>
+      <li><h3>Build original variants</h3><p>Set the rules and geometry in a configuration. Assemble a Roblox place using shared code.</p></li>
+      <li><h3>Check the result</h3><p>Reject blocked routes and invalid settings. Rebuild from the same inputs and compare the output.</p></li>
+    </ol>
+    <section class="project-explorer slop-explorer" id="slop-explore" data-explorer aria-labelledby="slop-explore-title">
+      <div class="explorer-intro">
+        <div><p class="explorer-note">Signal Break · Original two-player prototype</p><h3 id="slop-explore-title">One game. Two builds.</h3></div>
+        <p>Compare the layouts and follow one tested round. I regenerated both places from their committed configurations and matched both saved build hashes.</p>
+      </div>
+      <div class="explorer-controls" role="group" aria-label="Explore Signal Break" hidden>
+        <button type="button" aria-controls="slop-build-a" aria-pressed="true">Build A</button>
+        <button type="button" aria-controls="slop-build-b" aria-pressed="false">Build B</button>
+        <button type="button" aria-controls="slop-round" aria-pressed="false">Follow a test round</button>
+      </div>
+      <div id="slop-build-a" class="explorer-panel build-panel" data-explorer-panel>
+        <figure class="build-visual">
+          <a href="assets/signal-break-a.webp"><img src="assets/signal-break-a.webp" width="1100" height="710" loading="lazy" alt="Angled view of Signal Break Build A, showing the runner and warden starting pads, jammer, shortcut gate, and detour exit."></a>
+          <figcaption>Build A arena, rendered from the exported Roblox place geometry.</figcaption>
+        </figure>
+        <div class="case-prose"><h4>Build A</h4><p>The runner can recover the jammer and risk the contested shortcut or take the always-open detour. This version has two storage obstacles.</p><p>The runner starts at the same point in both builds. The shortcut gate and the five-second opening are also shared.</p></div>
+      </div>
+      <div id="slop-build-b" class="explorer-panel build-panel" data-explorer-panel>
+        <figure class="build-visual">
+          <a href="assets/signal-break-b.webp"><img src="assets/signal-break-b.webp" width="1100" height="710" loading="lazy" alt="Angled view of Signal Break Build B with a moved jammer and warden spawn and three storage obstacles."></a>
+          <figcaption>Build B arena, rendered from the exported Roblox place geometry.</figcaption>
+        </figure>
+        <div class="case-prose"><h4>Build B</h4><p>The jammer, warden start, detour exit and a piece of interior cover move. This version has three storage obstacles.</p><p>The game state, server and client logic are shared. The new layout comes from the build configuration.</p></div>
+      </div>
+      <div id="slop-round" class="explorer-panel" data-explorer-panel>
+        <h4>Tested in both configurations</h4>
+        <ol class="run-history">
+          <li><strong>Pick up</strong><span>At three seconds the runner recovers the jammer. Trying to use it back at the start is refused.</span></li>
+          <li><strong>Open the gate</strong><span>At four seconds the runner uses the jammer at the gate. The shortcut opens for five seconds, and the warden can see the runner’s position.</span></li>
+          <li><strong>Take the exit</strong><span>At six seconds the runner reaches the open exit and wins. A separate test tries the shortcut after it closes and gets refused.</span></li>
+          <li><strong>Swap roles</strong><span>When both players ready up again, the other player becomes the runner.</span></li>
+        </ol>
+        <p class="explorer-foot">The automated test exercises the game rules with declared positions and times. Multiplayer playtesting is a separate step.</p>
+      </div>
+      <p class="explorer-foot"><a href="assets/slop-config-proof.svg">Open both plans side by side ↗</a></p>
+    </section>
+    <div class="case-prose case-summary">
+      <h3>Deciding what to build next</h3>
+      <p>I held a separate collector concept at storyboard review because its second trip repeated too much of the first. That is part of the system I want to build: use the research to decide what deserves a test, then build that test from shared parts. The same approach could work with other products by changing the observations, the components and what the test has to prove.</p>
+    </div>
   </div>
 </section>
 

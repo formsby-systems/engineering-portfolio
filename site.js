@@ -167,24 +167,22 @@ lightSwitch.addEventListener('click', () => {
   setWorkbenchLight(night);
   try { localStorage.setItem('workbench-light', night ? 'night' : 'day'); } catch {}
 });
-const pipeline = document.querySelector('[data-pipeline]');
-const pipelineControls = pipeline.querySelector('.pipeline-controls');
-const pipelineSteps = [...pipelineControls.querySelectorAll('button')];
-const pipelineDetails = [...pipeline.querySelectorAll('.pipeline-detail li')];
-
-function showPipelineStep(activeStep) {
-  pipelineSteps.forEach((button, step) => {
-    button.setAttribute('aria-pressed', String(step === activeStep));
-    pipelineDetails[step].hidden = step !== activeStep;
+for (const explorer of document.querySelectorAll('[data-explorer]')) {
+  const controls = explorer.querySelector('.explorer-controls');
+  const buttons = [...controls.querySelectorAll('button')];
+  const panels = [...explorer.querySelectorAll('[data-explorer-panel]')];
+  function select(button) {
+    const panelId = button.getAttribute('aria-controls');
+    for (const choice of buttons) choice.setAttribute('aria-pressed', String(choice === button));
+    for (const panel of panels) panel.hidden = panel.id !== panelId;
+  }
+  select(buttons[0]);
+  controls.hidden = false;
+  controls.addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (button) select(button);
   });
 }
-
-showPipelineStep(0);
-pipelineControls.hidden = false;
-pipelineControls.addEventListener('click', event => {
-  const button = event.target.closest('button[data-step]');
-  if (button) showPipelineStep(Number(button.dataset.step));
-});
 
 let readingScheduled = false;
 function updateReading() {
