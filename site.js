@@ -184,6 +184,82 @@ for (const explorer of document.querySelectorAll('[data-explorer]')) {
   });
 }
 
+const scorecard = document.getElementById('cardinal-explore');
+if (scorecard) {
+  const week = scorecard.querySelector('#cardinal-week');
+  const downtime = scorecard.querySelector('#cardinal-downtime');
+  const qualityOutput = scorecard.querySelector('#cardinal-quality-output');
+  const timeOutput = scorecard.querySelector('#cardinal-time-output');
+  const periods = [
+    { label: 'June 5–11, 2025', start: 250605000, end: 250611999 },
+    { label: 'June 12–18, 2025', start: 250612000, end: 250618999 },
+    { label: 'June 19–25, 2025', start: 250619000, end: 250625999 },
+  ];
+  const metric = (label, value) => `<div><dt>${label}</dt><dd>${value}</dd></div>`;
+  const percent = (count, total) => total ? `${(100 * count / total).toFixed(1)}%` : '—';
+  const escapeText = value => value.replace(/[&<>"']/g, character => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]
+  ));
+
+  async function loadQualitySample() {
+    try {
+      const response = await fetch('assets/cardinal-demo-data.json');
+      if (!response.ok) throw new Error('Scorecard sample unavailable');
+      const { units } = await response.json();
+      week.addEventListener('change', () => {
+        const period = periods[Number(week.value)];
+        const rows = units.filter(row => Number(row.uid) >= period.start && Number(row.uid) <= period.end);
+        const failed = rows.filter(row => row.result === 'Fail');
+        const counts = new Map();
+        for (const { defects: [defect] } of failed) {
+          if (defect) counts.set(defect, (counts.get(defect) || 0) + 1);
+        }
+        const ranked = [...counts].sort(([left, a], [right, b]) => b - a || left.localeCompare(right));
+        const particle = failed.filter(row => row.defects[0]?.includes('Particle')).length;
+        const defectRows = ranked.map(([name, count]) => (
+          `<tr><th scope="row">${escapeText(name.replace(' - ', ' — '))}</th><td>${count}</td><td>${percent(count, failed.length)}</td></tr>`
+        )).join('');
+        const summary = rows.length
+          ? `Particle failures accounted for <strong>${percent(particle, rows.length)} of inspected units</strong> and <strong>${percent(particle, failed.length)} of failed units</strong>.`
+          : 'This week has no source records. The scorecard leaves the percentages blank.';
+        qualityOutput.innerHTML = `
+          <dl class="cardinal-metrics">${metric('Inspected units', rows.length)}${metric('Failed units', failed.length)}${metric('Primary particle failures', particle)}</dl>
+          <table class="evidence-table"><caption>Primary defects · ${period.label}</caption><thead><tr><th scope="col">Defect</th><th scope="col">Count</th><th scope="col">Share of failures</th></tr></thead>
+          <tbody>${defectRows || '<tr><td colspan="3">No records in this reporting week.</td></tr>'}</tbody></table>
+          <p class="explorer-result">${summary}</p>`;
+      });
+      week.disabled = false;
+      if (week.value !== '0') week.dispatchEvent(new Event('change'));
+    } catch {
+      const note = document.createElement('p');
+      note.textContent = 'The other reporting weeks could not load.';
+      qualityOutput.append(note);
+    }
+  }
+
+  downtime.addEventListener('input', () => {
+    const down = downtime.valueAsNumber;
+    if (!downtime.validity.valid || !Number.isInteger(down)) {
+      timeOutput.innerHTML = '<p class="explorer-result">Enter a whole number from 0 to 1,440 minutes.</p>';
+      return;
+    }
+    const lateStart = 120;
+    const shiftSpan = 555;
+    const allocated = Math.min(down, lateStart);
+    const remaining = down - allocated;
+    const productive = Math.max(0, shiftSpan - remaining);
+    const summary = remaining > shiftSpan
+      ? `${remaining} minutes of remaining downtime exceed the ${shiftSpan}-minute shift span. Reported line time is <strong>0 minutes</strong>.`
+      : `${shiftSpan} minutes − ${remaining} minutes = <strong>${productive} minutes of reported line time.</strong>`;
+    timeOutput.innerHTML = `
+      <dl class="cardinal-metrics">${metric('Allocated to late start', `${allocated} min`)}${metric('Remaining downtime', `${remaining} min`)}${metric('Reported line time', `${(productive / 60).toFixed(2)} hr`)}</dl>
+      <p class="explorer-result">${summary}</p>`;
+  });
+  downtime.disabled = false;
+  if (downtime.value !== downtime.defaultValue) downtime.dispatchEvent(new Event('input'));
+  loadQualitySample();
+}
+
 let readingScheduled = false;
 function updateReading() {
   readingScheduled = false;

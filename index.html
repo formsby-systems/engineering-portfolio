@@ -14,8 +14,8 @@
 <meta name="theme-color" content="#172a37">
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
-<link rel="stylesheet" href="site.css?v=20261110-work">
-<script src="site.js?v=20261110-work" defer></script>
+<link rel="stylesheet" href="site.css?v=20261110-cases">
+<script src="site.js?v=20261110-cases" defer></script>
 </head>
 <body>
 <a class="skip" href="#work">Skip to selected work</a>
@@ -38,7 +38,7 @@
       <div class="hero-copy">
         <h1 id="hero-title">Dylan <br>Becchetti</h1>
         <p class="intro">Mechanical engineering. Manufacturing. Software.</p>
-        <p class="hero-story">I spent three summers at Cardinal building tools coworkers used in daily production meetings. At Lehigh I modeled the gears you can turn here. In my own time I build systems like Midas and SLOP, where I can take an idea all the way to something I can test.</p>
+        <p class="hero-story">I built a production tracker at Cardinal Glass, modeled this sculpture with my capstone team at Lehigh, and write software for problems I want to figure out on my own.</p>
         <div class="hero-cta"><a class="primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="#about">About me</a></div>
         <p class="availability">Lehigh B.S. expected January 2027</p>
       </div>
@@ -69,15 +69,15 @@
   <nav aria-label="Selected work" class="work-index">
     <div>
       <h2>Manufacturing &amp; design</h2>
-      <a href="#experience"><strong>Cardinal Glass</strong><small>The scorecard my coworkers used daily</small></a>
-      <a href="#wilbur"><strong>Wilbur Powerhouse</strong><small>A 79.5-inch ring gear, modeled at full scale</small></a>
+      <a href="#experience"><strong>Cardinal Glass</strong><small>Work through the production Scorecard</small></a>
+      <a href="#wilbur"><strong>Kinetic Wilbur</strong><small>An 80-inch planetary gear sculpture</small></a>
     </div>
     <div>
       <h2>Software &amp; research</h2>
       <a href="#midas"><strong>Midas Futures</strong><small>Explore a real account experiment</small></a>
       <a href="#production"><strong>Scanned Leverage and Optimized Production</strong><small>Compare two builds from one game</small></a>
       <a href="#operalith"><strong>Operalith</strong><small>A workspace built around linked records</small></a>
-      <a href="#formsby"><strong>Formsby</strong><small>From a specific request to an actionable match</small></a>
+      <a href="#formsby"><strong>Formsby</strong><small>Explore how a housing request gets matched</small></a>
     </div>
   </nav>
 </div>
@@ -85,10 +85,8 @@
   <div class="frame about-layout">
     <h2 id="about-title">About me</h2>
     <div class="case-prose">
-      <p class="about-lead">I came up with Formsby during breaks and lunches at Cardinal Glass.</p>
-      <p>At work, I liked taking information that was scattered across files and putting it in front of the people who needed it. Outside work, I kept thinking about a similar problem. If someone had already posted what they needed, could a system find a useful answer somewhere else? That’s the idea behind Formsby.</p>
-      <p>I keep coming back to Midas because there is always another part of the problem to work through. A trade can make money in a backtest and still fail the account rules. With SLOP, I wanted to turn an observation into something original I could build and test. With Operalith, I wanted the task in front of me to stay connected to the rest of the work.</p>
-      <p>I’m finishing mechanical engineering at Lehigh with a minor in Materials Science and Engineering.</p>
+      <p class="about-lead">I’m finishing mechanical engineering at Lehigh. I also spent three summers at Cardinal Glass, where I got to build tools for people I worked with every day.</p>
+      <p>One of my favorite parts of my last summer was seeing the production tracker I built come up in the end-of-day meetings. I started thinking about Formsby on breaks and lunches there. I wondered whether I could take a request someone had posted and find a useful answer somewhere else. I built a small version to try it.</p>
     </div>
   </div>
 </section>
@@ -96,29 +94,45 @@
   <div class="frame">
     <div class="chapter-head">
       <div><p class="chapter-label">Three summer internships · 2023–2025</p><h2 id="experience-title">Cardinal Glass</h2></div>
-      <p class="deck">I built the scorecard my coworkers looked at in the end-of-day meeting. The people working the line already had the information they needed, but it lived in separate files. I wanted the team to be able to sit down together and see what had happened.</p>
+      <p class="deck">I built an Excel/VBA tracker for the end-of-day meetings on an R&amp;D production line. I also worked on the weekly Scorecard, which pulled quality, output, yield and delivery information from separate files into one view.</p>
     </div>
-    <div class="case-grid cardinal-lead">
-      <div class="case-prose">
-        <h3>One place to review the day</h3>
-        <p>For an R&amp;D production line, I built a daily Excel/VBA tracker and developed the connected weekly operations scorecard. The scorecard pulled from inspection records, end-of-day production, a separate yield workbook and work orders.</p>
-        <p>Quality reporting had meant filtering a log of more than 10,000 unit records by date-coded ID and copying the counts. I automated the weekly defect counts and report navigation. I also worked through meters that rolled over, downtime that could be counted twice, and missing measurements that needed to stay blank.</p>
+    <section class="project-explorer cardinal-explorer" id="cardinal-explore" data-explorer aria-labelledby="cardinal-explore-title">
+      <div class="explorer-intro">
+        <div><p class="explorer-note">Weekly operations scorecard · Fictional records</p><h3 id="cardinal-explore-title">What happened on the line?</h3></div>
+        <p>Pick a reporting week, change the downtime on a shift, or trace a number back to its source. The examples use the rules I worked out for the weekly Scorecard.</p>
       </div>
-      <figure class="scorecard-preview">
-        <figcaption><strong>Weekly operations scorecard</strong><small>Reconstruction using fictional data</small></figcaption>
-        <div class="scorecard-week"><strong>June 5–11</strong><span>Week ending June 11, 2025</span></div>
-        <dl>
-          <div><dt>Inspected</dt><dd>42</dd></div><div><dt>Failed</dt><dd>12</dd></div><div><dt>Primary particle defects</dt><dd>6</dd></div>
-        </dl>
-        <ul aria-label="Source files feeding the scorecard">
-          <li><b>Inspection log</b><span>Count defects by reporting week.</span></li>
-          <li><b>Production report</b><span>Track time, output and downtime.</span></li>
-          <li><b>Yield workbook</b><span>Aggregate yields for the selected dates.</span></li>
-          <li><b>Work orders</b><span>Update delivery risk for the active week.</span></li>
-        </ul>
-        <a class="case-link" href="assets/cardinal-demo.html">Try the working reconstruction →</a>
-      </figure>
-    </div>
+      <div class="explorer-controls" role="group" aria-label="Explore the Cardinal scorecard" hidden>
+        <button type="button" aria-controls="cardinal-quality" aria-pressed="true">Quality by week</button>
+        <button type="button" aria-controls="cardinal-time" aria-pressed="false">Production time</button>
+        <button type="button" aria-controls="cardinal-reports" aria-pressed="false">Connected reports</button>
+      </div>
+      <div id="cardinal-quality" class="explorer-panel" data-explorer-panel>
+        <div class="cardinal-panel-heading"><div><h4>Turn date-coded IDs into a weekly defect report</h4><p>The source quality log held more than 10,000 unit records. Each ID contained its production date, so a selected week could determine which records to count.</p></div><label for="cardinal-week">Try a reporting week <select id="cardinal-week" disabled><option value="0">June 5–11, 2025</option><option value="1">June 12–18, 2025</option><option value="2">June 19–25, 2025 · empty</option></select></label></div>
+        <div id="cardinal-quality-output" aria-live="polite" aria-atomic="true">
+          <dl class="cardinal-metrics"><div><dt>Inspected units</dt><dd>42</dd></div><div><dt>Failed units</dt><dd>12</dd></div><div><dt>Primary particle failures</dt><dd>6</dd></div></dl>
+          <table class="evidence-table"><caption>Primary defects · June 5–11, 2025</caption><thead><tr><th scope="col">Defect</th><th scope="col">Count</th><th scope="col">Share of failures</th></tr></thead><tbody><tr><th scope="row">Particle — Surface</th><td>6</td><td>50.0%</td></tr><tr><th scope="row">Coating — Pinholes</th><td>3</td><td>25.0%</td></tr><tr><th scope="row">Handling — Scratch</th><td>3</td><td>25.0%</td></tr></tbody></table>
+          <p class="explorer-result">Particle failures: <strong>14.3% of inspected units</strong>, or <strong>50.0% of failed units</strong>. The denominator changes the meaning.</p>
+        </div>
+        <details class="cardinal-source-detail"><summary>Follow one source record into the report</summary><p><code>250605001</code> means <strong>June 5, 2025 · unit 001</strong>. This fictional failed unit has “Particle — Surface” as its primary defect and “Particle — Edge” as a second defect. The retained report counts the primary defect once. An earlier experiment counted all three defect fields and grouped families; that was a different report version.</p></details>
+        <p class="explorer-foot">The defect report ranked the primary defect counts from largest to smallest. These 84 example units are fictional; the 10,000+ figure describes the original source log.</p>
+      </div>
+      <div id="cardinal-time" class="explorer-panel" data-explorer-panel>
+        <h4>A late start should not be subtracted twice</h4>
+        <p>If recorded downtime already includes the gap before the first production event, subtracting all of it from the observed span understates line time. The documented rule allocates downtime to a late start, then an early stop, and subtracts what remains.</p>
+        <ol class="run-history cardinal-shift"><li><strong>06:00 → 17:30</strong><span>Target shift</span></li><li><strong>08:00 → 17:15</strong><span>Actual span: 555 minutes</span></li><li><strong>120 minutes</strong><span>Late-start gap</span></li><li><strong>15 minutes</strong><span>Early stop: below the 30-minute threshold</span></li></ol>
+        <label class="cardinal-downtime-control" for="cardinal-downtime">Try recorded downtime (minutes) <input id="cardinal-downtime" type="number" disabled min="0" max="1440" step="1" value="150" inputmode="numeric"></label>
+        <div id="cardinal-time-output" aria-live="polite" aria-atomic="true"><dl class="cardinal-metrics"><div><dt>Allocated to late start</dt><dd>120 min</dd></div><div><dt>Remaining downtime</dt><dd>30 min</dd></div><div><dt>Reported line time</dt><dd>8.75 hr</dd></div></dl><p class="explorer-result">555 minutes − 30 minutes = <strong>525 minutes of reported line time.</strong></p></div>
+        <p class="explorer-foot">Fictional shift. Gaps qualify only when greater than 30 minutes; the full qualifying gap can receive downtime. Allocation is capped by recorded downtime, and line time cannot go below zero. The example applies the documented reporting rule.</p>
+      </div>
+      <div id="cardinal-reports" class="explorer-panel" data-explorer-panel>
+        <h4>Connect the dates without rebuilding everyone's worksheets</h4>
+        <table class="evidence-table"><caption>Three more connections in the weekly system</caption><thead><tr><th scope="col">Source</th><th scope="col">Reporting problem</th><th scope="col">What I worked on</th></tr></thead><tbody><tr><th scope="row">Yield workbook</th><td>One week can contain several observations.</td><td>Match all dates within the week and average their percentages.</td></tr><tr><th scope="row">End-of-day report</th><td>Weekly blocks extend across hundreds of columns.</td><td>Navigate to the selected week in place, preserving formulas and comments.</td></tr><tr><th scope="row">Work-order log</th><td>Due dates and status highlights change during the week.</td><td>Classify delivery risk for the active week while preserving previous weeks.</td></tr></tbody></table>
+        <details class="cardinal-source-detail"><summary>Work through a yield example</summary><p>Fictional readings: <strong>June 5: 88% · June 8: 94% · June 11: 91%</strong>. All three dates belong to June 5–11, so the reported mean is <strong>91.0%</strong>. Matching the week to just one source row would miss two observations. This is an average of recorded percentages; it is not a unit-weighted yield.</p></details>
+        <details class="cardinal-source-detail"><summary>See a delivery-rule edge case</summary><p>A fictional order due two days ago enters the <strong>Late</strong> bucket if unhighlighted. Under the later documented rule, a highlighted order is excluded from the first three risk buckets. An order due more than 28 days away enters <strong>On time</strong> regardless of highlighting. “On time” is a planning category, not evidence of shipment.</p></details>
+        <p class="explorer-foot">Three working selectors navigated EOD weeks, scorecard weeks and defect-report periods. Scheduled refresh was unreliable, so a saved week reflects its last successful update.</p>
+      </div>
+      <p class="explorer-foot">This reconstructs the weekly system. I built a separate tracker for the daily R&amp;D debrief. <a href="assets/cardinal-demo.html">Open the full reconstruction and source records →</a></p>
+    </section>
     <ol class="internships" aria-label="Cardinal internships by summer">
       <li><strong>2023</strong><div><h3>Engineering</h3><p>Rotated through maintenance, quality and R&amp;D. Inspected units, analyzed data in Minitab, drafted equipment layouts in AutoCAD and contributed to design failure mode reviews.</p></div></li>
       <li><strong>2024</strong><div><h3>Continuous improvement</h3><p>Wrote illustrated build instructions for customer samples, planned spare-parts organization and signage across 14 warehouse locations, and measured cleanroom airflow with a capture hood and micromanometer.</p></div></li>
@@ -135,22 +149,52 @@
 <section class="chapter capstone" id="wilbur" aria-labelledby="capstone-title">
   <div class="frame">
     <div class="chapter-head">
-      <h2 id="capstone-title">Wilbur Powerhouse</h2>
-      <p class="deck">I did much of the mechanical design and built all of the parametric OpenSCAD models for our year-long Lehigh capstone. My team and I are fabricating a kinetic sculpture designed to hang above a classroom at Lehigh’s Wilbur Powerhouse. I used a 1:1 assembly model to design the parts we’ll build.</p>
-    </div>
-    <dl class="case-measures"><div><dt>Outer ring diameter</dt><dd>79.5 in</dd></div><div><dt>Drive reduction after the ring revision</dt><dd>10:1</dd></div><div><dt>Project</dt><dd>Two semesters</dd></div></dl>
-    <div class="case-grid">
-      <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-explosion.jpg" aria-label="Exploded CAD view of the Wilbur Powerhouse mechanism"><source src="assets/wilbur-explosion.mp4" type="video/mp4"></video><figcaption>Exploded CAD view showing the ring, carrier and supports</figcaption></figure>
+      <div><p class="chapter-label">Lehigh capstone · Spring and fall 2026</p><h2 id="capstone-title">Kinetic Wilbur</h2></div>
       <div class="case-prose">
-        <p>When we took the original concept to full scale, the problems changed. I revised the assembly through sponsor reviews, replacing a plywood carrier concept with welded steel arms and cable stays. To fit the rolling supports, I widened the plywood ring from 1,880 to 2,020 mm. I kept the inner teeth that mesh with the planet gears, staggered the plywood seams, and moved the motor mount 70 mm to keep the drive engaged.</p>
-        <p>My team and I CNC-cut a full-size plywood planet gear and completed the first welded gear unit. The real sleeve measured about 1.02 inches across, so the first gear needed sanding and the next cut needed more bore clearance. That was a fit check on a physical part while the rest of the assembly was still in fabrication.</p>
+        <p class="deck">My team is building an 80-inch kinetic sculpture to hang above a classroom at Wilbur Powerhouse. A planetary gear train makes six signs spin and orbit, so people can watch the mechanism work and see the kind of projects that come out of Lehigh’s Design Labs.</p>
+        <p>I did much of the mechanical design and built the parametric OpenSCAD models, from small proof-of-concept assemblies to the full-scale design. I worked with the team and our sponsor to turn that model into parts we could actually make at Lehigh.</p>
       </div>
     </div>
-    <div class="artifact-pair">
-      <figure class="visual artifact-view"><a href="assets/wilbur-caster.jpg"><img src="assets/wilbur-caster.jpg" width="1200" height="788" loading="lazy" alt="OpenSCAD close-up of two caster mounts rolling on the plywood ring beside its teeth."></a><figcaption>My OpenSCAD model of the paired casters on the widened ring.</figcaption></figure>
-      <figure class="visual artifact-view"><a href="assets/wilbur-carrier-fea.jpg"><img src="assets/wilbur-carrier-fea.jpg" width="1440" height="720" loading="lazy" alt="Finite element model of an earlier carrier under gravity with and without the cable stays."></a><figcaption>Earlier carrier model. Predicted downward movement at the planet support fell from 0.94 to 0.41 mm with cable stays. Motion is magnified 70× in the plot.</figcaption></figure>
+    <dl class="case-measures"><div><dt>Outer diameter, current CAD</dt><dd>79.5 in</dd></div><div><dt>Orbiting sign assemblies</dt><dd>6</dd></div><div><dt>Capstone design and fabrication</dt><dd>2 semesters</dd></div></dl>
+    <section class="project-explorer wilbur-explorer" id="wilbur-explore" data-explorer aria-labelledby="wilbur-explore-title">
+      <div class="explorer-intro">
+        <div><h3 id="wilbur-explore-title">Inside the sculpture</h3></div>
+        <p>Explore the full assembly, the parts that carry it, and what changed when we started making it at full scale.</p>
+      </div>
+      <div class="explorer-controls" role="group" aria-label="Explore the Wilbur Powerhouse sculpture" hidden>
+        <button type="button" aria-controls="wilbur-assembly" aria-pressed="true">Full assembly</button>
+        <button type="button" aria-controls="wilbur-carrier" aria-pressed="false">Carrier &amp; supports</button>
+        <button type="button" aria-controls="wilbur-ring" aria-pressed="false">Ring &amp; drive</button>
+        <button type="button" aria-controls="wilbur-unit" aria-pressed="false">Unit One</button>
+      </div>
+      <div id="wilbur-assembly" class="explorer-panel build-panel" data-explorer-panel>
+        <figure class="build-visual"><a href="assets/wilbur-assembly.webp"><img src="assets/wilbur-assembly.webp" loading="lazy" width="1500" height="1050" alt="Complete CAD sculpture with six signs below the planetary gears and steel support structure above."></a><figcaption>Full sculpture and overhead support concept from my November OpenSCAD assembly.</figcaption></figure>
+        <div class="case-prose"><h4>One motor, six signs</h4><p>The motor turns an external pinion, which drives the outer ring. The six planet gears mesh between that ring and a fixed sun gear. Each planet spins its sign while the carrier moves all six around the center.</p><p>We kept the gearing visible from below. The hanging figures and lettering give visitors a way into the motion and tie the display back to Wilbur and Lehigh.</p><p><a href="#wilbur-exploded">Watch the exploded CAD view ↓</a></p></div>
+      </div>
+      <div id="wilbur-carrier" class="explorer-panel build-panel" data-explorer-panel>
+        <figure class="build-visual"><a href="assets/wilbur-carrier.webp"><img src="assets/wilbur-carrier.webp" loading="lazy" width="1500" height="1050" alt="Six welded steel arms around a central bearing and mast, with cable stays leading to each arm end."></a><figcaption>The six-arm carrier, cable stays and ring contacts in the November CAD.</figcaption></figure>
+        <div class="case-prose"><h4>How the assembly carries its weight</h4><p>I replaced the plywood carrier concept with six paired steel-tube arms welded to a central hub. A thrust bearing supports the rotating carrier at the center. Cable stays run from the carrier’s mast to the ends of the arms. The arm ends roll on the ring, and four fixed support stations carry the ring from below.</p><p>In the team’s analysis of an earlier carrier, adding stays reduced predicted deflection at the planet support from <strong>0.94 mm to 0.41 mm</strong> and shifted more load to the center bearing. The November wheel mounts and installed assembly still need their own checks.</p></div>
+      </div>
+      <div id="wilbur-ring" class="explorer-panel build-panel" data-explorer-panel>
+        <figure class="build-visual"><a href="assets/wilbur-ring.webp"><img src="assets/wilbur-ring.webp" loading="lazy" width="1500" height="1050" alt="Two layers of a large plywood ring gear, offset to show the staggered seams and both sets of teeth."></a><figcaption>Four CNC-cut half-pieces form the two layers of the proposed plywood ring.</figcaption></figure>
+        <div class="case-prose"><h4>One ring, two gear meshes</h4><p>We tested steel and nylon ball transfers with our sponsor and found both louder than we wanted. I modeled fixed casters and widened the solid plywood band they roll on, keeping the inner gear profile so it would still mesh with the planets.</p><p>I staggered the plywood joints between layers so no seam runs through the full thickness. The wider ring took the motor mount 70 mm farther out and changed the pinion-to-ring reduction to <strong>10:1</strong>.</p></div>
+      </div>
+      <div id="wilbur-unit" class="explorer-panel build-panel" data-explorer-panel>
+        <figure class="build-visual"><a href="assets/wilbur-unit.webp"><img src="assets/wilbur-unit.webp" loading="lazy" width="1500" height="1050" alt="One plywood planet gear around the steel sleeve, flange and bearing stack in OpenSCAD."></a><figcaption>CAD of the first repeatable planet assembly. Each unit carries one hanging sign.</figcaption></figure>
+        <div class="case-prose"><h4>Build one before making six</h4><p>We CNC-cut the plywood gear, welded the steel sleeve and plates, then fitted the gear into the first assembly. The sleeve measured about 1.02 inches across. We sanded the first bore to fit and allowed more clearance for later cuts.</p><p>The first unit gave the team a full-scale reference for making the other five, including the bearing and shaft fit.</p></div>
+      </div>
+    </section>
+    <div class="case-prose case-summary">
+      <h3>From a desk prototype to the shop</h3>
+      <p>In spring we interviewed students, faculty and tour guides. They wanted something visitors could understand quickly, with motion that would draw people in without disrupting the space. We turned those conversations into requirements for safe placement, noise, maintenance, cost and fabrication with the tools at Lehigh. We compared concepts and took apart a toy carousel and a planetary gear system before committing to our own mechanism.</p>
+      <p>My first OpenSCAD prototype had a base and a wave cam that moved the figures up and down. For the second I removed the base and vertical motion, moved the support overhead and kept the spin and orbit. We printed small assemblies to work out fit and motion before moving to full-scale plywood and steel in the fall.</p>
+      <p>At full scale we tracked weight and cost alongside fit, noise and shop capacity. An earlier material study estimated about <strong>365 lb for the sculpture</strong> before mounting and drive hardware. The fall review listed 280 lb for a lighter iteration. We also modeled ten years of costs, including electricity, maintenance and replacement parts. The wider ring exceeded the original six-foot target, so we brought the installation envelope back to the sponsor. Final weight depends on the revised parts and installation hardware.</p>
     </div>
-    <p class="case-summary">Adding cable stays reduced predicted movement at the planet support and shifted more load to the center bearing. I used the earlier study to inform the carrier design. The later caster geometry and installed assembly require their own checks.</p>
+    <div class="artifact-pair wilbur-artifacts" id="wilbur-exploded">
+      <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-explosion.jpg" aria-label="Exploded CAD view of the Wilbur Powerhouse mechanism"><source src="assets/wilbur-explosion.mp4" type="video/mp4"></video><figcaption>Earlier exploded CAD study showing how the major assembly groups fit together.</figcaption></figure>
+      <figure class="visual artifact-view"><a href="assets/wilbur-cut-gears.webp"><img src="assets/wilbur-cut-gears.webp" loading="lazy" width="1467" height="1100" alt="Full-scale sun and planet gear profiles cut into a plywood sheet at Lehigh’s Mountaintop shop."></a><figcaption>Sun and planet gear cuts from our fabrication brief. The team nested the gear profiles to get more out of each plywood sheet.</figcaption></figure>
+    </div>
+    <p class="case-foot">Fall design review · First full-scale gear unit assembled. Remaining carrier, ring and installation work ahead.</p>
   </div>
 </section>
 
@@ -244,46 +288,47 @@
   </div>
 </section>
 
-<section class="chapter slop" id="production" aria-labelledby="slop-title">
+<section class="chapter production" id="production" aria-labelledby="production-title">
   <div class="frame">
     <div class="chapter-head">
-      <h2 id="slop-title">Scanned Leverage and Optimized Production</h2>
+      <h2 id="production-title">Scanned Leverage and Optimized Production</h2>
       <div class="case-prose">
         <p class="deck">I wanted to build a repeatable way to study a market, turn what I observed into design questions, and make original prototypes I could test.</p>
         <p>Roblox is the first market. I built a research side that organizes rankings, descriptions and annotated gameplay by source and game. It gives me a way to compare how different games handle the same action or reward. I built the production side so I can turn those questions into my own designs, then change a map or rule without starting the next build from scratch.</p>
       </div>
     </div>
-    <ol class="system-flow" aria-label="SLOP research and production workflow">
+    <ol class="system-flow" aria-label="Scanned Leverage and Optimized Production workflow">
       <li><h3>Scan the market</h3><p>Join market observations to the right game and keep their original source.</p></li>
       <li><h3>Break down play</h3><p>Turn annotated gameplay into actions, state changes and rewards. Leave gaps visible.</p></li>
       <li><h3>Build original variants</h3><p>Set the rules and geometry in a configuration. Assemble a Roblox place using shared code.</p></li>
       <li><h3>Check the result</h3><p>Reject blocked routes and invalid settings. Rebuild from the same inputs and compare the output.</p></li>
     </ol>
-    <section class="project-explorer slop-explorer" id="slop-explore" data-explorer aria-labelledby="slop-explore-title">
+    <div id="slop-explore" aria-hidden="true"></div>
+    <section class="project-explorer signal-break-explorer" id="signal-break" data-explorer aria-labelledby="signal-break-title">
       <div class="explorer-intro">
-        <div><p class="explorer-note">Signal Break · Original two-player prototype</p><h3 id="slop-explore-title">One game. Two builds.</h3></div>
+        <div><p class="explorer-note">Signal Break · Original two-player prototype</p><h3 id="signal-break-title">One game. Two builds.</h3></div>
         <p>Compare the layouts and follow one tested round. I regenerated both places from their committed configurations and matched both saved build hashes.</p>
       </div>
       <div class="explorer-controls" role="group" aria-label="Explore Signal Break" hidden>
-        <button type="button" aria-controls="slop-build-a" aria-pressed="true">Build A</button>
-        <button type="button" aria-controls="slop-build-b" aria-pressed="false">Build B</button>
-        <button type="button" aria-controls="slop-round" aria-pressed="false">Follow a test round</button>
+        <button type="button" aria-controls="signal-break-build-a" aria-pressed="true">Build A</button>
+        <button type="button" aria-controls="signal-break-build-b" aria-pressed="false">Build B</button>
+        <button type="button" aria-controls="signal-break-round" aria-pressed="false">Follow a test round</button>
       </div>
-      <div id="slop-build-a" class="explorer-panel build-panel" data-explorer-panel>
+      <div id="signal-break-build-a" class="explorer-panel build-panel" data-explorer-panel>
         <figure class="build-visual">
           <a href="assets/signal-break-a.webp"><img src="assets/signal-break-a.webp" width="1100" height="710" loading="lazy" alt="Angled view of Signal Break Build A, showing the runner and warden starting pads, jammer, shortcut gate, and detour exit."></a>
           <figcaption>Build A arena, rendered from the exported Roblox place geometry.</figcaption>
         </figure>
         <div class="case-prose"><h4>Build A</h4><p>The runner can recover the jammer and risk the contested shortcut or take the always-open detour. This version has two storage obstacles.</p><p>The runner starts at the same point in both builds. The shortcut gate and the five-second opening are also shared.</p></div>
       </div>
-      <div id="slop-build-b" class="explorer-panel build-panel" data-explorer-panel>
+      <div id="signal-break-build-b" class="explorer-panel build-panel" data-explorer-panel>
         <figure class="build-visual">
           <a href="assets/signal-break-b.webp"><img src="assets/signal-break-b.webp" width="1100" height="710" loading="lazy" alt="Angled view of Signal Break Build B with a moved jammer and warden spawn and three storage obstacles."></a>
           <figcaption>Build B arena, rendered from the exported Roblox place geometry.</figcaption>
         </figure>
         <div class="case-prose"><h4>Build B</h4><p>The jammer, warden start, detour exit and a piece of interior cover move. This version has three storage obstacles.</p><p>The game state, server and client logic are shared. The new layout comes from the build configuration.</p></div>
       </div>
-      <div id="slop-round" class="explorer-panel" data-explorer-panel>
+      <div id="signal-break-round" class="explorer-panel" data-explorer-panel>
         <h4>Tested in both configurations</h4>
         <ol class="run-history">
           <li><strong>Pick up</strong><span>At three seconds the runner recovers the jammer. Trying to use it back at the start is refused.</span></li>
@@ -346,11 +391,74 @@
     <div class="case-prose case-summary">
       <p><strong>A design decision beyond the housing prototype.</strong> For the original paid-introduction concept, I designed a flow that prepared a match packet before checkout and tied it to a persistent ID. Payment would retrieve the saved packet instead of repeating the search and producing a different answer. The Python prototype included file-based unlock logic. Completing that delivery flow, expanding categories and adding private conversations are part of the broader product I want to build.</p>
     </div>
-    <details class="historical-results">
-      <summary>Walk through a search with a duplicate and a failed source</summary>
-      <p><strong>Fictional example of the code paths.</strong> A renter asks for a one-bedroom under $1,500 that allows cats. Two sources return the same listing URL, and a third source times out. The job keeps one copy of the listing, evaluates it against the request and records the failed source.</p>
-      <p>The run can return the candidate with a partial status. The dashboard reads results from that run for the signed-in renter, so an older listing from a previous run does not reappear as a new result. The example illustrates the behavior of the code and does not use live listings.</p>
-    </details>
+    <section class="project-explorer formsby-explorer" id="formsby-explore" data-explorer aria-labelledby="formsby-explore-title">
+      <div class="explorer-intro">
+        <div><p class="explorer-note">Housing prototype · Sample request</p><h3 id="formsby-explore-title">What makes a useful match?</h3></div>
+        <p>Follow a fictional request through candidate scoring, then inspect what the source code does when a connector fails. I ran the fallback matcher on three invented listings. The other examples trace the behavior in the application source.</p>
+      </div>
+      <div class="explorer-controls" role="group" aria-label="Explore Formsby evidence" hidden>
+        <button type="button" aria-controls="formsby-intake" aria-pressed="true">The request</button>
+        <button type="button" aria-controls="formsby-candidates" aria-pressed="false">Rank &amp; evidence</button>
+        <button type="button" aria-controls="formsby-failure" aria-pressed="false">Failures &amp; ownership</button>
+        <button type="button" aria-controls="formsby-scope" aria-pressed="false">Built &amp; planned</button>
+      </div>
+      <div id="formsby-intake" class="explorer-panel" data-explorer-panel>
+        <h4>“A one-bedroom in Bethlehem, under $1,500. Cats allowed.”</h4>
+        <ol class="run-history">
+          <li><strong>Location</strong><span>Bethlehem</span></li>
+          <li><strong>Budget</strong><span>$1,500 maximum</span></li>
+          <li><strong>Bedrooms</strong><span>1</span></li>
+          <li><strong>Must-have</strong><span>“cats allowed”</span></li>
+        </ol>
+        <p class="explorer-result">This example starts with the request already in structured form and runs the March build’s fallback scoring functions.</p>
+      </div>
+      <div id="formsby-candidates" class="explorer-panel" data-explorer-panel>
+        <h4>What did the matcher find?</h4>
+        <table class="evidence-table">
+          <caption>Invented candidates · actual deterministic fallback output</caption>
+          <thead><tr><th scope="col">Candidate evidence</th><th scope="col">Score</th><th scope="col">Matcher’s explanation</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1 bedroom apartment<br>Bethlehem · $1,450<br>“Cats allowed.”</th><td>78 / 100</td><td>Location aligned; bed count may align; mentions cats allowed.</td></tr>
+            <tr><th scope="row">Studio apartment<br>Bethlehem · $1,300<br>“Pet policy not stated.”</th><td>70 / 100</td><td>Location aligned; bed count may align.</td></tr>
+            <tr><th scope="row">Garden apartment<br>Easton · $950<br>“Pet policy not stated.”</th><td>45 / 100</td><td>“Matched on housing subtype and location.” This is the fallback’s generic text, despite no matching location.</td></tr>
+          </tbody>
+        </table>
+        <details class="historical-results">
+          <summary>Why did a studio receive a bedroom bonus?</summary>
+          <p>The fallback starts at 45, adds 15 for a location mention, 10 for the requested bedroom digit anywhere in the text, and 8 per must-have phrase. The “1” in “$1,300” triggers the bedroom bonus. It does not enforce the budget or verify availability.</p>
+          <p>The processor’s code keeps candidates scoring at least 50 and sorts them highest first. Applying that rule to the sample leaves the one-bedroom and the studio.</p>
+        </details>
+        <p class="explorer-result"><strong>The next quality gate:</strong> structured bedroom and budget checks, evidence-specific explanations, and independent availability verification. These scores describe a prototype fallback, not measured recommendation accuracy.</p>
+      </div>
+      <div id="formsby-failure" class="explorer-panel" data-explorer-panel>
+        <h4>A useful result needs a trustworthy run history.</h4>
+        <p>Suppose two sources return the same listing URL and a third fails. Here is how the application code handles that case.</p>
+        <ol class="run-history">
+          <li><strong>Keep one candidate</strong><span>The processor keeps the first candidate for each canonical URL.</span></li>
+          <li><strong>Mark partial results</strong><span>A connector failure records PARTIAL; saved matches receive NEEDS_REVIEW.</span></li>
+          <li><strong>Read the latest run</strong><span>The detail endpoint selects the newest run and queries only its evaluations.</span></li>
+          <li><strong>Check the owner</strong><span>The request query includes the signed-in user ID. A missing or other user’s request returns 404.</span></li>
+        </ol>
+        <details class="historical-results">
+          <summary>What if nothing comes back?</summary>
+          <p>Zero results with no connector errors can still be READY. Connector errors produce PARTIAL even with zero results. An exception caught by the processor’s outer handler records FAILED. These states distinguish an empty search from incomplete source coverage and an aborted run.</p>
+          <p>New candidates start with a CURRENT status. Confirming whether a listing is still available is a separate check. This example traces the owner and latest-run filters in the source code.</p>
+        </details>
+      </div>
+      <div id="formsby-scope" class="explorer-panel" data-explorer-panel>
+        <h4>One product idea, two generations of implementation.</h4>
+        <table class="evidence-table">
+          <caption>Keep the implementation separate from the ambition</caption>
+          <thead><tr><th scope="col">Stage</th><th scope="col">Evidence and boundary</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Original Python prototype</th><td>City/category lookups, persistent lead IDs and parent-linked match IDs. Historical selector debugging recovered five full-text candidates. File-based payment flags simulated unlocking saved text.</td></tr>
+            <tr><th scope="row">Later housing application</th><td>Source contains authenticated requests, run records, source adapters, URL deduplication, evaluations and private latest-run results. The ranking panel runs through one part of that build.</td></tr>
+            <tr><th scope="row">Original design, still broader than this build</th><td>Prepare a match packet before payment and deliver that exact packet by persistent ID. The later housing code instead dispatches processing after payment when billing is enabled. Completed paid delivery, more categories and private conversations remain future work.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="explorer-foot">The scoring example uses fictional listings and the fallback from the March 15, 2026 source snapshot (<code>d61dc649</code>).</p>
+    </section>
     <p class="case-foot">Housing prototype · Last code update March 2026 · Python, Next.js, PostgreSQL, Prisma, Inngest and Stripe</p>
   </div>
 </section>
