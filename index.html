@@ -14,8 +14,8 @@
 <meta name="theme-color" content="#172a37">
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
-<link rel="stylesheet" href="site.css?v=20261110-cases">
-<script src="site.js?v=20261110-cases" defer></script>
+<link rel="stylesheet" href="site.css?v=20261110-operalith">
+<script src="site.js?v=20261110-operalith" defer></script>
 </head>
 <body>
 <a class="skip" href="#work">Skip to selected work</a>
@@ -76,7 +76,7 @@
       <h2>Software &amp; research</h2>
       <a href="#midas"><strong>Midas Futures</strong><small>Explore a real account experiment</small></a>
       <a href="#production"><strong>Scanned Leverage and Optimized Production</strong><small>Compare two builds from one game</small></a>
-      <a href="#operalith"><strong>Operalith</strong><small>A workspace built around linked records</small></a>
+      <a href="#operalith"><strong>Operalith</strong><small>Tools and workflows in one workspace</small></a>
       <a href="#formsby"><strong>Formsby</strong><small>Explore how a housing request gets matched</small></a>
     </div>
   </nav>
@@ -98,7 +98,7 @@
     </div>
     <section class="project-explorer cardinal-explorer" id="cardinal-explore" data-explorer aria-labelledby="cardinal-explore-title">
       <div class="explorer-intro">
-        <div><p class="explorer-note">Weekly operations scorecard · Fictional records</p><h3 id="cardinal-explore-title">What happened on the line?</h3></div>
+        <div><p class="explorer-note">Weekly operations scorecard · Fictional records</p><h3 id="cardinal-explore-title">Weekly Scorecard</h3></div>
         <p>Pick a reporting week, change the downtime on a shift, or trace a number back to its source. The examples use the rules I worked out for the weekly Scorecard.</p>
       </div>
       <div class="explorer-controls" role="group" aria-label="Explore the Cardinal scorecard" hidden>
@@ -117,7 +117,7 @@
         <p class="explorer-foot">The defect report ranked the primary defect counts from largest to smallest. These 84 example units are fictional; the 10,000+ figure describes the original source log.</p>
       </div>
       <div id="cardinal-time" class="explorer-panel" data-explorer-panel>
-        <h4>A late start should not be subtracted twice</h4>
+        <h4>Production time</h4>
         <p>If recorded downtime already includes the gap before the first production event, subtracting all of it from the observed span understates line time. The documented rule allocates downtime to a late start, then an early stop, and subtracts what remains.</p>
         <ol class="run-history cardinal-shift"><li><strong>06:00 → 17:30</strong><span>Target shift</span></li><li><strong>08:00 → 17:15</strong><span>Actual span: 555 minutes</span></li><li><strong>120 minutes</strong><span>Late-start gap</span></li><li><strong>15 minutes</strong><span>Early stop: below the 30-minute threshold</span></li></ol>
         <label class="cardinal-downtime-control" for="cardinal-downtime">Try recorded downtime (minutes) <input id="cardinal-downtime" type="number" disabled min="0" max="1440" step="1" value="150" inputmode="numeric"></label>
@@ -158,7 +158,7 @@
     <dl class="case-measures"><div><dt>Outer diameter, current CAD</dt><dd>79.5 in</dd></div><div><dt>Orbiting sign assemblies</dt><dd>6</dd></div><div><dt>Capstone design and fabrication</dt><dd>2 semesters</dd></div></dl>
     <section class="project-explorer wilbur-explorer" id="wilbur-explore" data-explorer aria-labelledby="wilbur-explore-title">
       <div class="explorer-intro">
-        <div><h3 id="wilbur-explore-title">Inside the sculpture</h3></div>
+        <div><h3 id="wilbur-explore-title">Sculpture components</h3></div>
         <p>Explore the full assembly, the parts that carry it, and what changed when we started making it at full scale.</p>
       </div>
       <div class="explorer-controls" role="group" aria-label="Explore the Wilbur Powerhouse sculpture" hidden>
@@ -169,23 +169,23 @@
       </div>
       <div id="wilbur-assembly" class="explorer-panel build-panel" data-explorer-panel>
         <figure class="build-visual"><a href="assets/wilbur-assembly.webp"><img src="assets/wilbur-assembly.webp" loading="lazy" width="1500" height="1050" alt="Complete CAD sculpture with six signs below the planetary gears and steel support structure above."></a><figcaption>Full sculpture and overhead support concept from my November OpenSCAD assembly.</figcaption></figure>
-        <div class="case-prose"><h4>One motor, six signs</h4><p>The motor turns an external pinion, which drives the outer ring. The six planet gears mesh between that ring and a fixed sun gear. Each planet spins its sign while the carrier moves all six around the center.</p><p>We kept the gearing visible from below. The hanging figures and lettering give visitors a way into the motion and tie the display back to Wilbur and Lehigh.</p><p><a href="#wilbur-exploded">Watch the exploded CAD view ↓</a></p></div>
+        <div class="case-prose"><h4>Planetary gear assembly</h4><p>The motor turns an external pinion, which drives the outer ring. The six planet gears mesh between that ring and a fixed sun gear. Each planet spins its sign while the carrier moves all six around the center.</p><p>We kept the gearing visible from below. The hanging figures and lettering give visitors a way into the motion and tie the display back to Wilbur and Lehigh.</p><p><a href="#wilbur-exploded">Watch the exploded CAD view ↓</a></p></div>
       </div>
       <div id="wilbur-carrier" class="explorer-panel build-panel" data-explorer-panel>
         <figure class="build-visual"><a href="assets/wilbur-carrier.webp"><img src="assets/wilbur-carrier.webp" loading="lazy" width="1500" height="1050" alt="Six welded steel arms around a central bearing and mast, with cable stays leading to each arm end."></a><figcaption>The six-arm carrier, cable stays and ring contacts in the November CAD.</figcaption></figure>
-        <div class="case-prose"><h4>How the assembly carries its weight</h4><p>I replaced the plywood carrier concept with six paired steel-tube arms welded to a central hub. A thrust bearing supports the rotating carrier at the center. Cable stays run from the carrier’s mast to the ends of the arms. The arm ends roll on the ring, and four fixed support stations carry the ring from below.</p><p>In the team’s analysis of an earlier carrier, adding stays reduced predicted deflection at the planet support from <strong>0.94 mm to 0.41 mm</strong> and shifted more load to the center bearing. The November wheel mounts and installed assembly still need their own checks.</p></div>
+        <div class="case-prose"><h4>Carrier and supports</h4><p>I replaced the plywood carrier concept with six paired steel-tube arms welded to a central hub. A thrust bearing supports the rotating carrier at the center. Cable stays run from the carrier’s mast to the ends of the arms. The arm ends roll on the ring, and four fixed support stations carry the ring from below.</p><p>In the team’s analysis of an earlier carrier, adding stays reduced predicted deflection at the planet support from <strong>0.94 mm to 0.41 mm</strong> and shifted more load to the center bearing. The November wheel mounts and installed assembly still need their own checks.</p></div>
       </div>
       <div id="wilbur-ring" class="explorer-panel build-panel" data-explorer-panel>
         <figure class="build-visual"><a href="assets/wilbur-ring.webp"><img src="assets/wilbur-ring.webp" loading="lazy" width="1500" height="1050" alt="Two layers of a large plywood ring gear, offset to show the staggered seams and both sets of teeth."></a><figcaption>Four CNC-cut half-pieces form the two layers of the proposed plywood ring.</figcaption></figure>
-        <div class="case-prose"><h4>One ring, two gear meshes</h4><p>We tested steel and nylon ball transfers with our sponsor and found both louder than we wanted. I modeled fixed casters and widened the solid plywood band they roll on, keeping the inner gear profile so it would still mesh with the planets.</p><p>I staggered the plywood joints between layers so no seam runs through the full thickness. The wider ring took the motor mount 70 mm farther out and changed the pinion-to-ring reduction to <strong>10:1</strong>.</p></div>
+        <div class="case-prose"><h4>Ring gear and drive</h4><p>We tested steel and nylon ball transfers with our sponsor and found both louder than we wanted. I modeled fixed casters and widened the solid plywood band they roll on, keeping the inner gear profile so it would still mesh with the planets.</p><p>I staggered the plywood joints between layers so no seam runs through the full thickness. The wider ring took the motor mount 70 mm farther out and changed the pinion-to-ring reduction to <strong>10:1</strong>.</p></div>
       </div>
       <div id="wilbur-unit" class="explorer-panel build-panel" data-explorer-panel>
         <figure class="build-visual"><a href="assets/wilbur-unit.webp"><img src="assets/wilbur-unit.webp" loading="lazy" width="1500" height="1050" alt="One plywood planet gear around the steel sleeve, flange and bearing stack in OpenSCAD."></a><figcaption>CAD of the first repeatable planet assembly. Each unit carries one hanging sign.</figcaption></figure>
-        <div class="case-prose"><h4>Build one before making six</h4><p>We CNC-cut the plywood gear, welded the steel sleeve and plates, then fitted the gear into the first assembly. The sleeve measured about 1.02 inches across. We sanded the first bore to fit and allowed more clearance for later cuts.</p><p>The first unit gave the team a full-scale reference for making the other five, including the bearing and shaft fit.</p></div>
+        <div class="case-prose"><h4>Unit One</h4><p>We CNC-cut the plywood gear, welded the steel sleeve and plates, then fitted the gear into the first assembly. The sleeve measured about 1.02 inches across. We sanded the first bore to fit and allowed more clearance for later cuts.</p><p>The first unit gave the team a full-scale reference for making the other five, including the bearing and shaft fit.</p></div>
       </div>
     </section>
     <div class="case-prose case-summary">
-      <h3>From a desk prototype to the shop</h3>
+      <h3>Design and fabrication</h3>
       <p>In spring we interviewed students, faculty and tour guides. They wanted something visitors could understand quickly, with motion that would draw people in without disrupting the space. We turned those conversations into requirements for safe placement, noise, maintenance, cost and fabrication with the tools at Lehigh. We compared concepts and took apart a toy carousel and a planetary gear system before committing to our own mechanism.</p>
       <p>My first OpenSCAD prototype had a base and a wave cam that moved the figures up and down. For the second I removed the base and vertical motion, moved the support overhead and kept the spin and orbit. We printed small assemblies to work out fit and motion before moving to full-scale plywood and steel in the fall.</p>
       <p>At full scale we tracked weight and cost alongside fit, noise and shop capacity. An earlier material study estimated about <strong>365 lb for the sculpture</strong> before mounting and drive hardware. The fall review listed 280 lb for a lighter iteration. We also modeled ten years of costs, including electricity, maintenance and replacement parts. The wider ring exceeded the original six-foot target, so we brought the installation envelope back to the sponsor. Final weight depends on the revised parts and installation hardware.</p>
@@ -215,7 +215,7 @@
     </ol>
     <section class="project-explorer midas-explorer" id="midas-explore" data-explorer aria-labelledby="midas-explore-title">
       <div class="explorer-intro">
-        <div><p class="explorer-note">Historical account simulation · November 10, 2026</p><h3 id="midas-explore-title">Could this signal work on its own?</h3></div>
+        <div><p class="explorer-note">Historical account simulation · November 10, 2026</p><h3 id="midas-explore-title">Account experiment</h3></div>
         <p>I started the campaign to test one signal on its own and compare it with earlier configurations. The records below are from the completed cloud experiment.</p>
       </div>
       <div class="explorer-controls" role="group" aria-label="Explore the Midas run" hidden>
@@ -256,7 +256,7 @@
         <figcaption>Earlier Midas dashboard capture. This simulated account received a modeled payout and ended $1,286.85 down after fees.</figcaption>
       </figure>
       <div class="case-prose">
-        <h3>Making the system agree with itself</h3>
+        <h3>Replay and forward evaluation</h3>
         <p>Replay and forward evaluation once disagreed on when a bar was complete and which price an exit could use. I put those decisions into a shared state machine. A retained check matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p>
         <p>I also built a Mac queue that ran 288 variants at two cost settings in one observed campaign. It returned the saved result for a duplicate and rejected an invalid request before starting a run.</p>
       </div>
@@ -306,7 +306,7 @@
     <div id="slop-explore" aria-hidden="true"></div>
     <section class="project-explorer signal-break-explorer" id="signal-break" data-explorer aria-labelledby="signal-break-title">
       <div class="explorer-intro">
-        <div><p class="explorer-note">Signal Break · Original two-player prototype</p><h3 id="signal-break-title">One game. Two builds.</h3></div>
+        <div><p class="explorer-note">Signal Break · Original two-player prototype</p><h3 id="signal-break-title">Signal Break configurations</h3></div>
         <p>Compare the layouts and follow one tested round. I regenerated both places from their committed configurations and matched both saved build hashes.</p>
       </div>
       <div class="explorer-controls" role="group" aria-label="Explore Signal Break" hidden>
@@ -341,7 +341,7 @@
       <p class="explorer-foot"><a href="assets/slop-config-proof.svg">Open both plans side by side ↗</a></p>
     </section>
     <div class="case-prose case-summary">
-      <h3>Deciding what to build next</h3>
+      <h3>Concept review</h3>
       <p>I held a separate collector concept at storyboard review because its second trip repeated too much of the first. That is part of the system I want to build: use the research to decide what deserves a test, then build that test from shared parts. The same approach could work with other products by changing the observations, the components and what the test has to prove.</p>
     </div>
   </div>
@@ -351,14 +351,48 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="operalith-title">Operalith</h2>
-      <p class="deck">I started Operalith because a task is rarely just a task. It can be part of a project, depend on supplies and start with a customer enquiry. I wanted someone to choose the tools they need and still be able to follow those connections.</p>
+      <p class="deck">I’m building Operalith so someone can choose the tools they need, make the workspace their own, and keep their work connected. A customer enquiry can become a project. The next task and the supplies for it can point back to that same project.</p>
     </div>
     <div class="case-grid">
-      <figure class="visual product-view"><a href="https://www.operalith.com/"><img src="assets/operalith-home.jpg" width="1440" height="900" loading="lazy" alt="Operalith’s homepage with appearance choices and a connected workspace example."></a><figcaption>Operalith.com homepage</figcaption></figure>
+      <figure class="visual product-view"><a href="https://www.operalith.com/"><img src="assets/operalith-home.jpg" width="1440" height="900" loading="lazy" alt="Operalith’s public homepage with its personal workspace, appearance choices and connected tools."></a><figcaption>Operalith.com</figcaption></figure>
       <div class="case-prose">
-        <p>I built a catalogue for choosing tools and adding compatible features. Records stay connected as the workspace changes. For example, a project can link to the original enquiry and the supplies it needs. The public demo keeps sample work in your browser. A separate, invited solo pilot saves fictional records to an account.</p>
-        <p>I designed account saves to prevent duplicate writes and stop an older browser tab from overwriting newer work. In a hosted test, an edit survived reload and undo restored the previous value while keeping all <strong>11 prior history entries</strong>.</p>
-        <a class="case-link" href="https://www.operalith.com/#try">Try the connected workspace →</a>
+        <p>I designed a catalogue of tools with a shared record model underneath. Planner, Projects and Inventory support features such as dates, checklists and project links. Equipment Loans records checkouts and returns. Customers &amp; Enquiries keeps the customer, site and request together as an enquiry turns into work.</p>
+        <p>The connections open the original records. Changing a supply count in Inventory updates what the project overview shows. A task keeps its own date and checklist. A project created from an enquiry keeps references in both directions, so it can still be traced back to the customer and request.</p>
+        <p>People can add compatible features and change the appearance while keeping the work they already entered. The public example saves in the browser. A separately invited solo pilot supports account saves.</p>
+        <a class="case-link" href="https://www.operalith.com/#try">Open the public workspace →</a>
+      </div>
+    </div>
+    <section class="operalith-example" id="operalith-explore" aria-labelledby="operalith-example-title" data-operalith-example>
+      <div class="op-example-heading">
+        <div><p class="chapter-label">Fictional records · Current local build</p><h3 id="operalith-example-title">Example workspace</h3></div>
+        <p>I ran this example through Operalith’s record engine. Review the linked work, receive three pads, then undo the stock change. The walkthrough replays the saved results.</p>
+      </div>
+      <div class="op-workspace">
+        <div class="op-workspace-top"><span>Northline Workshop</span><span>Display stand repair</span></div>
+        <div class="op-linked-records">
+          <section class="op-record"><p class="op-tool">Customers &amp; Enquiries</p><h4>Repair the display stand</h4><dl><div><dt>Customer</dt><dd>Northline Workshop</dd></div><div><dt>Site</dt><dd>Studio display area</dd></div><div><dt>Status</dt><dd>Converted</dd></div></dl><details><summary>View the conversion</summary><p>I marked the enquiry Ready, then created its linked project. Operalith stored reciprocal references to the original enquiry and project. I then linked a preparation task and the supplies to that project.</p><p>The follow-up “Prepare the stand repair” and its November 12 date stayed on the enquiry.</p></details></section>
+          <section class="op-record"><p class="op-tool">Projects</p><h4>Display stand repair</h4><dl><div><dt>Stage</dt><dd>To do</dd></div><div><dt>Source enquiry</dt><dd>Repair the display stand</dd></div><div><dt>Linked records</dt><dd>1 task · 2 supplies</dd></div></dl><p class="op-record-note">The same project remains linked throughout the stock change and undo.</p></section>
+          <section class="op-record"><p class="op-tool">Planner</p><h4>Count supplies before repair</h4><dl><div><dt>Status</dt><dd>To do</dd></div><div><dt>Due</dt><dd>November 12, 2026</dd></div></dl><ul class="op-checklist" aria-label="Checklist, both steps incomplete"><li>Count protective pads</li><li>Inspect the stand fixings</li></ul><p class="op-record-note">Linked to Display stand repair.</p></section>
+        </div>
+        <section class="op-stock" aria-labelledby="op-stock-title">
+          <div class="op-stock-heading"><div><p class="op-tool">Inventory</p><h4 id="op-stock-title">Supplies for this project</h4></div><div class="op-stock-actions"><button type="button" data-op-receive disabled>Record 3 pads received</button><button type="button" data-op-undo disabled>Undo stock change</button></div></div>
+          <div data-op-output aria-live="polite" aria-atomic="true">
+            <table class="op-stock-table"><thead><tr><th scope="col">Supply</th><th scope="col">Recorded</th><th scope="col">Threshold</th><th scope="col">Check</th></tr></thead><tbody><tr><th scope="row">Protective pads</th><td>2 pieces</td><td>4</td><td>2 pieces below threshold</td></tr><tr><th scope="row">Mounting brackets</th><td>8 pieces</td><td>4</td><td>Above threshold</td></tr></tbody></table>
+            <p class="op-state">1 linked supply needs a stock check.</p>
+          </div>
+          <p class="op-stock-note">The threshold is a manually chosen check level. The example records a receipt with a reason and lets you reverse that change.</p>
+        </section>
+        <div class="op-equipment"><p><strong>Equipment Loans</strong> also has a cordless drill checked out to the fictional operator, due November 12. It keeps its own custody log in the workspace.</p></div>
+      </div>
+      <p class="op-source-link"><a href="assets/operalith-example.json">View the example records ↗</a></p>
+    </section>
+    <div class="case-grid operalith-build">
+      <figure class="visual product-view"><a href="assets/operalith-connected.jpg"><img src="assets/operalith-connected.jpg" width="1440" height="1050" loading="lazy" alt="Actual Operalith public demo showing Repair kits at four kits, with links to the original workshop project and task below."></a><figcaption>The public demo with an updated supply count and links to its original project and task.</figcaption></figure>
+      <div class="case-prose">
+        <h3>Tool setup and saved work</h3>
+        <p>I made tool definitions and feature compatibility explicit. Adding project links requires a Projects tool. Adding a checklist keeps the existing task and adds the new fields around it. The same state and validation functions support the tools, their connected views, and the account version.</p>
+        <p>I also built change history and targeted undo. A stock adjustment needs a reason, and undo checks whether later edits would conflict. For account saves, I check workspace ownership, the revision the client edited, and the request’s identity. Those checks let the app reject an older save and recognize a retry.</p>
+        <p>Operalith is still a product I’m developing. The public demo is browser-local and the account pilot is for invited solo use with fictional work.</p>
       </div>
     </div>
   </div>
@@ -389,11 +423,11 @@
       </div>
     </div>
     <div class="case-prose case-summary">
-      <p><strong>A design decision beyond the housing prototype.</strong> For the original paid-introduction concept, I designed a flow that prepared a match packet before checkout and tied it to a persistent ID. Payment would retrieve the saved packet instead of repeating the search and producing a different answer. The Python prototype included file-based unlock logic. Completing that delivery flow, expanding categories and adding private conversations are part of the broader product I want to build.</p>
+      <p><strong>Original delivery design.</strong> For the original paid-introduction concept, I designed a flow that prepared a match packet before checkout and tied it to a persistent ID. Payment would retrieve the saved packet instead of repeating the search and producing a different answer. The Python prototype included file-based unlock logic. Completing that delivery flow, expanding categories and adding private conversations are part of the broader product I want to build.</p>
     </div>
     <section class="project-explorer formsby-explorer" id="formsby-explore" data-explorer aria-labelledby="formsby-explore-title">
       <div class="explorer-intro">
-        <div><p class="explorer-note">Housing prototype · Sample request</p><h3 id="formsby-explore-title">What makes a useful match?</h3></div>
+        <div><p class="explorer-note">Housing prototype · Sample request</p><h3 id="formsby-explore-title">Housing search example</h3></div>
         <p>Follow a fictional request through candidate scoring, then inspect what the source code does when a connector fails. I ran the fallback matcher on three invented listings. The other examples trace the behavior in the application source.</p>
       </div>
       <div class="explorer-controls" role="group" aria-label="Explore Formsby evidence" hidden>
@@ -431,7 +465,7 @@
         <p class="explorer-result"><strong>The next quality gate:</strong> structured bedroom and budget checks, evidence-specific explanations, and independent availability verification. These scores describe a prototype fallback, not measured recommendation accuracy.</p>
       </div>
       <div id="formsby-failure" class="explorer-panel" data-explorer-panel>
-        <h4>A useful result needs a trustworthy run history.</h4>
+        <h4>Search history and access</h4>
         <p>Suppose two sources return the same listing URL and a third fails. Here is how the application code handles that case.</p>
         <ol class="run-history">
           <li><strong>Keep one candidate</strong><span>The processor keeps the first candidate for each canonical URL.</span></li>
@@ -446,9 +480,9 @@
         </details>
       </div>
       <div id="formsby-scope" class="explorer-panel" data-explorer-panel>
-        <h4>One product idea, two generations of implementation.</h4>
+        <h4>Project history</h4>
         <table class="evidence-table">
-          <caption>Keep the implementation separate from the ambition</caption>
+          <caption>Implementation and planned work</caption>
           <thead><tr><th scope="col">Stage</th><th scope="col">Evidence and boundary</th></tr></thead>
           <tbody>
             <tr><th scope="row">Original Python prototype</th><td>City/category lookups, persistent lead IDs and parent-linked match IDs. Historical selector debugging recovered five full-text candidates. File-based payment flags simulated unlocking saved text.</td></tr>

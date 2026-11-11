@@ -562,9 +562,57 @@ body[data-theme=night] .about{background:#2b302c}
 .wilbur-explorer .build-panel{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:start}
 .wilbur-artifacts{scroll-margin-top:calc(var(--bar) + 18px)}
 .wilbur-artifacts :is(video,img){aspect-ratio:4 / 3;object-fit:contain;background:#182622}
+.operalith-example{margin-top:clamp(30px,5vw,62px);scroll-margin-top:calc(var(--bar) + 20px)}
+.op-example-heading{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px;align-items:end;margin-bottom:20px}
+.op-example-heading h3{margin:5px 0 0;font-size:clamp(1.8rem,3.7vw,3.5rem)}
+.op-example-heading>p{max-width:53ch;color:var(--muted)}
+.op-workspace{background:#fffdf5;color:#252b25;border:1px solid #9b9c87;--muted:#555c50;color-scheme:light}
+.op-workspace-top{display:flex;flex-wrap:wrap;gap:5px 25px;justify-content:space-between;background:#e8e9d9;padding:14px 22px;border-bottom:1px solid #b6b9a3;font-weight:700;font-size:.92rem}
+.op-workspace-top span+span{font-weight:500}
+.op-linked-records{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.op-record{padding:22px;min-width:0}
+.op-record+.op-record{border-left:1px solid #d2d2bf}
+.op-tool{font-size:.76rem;letter-spacing:.02em;color:#5f6454;font-weight:650;margin:0 0 10px}
+.op-record h4,.op-stock h4{font-size:clamp(1.2rem,1.8vw,1.6rem);letter-spacing:-.025em;margin:0 0 15px;line-height:1.2}
+.op-record dl{margin:0}
+.op-record dl div{margin:0 0 12px}
+.op-record dt{font-size:.78rem;color:#5f6454}
+.op-record dd{margin:2px 0 0;font-size:.94rem}
+.op-record-note,.op-record details{font-size:.84rem;line-height:1.5;margin-top:15px}
+.op-record details summary{cursor:pointer;font-weight:650;padding:6px 0}
+.op-record details p{margin:8px 0 0}
+.op-checklist{list-style:none;padding:0;font-size:.9rem}
+.op-checklist li{padding-left:20px;position:relative;margin-bottom:8px}
+.op-checklist li:before{content:'';position:absolute;top:.3em;left:0;width:11px;height:11px;border:1px solid #747d67}
+.op-stock{border-top:1px solid #b6b9a3;padding:22px}
+.op-stock-heading{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.op-stock-heading h4{margin-bottom:0}
+.op-stock-actions{display:flex;gap:8px;flex-wrap:wrap}
+.op-stock-actions button{font:inherit;font-size:.87rem;font-weight:650;min-height:44px;border:1px solid #78826d;background:#fffdf5;color:#263a29;padding:9px 12px;cursor:pointer}
+.op-stock-actions button:first-child{background:#344d36;color:#fffdf5;border-color:#344d36}
+.op-stock-actions button:hover:enabled{box-shadow:inset 0 0 0 1px currentColor}
+.op-stock-actions button:disabled{opacity:.45;cursor:default}
+.op-stock-table{width:100%;border-collapse:collapse;text-align:left;font-size:.91rem;margin-top:22px;table-layout:fixed}
+.op-stock-table :is(th,td){padding:11px 8px;vertical-align:top;border-bottom:1px solid #d2d2bf;overflow-wrap:anywhere}
+.op-stock-table th:first-child{width:27%}
+.op-stock-table th:last-child{width:29%}
+.op-stock-table thead th{font-size:.8rem;font-weight:650;background:#f0f0e5;color:#555e4b}
+.op-stock-table tbody th{font-weight:650}
+.op-state{padding:11px 12px;background:#e8e9d9;border-left:3px solid #687654;font-size:.9rem;margin-top:15px}
+.op-stock-note{font-size:.8rem;color:#555e4b;margin-top:10px;max-width:85ch}
+.op-equipment{padding:13px 22px;border-top:1px solid #d2d2bf;font-size:.85rem;color:#555e4b}
+.op-source-link{font-size:.84rem;margin-top:10px}
+.operalith-build{margin-top:40px}
 @media(max-width:680px){
   .system-flow,.run-history{grid-template-columns:repeat(2,minmax(0,1fr))}
   .explorer-intro,.cohort,.build-panel,.wilbur-explorer .build-panel{grid-template-columns:1fr}
   .project-explorer .evidence-table :is(th,td){padding:7px 5px}
+  .op-example-heading,.op-linked-records{grid-template-columns:1fr}
+  .op-record+.op-record{border-left:0;border-top:1px solid #d2d2bf}
+  .op-record{padding:17px}
+  .op-stock{padding:17px 11px}
+  .op-stock-heading{padding:0 6px}
+  .op-stock-table{font-size:.83rem}
+  .op-stock-table :is(th,td){padding:9px 5px}
 }
 @media(prefers-reduced-motion:reduce){.explorer-controls button{transition:none}}

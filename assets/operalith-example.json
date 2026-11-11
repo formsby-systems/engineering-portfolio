@@ -1,0 +1,170 @@
+{
+  "source": {
+    "revision": "c4dd1a3997421be29b3363a9706113a2123ea1db",
+    "scope": "Fictional local-build replay",
+    "action": "Receive three protective pads",
+    "reason": "Fictional receipt of three protective pads"
+  },
+  "before": {
+    "customer": "Northline Workshop",
+    "site": "studio display area",
+    "enquiry": {
+      "title": "repair the display stand",
+      "status": "Converted",
+      "nextAction": "Prepare the stand repair",
+      "nextDate": "2026-11-12"
+    },
+    "project": {
+      "title": "display stand repair",
+      "status": "To do"
+    },
+    "tasks": [
+      {
+        "title": "count supplies before repair",
+        "status": "To do",
+        "dueDate": "2026-11-12",
+        "checklist": [
+          {
+            "text": "Count protective pads",
+            "done": false
+          },
+          {
+            "text": "Inspect the stand fixings",
+            "done": false
+          }
+        ]
+      }
+    ],
+    "supplies": [
+      {
+        "title": "protective pads",
+        "quantity": 2,
+        "threshold": 4,
+        "gap": "2"
+      },
+      {
+        "title": "mounting brackets",
+        "quantity": 8,
+        "threshold": 4,
+        "gap": null
+      }
+    ],
+    "stockChecks": 1,
+    "equipment": [
+      {
+        "title": "cordless drill",
+        "tag": "DRILL-001",
+        "latestEvent": "checkout",
+        "dueDate": "2026-11-12"
+      }
+    ]
+  },
+  "received": {
+    "customer": "Northline Workshop",
+    "site": "studio display area",
+    "enquiry": {
+      "title": "repair the display stand",
+      "status": "Converted",
+      "nextAction": "Prepare the stand repair",
+      "nextDate": "2026-11-12"
+    },
+    "project": {
+      "title": "display stand repair",
+      "status": "To do"
+    },
+    "tasks": [
+      {
+        "title": "count supplies before repair",
+        "status": "To do",
+        "dueDate": "2026-11-12",
+        "checklist": [
+          {
+            "text": "Count protective pads",
+            "done": false
+          },
+          {
+            "text": "Inspect the stand fixings",
+            "done": false
+          }
+        ]
+      }
+    ],
+    "supplies": [
+      {
+        "title": "protective pads",
+        "quantity": 5,
+        "threshold": 4,
+        "gap": null
+      },
+      {
+        "title": "mounting brackets",
+        "quantity": 8,
+        "threshold": 4,
+        "gap": null
+      }
+    ],
+    "stockChecks": 0,
+    "equipment": [
+      {
+        "title": "cordless drill",
+        "tag": "DRILL-001",
+        "latestEvent": "checkout",
+        "dueDate": "2026-11-12"
+      }
+    ]
+  },
+  "undone": {
+    "customer": "Northline Workshop",
+    "site": "studio display area",
+    "enquiry": {
+      "title": "repair the display stand",
+      "status": "Converted",
+      "nextAction": "Prepare the stand repair",
+      "nextDate": "2026-11-12"
+    },
+    "project": {
+      "title": "display stand repair",
+      "status": "To do"
+    },
+    "tasks": [
+      {
+        "title": "count supplies before repair",
+        "status": "To do",
+        "dueDate": "2026-11-12",
+        "checklist": [
+          {
+            "text": "Count protective pads",
+            "done": false
+          },
+          {
+            "text": "Inspect the stand fixings",
+            "done": false
+          }
+        ]
+      }
+    ],
+    "supplies": [
+      {
+        "title": "protective pads",
+        "quantity": 2,
+        "threshold": 4,
+        "gap": "2"
+      },
+      {
+        "title": "mounting brackets",
+        "quantity": 8,
+        "threshold": 4,
+        "gap": null
+      }
+    ],
+    "stockChecks": 1,
+    "equipment": [
+      {
+        "title": "cordless drill",
+        "tag": "DRILL-001",
+        "latestEvent": "checkout",
+        "dueDate": "2026-11-12"
+      }
+    ]
+  }
+}

@@ -260,6 +260,58 @@ if (scorecard) {
   loadQualitySample();
 }
 
+const operalithExample = document.querySelector('[data-operalith-example]');
+if (operalithExample) {
+  const receive = operalithExample.querySelector('[data-op-receive]');
+  const undo = operalithExample.querySelector('[data-op-undo]');
+  const output = operalithExample.querySelector('[data-op-output]');
+
+  async function loadOperalithExample() {
+    try {
+      const response = await fetch('assets/operalith-example.json');
+      if (!response.ok) throw new Error('Workspace example unavailable');
+      const snapshots = await response.json();
+
+      function showSnapshot(snapshot, message) {
+        const rows = snapshot.supplies.map(supply => {
+          const row = document.createElement('tr');
+          const check = supply.gap !== null
+            ? `${supply.gap} pieces below threshold`
+            : supply.quantity === supply.threshold ? 'At threshold' : 'Above threshold';
+          const values = [supply.title, `${supply.quantity} pieces`, String(supply.threshold), check];
+          for (const [index, value] of values.entries()) {
+            const cell = document.createElement(index === 0 ? 'th' : 'td');
+            if (index === 0) cell.scope = 'row';
+            cell.textContent = value;
+            row.append(cell);
+          }
+          return row;
+        });
+        output.querySelector('tbody').replaceChildren(...rows);
+        output.querySelector('.op-state').textContent = message;
+      }
+
+      receive.addEventListener('click', () => {
+        showSnapshot(snapshots.received, 'Recorded 3 pads received. Protective pads are now at 5 pieces, above the threshold of 4.');
+        receive.disabled = true;
+        undo.disabled = false;
+      });
+      undo.addEventListener('click', () => {
+        showSnapshot(snapshots.undone, 'Stock change undone. Protective pads are back at 2 pieces. The project, task and drill checkout are retained.');
+        receive.disabled = false;
+        undo.disabled = true;
+      });
+      receive.disabled = false;
+    } catch {
+      const note = document.createElement('p');
+      note.className = 'op-state';
+      note.textContent = 'The recorded stock changes could not load. You can still review the starting example and open the public workspace.';
+      output.append(note);
+    }
+  }
+  loadOperalithExample();
+}
+
 let readingScheduled = false;
 function updateReading() {
   readingScheduled = false;
