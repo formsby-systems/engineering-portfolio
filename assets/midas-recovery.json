@@ -1,0 +1,59 @@
+{
+  "schema": "midas_recovery_public_aggregate_v1",
+  "date": "2026-11-11",
+  "title": "Recovering a historical account experiment",
+  "scope": "Separate later experiment; the November 10 B-only experiment has different results.",
+  "counts": {
+    "preserved_completed_targets": 6,
+    "new_recovery_paths": 66,
+    "completed_targets": 72,
+    "unchanged_prior_comparison_rows": 288,
+    "unique_total_rows": 360,
+    "negative_modeled_cash_paths": 40,
+    "payout_bearing_paths": 41,
+    "survival_censored_paths": 72,
+    "prior_infrastructure_censored_attempts": 1
+  },
+  "primary_comparisons": [
+    {
+      "comparison": "Source variant 1",
+      "paired_paths": 8,
+      "observed_sessions": 180,
+      "cost_setting": "Higher costs",
+      "median_paired_modeled_cash_change": 94.13,
+      "funded_failure_episodes_before": 1,
+      "funded_failure_episodes_after": 2,
+      "evaluation_failure_paths_before": 2,
+      "evaluation_failure_paths_after": 5,
+      "payout_bearing_paths_before": 5,
+      "payout_bearing_paths_after": 5,
+      "decision": "FAIL"
+    },
+    {
+      "comparison": "Source variant 2",
+      "paired_paths": 8,
+      "observed_sessions": 180,
+      "cost_setting": "Higher costs",
+      "median_paired_modeled_cash_change": 277.65,
+      "funded_failure_episodes_before": 1,
+      "funded_failure_episodes_after": 2,
+      "evaluation_failure_paths_before": 1,
+      "evaluation_failure_paths_after": 0,
+      "payout_bearing_paths_before": 5,
+      "payout_bearing_paths_after": 6,
+      "decision": "FAIL"
+    }
+  ],
+  "decision": "FAIL",
+  "practice_promoted": false,
+  "currency": "USD",
+  "cash_metric": "Modeled owner cash after included modeled costs",
+  "limits": [
+    "Historical simulations on overlapping familiar data; not independent trials or untouched validation.",
+    "All payouts and cash figures are modeled; no received-cash or live-profitability claim.",
+    "Negative-cash and payout-bearing counts can overlap.",
+    "All 72 completed targets remain survival-censored at cutoff.",
+    "One additional original infrastructure-censored attempt is retained separately; 72 targets are not 72 uninterrupted successful executions.",
+    "Research result failed the frozen decision gate and did not advance to Practice."
+  ]
+}
