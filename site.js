@@ -137,7 +137,9 @@ if (video.getAttribute('src')) {
   });
   play.addEventListener('click', async () => {
     setPartLabels(false);
-    if (!video.paused) {
+    const wasPlaying = !video.paused;
+    stopAssemblyPreview();
+    if (wasPlaying) {
       video.pause();
       target = video.currentTime / video.duration;
       showProgress(target);
@@ -149,6 +151,37 @@ if (video.getAttribute('src')) {
     try { await video.play(); }
     catch { note.textContent = 'Use the ring slider to move through the study.'; }
   });
+}
+
+
+// Let the real CAD move at rest until the visitor takes over with scroll or controls.
+// The video's own playback clock drives this preview; there is no second render loop.
+let previewingAssembly = Boolean(video.getAttribute('src')) && !reduced.matches;
+function stopAssemblyPreview() {
+  if (!previewingAssembly) return;
+  previewingAssembly = false;
+  video.pause();
+  video.loop = false;
+  video.playbackRate = 1;
+}
+async function startAssemblyPreview() {
+  if (!previewingAssembly) return;
+  video.loop = true;
+  video.playbackRate = .55;
+  try { await video.play(); }
+  catch { stopAssemblyPreview(); }
+}
+if (previewingAssembly) {
+  video.addEventListener('loadeddata', startAssemblyPreview, {once: true});
+  addEventListener('scroll', stopAssemblyPreview, {passive: true, once: true});
+  const stopOnInteraction = event => {
+    if (!event.target.closest('[data-play]')) stopAssemblyPreview();
+  };
+  hero.addEventListener('pointerdown', stopOnInteraction, {once: true});
+  hero.addEventListener('keydown', stopOnInteraction, {once: true});
+  reduced.addEventListener('change', stopAssemblyPreview);
+  requestVideo();
+  if (video.readyState >= 2) startAssemblyPreview();
 }
 
 
@@ -323,3 +356,35 @@ addEventListener('scroll', () => {
 }, {passive: true});
 addEventListener('resize', updateReading);
 updateReading();
+
+// Compare two actual exported builds. The slider changes only the reveal mask.
+for (const comparison of document.querySelectorAll('[data-comparison]')) {
+  const slider = comparison.querySelector('input[type=range]');
+  const controls = comparison.querySelector('.comparison-control');
+  function revealBuild() {
+    const amount = Math.max(0, Math.min(100, Number(slider.value)));
+    comparison.style.setProperty('--compare', `${amount}%`);
+    slider.setAttribute('aria-valuetext', `${amount}% of Build B revealed over Build A`);
+  }
+  comparison.dataset.ready = 'true';
+  controls.hidden = false;
+  revealBuild();
+  slider.addEventListener('input', revealBuild);
+}
+
+// An illustration of two retained checkpoints, not a new cloud execution.
+for (const diagram of document.querySelectorAll('[data-recovery]')) {
+  const buttons = [...diagram.querySelectorAll('[data-recovery-state]')];
+  diagram.querySelector('.recovery-actions').hidden = false;
+  const labels = {
+    before: ['6 completed · 66 remaining', 'The first six results are preserved. The remaining 66 cases still need to run.'],
+    after: ['72 completed · original six retained', 'Only the missing 66 cases run on recovery. The 72 targets join 288 unchanged earlier comparison rows.'],
+  };
+  for (const button of buttons) button.addEventListener('click', () => {
+    const state = button.dataset.recoveryState;
+    diagram.dataset.state = state;
+    for (const choice of buttons) choice.setAttribute('aria-pressed', String(choice === button));
+    diagram.querySelector('[data-recovery-label]').textContent = labels[state][0];
+    diagram.querySelector('[data-recovery-description]').textContent = labels[state][1];
+  });
+}

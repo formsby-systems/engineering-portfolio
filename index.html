@@ -15,7 +15,8 @@
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
 <link rel="stylesheet" href="site.css?v=20261111-recruiter">
-<script src="site.js?v=20261111-recruiter" defer></script>
+<link rel="stylesheet" href="creative.css?v=20261111-spreads">
+<script src="site.js?v=20261111-spreads" defer></script>
 </head>
 <body>
 <a class="skip" href="#work">Skip to selected work</a>
@@ -28,18 +29,11 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero-sticky">
     <div class="hero-scene">
-      <svg class="hero-geometry" viewBox="0 0 600 600" fill="none" aria-hidden="true" focusable="false">
-        <circle cx="300" cy="300" r="280"/><circle cx="300" cy="300" r="262"/><circle cx="300" cy="300" r="222"/>
-        <circle cx="300" cy="300" r="152" stroke-dasharray="3 9"/><circle cx="300" cy="300" r="56"/>
-        <path d="M0 300h600M300 0v600M90 90l420 420M90 510 510 90" stroke-dasharray="3 9"/>
-        <circle cx="300" cy="148" r="66"/><circle cx="432" cy="224" r="66"/><circle cx="432" cy="376" r="66"/>
-        <circle cx="300" cy="452" r="66"/><circle cx="168" cy="376" r="66"/><circle cx="168" cy="224" r="66"/>
-      </svg>
       <div class="hero-copy">
         <h1 id="hero-title">Dylan <br>Becchetti</h1>
-        <p class="intro">Engineering software, automation &amp; mechanical design.</p>
-        <p class="hero-story">At Cardinal Glass, I built a production tracker my coworkers used every day. I’m also developing Python research systems, a connected workspace in React/Next.js, and this sculpture with my capstone team at Lehigh.</p>
-        <div class="hero-cta"><a class="primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="#about">About me</a></div>
+        <p class="intro">Engineering software. <br>Mechanical design.</p>
+        <p class="hero-story">My work spans Python research systems, connected web applications and mechanical design. At Cardinal Glass, the production tracker I built became part of my coworkers’ daily debrief.</p>
+        <div class="hero-cta"><a class="primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="resume.pdf">View résumé ↗</a></div>
         <p class="availability">Lehigh B.S. expected January 2027</p>
       </div>
       <figure class="hero-figure">
@@ -57,8 +51,7 @@
         </div>
         <figcaption class="stage-foot">
           <div class="stage-caption"><span data-note>Scroll to turn the gear assembly</span><a href="#wilbur">How I designed it ↓</a></div>
-          <p class="motion-key"><span>Ring turns</span><span>Planets spin</span><span>Signs orbit</span></p>
-          <div class="drive" data-controls hidden><label for="drive-position">Motion position</label><input type="range" id="drive-position" min="0" max="100" value="0"><output data-position for="drive-position">00%</output><button type="button" data-play>Play</button><button type="button" data-scroll-mode aria-pressed="true">Scroll sync</button><button type="button" data-label-parts aria-pressed="false">Label gears</button></div>
+          <div class="motion-tools" data-controls hidden><button type="button" data-play>Play</button><details class="motion-settings"><summary>Motion controls</summary><div class="drive"><label for="drive-position">Motion position</label><input type="range" id="drive-position" min="0" max="100" value="0"><output data-position for="drive-position">00%</output><button type="button" data-scroll-mode aria-pressed="true">Scroll sync</button><button type="button" data-label-parts aria-pressed="false">Label gears</button></div></details></div>
         </figcaption>
       </figure>
     </div>
@@ -81,20 +74,13 @@
     </div>
   </nav>
 </div>
-<section class="chapter about" id="about" aria-labelledby="about-title">
-  <div class="frame about-layout">
-    <h2 id="about-title">About me</h2>
-    <div class="case-prose">
-      <p class="about-lead">I’m finishing mechanical engineering at Lehigh. I also spent three summers at Cardinal Glass, where I got to build tools for people I worked with every day.</p>
-      <p>One of my favorite parts of my last summer was seeing the production tracker I built come up in the end-of-day meetings. Midas, Formsby and Operalith are projects I want to keep building, too. I work from the initial idea through the architecture, implementation and testing, then keep revising as I find out what works.</p>
-    </div>
-  </div>
-</section>
+
 <section class="chapter experience" id="experience" aria-labelledby="experience-title">
   <div class="frame">
+    <div class="cardinal-opening">
     <div class="chapter-head">
       <div><p class="chapter-label">Three summer internships · 2023–2025</p><h2 id="experience-title">Cardinal Glass</h2></div>
-      <p class="deck">I built an Excel/VBA tracker that engineers and operators used in daily R&amp;D shift debriefs. For weekly reporting, I developed a connected Scorecard that brought inspection results, production output, yield and work-order status together. It automated recurring counts and calculations while keeping the existing worksheets people relied on.</p>
+      <p class="deck">I built a production tracker that engineers and operators used in daily R&amp;D shift debriefs. For weekly reporting, I connected quality, production, yield and work-order data in an Excel/VBA Scorecard.</p>
     </div>
     <section class="project-explorer cardinal-explorer" id="cardinal-explore" data-explorer aria-labelledby="cardinal-explore-title">
       <div class="explorer-intro">
@@ -133,6 +119,8 @@
       </div>
       <p class="explorer-foot">This reconstructs the weekly system. I built a separate tracker for the daily R&amp;D debrief. <a href="assets/cardinal-demo.html">Open the full reconstruction and source records →</a></p>
     </section>
+    </div>
+    <div class="decision-note"><p>The source reports already held formulas and comments people needed. When copying a selected week risked breaking those connections, I changed the design to take people straight to that week in the original report. I also automated weekly counts from a log of more than 10,000 units.</p></div>
     <ol class="internships" aria-label="Cardinal internships by summer">
       <li><strong>2023</strong><div><h3>Engineering</h3><p>Rotated through maintenance, quality and R&amp;D. Inspected units, analyzed data in Minitab, drafted equipment layouts in AutoCAD and contributed to design failure mode reviews.</p></div></li>
       <li><strong>2024</strong><div><h3>Continuous improvement</h3><p>Wrote illustrated build instructions for customer samples, planned spare-parts organization and signage across 14 warehouse locations, and measured cleanroom airflow with a capture hood and micromanometer.</p></div></li>
@@ -151,11 +139,15 @@
     <div class="chapter-head">
       <div><p class="chapter-label">Lehigh capstone · Spring and fall 2026</p><h2 id="capstone-title">Kinetic Wilbur</h2></div>
       <div class="case-prose">
-        <p class="deck">My team is building an 80-inch kinetic sculpture to hang above a classroom at Wilbur Powerhouse. A planetary gear train makes six signs spin and orbit, so people can watch the mechanism work and see the kind of projects that come out of Lehigh’s Design Labs.</p>
-        <p>I did much of the mechanical design and built all the parametric OpenSCAD models, from small proof-of-concept assemblies to the full-scale design. When roller tests raised noise concerns, I modeled fixed casters and a wider laminated ring, preserved the inner gear profile, and updated the CNC profiles and motor position. I worked with my team and sponsor to turn the design into parts we could make at Lehigh.</p>
+        <p class="deck">My team is building an 80-inch kinetic sculpture to hang above a classroom at Wilbur Powerhouse. A planetary gear train makes six signs spin and orbit, so people can watch the mechanism work and see the kind of projects that come out of Lehigh’s Design Labs. I did much of the mechanical design and built all the OpenSCAD models.</p>
+
       </div>
     </div>
-    <dl class="case-measures"><div><dt>Outer diameter, current CAD</dt><dd>79.5 in</dd></div><div><dt>Orbiting sign assemblies</dt><dd>6</dd></div><div><dt>Capstone design and fabrication</dt><dd>2 semesters</dd></div></dl>
+    <div class="fabrication-spread">
+      <figure><a href="assets/wilbur-cut-gears.webp"><img src="assets/wilbur-cut-gears.webp" loading="lazy" width="1467" height="1100" alt="Actual full-scale sun and planet gear cuts in plywood at Lehigh’s Mountaintop shop."></a><figcaption>From the model to full-scale parts. Gear cuts from our team’s fabrication brief.</figcaption></figure>
+      <figure><a href="assets/wilbur-ring.webp"><img src="assets/wilbur-ring.webp" loading="lazy" width="1500" height="1050" alt="My November OpenSCAD ring and external drive geometry."></a><figcaption>My ring and drive geometry, 2,020 mm (79.5 in) across. Four identical half-cuts form two layers, with upper seams rotated 90 degrees.</figcaption></figure>
+    </div>
+    <div class="case-prose case-summary"><p>I took the parametric models from small proof-of-concept assemblies to the full-scale design. When roller tests raised noise concerns, I modeled fixed casters and a wider laminated ring, preserved the inner gear profile, and updated the CNC profiles and motor position. I worked with my team and sponsor to turn the design into parts we could make at Lehigh.</p></div>
     <section class="project-explorer wilbur-explorer" id="wilbur-explore" data-explorer aria-labelledby="wilbur-explore-title">
       <div class="explorer-intro">
         <div><h3 id="wilbur-explore-title">Sculpture components</h3></div>
@@ -177,7 +169,7 @@
       </div>
       <div id="wilbur-ring" class="explorer-panel build-panel" data-explorer-panel>
         <figure class="build-visual"><a href="assets/wilbur-ring.webp"><img src="assets/wilbur-ring.webp" loading="lazy" width="1500" height="1050" alt="Two layers of a large plywood ring gear, offset to show the staggered seams and both sets of teeth."></a><figcaption>Four CNC-cut half-pieces form the two layers of the proposed plywood ring.</figcaption></figure>
-        <div class="case-prose"><h4>Ring gear and drive</h4><p>We tested steel and nylon ball transfers with our sponsor and found both louder than we wanted. I modeled fixed casters and widened the solid plywood band they roll on, keeping the inner gear profile so it would still mesh with the planets.</p><p>I staggered the plywood joints between layers so no seam runs through the full thickness. The wider ring took the motor mount 70 mm farther out and changed the pinion-to-ring reduction to <strong>10:1</strong>.</p></div>
+        <div class="case-prose"><h4>Ring gear and drive</h4><p>We tested steel and nylon ball transfers with our sponsor and found both louder than we wanted. I modeled fixed casters and widened the solid plywood band they roll on, keeping the inner gear profile so it would still mesh with the planets.</p><p>I modeled the ring as four identical plywood half-pieces. Two halves make each layer; rotating the top layer 90 degrees staggers the seams while both tooth patterns still line up. One CNC profile can produce all four pieces. The wider ring moved the motor mount 70 mm farther out and changed the external drive reduction to <strong>10:1</strong>.</p></div>
       </div>
       <div id="wilbur-unit" class="explorer-panel build-panel" data-explorer-panel>
         <figure class="build-visual"><a href="assets/wilbur-unit.webp"><img src="assets/wilbur-unit.webp" loading="lazy" width="1500" height="1050" alt="One plywood planet gear around the steel sleeve, flange and bearing stack in OpenSCAD."></a><figcaption>CAD of the first repeatable planet assembly. Each unit carries one hanging sign.</figcaption></figure>
@@ -192,7 +184,6 @@
     </div>
     <div class="artifact-pair wilbur-artifacts" id="wilbur-exploded">
       <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-explosion.jpg" aria-label="Exploded CAD view of the Wilbur Powerhouse mechanism"><source src="assets/wilbur-explosion.mp4" type="video/mp4"></video><figcaption>Earlier exploded CAD study showing how the major assembly groups fit together.</figcaption></figure>
-      <figure class="visual artifact-view"><a href="assets/wilbur-cut-gears.webp"><img src="assets/wilbur-cut-gears.webp" loading="lazy" width="1467" height="1100" alt="Full-scale sun and planet gear profiles cut into a plywood sheet at Lehigh’s Mountaintop shop."></a><figcaption>Sun and planet gear cuts from our fabrication brief. The team nested the gear profiles to get more out of each plywood sheet.</figcaption></figure>
     </div>
     <p class="case-foot">Fall design review · First full-scale gear unit assembled. Remaining carrier, ring and installation work ahead.</p>
   </div>
@@ -203,16 +194,29 @@
     <div class="chapter-head">
       <h2 id="midas-title">Midas Futures</h2>
       <div class="case-prose">
-        <p class="deck">I started with an equities scheduler and built Midas into a Python system for futures research and demo trading. The hard part is making a result traceable: which strategy, data, costs and account rules produced it, and whether it survives the next test.</p>
-        <p>I built the workflow from modular strategy definitions through batch campaigns, component ablations, Monte Carlo studies and account-lifecycle simulation. Strategies can share risk limits, while the simulator follows evaluations, fees, resets and modeled payouts. Checkpointed cloud workers let experiments continue without discarding earlier results. A separate Practice system handles demo orders and reconciliation; a research result needs its own review before it can enter Practice.</p>
+        <p class="deck">I’m building Midas to test whether a futures strategy can still work after trading costs, prop-firm account rules and repeated evaluations are included. What began as an equities scheduler has become a Python research and demo-trading system.</p>
+        <p>I built modular strategies, batch campaigns, component ablations, Monte Carlo studies and account simulations, with cloud workers that can resume interrupted research. Strategies can share risk limits while the model follows fees, resets and payouts. A separate Practice system handles demo orders and reconciliation.</p>
       </div>
     </div>
+    <div class="case-grid midas-evidence">
+      <figure class="visual artifact-view">
+        <a href="assets/midas-research.jpg"><img src="assets/midas-research.jpg" width="1280" height="586" loading="lazy" alt="Midas Research dashboard showing evaluation fees, a modeled payout and a negative balance after fees."></a>
+        <figcaption>Earlier Midas dashboard capture. This simulated account received a modeled payout and ended $1,286.85 down after fees.</figcaption>
+      </figure>
+      <div class="case-prose">
+        <h3>Replay and forward evaluation</h3>
+        <p>Replay and forward evaluation once disagreed on when a bar was complete and which price an exit could use. I put those decisions into a shared state machine. A retained check matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p>
+        <p>I also built a Mac queue that ran 288 variants at two cost settings in one observed campaign. It reused a saved result for a duplicate and rejected invalid work before execution. In the later cloud importer, interruption tests check that a retry can finish publishing a request without adding the same job twice. Failed or unverifiable claimed runs hold later work for reconciliation, even after restart.</p>
+      </div>
+    </div>
+    <details class="architecture-details"><summary>How the research pipeline is organized</summary>
     <ol class="system-flow" aria-label="Midas research and Practice workflow">
       <li><h3>Define the experiment</h3><p>Freeze the strategy, code, data, time window and costs so each result belongs to a specific run.</p></li>
       <li><h3>Replay and compare</h3><p>Use shared decision rules and a simulated clock. Run variants in batches and resume from verified checkpoints.</p></li>
       <li><h3>Simulate the account</h3><p>Put strategies under shared risk limits. Track evaluations, resets, fees and payouts across the observation window.</p></li>
       <li><h3>Review before Practice</h3><p>Compare with retained controls. Practice has its own authorization, execution ledger and reconciliation.</p></li>
     </ol>
+    </details>
     <section class="project-explorer midas-explorer" id="midas-explore" data-explorer aria-labelledby="midas-explore-title">
       <div class="explorer-intro">
         <div><p class="explorer-note">Historical account simulation · November 10, 2026</p><h3 id="midas-explore-title">Account experiment</h3></div>
@@ -231,7 +235,7 @@
           <li><strong>36 completed</strong><span>Resumed automatically from that checkpoint.</span></li>
           <li><strong>252 compared</strong><span>Added 36 new results and kept 216 earlier rows intact.</span></li>
         </ol>
-        <p class="explorer-result"><strong>Decision: keep it in research.</strong> All 36 cases were still in evaluation at cutoff. None had passed evaluation or received a payout.</p>
+        <p class="explorer-result"><strong>Decision: keep it in research.</strong> All 36 cases were still in evaluation at cutoff. None had passed evaluation or recorded a modeled payout.</p>
       </div>
       <div id="midas-120" class="explorer-panel cohort" data-explorer-panel>
         <div><h4>120-session windows</h4><p>Each cost setting contains 10 cases. The observed median after modeled costs was the same under both settings.</p></div>
@@ -252,28 +256,19 @@
       <div id="midas-recovery" class="explorer-panel" data-explorer-panel>
         <h4>Recovering a later cloud experiment · November 11</h4>
         <p>A separate 72-case strategy comparison stopped after an infrastructure failure. I built recovery checks that kept completed results, ran only the missing cases and refused to mix them with a different experiment.</p>
-        <ol class="run-history">
-          <li><strong>6 preserved</strong><span>Verified the completed cases instead of running them again.</span></li>
-          <li><strong>66 remaining</strong><span>Continued only the missing cases from the original 72.</span></li>
-          <li><strong>288 unchanged</strong><span>Retained the earlier comparison rows as complete result objects.</span></li>
-          <li><strong>360 compared</strong><span>Combined the original controls and all 72 new cases.</span></li>
-        </ol>
+        <figure class="recovery-diagram" data-recovery>
+          <div class="recovery-actions" hidden><button type="button" data-recovery-state="before" aria-pressed="true">At interruption</button><button type="button" data-recovery-state="after" aria-pressed="false">After recovery</button></div>
+          <div class="recovery-label"><strong>72 requested cases</strong><span data-recovery-label>6 completed · 66 remaining</span></div>
+          <div class="recovery-track" aria-hidden="true"><span class="kept-work"></span><span class="recovered-work"></span></div>
+          <p class="recovery-interpretation" data-recovery-description aria-live="polite">The first six results are preserved. The remaining 66 cases still need to run.</p>
+          <figcaption>After recovery: 72 completed targets + 288 unchanged prior comparison rows = 360 compared. A recorded failed attempt remains in the history.</figcaption>
+        </figure>
         <p class="explorer-result"><strong>Better cash alone was not enough.</strong> The added signal improved median modeled cash in both primary comparisons, but funded failure episodes rose from one to two in each. Both comparisons failed the acceptance rules set before the run and stayed in research.</p>
         <details class="historical-results"><summary>Results and experiment limits</summary><p>Of the 72 added cases, 40 had negative modeled net cash and 41 had at least one modeled payout; those groups overlap. All 72 were still censored for survival at the observation cutoff, so their eventual survival was unknown. The historical windows overlap and use familiar data. These are simulations, not received cash or live returns.</p><p>This newer experiment and its recovery code are retained branch work, separate from the November 10 experiment above and the default branch. The failed attempt remains part of the run history.</p><p><a href="assets/midas-recovery.json">Inspect the recorded aggregate results ↗</a></p></details>
       </div>
       <p class="explorer-foot">The windows can overlap. The case counts describe their named experiments, and the cash figures are simulated.</p>
     </section>
-    <div class="case-grid midas-evidence">
-      <figure class="visual artifact-view">
-        <a href="assets/midas-research.jpg"><img src="assets/midas-research.jpg" width="1280" height="586" loading="lazy" alt="Midas Research dashboard showing evaluation fees, a modeled payout and a negative balance after fees."></a>
-        <figcaption>Earlier Midas dashboard capture. This simulated account received a modeled payout and ended $1,286.85 down after fees.</figcaption>
-      </figure>
-      <div class="case-prose">
-        <h3>Replay and forward evaluation</h3>
-        <p>Replay and forward evaluation once disagreed on when a bar was complete and which price an exit could use. I put those decisions into a shared state machine. A retained check matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p>
-        <p>I also built a Mac queue that ran 288 variants at two cost settings in one observed campaign. It returned the saved result for a duplicate and rejected an invalid request before starting a run.</p>
-      </div>
-    </div>
+
     <details class="historical-results">
       <summary>Historical backtest and comparison runs</summary>
     <figure class="backtest">
@@ -306,42 +301,23 @@
     <div class="chapter-head">
       <h2 id="production-title">Scanned Leverage and Optimized Production</h2>
       <div class="case-prose">
-        <p class="chapter-label">Python/Luau · Market research and prototype production</p><p class="deck">I built a research workflow for studying a market and a configurable producer for original prototypes. Roblox is the first use case: observations become design questions, then shared components and game logic let me build different versions to test.</p>
-        <p>The research tools organize rankings, descriptions and manually annotated gameplay by source and game. I compare how games handle actions, state changes and rewards, then decide what to explore in an original design. On the production side, Signal Break generates two arenas from shared game logic. Moving cover, pickups and player starts means changing the configuration rather than rebuilding the game.</p>
+        <p class="chapter-label">Python/Luau · Market research and prototype production</p><p class="deck">I’m developing a system for deciding what to prototype, then building variations from shared parts. Roblox is the first market. Python tools organize market observations and manually annotated gameplay; a configurable producer assembles original Roblox places with shared Luau game rules.</p>
+
       </div>
     </div>
-    <ol class="system-flow" aria-label="Scanned Leverage and Optimized Production workflow">
-      <li><h3>Scan the market</h3><p>Join market observations to the right game and keep their original source.</p></li>
-      <li><h3>Break down play</h3><p>Turn annotated gameplay into actions, state changes and rewards. Leave gaps visible.</p></li>
-      <li><h3>Build original variants</h3><p>Set the rules and geometry in a configuration. Assemble a Roblox place using shared code.</p></li>
-      <li><h3>Check the result</h3><p>Reject blocked declared routes and invalid settings. Rebuild from the same inputs and compare the output.</p></li>
-    </ol>
-    <div id="slop-explore" aria-hidden="true"></div>
-    <section class="project-explorer signal-break-explorer" id="signal-break" data-explorer aria-labelledby="signal-break-title">
-      <div class="explorer-intro">
-        <div><p class="explorer-note">Signal Break · Original two-player prototype</p><h3 id="signal-break-title">Signal Break configurations</h3></div>
-        <p>Compare the layouts and follow one tested round. I regenerated both places from their committed configurations and matched both saved build hashes.</p>
+    <section class="comparison-study" id="signal-break" aria-labelledby="signal-break-title">
+      <div class="study-heading"><h3 id="signal-break-title">Two arenas. Shared game logic.</h3><p>Signal Break · Original two-player prototype</p></div>
+      <div class="image-comparison" data-comparison>
+        <div class="comparison-stage">
+          <img id="signal-break-build-a" src="assets/signal-break-a.webp" width="1100" height="710" loading="lazy" alt="Signal Break Build A: two storage obstacles and the original pickup and exit positions.">
+          <div class="comparison-overlay"><img id="signal-break-build-b" src="assets/signal-break-b.webp" width="1100" height="710" loading="lazy" alt="Signal Break Build B: moved pickup, warden start and exit, with three storage obstacles."></div>
+          <div class="comparison-divider" aria-hidden="true"><span>↔</span></div>
+        </div>
+        <div class="comparison-control" hidden><span>Build A</span><label for="arena-compare">Slide to reveal Build B over Build A</label><input id="arena-compare" type="range" min="0" max="100" value="50"><span>Build B</span></div>
       </div>
-      <div class="explorer-controls" role="group" aria-label="Explore Signal Break" hidden>
-        <button type="button" aria-controls="signal-break-build-a" aria-pressed="true">Build A</button>
-        <button type="button" aria-controls="signal-break-build-b" aria-pressed="false">Build B</button>
-        <button type="button" aria-controls="signal-break-round" aria-pressed="false">Follow a test round</button>
-      </div>
-      <div id="signal-break-build-a" class="explorer-panel build-panel" data-explorer-panel>
-        <figure class="build-visual">
-          <a href="assets/signal-break-a.webp"><img src="assets/signal-break-a.webp" width="1100" height="710" loading="lazy" alt="Angled view of Signal Break Build A, showing the runner and warden starting pads, jammer, shortcut gate, and detour exit."></a>
-          <figcaption>Build A arena, rendered from the exported Roblox place geometry.</figcaption>
-        </figure>
-        <div class="case-prose"><h4>Build A</h4><p>The runner can recover the jammer and risk the contested shortcut or take the always-open detour. This version has two storage obstacles.</p><p>The runner starts at the same point in both builds. The shortcut gate and the five-second opening are also shared.</p></div>
-      </div>
-      <div id="signal-break-build-b" class="explorer-panel build-panel" data-explorer-panel>
-        <figure class="build-visual">
-          <a href="assets/signal-break-b.webp"><img src="assets/signal-break-b.webp" width="1100" height="710" loading="lazy" alt="Angled view of Signal Break Build B with a moved jammer and warden spawn and three storage obstacles."></a>
-          <figcaption>Build B arena, rendered from the exported Roblox place geometry.</figcaption>
-        </figure>
-        <div class="case-prose"><h4>Build B</h4><p>The jammer, warden start, detour exit and a piece of interior cover move. This version has three storage obstacles.</p><p>The game state, server and client logic are shared. The new layout comes from the build configuration.</p></div>
-      </div>
-      <div id="signal-break-round" class="explorer-panel" data-explorer-panel>
+      <p class="study-caption">Rendered from the exported Roblox place geometry, not a gameplay capture. The configurations move cover, pickups, the warden start and an exit; server, client and game-state logic stay shared.</p>
+      <div class="case-prose"><p>I regenerated both places from their committed configurations and matched their saved bytes. Configuration checks reject invalid settings and blocked declared routes.</p></div>
+      <details class="round-details" id="signal-break-round"><summary>Follow a tested round</summary>
         <h4>Tested in both configurations</h4>
         <ol class="run-history">
           <li><strong>Pick up</strong><span>At three seconds the runner recovers the jammer. Trying to use it back at the start is refused.</span></li>
@@ -350,12 +326,20 @@
           <li><strong>Swap roles</strong><span>When both players ready up again, the other player becomes the runner.</span></li>
         </ol>
         <p class="explorer-foot">The automated test exercises the game rules with declared positions and times. Multiplayer playtesting is a separate step.</p>
-      </div>
-      <p class="explorer-foot"><a href="assets/slop-config-proof.svg">Open both plans side by side ↗</a></p>
+      <p>There is also a test for a player leaving mid-round. The state clears the carrier, gate and location reveal without awarding a win, advances the round version, and refuses delayed actions from the old round. A replacement pair starts with fresh state.</p><p class="explorer-foot">This follows the pinned pure-state tests. No multiplayer session was executed for this example.</p></details>
     </section>
+    <div class="case-prose case-summary"><p>The research tools organize rankings, descriptions and manually annotated gameplay by source and game. I compare how games handle actions, state changes and rewards, then decide what to explore in an original design. On the production side, Signal Break generates two arenas from shared game logic. Moving cover, pickups and player starts means changing the configuration rather than rebuilding the game.</p></div>
+    <ol class="system-flow" aria-label="Scanned Leverage and Optimized Production workflow">
+      <li><h3>Scan the market</h3><p>Join market observations to the right game and keep their original source.</p></li>
+      <li><h3>Break down play</h3><p>Turn annotated gameplay into actions, state changes and rewards. Leave gaps visible.</p></li>
+      <li><h3>Build original variants</h3><p>Set the rules and geometry in a configuration. Assemble a Roblox place using shared code.</p></li>
+      <li><h3>Check the result</h3><p>Reject blocked declared routes and invalid settings. Rebuild from the same inputs and compare the output.</p></li>
+    </ol>
+    <div id="slop-explore" aria-hidden="true"></div>
+
     <div class="case-prose case-summary">
       <h3>Concept review</h3>
-      <p>I held a separate collector concept at storyboard review because its second trip repeated too much of the first. That is part of the system I want to build: use the research to decide what deserves a test, then build that test from shared parts. The same approach could work with other products by changing the observations, the components and what the test has to prove.</p>
+      <p>I held a separate collector concept at storyboard review because the proposed second trip did not demonstrate a different risk or useful payoff. A static companion pose and captions were not proof that the mechanic worked. The production system still needs the research and product review to decide what is worth building next.</p>
     </div>
   </div>
 </section>
@@ -370,7 +354,7 @@
       <figure class="visual product-view"><a href="https://www.operalith.com/"><img src="assets/operalith-home.jpg" width="1440" height="900" loading="lazy" alt="Operalith’s public homepage with its personal workspace, appearance choices and connected tools."></a><figcaption>Operalith.com</figcaption></figure>
       <div class="case-prose">
         <p>I built the React/Next.js interface and shared record model, along with a catalogue of compatible tools and features. Planner, Projects and Inventory support dates, checklists and project links. Equipment Loans records checkouts and returns. Customers &amp; Enquiries keeps the customer, site and request together as an enquiry turns into work.</p>
-        <p>The connections open the original records. Changing a supply count in Inventory updates the project overview, while a task keeps its own date and checklist. Enquiry-to-project conversion saves links in both directions. I also built undo that refuses to overwrite conflicting later edits, and PostgreSQL account saves that reject stale updates and recognize repeated requests.</p>
+        <p>I treated an enquiry becoming a project as one connected change. The project keeps its original enquiry, customer and site, and the enquiry points back to the project. A second conversion is refused because the work already exists. Undo checks both sides: if either record has changed, the app asks for the later change to be undone first.</p>
         <p>People can add compatible features and change the appearance while keeping the work they already entered. The public example saves in the browser. A separately invited solo pilot supports account saves.</p>
         <a class="case-link" href="https://www.operalith.com/#try">Open the public workspace →</a>
       </div>
@@ -404,7 +388,7 @@
       <div class="case-prose">
         <h3>Tool setup and saved work</h3>
         <p>I made tool definitions and feature compatibility explicit. Adding project links requires a Projects tool. Adding a checklist keeps the existing task and adds the new fields around it. The same state and validation functions support the tools, their connected views, and the account version.</p>
-        <p>I also built change history and targeted undo. A stock adjustment needs a reason, and undo checks whether later edits would conflict. For account saves, I check workspace ownership, the revision the client edited, and the request’s identity. Those checks let the app reject an older save and recognize a retry.</p>
+        <p>I built stock adjustments with recorded reasons and targeted undo. For account saves, PostgreSQL checks ownership and the edited version, then stores a receipt for the request. An older edit cannot overwrite newer work, and a repeated request can return its earlier result.</p>
         <p>Operalith is still a product I’m developing. The public demo is browser-local and the account pilot is for invited solo use with fictional work.</p>
       </div>
     </div>
@@ -417,39 +401,17 @@
       <h2 id="formsby-title">Formsby</h2>
       <p class="deck">I started Formsby to connect a request on one website with a useful offer, person or resource elsewhere. I designed a shared discovery and matching workflow so each new category would not need a separate system. Housing became the first focused prototype: a request goes in, and a private shortlist comes back with source links and reasons for each match.</p>
     </div>
-    <div class="case-grid">
-      <figure class="search-study">
-        <p class="tag">Inside the housing application</p>
-        <ol>
-          <li><span>01</span><b>Save the request</b><small>Keep the signed-in user, original form and search settings together.</small></li>
-          <li><span>02</span><b>Interpret the need</b><small>Separate budget, location, timing, must-haves and preferences.</small></li>
-          <li><span>03</span><b>Search across sources</b><small>Run source adapters, merge duplicate URLs and record connector failures.</small></li>
-          <li><span>04</span><b>Evaluate each candidate</b><small>Save the source evidence, score, explanation and search-run identity.</small></li>
-          <li><span>05</span><b>Return the latest results</b><small>Keep private results tied to their run, with separate partial and failed states.</small></li>
-        </ol>
-        <figcaption>Workflow represented in the Next.js / PostgreSQL source</figcaption>
-      </figure>
-      <div class="case-prose">
-        <p>I started thinking about Formsby on breaks and lunches at Cardinal, then spent months working through the product and its Python prototype. I built city and category lookups, persistent lead IDs and match IDs linked to their original request. I designed discovery, interpretation, matching and communication as separate stages so category-specific rules could change without duplicating the whole workflow. When a source returned HTML but no records, I inspected its structure, corrected outdated selectors and recovered five candidates with full text and source URLs.</p>
-        <p>The harder problem was deciding what counted as a useful match. A directory link or a plausible description wasn’t enough. I wanted a specific option with enough source information for someone to act on. That requirement led me toward fetching and evaluating individual offers, keeping the original request attached, and recording why a candidate was selected.</p>
-        <p>In the later housing build, each signed-in request keeps its original inputs, search runs, source listings and match explanations connected. Source adapters run in parallel and duplicate URLs are merged. A failed source produces a partial result with the failure recorded, while the dashboard shows only the signed-in user’s latest run. I also added background-job dispatch and a Stripe callback that links payment to the request before starting its search.</p>
-      </div>
-    </div>
-    <div class="case-prose case-summary">
-      <p><strong>Original delivery design.</strong> For the original paid-introduction concept, I designed a flow that prepared a match packet before checkout and tied it to a persistent ID. Payment would retrieve the saved packet instead of repeating the search and producing a different answer. The Python prototype included file-based unlock logic. Completing that delivery flow, expanding categories and adding private conversations are part of the broader product I want to build.</p>
-    </div>
     <section class="project-explorer formsby-explorer" id="formsby-explore" data-explorer aria-labelledby="formsby-explore-title">
       <div class="explorer-intro">
         <div><p class="explorer-note">Housing prototype · Sample request</p><h3 id="formsby-explore-title">Housing search example</h3></div>
-        <p>Follow a fictional request through candidate scoring, then inspect what the source code does when a connector fails. I ran the fallback matcher on three invented listings. The other examples trace the behavior in the application source.</p>
+        <p>A fictional request and the actual fallback output, together. I ran the March prototype’s matcher on three invented listings; the source-handling views trace its application code.</p>
       </div>
       <div class="explorer-controls" role="group" aria-label="Explore Formsby evidence" hidden>
-        <button type="button" aria-controls="formsby-intake" aria-pressed="true">The request</button>
-        <button type="button" aria-controls="formsby-candidates" aria-pressed="false">Rank &amp; evidence</button>
+        <button type="button" aria-controls="formsby-intake" aria-pressed="true">Request &amp; shortlist</button>
         <button type="button" aria-controls="formsby-failure" aria-pressed="false">Failures &amp; ownership</button>
         <button type="button" aria-controls="formsby-scope" aria-pressed="false">Built &amp; planned</button>
       </div>
-      <div id="formsby-intake" class="explorer-panel" data-explorer-panel>
+      <div id="formsby-intake" class="explorer-panel request-results" data-explorer-panel><div class="request-brief">
         <h4>“A one-bedroom in Bethlehem, under $1,500. Cats allowed.”</h4>
         <ol class="run-history">
           <li><strong>Location</strong><span>Bethlehem</span></li>
@@ -458,8 +420,7 @@
           <li><strong>Must-have</strong><span>“cats allowed”</span></li>
         </ol>
         <p class="explorer-result">This example starts with the request already in structured form and runs the March build’s fallback scoring functions.</p>
-      </div>
-      <div id="formsby-candidates" class="explorer-panel" data-explorer-panel>
+      </div><div class="request-shortlist" id="formsby-candidates">
         <h4>What did the matcher find?</h4>
         <table class="evidence-table">
           <caption>Invented candidates · actual deterministic fallback output</caption>
@@ -476,7 +437,7 @@
           <p>The processor’s code keeps candidates scoring at least 50 and sorts them highest first. Applying that rule to the sample leaves the one-bedroom and the studio.</p>
         </details>
         <p class="explorer-result"><strong>The next quality gate:</strong> structured bedroom and budget checks, evidence-specific explanations, and independent availability verification. These scores describe a prototype fallback, not measured recommendation accuracy.</p>
-      </div>
+      </div></div>
       <div id="formsby-failure" class="explorer-panel" data-explorer-panel>
         <h4>Search history and access</h4>
         <p>Suppose two sources return the same listing URL and a third fails. Here is how the application code handles that case.</p>
@@ -506,7 +467,28 @@
       </div>
       <p class="explorer-foot">The scoring example uses fictional listings and the fallback from the March 15, 2026 source snapshot (<code>d61dc649</code>).</p>
     </section>
+    <div class="case-grid">
+      <div class="case-prose">
+        <p>I started thinking about Formsby on breaks and lunches at Cardinal, then spent months working through the product and its Python prototype. I built city and category lookups, persistent lead IDs and match IDs linked to their original request. I designed discovery, interpretation, matching and communication as separate stages so category-specific rules could change without duplicating the whole workflow. When a source returned HTML but no records, I inspected its structure, corrected outdated selectors and recovered five candidates with full text and source URLs.</p>
+        <p>The harder problem was deciding what counted as a useful match. A directory link or a plausible description wasn’t enough. I wanted a specific option with enough source information for someone to act on. That requirement led me toward fetching and evaluating individual offers, keeping the original request attached, and recording why a candidate was selected.</p>
+        <p>I built the housing prototype to keep useful results when one source fails. It searches sources in parallel, merges duplicate URLs and records which connectors failed. Each shortlist belongs to a search run, so a retry does not mix its match evaluations with an earlier run. The signed-in user sees the latest run, with partial results identified as partial. I also added background dispatch and a Stripe callback that links payment to the request before processing.</p>
+      </div>
+    </div>
+    <div class="case-prose case-summary">
+      <p><strong>Early delivery design.</strong> One question was what someone would actually receive after paying. I designed the offer around a saved match packet tied to a persistent ID: checkout would unlock those same details without running the search again. The Python prototype included file-based unlock logic. The later housing app instead starts processing after payment. Completing the original delivery flow, expanding categories and adding private conversations remain part of the broader vision.</p>
+    </div>
+
     <p class="case-foot">Housing prototype · Last code update March 2026 · Python, Next.js, PostgreSQL, Prisma, Inngest and Stripe</p>
+  </div>
+</section>
+
+<section class="chapter about" id="about" aria-labelledby="about-title">
+  <div class="frame about-layout">
+    <h2 id="about-title">About me</h2>
+    <div class="case-prose">
+      <p class="about-lead">I’m finishing mechanical engineering at Lehigh. I also spent three summers at Cardinal Glass, where I got to build tools for people I worked with every day.</p>
+      <p>The Scorecard and production tracker are work I’m proud of because they helped people I knew. Formsby started as an idea during breaks and lunches there. I’ve spent about a year directing and building Midas, and I’m building Operalith into a product of its own. These are projects I keep coming back to because I want them to work.</p>
+    </div>
   </div>
 </section>
 
