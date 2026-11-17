@@ -1,0 +1,411 @@
+{
+  "schema": "midas-results-public-candidate-v1",
+  "as_of": "2026-11-17",
+  "purpose": "I\u2019m building Midas to find futures strategies that can survive realistic costs and account constraints, then carry reviewed strategies into separately authorized demo execution. The work spans strategy specifications, batch experiments, component comparisons, targeted statistical studies, shared-risk account simulations and durable research execution.",
+  "scope_note": "These are four separate retained studies, not four stages automatically completed by every strategy.",
+  "cases": [
+    {
+      "id": "backtest",
+      "label": "Backtest",
+      "title": "The highest-net variant still missed the risk limit",
+      "question": "Would a session loss rule preserve a trend strategy\u2019s gains while limiting drawdown?",
+      "context": "Six frozen gold-futures variants, each using one contract across the same 334 familiar historical sessions, March 2025\u2013June 2026.",
+      "metrics": [
+        {
+          "value": "+$24,387",
+          "label": "Highest modeled net P&L among six variants"
+        },
+        {
+          "value": "$6,631",
+          "label": "Maximum minute drawdown for that variant"
+        },
+        {
+          "value": "334",
+          "label": "Historical sessions per variant"
+        }
+      ],
+      "decision": "All six variants were net positive. Every variant exceeded the predeclared $2,000 minute-drawdown limit, so this neighborhood closed without refining thresholds.",
+      "engineering": "Replayed each risk change independently under the same signal, contracts, session clocks and transaction-cost model; reconciled gross returns, fees and slippage from saved session rows.",
+      "limits": "Familiar historical data, not a held-out result or an account payout. The highest-net variant is shown with its failed risk gate; all six variants are retained in the comparison.",
+      "aggregates": {
+        "variants": [
+          {
+            "sessions": 334,
+            "net": 19762.72,
+            "gross": 21740.0,
+            "fee": 641.28,
+            "slippage": 1336.0,
+            "minute_drawdown": 8682.28,
+            "failed_gates": [
+              "maximum_minute_drawdown_at_most_2000"
+            ],
+            "variant": "Gold variant 1"
+          },
+          {
+            "sessions": 334,
+            "net": 24386.72,
+            "gross": 26364.0,
+            "fee": 641.28,
+            "slippage": 1336.0,
+            "minute_drawdown": 6631.2,
+            "failed_gates": [
+              "maximum_minute_drawdown_at_most_2000"
+            ],
+            "variant": "Gold variant 2"
+          },
+          {
+            "sessions": 334,
+            "net": 22411.72,
+            "gross": 24389.0,
+            "fee": 641.28,
+            "slippage": 1336.0,
+            "minute_drawdown": 10648.28,
+            "failed_gates": [
+              "maximum_daily_loss_at_most_1000",
+              "maximum_minute_drawdown_at_most_2000"
+            ],
+            "variant": "Gold variant 3"
+          },
+          {
+            "sessions": 334,
+            "net": 17943.72,
+            "gross": 19921.0,
+            "fee": 641.28,
+            "slippage": 1336.0,
+            "minute_drawdown": 6574.04,
+            "failed_gates": [
+              "maximum_minute_drawdown_at_most_2000"
+            ],
+            "variant": "Gold variant 4"
+          },
+          {
+            "sessions": 334,
+            "net": 21794.72,
+            "gross": 23772.0,
+            "fee": 641.28,
+            "slippage": 1336.0,
+            "minute_drawdown": 5708.88,
+            "failed_gates": [
+              "maximum_minute_drawdown_at_most_2000"
+            ],
+            "variant": "Gold variant 5"
+          },
+          {
+            "sessions": 334,
+            "net": 21965.72,
+            "gross": 23943.0,
+            "fee": 641.28,
+            "slippage": 1336.0,
+            "minute_drawdown": 6797.48,
+            "failed_gates": [
+              "maximum_daily_loss_at_most_1000",
+              "maximum_minute_drawdown_at_most_2000"
+            ],
+            "variant": "Gold variant 6"
+          }
+        ],
+        "fee_per_round_trip": 1.92,
+        "adverse_ticks_per_side": 2,
+        "tick_value": 1,
+        "start": "2025-03-03",
+        "end": "2026-06-30"
+      },
+      "integration": "Committed on main",
+      "source_commit": "8152895f605f43fd9ae87a03936efcdb0cdcbf48"
+    },
+    {
+      "id": "batch",
+      "label": "Batch campaign",
+      "title": "Screen broadly, then test the selection rule",
+      "question": "Do any gold or crude-oil variants survive higher execution costs and prior-only selection?",
+      "context": "192 variants across four product/session windows, two cost settings and eight completed shards. Each group used its available complete historical sessions.",
+      "metrics": [
+        {
+          "value": "192",
+          "label": "Distinct variants compared"
+        },
+        {
+          "value": "19 \u2192 0",
+          "label": "Positive full-window variants: base \u2192 higher costs"
+        },
+        {
+          "value": "0",
+          "label": "Candidates advanced to account research"
+        }
+      ],
+      "decision": "Some full-window backtests were positive at base costs. None were positive at stress costs; the saved prior-only folds produced no account candidate.",
+      "engineering": "Kept the declared variant inventory and shard results together, checked complete result coverage, and selected each fold using only earlier sessions.",
+      "limits": "Familiar cache development, not untouched validation. The different session groups have different coverage; the variants are not independent trials.",
+      "aggregates": {
+        "branches": 192,
+        "priced_cells": 384,
+        "shards": 8,
+        "base_positive": 19,
+        "stress_positive": 0,
+        "coverage": [
+          {
+            "complete_sessions": 146,
+            "excluded_sessions": 58,
+            "market": "MGC",
+            "minute": 1080,
+            "observed_sessions": 204
+          },
+          {
+            "complete_sessions": 153,
+            "excluded_sessions": 49,
+            "market": "MGC",
+            "minute": 180,
+            "observed_sessions": 202
+          },
+          {
+            "complete_sessions": 201,
+            "excluded_sessions": 3,
+            "market": "MCL",
+            "minute": 630,
+            "observed_sessions": 204
+          },
+          {
+            "complete_sessions": 33,
+            "excluded_sessions": 171,
+            "market": "MCL",
+            "minute": 870,
+            "observed_sessions": 204
+          }
+        ],
+        "costs": {
+          "base": 5.22,
+          "stress": 13.22
+        },
+        "walk_forward": [
+          {
+            "account_research_candidate": false,
+            "fold_count": 4,
+            "market": "MCL",
+            "metrics": {
+              "base": {
+                "adverse_drawdown": 0.0,
+                "included_cost": 0.0,
+                "net": 0.0,
+                "sessions": 120,
+                "trades": 0
+              },
+              "stress": {
+                "adverse_drawdown": 0.0,
+                "included_cost": 0.0,
+                "net": 0.0,
+                "sessions": 120,
+                "trades": 0
+              }
+            },
+            "minute": 630,
+            "positive_stress_folds": 0
+          },
+          {
+            "account_research_candidate": false,
+            "fold_count": 0,
+            "market": "MCL",
+            "metrics": {
+              "base": {
+                "adverse_drawdown": 0.0,
+                "included_cost": 0.0,
+                "net": 0.0,
+                "sessions": 0,
+                "trades": 0
+              },
+              "stress": {
+                "adverse_drawdown": 0.0,
+                "included_cost": 0.0,
+                "net": 0.0,
+                "sessions": 0,
+                "trades": 0
+              }
+            },
+            "minute": 870,
+            "positive_stress_folds": 0
+          },
+          {
+            "account_research_candidate": false,
+            "fold_count": 3,
+            "market": "MGC",
+            "metrics": {
+              "base": {
+                "adverse_drawdown": 404.1,
+                "included_cost": 261.0,
+                "net": -11.0,
+                "sessions": 90,
+                "trades": 50
+              },
+              "stress": {
+                "adverse_drawdown": 627.58,
+                "included_cost": 661.0,
+                "net": -411.0,
+                "sessions": 90,
+                "trades": 50
+              }
+            },
+            "minute": 180,
+            "positive_stress_folds": 0
+          },
+          {
+            "account_research_candidate": false,
+            "fold_count": 2,
+            "market": "MGC",
+            "metrics": {
+              "base": {
+                "adverse_drawdown": 444.74,
+                "included_cost": 193.14,
+                "net": -47.14,
+                "sessions": 60,
+                "trades": 37
+              },
+              "stress": {
+                "adverse_drawdown": 580.74,
+                "included_cost": 489.14,
+                "net": -343.14,
+                "sessions": 60,
+                "trades": 37
+              }
+            },
+            "minute": 1080,
+            "positive_stress_folds": 0
+          }
+        ]
+      },
+      "integration": "Completed results retained on research branch",
+      "source_commit": "22502810ff743dc995998845c29abea65c917a31"
+    },
+    {
+      "id": "component",
+      "label": "Component comparison",
+      "title": "Add a signal without changing the risk question",
+      "question": "Does a second component improve account outcomes compared with the same unit-sized baseline?",
+      "context": "72 new historical account paths compared with 144 retained controls. The primary gate used eight same-start pairs for each of two source variants: 180 observed sessions, stress costs.",
+      "metrics": [
+        {
+          "value": "+$491 / +$485",
+          "label": "Median paired modeled cash change, by source"
+        },
+        {
+          "value": "3 \u2192 1",
+          "label": "Open-sign funded-failure episodes"
+        },
+        {
+          "value": "0 \u2192 1",
+          "label": "Midpoint funded-failure episodes"
+        }
+      ],
+      "decision": "Modeled cash improved in both sources. Open-sign met the primary gate; midpoint added a funded failure, so the combined decision failed and remained in research.",
+      "engineering": "Reused exact prior controls and paired each baseline with the added-component path at the same start, horizon and cost setting. Kept failure episodes separate from failure-bearing paths.",
+      "limits": "Overlapping, familiar historical windows. The staged-sizing controls are secondary because exposure changes. Lower-cost or shorter-window results could not rescue the primary gate.",
+      "aggregates": {
+        "new_paths": 72,
+        "retained_controls": 144,
+        "total": 216,
+        "requested_new": 104,
+        "source_short": 32,
+        "primary": [
+          {
+            "source": "midpoint",
+            "pairs": 8,
+            "median_paired_cash_change": 485.03,
+            "baseline": {
+              "payout_paths": 4,
+              "evaluation_failure_paths": 1,
+              "funded_failure_episodes": 0
+            },
+            "added_component": {
+              "payout_paths": 5,
+              "evaluation_failure_paths": 1,
+              "funded_failure_episodes": 1
+            }
+          },
+          {
+            "source": "open-sign",
+            "pairs": 8,
+            "median_paired_cash_change": 490.72,
+            "baseline": {
+              "payout_paths": 3,
+              "evaluation_failure_paths": 4,
+              "funded_failure_episodes": 3
+            },
+            "added_component": {
+              "payout_paths": 5,
+              "evaluation_failure_paths": 2,
+              "funded_failure_episodes": 1
+            }
+          }
+        ]
+      },
+      "integration": "Completed results and incremental comparison retained on research branches",
+      "source_commit": "22502810ff743dc995998845c29abea65c917a31"
+    },
+    {
+      "id": "account",
+      "label": "Account simulation",
+      "title": "Follow trading gains through fees, failures and modeled payouts",
+      "question": "How much modeled owner cash remains after account rules and costs?",
+      "context": "24 shared-risk account paths: three source books \u00d7 four strategy mixes \u00d7 two execution-cost settings, across 365 observed sessions from June 2024\u2013December 2025.",
+      "metrics": [
+        {
+          "value": "9 / 12",
+          "label": "Positive modeled cash paths in each cost arm"
+        },
+        {
+          "value": "$4,484 / $2,751",
+          "label": "Median modeled cash: base / stress costs"
+        },
+        {
+          "value": "10 / 12",
+          "label": "Payout-bearing paths in each cost arm"
+        }
+      ],
+      "decision": "The full-horizon simulation retained positive cash outcomes alongside losses and failures. Six paths per cost arm had a lifecycle failure; nine per arm were still active at cutoff. It did not authorize Practice or establish future profitability.",
+      "engineering": "Ran strategy mixes through one stateful account lifecycle with joint risk, evaluation and funded transitions, modeled fees and payout settlements; reopened completed checkpoints before continuing the batch.",
+      "limits": "Historical simulations on familiar, search-exposed dates. Path groups overlap. Modeled settlements are not received cash; active paths are censored at the window end. Actual invoices, tax, research and other overhead are unknown and excluded.",
+      "aggregates": {
+        "start": "2024-06-10",
+        "end": "2025-12-19",
+        "observed_sessions": 365,
+        "cost_arms": {
+          "BASE": {
+            "paths": 12,
+            "positive_cash": 9,
+            "payout_paths": 10,
+            "median_cash": 4484.18,
+            "cash_range": [
+              -1143.0,
+              7906.0
+            ],
+            "failure_bearing_paths": 6,
+            "active_at_cutoff": 9,
+            "evaluation_attempts": 20,
+            "evaluation_passes": 18,
+            "funded_failure_episodes": 9,
+            "settlements": 84
+          },
+          "STRESS": {
+            "paths": 12,
+            "positive_cash": 9,
+            "payout_paths": 10,
+            "median_cash": 2751.37,
+            "cash_range": [
+              -1143.0,
+              7006.0
+            ],
+            "failure_bearing_paths": 6,
+            "active_at_cutoff": 9,
+            "evaluation_attempts": 20,
+            "evaluation_passes": 18,
+            "funded_failure_episodes": 9,
+            "settlements": 73
+          }
+        },
+        "modeled_shared_cost_per_30_days": 29,
+        "initial_modeled_equity": 50000,
+        "payout_headroom_reserve": 1000
+      },
+      "integration": "Completed Cloud results retained on research branch",
+      "source_commit": "077b28925d0e943a084645d42b4023e661e0cbea"
+    }
+  ]
+}
