@@ -15,7 +15,7 @@
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
 <link rel="stylesheet" href="site.css?v=20261111-recruiter">
-<link rel="stylesheet" href="creative.css?v=20261117-cardinal-formsby">
+<link rel="stylesheet" href="creative.css?v=20261117-depth-3">
 <script src="site.js?v=20261117-cardinal-formsby" defer></script>
 </head>
 <body>
@@ -34,7 +34,7 @@
         <p class="intro">Engineering software. <br>Mechanical design.</p>
         <p class="hero-story">I’m finishing mechanical engineering at Lehigh. At Cardinal Glass, I built a production tracker my coworkers used in their daily debrief. I also build Midas for futures research and Operalith for connected workspaces.</p>
         <div class="hero-cta"><a class="primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="resume.pdf">View résumé ↗</a></div>
-        <p class="availability">Lehigh B.S. expected January 2027</p>
+        <p class="availability">Seeking U.S. remote work · Available January 2027</p>
       </div>
       <figure class="hero-figure">
         <div class="stage-label"><span>Wilbur Powerhouse</span><span>OpenSCAD</span></div>
@@ -68,7 +68,7 @@
     <div>
       <h2>Software &amp; research</h2>
       <a href="#midas"><strong>Midas Futures</strong><small>Experiment runners and recovery after interruption</small></a>
-      <a href="#production"><strong>Scanned Leverage and Optimized Production</strong><small>Compare two builds from one game</small></a>
+      <a href="#production"><strong>Scanned Leverage and Optimized Production</strong><small>Market research and modular production</small></a>
       <a href="#operalith"><strong>Operalith</strong><small>Tools and workflows in one workspace</small></a>
       <a href="#formsby"><strong>Formsby</strong><small>Explore how a housing request gets matched</small></a>
     </div>
@@ -329,7 +329,7 @@
     <div class="chapter-head">
       <h2 id="production-title">Scanned Leverage and Optimized Production</h2>
       <div class="case-prose">
-        <p class="deck">I’m developing a system for deciding what to prototype, then building variations from shared parts. Roblox is the first market. Python tools organize market observations and manually annotated gameplay; a configurable producer assembles original Roblox places with shared Luau game rules.</p>
+        <p class="deck">I’m building a system to study what people play, break down how those games work and build original prototypes from reusable parts. Roblox is the first market. I built Python tools to organize market evidence and annotated gameplay, alongside production tools that compose game rules, interfaces and world layouts. I make the design decisions between those stages.</p>
 
       </div>
     </div>
@@ -354,20 +354,26 @@
           <li><strong>Swap roles</strong><span>When both players ready up again, the other player becomes the runner.</span></li>
         </ol>
         <p class="explorer-foot">The automated test exercises the game rules with declared positions and times. Multiplayer playtesting is a separate step.</p>
-      <p>There is also a test for a player leaving mid-round. The state clears the carrier, gate and location reveal without awarding a win, advances the round version, and refuses delayed actions from the old round. A replacement pair starts with fresh state.</p><p class="explorer-foot">This follows the pinned pure-state tests. No multiplayer session was executed for this example.</p></details>
+      </details>
     </section>
-    <div class="case-prose case-summary"><p>The research tools organize rankings, descriptions and manually annotated gameplay by source and game. I compare how games handle actions, state changes and rewards, then decide what to explore in an original design. On the production side, Signal Break generates two arenas from shared game logic. Moving cover, pickups and player starts means changing the configuration rather than rebuilding the game.</p></div>
-    <ol class="system-flow" aria-label="Scanned Leverage and Optimized Production workflow">
-      <li><h3>Scan the market</h3><p>Join market observations to the right game and keep their original source.</p></li>
-      <li><h3>Break down play</h3><p>Turn annotated gameplay into actions, state changes and rewards. Leave gaps visible.</p></li>
-      <li><h3>Build original variants</h3><p>Set the rules and geometry in a configuration. Assemble a Roblox place using shared code.</p></li>
-      <li><h3>Check the result</h3><p>Reject blocked declared routes and invalid settings. Rebuild from the same inputs and compare the output.</p></li>
-    </ol>
+    <section class="round-reset-study" aria-labelledby="round-reset-title">
+      <div class="study-heading"><h3 id="round-reset-title">A player leaves mid-round</h3><p>Signal Break · Pure-state test example</p></div>
+      <p>I give each round a version number so a delayed action from an abandoned round cannot change the next one. The state tests cover clearing a round with the gate open, refusing old actions and starting again with a new pair.</p>
+      <ol class="round-reset-trace"><li><strong>Gate open</strong><span>The runner has used the jammer. The shortcut and location reveal are active.</span></li><li><strong>Player leaves</strong><span>Clear the carrier, gate and reveal. Advance the round version; award no winner.</span></li><li><strong>Old action arrives</strong><span>Its round version no longer matches. Refuse the action before it changes state.</span></li><li><strong>New pair starts</strong><span>Fresh readiness and round state. No round-state carry-over from the abandoned game.</span></li></ol>
+      <p class="explorer-foot">This explains assertions in the game’s state tests, not a recorded network session. Multiplayer playtesting remains separate.</p>
+    </section>
+    <section class="gameplay-study" id="gameplay-research" aria-labelledby="gameplay-research-title">
+      <div class="pipeline-intro"><h3 id="gameplay-research-title">Gameplay research</h3><p>I built a Python tool that turns manually annotated observations into object-state transitions and counter comparisons. Here, five observations follow the same egg through a public recording. Missing readings stay unknown.</p></div>
+      <div class="gameplay-records"><div><h4>Five observations, one object</h4><p class="trace-caption">Open a row to inspect the recorded values. Times refer to the edited recording.</p><ol class="observation-list"><li><details><summary><time>1:34.53</time><strong>Egg counting down</strong></summary><p>No numeric readings recorded in this observation.</p></details></li><li><details><summary><time>1:37.21</time><strong>Egg ready to hatch</strong></summary><p>Cash: 0 · Speed: 10</p></details></li><li><details><summary><time>1:41.35</time><strong>Creature revealed</strong></summary><p>No numeric readings recorded in this observation.</p></details></li><li><details><summary><time>1:45.51</time><strong>Collection reward available</strong></summary><p>Cash: 0 · Collection index: 1 · Speed: 10</p></details></li><li><details><summary><time>1:49.69</time><strong>On-screen counters changed</strong></summary><p>Cash: 100 · Speed: 430</p></details></li></ol></div>
+      <div class="observation-result"><h4>What the tool can calculate</h4><table class="evidence-table"><caption>Earliest and latest recorded reading for each counter</caption><thead><tr><th scope="col">Counter</th><th scope="col">Readings</th><th scope="col">Change</th></tr></thead><tbody><tr><th scope="row">In-game cash</th><td>0 → 100</td><td>+100</td></tr><tr><th scope="row">Speed</th><td>10 → 430</td><td>+420</td></tr><tr><th scope="row">Collection index</th><td>Only one: 1</td><td>Unknown</td></tr></tbody></table><p class="explorer-result">One index reading cannot establish a change. The tool also refuses to combine counter readings from different players.</p><p>The labels come from manual annotation. Python orders them, links four transitions to their source frames and computes the differences. The changed counters alone do not establish which action caused them.</p></div></div>
+      <p class="explorer-foot">Retained October 13 observations from <a href="https://www.youtube.com/watch?v=MhOBiFHAARY">Bloxtian PH’s public recording</a>; deterministic output recomputed from the actual source. Recording time is not gameplay duration. Frame bytes were not reverified in this reproduction; no recording images are republished. <a href="assets/production-observations.json">Inspect the observations and output →</a></p>
+      <details class="production-composer"><summary>How the production tools reuse more than geometry</summary><p>The composer can combine gameplay families with shared entry, return and settings interfaces. It checks component identities, keeps source and license records, and prevents menu inputs from reaching gameplay. Signal Break’s two original arenas above are a separate, reproduced production example.</p></details>
+    </section>
     <div id="slop-explore" aria-hidden="true"></div>
 
     <div class="case-prose case-summary">
       <h3>Concept review</h3>
-      <p>I held a separate collector concept at storyboard review. Reusing carrying and pursuit code was not enough: the same egg needed to survive pickup, placement and reveal, and the companion needed to change what happened on the next trip. A pose and a caption did not demonstrate those rules. I identified the missing behavior before moving the concept into production.</p>
+      <p>In a separate collector proposal, I required the same egg to persist through pickup, placement and reveal, and a companion to change the next trip. Reusable carrying and pursuit code did not establish those behaviors. I held the build at storyboard review until the missing rules could be demonstrated.</p>
     </div>
   </div>
 </section>
@@ -514,8 +520,8 @@
   <div class="frame about-layout">
     <h2 id="about-title">About me</h2>
     <div class="case-prose">
-      <p class="about-lead">I’m finishing mechanical engineering at Lehigh. I also spent three summers at Cardinal Glass, where I got to build tools for people I worked with every day.</p>
-      <p>I’m especially proud of the production tracker because my coworkers used it in the daily debrief. Formsby started during breaks and lunches at Cardinal; I spent months working through the idea and its first build. Midas has been a daily project for about a year. Operalith is the product I’m building around keeping everyday work personal and connected. I work on several things at once, and keep coming back to the ones I care about.</p>
+      <p class="about-lead">I’m finishing mechanical engineering at Lehigh, after three summers at Cardinal Glass.</p>
+      <p>Formsby started during breaks and lunches at Cardinal. I spent months working through the idea and its first build, and I still want to take it further. Midas has been a daily project for about a year.</p><p>I especially enjoyed building the production tracker because it helped my coworkers keep daily work organized. They used it in the end-of-shift meeting. That’s a part of engineering I want to keep doing: building something useful for the people who work with it.</p>
     </div>
   </div>
 </section>

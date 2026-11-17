@@ -211,6 +211,24 @@ body{background:var(--ground);color:var(--ink);line-height:1.55}
 .study-caption{margin:5px 0 22px;max-width:90ch}
 .comparison-study .case-prose{max-width:74ch}
 .round-details .run-history{margin-top:5px}
+.round-reset-study,.gameplay-study{margin-top:35px;padding-top:28px;border-top:1px solid var(--rule);scroll-margin-top:calc(var(--bar) + 18px)}
+.round-reset-study>p{max-width:80ch}
+.round-reset-trace{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;padding:0;margin:24px 0;gap:24px}
+.round-reset-trace li{border-top:2px solid var(--accent);padding-top:12px;font-size:.9rem}
+.round-reset-trace strong{display:block;font-size:1.05rem;margin-bottom:8px}
+.round-reset-trace span{display:block;color:var(--muted)}
+.gameplay-records{display:grid;grid-template-columns:1fr 1fr;gap:clamp(25px,5vw,70px);margin-top:22px;align-items:start}
+.gameplay-records h4{font-size:1.15rem;margin:0 0 13px}
+.observation-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--rule)}
+.observation-list li{border-bottom:1px solid var(--rule)}
+.observation-list summary{display:grid;grid-template-columns:8ch 1fr;gap:12px;padding:15px 20px 15px 0;cursor:pointer;position:relative;list-style:none;font-size:.95rem}
+.observation-list summary::-webkit-details-marker{display:none}
+.observation-list summary:after{content:'+';position:absolute;right:0;top:14px;font-size:1.2rem}
+.observation-list details[open]>summary:after{content:'−'}
+.observation-list time{font-variant-numeric:tabular-nums;color:var(--muted)}
+.observation-list strong{font-weight:600}.observation-list details>p{padding:0 15px 15px 0;font-size:.88rem}
+.observation-result>p{font-size:.94rem;margin-top:16px;max-width:58ch}
+.production-composer{margin-top:20px;max-width:85ch}.production-composer summary{font-weight:600;cursor:pointer;padding-block:12px}.production-composer p{font-size:.94rem;padding-bottom:10px}
 .formsby .chapter-head{grid-template-columns:.6fr 1.4fr}
 .formsby .case-grid{display:block;margin-top:34px}
 .formsby .case-grid>.case-prose{grid-template-columns:1fr 1fr;gap:25px 45px}
@@ -254,6 +272,7 @@ body[data-theme=night] .cardinal-explorer :is(input,select){background:#1b303a;c
  .has-drive .hero-sticky{position:relative;top:0}.hero.has-drive{min-height:0}
  .work-strip>.work-index:first-of-type{grid-template-columns:1fr;gap:22px}.work-index>div:last-child{grid-template-columns:1fr 1fr;gap:0 20px}
  .chapter-head,.midas .chapter-head,.production .chapter-head,.formsby .chapter-head,.cardinal-opening,.about-layout{grid-template-columns:1fr;gap:22px}
+ .gameplay-records{grid-template-columns:1fr;gap:27px}.round-reset-trace{grid-template-columns:1fr 1fr;gap:20px}.observation-list summary{grid-template-columns:8ch 1fr}
  .pipeline-intro,.pipeline-studies,.pipeline-accounts{grid-template-columns:1fr;gap:18px}.pipeline-studies{padding-left:15px;border-left:1px solid var(--rule)}.pipeline-studies li:before{left:-16px;top:25px;width:12px;height:0;border-top:1px solid var(--rule);border-left:0}.pipeline-studies summary{min-height:0}.pipeline-origin:after{display:none}.pipeline-accounts{margin-inline:0}.pipeline-account-note{text-align:left}.pipeline-origin,.pipeline-evidence{font-size:.95rem}.pipeline-foundation{padding:15px 16px}
  .midas-restart,.midas-decisions{grid-template-columns:1fr;gap:25px}.midas-restart{margin-top:28px;padding-block:24px}.chapter-context{margin-top:10px}
  .cardinal-opening>.chapter-head{position:static}.cardinal-opening .deck{margin-top:16px}

@@ -1,0 +1,51 @@
+{
+  "label": "Actual retained manual annotations; edited public recording, observed October 13, 2026",
+  "source": "https://www.youtube.com/watch?v=MhOBiFHAARY",
+  "source_creator": "Bloxtian PH",
+  "source_title": "FIRST TIME PLAYING STEAL AN EGG IN ROBLOX",
+  "source_sha256": "f5fb988fa2009763f6c9474187b6f0464c2108b2d111a85a5c1ff1cf733bb201",
+  "annotation_sha256": "3a58ca61aafb65ec5e7ae613bdaca7e4dfe30efe7dc3add912f566a9abc221c8",
+  "events": [
+    {
+      "recording_at_s": 94.525799,
+      "state": "egg_countdown",
+      "values": {}
+    },
+    {
+      "recording_at_s": 97.205723,
+      "state": "egg_ready",
+      "values": {
+        "cash": 0,
+        "speed": 10
+      }
+    },
+    {
+      "recording_at_s": 101.350479,
+      "state": "creature_revealed",
+      "values": {}
+    },
+    {
+      "recording_at_s": 105.508947,
+      "state": "collection_reward_available",
+      "values": {
+        "cash": 0,
+        "forest_index": 1,
+        "speed": 10
+      }
+    },
+    {
+      "recording_at_s": 109.688087,
+      "state": "reward_counters_changed",
+      "values": {
+        "cash": 100,
+        "speed": 430
+      }
+    }
+  ],
+  "endpoint_deltas": {
+    "cash": 100,
+    "forest_index": null,
+    "speed": 420
+  },
+  "qualification": "Semantic labels were supplied manually. Counter changes are arithmetic between sampled readings, not proof of the intervening click or its cause. Recording timestamps are not gameplay duration. Frame bytes were not verified in this reproduction. No competitor media included."
+}
