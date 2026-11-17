@@ -34,10 +34,12 @@ Source commit: `c4dd1a3997421be29b3363a9706113a2123ea1db`.
 
 ## Test boundaries and tradeoffs
 
+**Why `new Function`?** The harness wraps the fixed, locally saved method as a class method and injects the named test adapters. This keeps the captured method unchanged. It is an extraction technique for this sample, rather than normal application module loading.
+
 `harness.mjs` is newly written test support. It executes the fixed local method as a class method and supplies in-memory SQL-shaped adapters. Workspace validation and definition validation are identity stubs. The domain edit is a synthetic append action, not Operalith's real change engine. The transaction adapter simply calls its callback: it supplies no rollback, locks or persistence. Undo/upgrade, receipt-capacity failure, real authentication/authorization, tenant isolation, concurrent requests, process restart, database atomicity and HTTP behavior are not proved here. No production repository or runtime is modified or started.
 
 The real fingerprint uses `JSON.stringify`, so object-property ordering matters. Retry the original serialized request; this does not establish semantic equivalence across differently ordered bodies. A replay returns the original revision/result, which may be older than the latest workspace state. That is intentional receipt behavior, not a fresh read.
 
 ## Publication
 
-Dylan Becchetti authorized publication of this specific reviewed source-and-test package on November 17, 2026. It includes no other private project source, credentials, customer records, runtime state or database files. No additional software license is granted by this example. The executable excerpt, helpers, harness and tests are unchanged from the reviewed package; only these release notes and provenance status were updated for publication.
+Dylan Becchetti authorized publication of this specific reviewed source-and-test package on November 17, 2026. It includes no other private project source, credentials, customer records, runtime state or database files. No additional software license is granted by this example. The executable excerpt, helpers, harness and tests are unchanged from the reviewed package; documentation and publication status are maintained alongside it.

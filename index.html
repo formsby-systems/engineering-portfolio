@@ -15,8 +15,8 @@
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
 <link rel="stylesheet" href="site.css?v=20261111-recruiter">
-<link rel="stylesheet" href="creative.css?v=20261116-focused">
-<script src="site.js?v=20261116-focused" defer></script>
+<link rel="stylesheet" href="creative.css?v=20261117-identity">
+<script src="site.js?v=20261117-identity" defer></script>
 </head>
 <body>
 <a class="skip" href="#work">Skip to selected work</a>
@@ -32,7 +32,7 @@
       <div class="hero-copy">
         <h1 id="hero-title">Dylan <br>Becchetti</h1>
         <p class="intro">Engineering software. <br>Mechanical design.</p>
-        <p class="hero-story">My work spans Python research systems, connected web applications and mechanical design. At Cardinal Glass, the production tracker I built became part of my coworkers’ daily debrief.</p>
+        <p class="hero-story">I’m finishing mechanical engineering at Lehigh. At Cardinal Glass, I built a production tracker my coworkers used in their daily debrief. I also build Midas for futures research and Operalith for connected workspaces.</p>
         <div class="hero-cta"><a class="primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="resume.pdf">View résumé ↗</a></div>
         <p class="availability">Lehigh B.S. expected January 2027</p>
       </div>
@@ -145,9 +145,11 @@
     </div>
     <div class="fabrication-spread">
       <figure><a href="assets/wilbur-cut-gears.webp"><img src="assets/wilbur-cut-gears.webp" loading="lazy" width="1467" height="1100" alt="Actual full-scale sun and planet gear cuts in plywood at Lehigh’s Mountaintop shop."></a><figcaption>From the model to full-scale parts. Gear cuts from our team’s fabrication brief.</figcaption></figure>
-      <figure><a href="assets/wilbur-ring.webp"><img src="assets/wilbur-ring.webp" loading="lazy" width="1500" height="1050" alt="My November OpenSCAD ring and external drive geometry."></a><figcaption>My ring and drive geometry, 2,020 mm (79.5 in) across. Four identical half-cuts form two layers, with upper seams rotated 90 degrees.</figcaption></figure>
+      <div class="fabrication-margin">
+        <p>I took the models from small proof-of-concept assemblies to full-scale parts. When roller tests raised noise concerns, I modeled fixed casters and a wider laminated ring, keeping the inner teeth so the planets would still mesh. I updated the CNC profiles and motor position as my team moved into fabrication.</p>
+        <figure><a href="assets/wilbur-ring.webp"><img src="assets/wilbur-ring.webp" loading="lazy" width="1500" height="1050" alt="My November OpenSCAD ring and external drive geometry."></a><figcaption>My ring and drive geometry, 2,020 mm (79.5 in) across. Four identical half-cuts form two layers, with upper seams rotated 90 degrees.</figcaption></figure>
+      </div>
     </div>
-    <div class="case-prose case-summary"><p>I took the parametric models from small proof-of-concept assemblies to the full-scale design. When roller tests raised noise concerns, I modeled fixed casters and a wider laminated ring, preserved the inner gear profile, and updated the CNC profiles and motor position. I worked with my team and sponsor to turn the design into parts we could make at Lehigh.</p></div>
     <section class="project-explorer wilbur-explorer" id="wilbur-explore" data-explorer aria-labelledby="wilbur-explore-title">
       <div class="explorer-intro">
         <div><h3 id="wilbur-explore-title">Sculpture components</h3></div>
@@ -212,14 +214,23 @@
       <div class="case-prose"><h3>Keeping two execution paths consistent</h3><p>Replay and forward evaluation once disagreed on when a bar was complete and which price an exit could use. I put those decisions into a shared state machine. A retained historical check matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p></div>
       <div class="case-prose"><h3>Retrying without duplicating work</h3><p>I built a local queue that ran 288 strategy variants at two cost settings in one recorded campaign. It reused saved results for duplicate work and rejected invalid requests before execution. For cloud jobs, I tested interruptions during handoff: retrying completed the handoff without adding the same job twice. In those tests, if a worker had claimed a job but its completion could not be verified, the queue stopped later work until that run could be reconciled.</p></div>
     </div>
-    <details class="architecture-details"><summary>How the research pipeline is organized</summary>
-    <ol class="system-flow" aria-label="Midas research and Practice workflow">
-      <li><h3>Define the experiment</h3><p>Freeze the strategy, code, data, time window and costs so each result belongs to a specific run.</p></li>
-      <li><h3>Replay and compare</h3><p>Use shared decision rules and a simulated clock. Run variants in batches and resume from verified checkpoints.</p></li>
-      <li><h3>Simulate the account</h3><p>Put strategies under shared risk limits. Track evaluations, resets, fees and payouts across the observation window.</p></li>
-      <li><h3>Review before Practice</h3><p>Compare with retained controls. Practice has its own authorization, execution ledger and reconciliation.</p></li>
-    </ol>
-    </details>
+    <section class="pipeline-map" id="midas-pipeline" aria-labelledby="midas-pipeline-title">
+      <div class="pipeline-intro"><h3 id="midas-pipeline-title">How the research fits together</h3><p>A study declares which tools it uses. I keep its inputs, assumptions and results together, then model the account where the experiment calls for it.</p></div>
+      <p class="pipeline-origin">Strategy definitions, parameters &amp; identified data</p>
+      <ul class="pipeline-studies" aria-label="Research methods">
+        <li><details><summary><strong>Batch campaigns</strong><span>Compare variants under a saved experiment plan.</span></summary><p>Seeded runs call a sweep, analysis and validation. Plans, parameter identities, fold results and leakage checks stay with the campaign.</p></details></li>
+        <li><details><summary><strong>Component studies</strong><span>Test what changes when a component is removed or combined.</span></summary><p>I built one-axis ablations and declared interaction studies around retained baselines and common risk budgets. Each adapter defines the combinations it supports.</p></details></li>
+        <li><details><summary><strong>Monte Carlo validation</strong><span>Challenge a specific result under declared null models.</span></summary><p>A retained historical study ran two fixed 100,000-draw circular-shift nulls and reapplied the selection statistic. It reported uncertainty and required human review. This is a named validation study, rather than a step every strategy automatically passes through.</p></details></li>
+      </ul>
+      <p class="pipeline-evidence">Saved comparisons, costs &amp; evidence</p>
+      <div class="pipeline-accounts">
+        <div><h4>Account lifecycle</h4><p>Model evaluation stages, loss limits, fees, resets and payouts.</p></div>
+        <div><h4>Shared-risk account book</h4><p>Joint positions share capacity, margin and account-level liquidation. Developed on a retained research branch.</p></div>
+      </div>
+      <p class="pipeline-account-note">Each account study declares the inputs and retained comparisons it uses.</p>
+      <div class="pipeline-foundation"><h4>Durable execution for admitted research jobs</h4><p>Immutable packet → persistent inbox → bounded worker → retained results</p><p>Retries check prior admissions and claims. An unverifiable claimed completion holds later work for reconciliation.</p></div>
+      <div class="pipeline-practice"><h4>Separate demo execution</h4><p>Reviewed handoffs to Practice require their own authorization, execution ledger and reconciliation.</p></div>
+    </section>
     <section class="project-explorer midas-explorer" id="midas-explore" data-explorer aria-labelledby="midas-explore-title">
       <div class="explorer-intro">
         <div><p class="explorer-note">Historical account simulation · November 10, 2026</p><h3 id="midas-explore-title">Account experiment</h3></div>
