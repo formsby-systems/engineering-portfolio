@@ -15,8 +15,8 @@
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
 <link rel="stylesheet" href="site.css?v=20261111-recruiter">
-<link rel="stylesheet" href="creative.css?v=20261117-identity">
-<script src="site.js?v=20261117-identity" defer></script>
+<link rel="stylesheet" href="creative.css?v=20261117-cardinal-formsby">
+<script src="site.js?v=20261117-cardinal-formsby" defer></script>
 </head>
 <body>
 <a class="skip" href="#work">Skip to selected work</a>
@@ -80,12 +80,12 @@
     <div class="cardinal-opening">
     <div class="chapter-head">
       <div><h2 id="experience-title">Cardinal Glass</h2><p class="chapter-context">Three summer internships, 2023–2025</p></div>
-      <p class="deck">I built a production tracker that engineers and operators used in daily R&amp;D shift debriefs. For weekly reporting, I connected quality, production, yield and work-order data in an Excel/VBA Scorecard.</p>
+      <p class="deck">At Cardinal, I built tools for the people I worked with. My daily R&amp;D production tracker became part of the shift debrief. For the weekly Scorecard, I replaced manual filtering of a 10,000+ unit quality log and connected production, yield and work-order reports without making everyone change their worksheets.</p>
     </div>
     <section class="project-explorer cardinal-explorer" id="cardinal-explore" data-explorer aria-labelledby="cardinal-explore-title">
       <div class="explorer-intro">
         <div><p class="explorer-note">Weekly operations scorecard · Fictional records</p><h3 id="cardinal-explore-title">Weekly Scorecard</h3></div>
-        <p>Pick a reporting week, change the downtime on a shift, or trace a number back to its source. The examples use the rules I worked out for the weekly Scorecard.</p>
+        <p>The work was connecting existing reports and getting the calculations right. Follow the quality records into a weekly report, then explore the production-time and workbook connections.</p>
       </div>
       <div class="explorer-controls" role="group" aria-label="Explore the Cardinal scorecard" hidden>
         <button type="button" aria-controls="cardinal-quality" aria-pressed="true">Quality by week</button>
@@ -95,9 +95,25 @@
       <div id="cardinal-quality" class="explorer-panel" data-explorer-panel>
         <div class="cardinal-panel-heading"><div><h4>Turn date-coded IDs into a weekly defect report</h4><p>The source quality log held more than 10,000 unit records. Each ID contained its production date, so a selected week could determine which records to count.</p></div><label for="cardinal-week">Try a reporting week <select id="cardinal-week" disabled><option value="0">June 5–11, 2025</option><option value="1">June 12–18, 2025</option><option value="2">June 19–25, 2025 · empty</option></select></label></div>
         <div id="cardinal-quality-output" aria-live="polite" aria-atomic="true">
-          <dl class="cardinal-metrics"><div><dt>Inspected units</dt><dd>42</dd></div><div><dt>Failed units</dt><dd>12</dd></div><div><dt>Primary particle failures</dt><dd>6</dd></div></dl>
-          <table class="evidence-table"><caption>Primary defects · June 5–11, 2025</caption><thead><tr><th scope="col">Defect</th><th scope="col">Count</th><th scope="col">Share of failures</th></tr></thead><tbody><tr><th scope="row">Particle — Surface</th><td>6</td><td>50.0%</td></tr><tr><th scope="row">Coating — Pinholes</th><td>3</td><td>25.0%</td></tr><tr><th scope="row">Handling — Scratch</th><td>3</td><td>25.0%</td></tr></tbody></table>
-          <p class="explorer-result">Particle failures: <strong>14.3% of inspected units</strong>, or <strong>50.0% of failed units</strong>. The denominator changes the meaning.</p>
+          <div class="quality-trace">
+            <div class="quality-input"><h4>Inspection log</h4><p class="trace-caption">A few of the 84 fictional source records. The report counts the full selected week.</p>
+              <table class="evidence-table source-records"><caption>UID → production date → primary defect</caption><thead><tr><th scope="col">Unit / date</th><th scope="col">Inspection</th></tr></thead><tbody>
+                <tr><th scope="row"><code>250605001</code><small>June 5 · in week</small></th><td>Fail · Particle — Surface<small>Secondary: Particle — Edge</small></td></tr>
+                <tr><th scope="row"><code>250605006</code><small>June 5 · in week</small></th><td>Fail · Coating — Pinholes</td></tr>
+                <tr><th scope="row"><code>250605002</code><small>June 5 · in week</small></th><td>Pass<small>Still in the inspected denominator</small></td></tr>
+                <tr class="outside-week"><th scope="row"><code>250612001</code><small>June 12 · outside week</small></th><td>Excluded from this week</td></tr>
+              </tbody></table><p class="trace-caption">Select by the date inside each UID. Count each failed unit’s primary defect once.</p>
+            </div>
+            <div class="quality-report"><h4>June 5–11 report</h4>
+              <dl class="cardinal-metrics"><div><dt>Inspected</dt><dd>42</dd></div><div><dt>Failed</dt><dd>12</dd></div><div><dt>Primary particle</dt><dd>6</dd></div></dl>
+              <table class="evidence-table defect-bars"><caption>Primary defects, highest count first</caption><thead><tr><th scope="col">Defect</th><th scope="col">Count / failures</th></tr></thead><tbody>
+                <tr><th scope="row">Particle — Surface</th><td><span class="count-bar" style="--count-share:50%">6 · 50.0%</span></td></tr>
+                <tr><th scope="row">Coating — Pinholes</th><td><span class="count-bar" style="--count-share:25%">3 · 25.0%</span></td></tr>
+                <tr><th scope="row">Handling — Scratch</th><td><span class="count-bar" style="--count-share:25%">3 · 25.0%</span></td></tr>
+              </tbody></table>
+              <p class="explorer-result">Particle failures: <strong>14.3% of inspected units</strong>, or <strong>50.0% of failed units</strong>. The denominator changes the meaning.</p>
+            </div>
+          </div>
         </div>
         <details class="cardinal-source-detail"><summary>Follow one source record into the report</summary><p><code>250605001</code> means <strong>June 5, 2025 · unit 001</strong>. This fictional failed unit has “Particle — Surface” as its primary defect and “Particle — Edge” as a second defect. The retained report counts the primary defect once. An earlier experiment counted all three defect fields and grouped families; that was a different report version.</p></details>
         <p class="explorer-foot">The defect report ranked the primary defect counts from largest to smallest. These 84 example units are fictional; the 10,000+ figure describes the original source log.</p>
@@ -113,14 +129,14 @@
       <div id="cardinal-reports" class="explorer-panel" data-explorer-panel>
         <h4>Connect the dates without rebuilding everyone's worksheets</h4>
         <table class="evidence-table"><caption>Three more connections in the weekly system</caption><thead><tr><th scope="col">Source</th><th scope="col">Reporting problem</th><th scope="col">What I worked on</th></tr></thead><tbody><tr><th scope="row">Yield workbook</th><td>One week can contain several observations.</td><td>Match all dates within the week and average their percentages.</td></tr><tr><th scope="row">End-of-day report</th><td>Weekly blocks extend across hundreds of columns.</td><td>Navigate to the selected week in place, preserving formulas and comments.</td></tr><tr><th scope="row">Work-order log</th><td>Due dates and status highlights change during the week.</td><td>Classify delivery risk for the active week while preserving previous weeks.</td></tr></tbody></table>
-        <details class="cardinal-source-detail"><summary>Work through a yield example</summary><p>Fictional readings: <strong>June 5: 88% · June 8: 94% · June 11: 91%</strong>. All three dates belong to June 5–11, so the reported mean is <strong>91.0%</strong>. Matching the week to just one source row would miss two observations. This is an average of recorded percentages; it is not a unit-weighted yield.</p></details>
+        <figure class="yield-trace"><figcaption>Yield calculation · fictional readings, documented date-range rule</figcaption><div class="yield-readings"><span>June 5<strong>88%</strong></span><span>June 8<strong>94%</strong></span><span>June 11<strong>91%</strong></span><span>June 12<strong>97%</strong><small>Outside week</small></span></div><p><strong>June 5–11 → (88 + 94 + 91) ÷ 3 = 91.0%</strong><br>The old row-position lookup missed additional readings. The corrected formula uses both boundary dates and fixed source columns. This averages recorded percentages, not unit-weighted yield.</p></figure>
         <details class="cardinal-source-detail"><summary>See a delivery-rule edge case</summary><p>A fictional order due two days ago enters the <strong>Late</strong> bucket if unhighlighted. Under the later documented rule, a highlighted order is excluded from the first three risk buckets. An order due more than 28 days away enters <strong>On time</strong> regardless of highlighting. “On time” is a planning category, not evidence of shipment.</p></details>
         <p class="explorer-foot">Three working selectors navigated EOD weeks, scorecard weeks and defect-report periods. Scheduled refresh was unreliable, so a saved week reflects its last successful update.</p>
       </div>
       <p class="explorer-foot">This reconstructs the weekly system. I built a separate tracker for the daily R&amp;D debrief. <a href="assets/cardinal-demo.html">Open the full reconstruction and source records →</a></p>
     </section>
     </div>
-    <div class="decision-note"><p>The source reports already held formulas and comments people needed. When copying a selected week risked breaking those connections, I changed the design to take people straight to that week in the original report. I also automated weekly counts from a log of more than 10,000 units.</p></div>
+    <div class="decision-note"><p>I changed the design when copying weekly blocks risked separating values from their formulas and comments: the controls now took people to the selected week in the original worksheet. I also fixed a yield calculation that assumed one source row per week. Matching the actual date range included every reading, and locking the source columns kept the formula correct when copied across the Scorecard.</p></div>
     <ol class="internships" aria-label="Cardinal internships by summer">
       <li><strong>2023</strong><div><h3>Engineering</h3><p>Rotated through maintenance, quality and R&amp;D. Inspected units, analyzed data in Minitab, drafted equipment layouts in AutoCAD and contributed to design failure mode reviews.</p></div></li>
       <li><strong>2024</strong><div><h3>Continuous improvement</h3><p>Wrote illustrated build instructions for customer samples, planned spare-parts organization and signage across 14 warehouse locations, and measured cleanroom airflow with a capture hood and micromanometer.</p></div></li>
@@ -417,17 +433,26 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="formsby-title">Formsby</h2>
-      <p class="deck">I started Formsby to connect a request on one website with a useful offer, person or resource elsewhere. I built a shared discovery and matching workflow, then focused it on housing: a request becomes a private shortlist with source links and reasons for each match. The prototype keeps results from working sources when another source fails and keeps each search run separate.</p>
+      <p class="deck">I started Formsby during breaks and lunches at Cardinal, then spent months building its first Python workflow. The idea was to connect a need expressed on one website with a useful offer or resource elsewhere, without making everyone join another marketplace. I later built a housing-search application around that idea: one request, several sources, and a private shortlist with the evidence behind each match.</p>
     </div>
     <section class="project-explorer formsby-explorer" id="formsby-explore" data-explorer aria-labelledby="formsby-explore-title">
       <div class="explorer-intro">
-        <div><p class="explorer-note">Housing prototype · Sample request</p><h3 id="formsby-explore-title">Housing search example</h3></div>
-        <p>A fictional request and the actual fallback output, together. I ran the March prototype’s matcher on three invented listings; the source-handling views trace its application code.</p>
+        <div><p class="explorer-note">Housing prototype · Recorded test results</p><h3 id="formsby-explore-title">Inside a search run</h3></div>
+        <p>A useful search should survive a source failing without pretending the results are complete. I ran the actual processor against fictional source responses to show how it keeps useful candidates, removes duplicates and records what went wrong.</p>
       </div>
       <div class="explorer-controls" role="group" aria-label="Explore Formsby evidence" hidden>
-        <button type="button" aria-controls="formsby-intake" aria-pressed="true">Request &amp; shortlist</button>
-        <button type="button" aria-controls="formsby-failure" aria-pressed="false">Failures &amp; ownership</button>
+        <button type="button" aria-controls="formsby-failure" aria-pressed="true">Sources &amp; results</button>
+        <button type="button" aria-controls="formsby-intake" aria-pressed="false">Ranking details</button>
         <button type="button" aria-controls="formsby-scope" aria-pressed="false">Built &amp; planned</button>
+      </div>
+      <div id="formsby-failure" class="explorer-panel" data-explorer-panel>
+        <div class="search-run-heading"><div><h4>One request, three source adapters</h4><p>Compare a duplicated URL, a source timeout, an empty search and an aborted run. The saved results below follow the selected case.</p></div><label for="formsby-scenario">Explore a recorded case <select id="formsby-scenario" disabled><option value="partial">One source fails</option><option value="ready">All sources respond</option><option value="empty_ready">Empty, no source errors</option><option value="empty_partial">Empty, one source error</option><option value="failed">Interpretation aborts</option></select></label></div>
+        <div id="formsby-run-output" class="search-run-trace" aria-live="polite" aria-atomic="true">
+          <div class="search-sources"><h4>Source responses</h4><ol class="source-lanes"><li><strong>Source A</strong><span>home-a<br>home-b</span></li><li><strong>Source B</strong><span>home-a <small>Same URL as A</small></span></li><li class="source-error"><strong>Source C</strong><span>Timeout <small>Failure retained</small></span></li></ol></div>
+          <div class="search-saved"><h4>Saved run: <strong>PARTIAL</strong></h4><p class="search-count">3 candidates → <strong>2 unique URLs</strong></p><table class="evidence-table"><caption>Evaluations attached to this run</caption><thead><tr><th scope="col">Candidate</th><th scope="col">Disposition</th></tr></thead><tbody><tr><th scope="row">home-a<small>Kept from Source A</small></th><td>NEEDS_REVIEW</td></tr><tr><th scope="row">home-b<small>Kept from Source A</small></th><td>NEEDS_REVIEW</td></tr></tbody></table><p class="explorer-result">Both matches survive. The missing source is visible, and neither match is presented as fully accepted.</p></div>
+        </div>
+        <p class="explorer-foot">These controls switch between five recorded executions of the unchanged March processor, not live searches. Sources, database and evaluations were substituted with synthetic adapters; scoring and availability are not tested here. <a href="assets/formsby-processor-example.json">Inspect the recorded inputs and outputs →</a></p>
+        <details class="historical-results"><summary>How does a retry stay separate from an older search?</summary><p>The processor creates a new run and attaches each match evaluation to that run. The signed-in detail endpoint reads the newest run and queries only its evaluations; it also filters the request by the signed-in owner. Another user’s request returns 404. I checked these route filters in the source; they are not exercised by the processor example above.</p><p>Listing rows can be updated across runs. The isolated records are the match evaluations, not immutable copies of every listing. New listings default to CURRENT before any independent availability check.</p></details>
       </div>
       <div id="formsby-intake" class="explorer-panel request-results" data-explorer-panel><div class="request-brief">
         <h4>“A one-bedroom in Bethlehem, under $1,500. Cats allowed.”</h4>
@@ -456,21 +481,6 @@
         </details>
         <p class="explorer-result"><strong>The next quality gate:</strong> structured bedroom and budget checks, evidence-specific explanations, and independent availability verification. These scores describe a prototype fallback, not measured recommendation accuracy.</p>
       </div></div>
-      <div id="formsby-failure" class="explorer-panel" data-explorer-panel>
-        <h4>Search history and access</h4>
-        <p>Suppose two sources return the same listing URL and a third fails. Here is how the application code handles that case.</p>
-        <ol class="run-history">
-          <li><strong>Keep one candidate</strong><span>The processor keeps the first candidate for each canonical URL.</span></li>
-          <li><strong>Mark partial results</strong><span>A connector failure records PARTIAL; saved matches receive NEEDS_REVIEW.</span></li>
-          <li><strong>Read the latest run</strong><span>The detail endpoint selects the newest run and queries only its evaluations.</span></li>
-          <li><strong>Check the owner</strong><span>The request query includes the signed-in user ID. A missing or other user’s request returns 404.</span></li>
-        </ol>
-        <details class="historical-results">
-          <summary>What if nothing comes back?</summary>
-          <p>Zero results with no connector errors can still be READY. Connector errors produce PARTIAL even with zero results. An exception caught by the processor’s outer handler records FAILED. These states distinguish an empty search from incomplete source coverage and an aborted run.</p>
-          <p>New candidates start with a CURRENT status. Confirming whether a listing is still available is a separate check. This example traces the owner and latest-run filters in the source code.</p>
-        </details>
-      </div>
       <div id="formsby-scope" class="explorer-panel" data-explorer-panel>
         <h4>Project history</h4>
         <table class="evidence-table">
@@ -483,13 +493,13 @@
           </tbody>
         </table>
       </div>
-      <p class="explorer-foot">The scoring example uses fictional listings and the fallback from the March 15, 2026 source snapshot (<code>d61dc649</code>).</p>
+      <p class="explorer-foot">The processor and ranking examples use the March 15, 2026 source snapshot (<code>d61dc649</code>). Neither is a production search, a customer outcome or a match-quality benchmark.</p>
     </section>
     <div class="case-grid">
       <div class="case-prose">
-        <p>I started thinking about Formsby on breaks and lunches at Cardinal, then spent months working through the product and its Python prototype. I built city and category lookups, persistent lead IDs and match IDs linked to their original request. I designed discovery, interpretation, matching and communication as separate stages so category-specific rules could change without duplicating the whole workflow. When a source returned HTML but no records, I inspected its structure, corrected outdated selectors and recovered five candidates with full text and source URLs.</p>
+        <p>In the Python prototype, I built city and category lookups, persistent lead IDs and match IDs linked to their original request. I designed discovery, interpretation, matching and communication as separate stages so category-specific rules could change without duplicating the whole workflow. When a source returned HTML but no records, I inspected its structure, corrected outdated selectors and recovered five candidates with full text and source URLs.</p>
         <p>The harder problem was deciding what counted as a useful match. A directory link or a plausible description wasn’t enough. I wanted a specific option with enough source information for someone to act on. That requirement led me toward fetching and evaluating individual offers, keeping the original request attached, and recording why a candidate was selected.</p>
-        <p>I built the housing prototype to keep useful results when one source fails. It searches sources in parallel, merges duplicate URLs and records which connectors failed. Each shortlist belongs to a search run, so a retry does not mix its match evaluations with an earlier run. The signed-in user sees the latest run, with partial results identified as partial. I also added background dispatch and a Stripe callback that links payment to the request before processing.</p>
+        <p>The housing build brought those ideas into an authenticated Next.js application with PostgreSQL records, source adapters and background dispatch. I added a Stripe callback that links payment to the request before processing. The last source change corrected the result endpoint to select the latest run’s evaluations instead of mixing them with older matches.</p>
       </div>
     </div>
     <div class="case-prose case-summary">

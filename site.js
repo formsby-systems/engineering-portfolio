@@ -250,19 +250,24 @@ if (scorecard) {
         const ranked = [...counts].sort(([left, a], [right, b]) => b - a || left.localeCompare(right));
         const particle = failed.filter(row => row.defects[0]?.includes('Particle')).length;
         const defectRows = ranked.map(([name, count]) => (
-          `<tr><th scope="row">${escapeText(name.replace(' - ', ' — '))}</th><td>${count}</td><td>${percent(count, failed.length)}</td></tr>`
+          `<tr><th scope="row">${escapeText(name.replace(' - ', ' — '))}</th><td><span class="count-bar" style="--count-share:${100 * count / failed.length}%">${count} · ${percent(count, failed.length)}</span></td></tr>`
         )).join('');
+        const examples = [...failed.slice(0, 2), ...rows.filter(row => row.result === 'Pass').slice(0, 1), ...units.filter(row => Number(row.uid) < period.start || Number(row.uid) > period.end).slice(0, 1)];
+        const sourceRows = examples.map(row => {
+          const inWeek = Number(row.uid) >= period.start && Number(row.uid) <= period.end;
+          const date = `June ${Number(row.uid.slice(4, 6))}`;
+          return `<tr${inWeek ? '' : ' class="outside-week"'}><th scope="row"><code>${escapeText(row.uid)}</code><small>${date} · ${inWeek ? 'in week' : 'outside week'}</small></th><td>${inWeek ? escapeText(row.result + (row.defects[0] ? ' · ' + row.defects[0].replace(' - ', ' — ') : '')) : 'Excluded from this week'}${inWeek && row.defects[1] ? `<small>Secondary: ${escapeText(row.defects[1].replace(' - ', ' — '))}</small>` : inWeek && row.result === 'Pass' ? '<small>Still in the inspected denominator</small>' : ''}</td></tr>`;
+        }).join('');
         const summary = rows.length
           ? `Particle failures accounted for <strong>${percent(particle, rows.length)} of inspected units</strong> and <strong>${percent(particle, failed.length)} of failed units</strong>.`
           : 'This week has no source records. The scorecard leaves the percentages blank.';
-        qualityOutput.innerHTML = `
-          <dl class="cardinal-metrics">${metric('Inspected units', rows.length)}${metric('Failed units', failed.length)}${metric('Primary particle failures', particle)}</dl>
-          <table class="evidence-table"><caption>Primary defects · ${period.label}</caption><thead><tr><th scope="col">Defect</th><th scope="col">Count</th><th scope="col">Share of failures</th></tr></thead>
-          <tbody>${defectRows || '<tr><td colspan="3">No records in this reporting week.</td></tr>'}</tbody></table>
-          <p class="explorer-result">${summary}</p>`;
+        qualityOutput.innerHTML = `<div class="quality-trace">
+          <div class="quality-input"><h4>Inspection log</h4><p class="trace-caption">A few of the ${units.length} fictional source records. The report counts the full selected week.</p><table class="evidence-table source-records"><caption>UID → production date → primary defect</caption><thead><tr><th scope="col">Unit / date</th><th scope="col">Inspection</th></tr></thead><tbody>${sourceRows}</tbody></table><p class="trace-caption">Select by the date inside each UID. Count each failed unit’s primary defect once.</p></div>
+          <div class="quality-report"><h4>${period.label} report</h4><dl class="cardinal-metrics">${metric('Inspected', rows.length)}${metric('Failed', failed.length)}${metric('Primary particle', particle)}</dl>
+          <table class="evidence-table defect-bars"><caption>Primary defects, highest count first</caption><thead><tr><th scope="col">Defect</th><th scope="col">Count / failures</th></tr></thead><tbody>${defectRows || '<tr><td colspan="2">No records in this reporting week.</td></tr>'}</tbody></table><p class="explorer-result">${summary}</p></div></div>`;
       });
       week.disabled = false;
-      if (week.value !== '0') week.dispatchEvent(new Event('change'));
+      week.dispatchEvent(new Event('change'));
     } catch {
       const note = document.createElement('p');
       note.textContent = 'The other reporting weeks could not load.';
@@ -291,6 +296,44 @@ if (scorecard) {
   downtime.disabled = false;
   if (downtime.value !== downtime.defaultValue) downtime.dispatchEvent(new Event('input'));
   loadQualitySample();
+}
+
+const formsbyScenario = document.getElementById('formsby-scenario');
+if (formsbyScenario) {
+  const output = document.getElementById('formsby-run-output');
+  async function loadSearchRuns() {
+    try {
+      const response = await fetch('assets/formsby-processor-example.json');
+      if (!response.ok) throw new Error('Recorded runs unavailable');
+      const { scenarios } = await response.json();
+      const escapeText = value => String(value).replace(/[&<>"']/g, character => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]
+      ));
+      formsbyScenario.addEventListener('change', () => {
+        const run = scenarios.find(item => item.id === formsbyScenario.value);
+        const lanes = run.sourceResponses.map(source => `<li${source.error ? ' class="source-error"' : ''}><strong>${escapeText(source.source)}</strong><span>${source.error ? 'Timeout <small>Failure retained</small>' : source.candidates.length ? source.candidates.map(name => escapeText(name)).join('<br>') + (source.source === 'Source B' ? '<small>Same URL as A</small>' : '') : 'No candidates'}</span></li>`).join('');
+        const rows = run.keptCandidates.map(candidate => {
+          const match = run.matches.find(item => item.listingId === candidate.id);
+          return `<tr><th scope="row">${escapeText(candidate.url.split('/').pop())}<small>Kept from ${escapeText(candidate.source)}</small></th><td>${escapeText(match.disposition)}</td></tr>`;
+        }).join('');
+        const explanation = run.status === 'FAILED'
+          ? 'Interpretation stopped before source calls. The run is FAILED, rather than an empty successful search.'
+          : run.status === 'PARTIAL'
+            ? run.matches.length ? 'Both matches survive. The missing source is visible, and neither match is presented as fully accepted.' : 'No matches were saved, but a source failed. PARTIAL distinguishes missing coverage from an empty completed search.'
+            : run.matches.length ? 'Both matches are accepted by the injected evaluations. The duplicate URL still produces only one candidate.' : 'All three sources completed without candidates. READY means the run completed, not that a match exists.';
+        output.innerHTML = `<div class="search-sources"><h4>Source responses</h4>${lanes ? `<ol class="source-lanes">${lanes}</ol>` : '<p class="no-source-calls">No source calls. Interpretation failed first.</p>'}</div><div class="search-saved"><h4>Saved run: <strong>${escapeText(run.status)}</strong></h4><p class="search-count">${run.rawCandidateCount} candidates → <strong>${run.uniqueCandidateCount} unique URLs</strong></p><table class="evidence-table"><caption>Evaluations attached to this run</caption><thead><tr><th scope="col">Candidate</th><th scope="col">Disposition</th></tr></thead><tbody>${rows || '<tr><td colspan="2">No match evaluations saved.</td></tr>'}</tbody></table><p class="explorer-result">${explanation}</p></div>`;
+      });
+      formsbyScenario.disabled = false;
+      formsbyScenario.dispatchEvent(new Event('change'));
+    } catch {
+      formsbyScenario.disabled = true;
+      const note = document.createElement('p');
+      note.className = 'explorer-foot';
+      note.textContent = 'The other recorded cases could not load. The default partial-run example remains visible below.';
+      formsbyScenario.closest('label').append(note);
+    }
+  }
+  loadSearchRuns();
 }
 
 const operalithExample = document.querySelector('[data-operalith-example]');

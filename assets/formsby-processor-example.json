@@ -1,0 +1,234 @@
+{
+  "label": "Actual March 2026 processor executed with fictional source adapters and in-memory database/model dependencies. No real search, database, model, email or payment was used.",
+  "scores": "Scores are injected fixture values; they do not measure the real matcher.",
+  "scenarios": [
+    {
+      "id": "partial",
+      "label": "One source fails",
+      "status": "PARTIAL",
+      "sourceResponses": [
+        {
+          "source": "Source A",
+          "candidates": [
+            "home-a",
+            "home-b"
+          ]
+        },
+        {
+          "source": "Source B",
+          "candidates": [
+            "home-a"
+          ]
+        },
+        {
+          "source": "Source C",
+          "candidates": [],
+          "error": "Synthetic source timeout"
+        }
+      ],
+      "rawCandidateCount": 3,
+      "uniqueCandidateCount": 2,
+      "matches": [
+        {
+          "listingId": "listing-1",
+          "runId": "sample-run",
+          "disposition": "NEEDS_REVIEW",
+          "score": 80
+        },
+        {
+          "listingId": "listing-2",
+          "runId": "sample-run",
+          "disposition": "NEEDS_REVIEW",
+          "score": 65
+        }
+      ],
+      "keptCandidates": [
+        {
+          "id": "listing-1",
+          "title": "Sample home A",
+          "url": "https://example.invalid/home-a",
+          "source": "Source A"
+        },
+        {
+          "id": "listing-2",
+          "title": "Sample home B",
+          "url": "https://example.invalid/home-b",
+          "source": "Source A"
+        }
+      ],
+      "connectorFailures": [
+        {
+          "connector": "Source C",
+          "message": "Synthetic source timeout"
+        }
+      ],
+      "error": null,
+      "allConnectorCallsStarted": [
+        "Source A",
+        "Source B",
+        "Source C"
+      ],
+      "completedConnectorCalls": [
+        "Source A",
+        "Source B"
+      ]
+    },
+    {
+      "id": "ready",
+      "label": "All sources respond",
+      "status": "READY",
+      "sourceResponses": [
+        {
+          "source": "Source A",
+          "candidates": [
+            "home-a",
+            "home-b"
+          ]
+        },
+        {
+          "source": "Source B",
+          "candidates": [
+            "home-a"
+          ]
+        },
+        {
+          "source": "Source C",
+          "candidates": [],
+          "error": null
+        }
+      ],
+      "rawCandidateCount": 3,
+      "uniqueCandidateCount": 2,
+      "matches": [
+        {
+          "listingId": "listing-1",
+          "runId": "sample-run",
+          "disposition": "ACCEPTED",
+          "score": 80
+        },
+        {
+          "listingId": "listing-2",
+          "runId": "sample-run",
+          "disposition": "ACCEPTED",
+          "score": 65
+        }
+      ],
+      "keptCandidates": [
+        {
+          "id": "listing-1",
+          "title": "Sample home A",
+          "url": "https://example.invalid/home-a",
+          "source": "Source A"
+        },
+        {
+          "id": "listing-2",
+          "title": "Sample home B",
+          "url": "https://example.invalid/home-b",
+          "source": "Source A"
+        }
+      ],
+      "connectorFailures": [],
+      "error": null,
+      "allConnectorCallsStarted": [
+        "Source A",
+        "Source B",
+        "Source C"
+      ],
+      "completedConnectorCalls": [
+        "Source A",
+        "Source B",
+        "Source C"
+      ]
+    },
+    {
+      "id": "empty_ready",
+      "label": "No candidates, no source errors",
+      "status": "READY",
+      "sourceResponses": [
+        {
+          "source": "Source A",
+          "candidates": []
+        },
+        {
+          "source": "Source B",
+          "candidates": []
+        },
+        {
+          "source": "Source C",
+          "candidates": [],
+          "error": null
+        }
+      ],
+      "rawCandidateCount": 0,
+      "uniqueCandidateCount": 0,
+      "matches": [],
+      "keptCandidates": [],
+      "connectorFailures": [],
+      "error": null,
+      "allConnectorCallsStarted": [
+        "Source A",
+        "Source B",
+        "Source C"
+      ],
+      "completedConnectorCalls": [
+        "Source A",
+        "Source B",
+        "Source C"
+      ]
+    },
+    {
+      "id": "empty_partial",
+      "label": "No candidates, one source error",
+      "status": "PARTIAL",
+      "sourceResponses": [
+        {
+          "source": "Source A",
+          "candidates": []
+        },
+        {
+          "source": "Source B",
+          "candidates": []
+        },
+        {
+          "source": "Source C",
+          "candidates": [],
+          "error": "Synthetic source timeout"
+        }
+      ],
+      "rawCandidateCount": 0,
+      "uniqueCandidateCount": 0,
+      "matches": [],
+      "keptCandidates": [],
+      "connectorFailures": [
+        {
+          "connector": "Source C",
+          "message": "Synthetic source timeout"
+        }
+      ],
+      "error": null,
+      "allConnectorCallsStarted": [
+        "Source A",
+        "Source B",
+        "Source C"
+      ],
+      "completedConnectorCalls": [
+        "Source A",
+        "Source B"
+      ]
+    },
+    {
+      "id": "failed",
+      "label": "Interpretation aborts",
+      "status": "FAILED",
+      "sourceResponses": [],
+      "rawCandidateCount": 0,
+      "uniqueCandidateCount": 0,
+      "matches": [],
+      "keptCandidates": [],
+      "connectorFailures": [],
+      "error": "Synthetic interpretation failure",
+      "allConnectorCallsStarted": [],
+      "completedConnectorCalls": []
+    }
+  ]
+}
