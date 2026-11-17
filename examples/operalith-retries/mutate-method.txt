@@ -1,0 +1,27 @@
+  mutate(id,body) {
+    if (typeof body.key!=='string'||body.key.length<16||body.key.length>100||!Number.isSafeInteger(body.revision)) fail('Operation key and checked revision required.');
+    if (!body.action || typeof body.action!=='object') fail('Action required.');
+    if (['requestFeature','feedback'].includes(body.action.type)) fail('Delivered requests are unavailable in the account laboratory.');
+    return this.transaction(()=>{
+      const meta=this.admit(id); const fingerprint=hash(body);
+      const prior=this.get('SELECT * FROM eco_receipt WHERE workspace_id=? AND actor=? AND key=?',id,this.user,body.key);
+      if(prior) { if(prior.fingerprint!==fingerprint) fail('Operation key reused with different content.',409); return {...JSON.parse(prior.result),replay:true}; }
+      if(meta.revision!==body.revision) fail('This workspace changed in another session. Your attempted work is still in the editor. Reload the latest before applying it again.',409);
+      const definitions=accountMutationDefinitions(meta.definitionContract,body);
+      const before=assertAccountWorkspace(validateWorkspace(this.snapshot(id)),meta.definitionContract);
+      const upgrade=body.action.type==='upgradeDefinitions';
+      const after=upgrade?before:body.action.type==='undo'?undoChange(before,body.action.changeId):applyChange(before,body.action);
+      assertAccountWorkspace(after,definitions);
+      const changed=upgrade||!equal(before,after), revision=meta.revision+(changed?1:0);
+      if(changed) {
+        if(upgrade)this.run('UPDATE eco_workspace SET definition_versions=? WHERE id=?',JSON.stringify(definitions),id);
+        else this.persist(after,before);
+        this.run('UPDATE eco_workspace SET revision=? WHERE id=? AND revision=?',revision,id,body.revision);
+        this.run('INSERT INTO eco_audit VALUES(?,?,?,?,?)',id,revision,this.user,body.action.type,new Date().toISOString());
+      }
+      const result=upgrade?{revision,definitionVersion:2}:{revision,toolId:body.action.toolId||after.tools.at(-1)?.id,changeId:after.history.at(-1)?.id};
+      if(this.get('SELECT count(*) AS n FROM eco_receipt WHERE workspace_id=?',id).n>=10000) fail('Local mutation receipt capacity reached; export before further work.',409);
+      this.run('INSERT INTO eco_receipt VALUES(?,?,?,?,?)',id,this.user,body.key,fingerprint,JSON.stringify(result));
+      return result;
+    });
+  }

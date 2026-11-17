@@ -1,0 +1,38 @@
+{
+  "capturedUTC": "2026-11-17T04:29:38.292632+00:00",
+  "project": "Operalith",
+  "commit": "c4dd1a3997421be29b3363a9706113a2123ea1db",
+  "worktreeStatus": "",
+  "source": [
+    {
+      "originalPath": "src/lib/ecosystem/account-repository.js",
+      "lines": [
+        66,
+        92
+      ],
+      "originalSHA256": "689e0a51b7eb3af467f9481ed400e5dcd6215f51b49643c25c2574b8b3141e2b",
+      "originalGitBlob": "13f276bf47d7083edc94c1412d940f3f746fbb78",
+      "excerptSHA256": "a2b1e1349b3e49a7bc722ae80beaac6d8123e06e626f2f2b50d4a4c01379af02",
+      "packagedFile": "mutate-method.txt",
+      "prependedText": "",
+      "packagedSHA256": "a2b1e1349b3e49a7bc722ae80beaac6d8123e06e626f2f2b50d4a4c01379af02",
+      "bytesEqualToCommittedSource": true
+    },
+    {
+      "originalPath": "src/lib/ecosystem/account-contract.js",
+      "lines": [
+        5,
+        7
+      ],
+      "originalSHA256": "ef332f798cae0220d5cc9b628bd7ac3fdae0089fd74a1e28033cc8149570a22a",
+      "originalGitBlob": "bbcaff592d965998abce82a026d60166930a98f2",
+      "excerptSHA256": "18fea6c2b6097a0536a2781ae0df749842afc579775d0216009fcec3bebfbccf",
+      "packagedFile": "contract-helpers.mjs",
+      "prependedText": "import { createHash } from 'node:crypto';\n\n",
+      "packagedSHA256": "860ed12d91c5b7f1deac358410a9c98e0c242bb29e92b505bf54a3bed7f17fb1",
+      "bytesEqualToCommittedSource": true
+    }
+  ],
+  "licenseStatus": "No additional software license granted by this example.",
+  "publicationStatus": "Publication of this specific reviewed package authorized by Dylan Becchetti on 2026-11-17; executable excerpt, helpers, harness and tests unchanged."
+}

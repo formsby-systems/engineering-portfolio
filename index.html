@@ -393,6 +393,12 @@
         <p>Operalith is still a product I’m developing. The public demo is browser-local and the account pilot is for invited solo use with fictional work.</p>
       </div>
     </div>
+    <section class="case-prose case-summary" id="operalith-code" aria-labelledby="operalith-code-title">
+      <h3 id="operalith-code-title">Retrying a save</h3>
+      <p>A save can succeed even if its response never reaches the caller. An exact retry should return the saved result without writing twice; a new edit from an old version should be refused. This example runs an unchanged method from my local account repository against seven synthetic tests.</p>
+      <p><a href="https://github.com/formsby-systems/engineering-portfolio/tree/main/examples/operalith-retries">Read the code and run the tests →</a></p>
+      <p class="explorer-foot">Includes source, test inputs, expected results and reproduction instructions. The harness uses in-memory adapters; it does not test PostgreSQL transactions or concurrent requests.</p>
+    </section>
   </div>
 </section>
 

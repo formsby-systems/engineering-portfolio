@@ -1,0 +1,53 @@
+v26.0.0
+TAP version 13
+# Subtest: packaged extracted code matches recorded SHA-256 values
+ok 1 - packaged extracted code matches recorded SHA-256 values
+  ---
+  duration_ms: 7.6525
+  type: 'test'
+  ...
+# Subtest: first save returns expected revision and IDs, writes exactly one synthetic record/receipt/audit
+ok 2 - first save returns expected revision and IDs, writes exactly one synthetic record/receipt/audit
+  ---
+  duration_ms: 26.251084
+  type: 'test'
+  ...
+# Subtest: retry after discarded response returns stored result without any duplicate write
+ok 3 - retry after discarded response returns stored result without any duplicate write
+  ---
+  duration_ms: 1.608916
+  type: 'test'
+  ...
+# Subtest: retry still replays original result after a later successful edit
+ok 4 - retry still replays original result after a later successful edit
+  ---
+  duration_ms: 0.412958
+  type: 'test'
+  ...
+# Subtest: same operation key with changed content is a conflict with zero additional writes
+ok 5 - same operation key with changed content is a conflict with zero additional writes
+  ---
+  duration_ms: 0.408
+  type: 'test'
+  ...
+# Subtest: new operation key with stale revision is a conflict with zero writes
+ok 6 - new operation key with stale revision is a conflict with zero writes
+  ---
+  duration_ms: 0.366958
+  type: 'test'
+  ...
+# Subtest: stored receipt cannot bypass admission check (stubbed denial)
+ok 7 - stored receipt cannot bypass admission check (stubbed denial)
+  ---
+  duration_ms: 0.77375
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 248.080917
