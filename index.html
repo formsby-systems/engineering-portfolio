@@ -15,14 +15,14 @@
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
 <link rel="stylesheet" href="site.css?v=20261111-recruiter">
-<link rel="stylesheet" href="creative.css?v=20261111-spreads">
-<script src="site.js?v=20261111-spreads" defer></script>
+<link rel="stylesheet" href="creative.css?v=20261116-focused">
+<script src="site.js?v=20261116-focused" defer></script>
 </head>
 <body>
 <a class="skip" href="#work">Skip to selected work</a>
 <header class="bar">
   <a class="brand" href="#top"><span class="stamp" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32"><path d="M14 3h4v5h-4zm0 21h4v5h-4zM3 14h5v4H3zm21 0h5v4h-5z" fill="currentColor"/><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="2" fill="currentColor"/></svg></span><span>Dylan Becchetti</span></a>
-  <nav aria-label="Main"><a href="#work">Work</a><a href="#about">About</a><a href="resume.pdf">Résumé</a><button class="light-switch" data-light-switch aria-pressed="false" hidden><span aria-hidden="true">◐</span> <span data-light-label>Night mode</span></button></nav>
+  <nav aria-label="Main"><a href="#work">Work</a><a href="#about">About</a><a href="resume.pdf">Résumé</a><button class="light-switch" data-light-switch aria-pressed="false" hidden><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor"/><path d="M8 2a6 6 0 0 1 0 12Z" fill="currentColor"/></svg> <span data-light-label>Night mode</span></button></nav>
 </header>
 <div class="reading-progress" aria-hidden="true"></div>
 <main id="top">
@@ -67,7 +67,7 @@
     </div>
     <div>
       <h2>Software &amp; research</h2>
-      <a href="#midas"><strong>Midas Futures</strong><small>Explore a historical account simulation</small></a>
+      <a href="#midas"><strong>Midas Futures</strong><small>Experiment runners and recovery after interruption</small></a>
       <a href="#production"><strong>Scanned Leverage and Optimized Production</strong><small>Compare two builds from one game</small></a>
       <a href="#operalith"><strong>Operalith</strong><small>Tools and workflows in one workspace</small></a>
       <a href="#formsby"><strong>Formsby</strong><small>Explore how a housing request gets matched</small></a>
@@ -79,7 +79,7 @@
   <div class="frame">
     <div class="cardinal-opening">
     <div class="chapter-head">
-      <div><p class="chapter-label">Three summer internships · 2023–2025</p><h2 id="experience-title">Cardinal Glass</h2></div>
+      <div><h2 id="experience-title">Cardinal Glass</h2><p class="chapter-context">Three summer internships, 2023–2025</p></div>
       <p class="deck">I built a production tracker that engineers and operators used in daily R&amp;D shift debriefs. For weekly reporting, I connected quality, production, yield and work-order data in an Excel/VBA Scorecard.</p>
     </div>
     <section class="project-explorer cardinal-explorer" id="cardinal-explore" data-explorer aria-labelledby="cardinal-explore-title">
@@ -137,7 +137,7 @@
 <section class="chapter capstone" id="wilbur" aria-labelledby="capstone-title">
   <div class="frame">
     <div class="chapter-head">
-      <div><p class="chapter-label">Lehigh capstone · Spring and fall 2026</p><h2 id="capstone-title">Kinetic Wilbur</h2></div>
+      <div><h2 id="capstone-title">Kinetic Wilbur</h2><p class="chapter-context">Year-long Lehigh team capstone, 2026</p></div>
       <div class="case-prose">
         <p class="deck">My team is building an 80-inch kinetic sculpture to hang above a classroom at Wilbur Powerhouse. A planetary gear train makes six signs spin and orbit, so people can watch the mechanism work and see the kind of projects that come out of Lehigh’s Design Labs. I did much of the mechanical design and built all the OpenSCAD models.</p>
 
@@ -194,20 +194,23 @@
     <div class="chapter-head">
       <h2 id="midas-title">Midas Futures</h2>
       <div class="case-prose">
-        <p class="deck">I’m building Midas to test whether a futures strategy can still work after trading costs, prop-firm account rules and repeated evaluations are included. What began as an equities scheduler has become a Python research and demo-trading system.</p>
-        <p>I built modular strategies, batch campaigns, component ablations, Monte Carlo studies and account simulations, with cloud workers that can resume interrupted research. Strategies can share risk limits while the model follows fees, resets and payouts. A separate Practice system handles demo orders and reconciliation.</p>
+        <p class="deck">I’m building Midas, a Python research and demo-trading system, to find out whether a futures strategy still works after costs, prop-firm account rules and repeated evaluations. I started with an equities scheduler and built the experiment runners, shared decision rules and cloud recovery around that question.</p>
+        <p>Modular strategies feed batch campaigns, component comparisons, Monte Carlo studies and shared-risk account simulations. Each experiment keeps its code, data, costs and results together. A separate Practice system handles demo orders and reconciliation.</p>
       </div>
     </div>
-    <div class="case-grid midas-evidence">
-      <figure class="visual artifact-view">
-        <a href="assets/midas-research.jpg"><img src="assets/midas-research.jpg" width="1280" height="586" loading="lazy" alt="Midas Research dashboard showing evaluation fees, a modeled payout and a negative balance after fees."></a>
-        <figcaption>Earlier Midas dashboard capture. This simulated account received a modeled payout and ended $1,286.85 down after fees.</figcaption>
-      </figure>
-      <div class="case-prose">
-        <h3>Replay and forward evaluation</h3>
-        <p>Replay and forward evaluation once disagreed on when a bar was complete and which price an exit could use. I put those decisions into a shared state machine. A retained check matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p>
-        <p>I also built a Mac queue that ran 288 variants at two cost settings in one observed campaign. It reused a saved result for a duplicate and rejected invalid work before execution. In the later cloud importer, interruption tests check that a retry can finish publishing a request without adding the same job twice. Failed or unverifiable claimed runs hold later work for reconciliation, even after restart.</p>
-      </div>
+    <section class="midas-restart" id="midas-restart" aria-labelledby="midas-restart-title">
+      <div class="case-prose"><h3 id="midas-restart-title">Recovering an interrupted experiment</h3><p>A cloud study stopped with six of 72 results saved. I built the recovery checks to preserve those six and run only the missing 66, then compare the completed study with 288 earlier results without changing them.</p><p>This view follows the retained November 11 run history. The controls show the recorded before and after states.</p></div>
+        <figure class="recovery-diagram" data-recovery>
+          <div class="recovery-actions" hidden><button type="button" data-recovery-state="before" aria-pressed="true">At interruption</button><button type="button" data-recovery-state="after" aria-pressed="false">After recovery</button></div>
+          <div class="recovery-label"><strong>72 requested cases</strong><span data-recovery-label>6 completed · 66 remaining</span></div>
+          <div class="recovery-track" aria-hidden="true"><span class="kept-work"></span><span class="recovered-work"></span></div>
+          <p class="recovery-interpretation" data-recovery-description aria-live="polite">The first six results are preserved. The remaining 66 cases still need to run.</p>
+          <figcaption>After recovery: 72 completed targets + 288 unchanged prior comparison rows = 360 compared. A recorded failed attempt remains in the history.</figcaption>
+        </figure>
+    </section>
+    <div class="midas-decisions">
+      <div class="case-prose"><h3>Keeping two execution paths consistent</h3><p>Replay and forward evaluation once disagreed on when a bar was complete and which price an exit could use. I put those decisions into a shared state machine. A retained historical check matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p></div>
+      <div class="case-prose"><h3>Retrying without duplicating work</h3><p>I built a local queue that ran 288 strategy variants at two cost settings in one recorded campaign. It reused saved results for duplicate work and rejected invalid requests before execution. For cloud jobs, I tested interruptions during handoff: retrying completed the handoff without adding the same job twice. In those tests, if a worker had claimed a job but its completion could not be verified, the queue stopped later work until that run could be reconciled.</p></div>
     </div>
     <details class="architecture-details"><summary>How the research pipeline is organized</summary>
     <ol class="system-flow" aria-label="Midas research and Practice workflow">
@@ -256,13 +259,7 @@
       <div id="midas-recovery" class="explorer-panel" data-explorer-panel>
         <h4>Recovering a later cloud experiment · November 11</h4>
         <p>A separate 72-case strategy comparison stopped after an infrastructure failure. I built recovery checks that kept completed results, ran only the missing cases and refused to mix them with a different experiment.</p>
-        <figure class="recovery-diagram" data-recovery>
-          <div class="recovery-actions" hidden><button type="button" data-recovery-state="before" aria-pressed="true">At interruption</button><button type="button" data-recovery-state="after" aria-pressed="false">After recovery</button></div>
-          <div class="recovery-label"><strong>72 requested cases</strong><span data-recovery-label>6 completed · 66 remaining</span></div>
-          <div class="recovery-track" aria-hidden="true"><span class="kept-work"></span><span class="recovered-work"></span></div>
-          <p class="recovery-interpretation" data-recovery-description aria-live="polite">The first six results are preserved. The remaining 66 cases still need to run.</p>
-          <figcaption>After recovery: 72 completed targets + 288 unchanged prior comparison rows = 360 compared. A recorded failed attempt remains in the history.</figcaption>
-        </figure>
+<p><a href="#midas-restart">See how I recovered this experiment ↑</a></p>
         <p class="explorer-result"><strong>Better cash alone was not enough.</strong> The added signal improved median modeled cash in both primary comparisons, but funded failure episodes rose from one to two in each. Both comparisons failed the acceptance rules set before the run and stayed in research.</p>
         <details class="historical-results"><summary>Results and experiment limits</summary><p>Of the 72 added cases, 40 had negative modeled net cash and 41 had at least one modeled payout; those groups overlap. All 72 were still censored for survival at the observation cutoff, so their eventual survival was unknown. The historical windows overlap and use familiar data. These are simulations, not received cash or live returns.</p><p>This newer experiment and its recovery code are retained branch work, separate from the November 10 experiment above and the default branch. The failed attempt remains part of the run history.</p><p><a href="assets/midas-recovery.json">Inspect the recorded aggregate results ↗</a></p></details>
       </div>
@@ -270,7 +267,11 @@
     </section>
 
     <details class="historical-results">
-      <summary>Historical backtest and comparison runs</summary>
+      <summary>Historical backtest and account dashboard</summary>
+      <figure class="visual artifact-view">
+        <a href="assets/midas-research.jpg"><img src="assets/midas-research.jpg" width="1280" height="586" loading="lazy" alt="Midas Research dashboard showing evaluation fees, a modeled payout and a negative balance after fees."></a>
+        <figcaption>Earlier account-simulation dashboard. A modeled payout did not offset the account’s fees: it finished $1,286.85 down.</figcaption>
+      </figure>
     <figure class="backtest">
       <div>
         <h3>Historical backtest</h3>
@@ -301,7 +302,7 @@
     <div class="chapter-head">
       <h2 id="production-title">Scanned Leverage and Optimized Production</h2>
       <div class="case-prose">
-        <p class="chapter-label">Python/Luau · Market research and prototype production</p><p class="deck">I’m developing a system for deciding what to prototype, then building variations from shared parts. Roblox is the first market. Python tools organize market observations and manually annotated gameplay; a configurable producer assembles original Roblox places with shared Luau game rules.</p>
+        <p class="deck">I’m developing a system for deciding what to prototype, then building variations from shared parts. Roblox is the first market. Python tools organize market observations and manually annotated gameplay; a configurable producer assembles original Roblox places with shared Luau game rules.</p>
 
       </div>
     </div>
@@ -316,7 +317,7 @@
         <div class="comparison-control" hidden><span>Build A</span><label for="arena-compare">Slide to reveal Build B over Build A</label><input id="arena-compare" type="range" min="0" max="100" value="50"><span>Build B</span></div>
       </div>
       <p class="study-caption">Rendered from the exported Roblox place geometry, not a gameplay capture. The configurations move cover, pickups, the warden start and an exit; server, client and game-state logic stay shared.</p>
-      <div class="case-prose"><p>I regenerated both places from their committed configurations and matched their saved bytes. Configuration checks reject invalid settings and blocked declared routes.</p></div>
+      <div class="case-prose"><p>I generated both arenas from their saved configurations and reproduced the same output files. Before building a place, configuration checks reject invalid settings and blocked declared routes.</p></div>
       <details class="round-details" id="signal-break-round"><summary>Follow a tested round</summary>
         <h4>Tested in both configurations</h4>
         <ol class="run-history">
@@ -339,7 +340,7 @@
 
     <div class="case-prose case-summary">
       <h3>Concept review</h3>
-      <p>I held a separate collector concept at storyboard review because the proposed second trip did not demonstrate a different risk or useful payoff. A static companion pose and captions were not proof that the mechanic worked. The production system still needs the research and product review to decide what is worth building next.</p>
+      <p>I held a separate collector concept at storyboard review. Reusing carrying and pursuit code was not enough: the same egg needed to survive pickup, placement and reveal, and the companion needed to change what happened on the next trip. A pose and a caption did not demonstrate those rules. I identified the missing behavior before moving the concept into production.</p>
     </div>
   </div>
 </section>
@@ -348,7 +349,7 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="operalith-title">Operalith</h2>
-      <p class="deck">I’m building Operalith so someone can choose the tools they need, make the workspace their own, and keep their work connected. A customer enquiry can become a project. The next task and the supplies for it can point back to that same project.</p>
+      <p class="deck">I’m building Operalith as a workspace for connected everyday work. Someone can choose the tools they need and make the workspace their own. A customer enquiry can become a project, with its tasks and supplies linked to that same job.</p>
     </div>
     <div class="case-grid">
       <figure class="visual product-view"><a href="https://www.operalith.com/"><img src="assets/operalith-home.jpg" width="1440" height="900" loading="lazy" alt="Operalith’s public homepage with its personal workspace, appearance choices and connected tools."></a><figcaption>Operalith.com</figcaption></figure>
@@ -399,7 +400,7 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="formsby-title">Formsby</h2>
-      <p class="deck">I started Formsby to connect a request on one website with a useful offer, person or resource elsewhere. I designed a shared discovery and matching workflow so each new category would not need a separate system. Housing became the first focused prototype: a request goes in, and a private shortlist comes back with source links and reasons for each match.</p>
+      <p class="deck">I started Formsby to connect a request on one website with a useful offer, person or resource elsewhere. I built a shared discovery and matching workflow, then focused it on housing: a request becomes a private shortlist with source links and reasons for each match. The prototype keeps results from working sources when another source fails and keeps each search run separate.</p>
     </div>
     <section class="project-explorer formsby-explorer" id="formsby-explore" data-explorer aria-labelledby="formsby-explore-title">
       <div class="explorer-intro">
@@ -487,7 +488,7 @@
     <h2 id="about-title">About me</h2>
     <div class="case-prose">
       <p class="about-lead">I’m finishing mechanical engineering at Lehigh. I also spent three summers at Cardinal Glass, where I got to build tools for people I worked with every day.</p>
-      <p>The Scorecard and production tracker are work I’m proud of because they helped people I knew. Formsby started as an idea during breaks and lunches there. I’ve spent about a year directing and building Midas, and I’m building Operalith into a product of its own. These are projects I keep coming back to because I want them to work.</p>
+      <p>I’m especially proud of the production tracker because my coworkers used it in the daily debrief. Formsby started during breaks and lunches at Cardinal; I spent months working through the idea and its first build. Midas has been a daily project for about a year. Operalith is the product I’m building around keeping everyday work personal and connected. I work on several things at once, and keep coming back to the ones I care about.</p>
     </div>
   </div>
 </section>
@@ -495,7 +496,7 @@
 <section class="chapter close" id="resume" aria-labelledby="resume-title">
   <div class="frame">
     <h2 id="resume-title">Résumé &amp; contact</h2>
-    <p class="deck">I’m finishing my Mechanical Engineering B.S. and Materials Science and Engineering minor at Lehigh. I expect to complete coursework in December 2026 and receive my degree in January 2027. I’m interested in full-time, U.S. remote engineering work.</p>
+    <p class="deck">I’m finishing my Mechanical Engineering B.S. and Materials Science and Engineering minor at Lehigh. I expect to complete coursework in December 2026 and receive my degree in January 2027. I’m interested in full-time, U.S. remote roles in engineering software, automation or full-stack development.</p>
     <div class="contact"><a class="primary" href="resume.pdf">View résumé ↗</a><a href="mailto:dylanbecc123@gmail.com">Email me</a><a href="https://www.linkedin.com/in/dylan-becchetti-637535278/">LinkedIn ↗</a></div>
   </div>
 </section>
