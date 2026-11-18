@@ -138,7 +138,8 @@ body{background:var(--ground);color:var(--ink);line-height:1.55}
 .midas{background:#172b36;color:#edf1ee;--muted:#c4d1d3;--accent:#ead584;--rule:#c4d1d345;color-scheme:dark}
 .midas .chapter-head{grid-template-columns:.65fr 1.35fr}
 .midas-restart{display:grid;grid-template-columns:1fr 1.15fr;gap:35px 60px;align-items:center;margin-top:42px;padding-block:30px;border-block:1px solid var(--rule)}
-.midas-restart .case-prose p:last-child{font-size:.82rem;color:var(--muted)}
+.midas-restart .case-prose p+p:last-child{font-size:.82rem;color:var(--muted)}
+#midas-cloud-campaign{scroll-margin-top:calc(var(--bar) + 18px)}
 .midas-restart .recovery-diagram{margin:0;padding:0}
 .midas-decisions{display:grid;grid-template-columns:1fr 1fr;gap:45px;margin-top:38px}
 .midas-decisions h3{font-size:clamp(1.3rem,1.9vw,1.75rem)}

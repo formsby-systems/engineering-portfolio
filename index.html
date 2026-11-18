@@ -15,7 +15,7 @@
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
 <link rel="stylesheet" href="site.css?v=20261111-recruiter">
-<link rel="stylesheet" href="creative.css?v=20261117-cnc">
+<link rel="stylesheet" href="creative.css?v=20261118-campaign">
 <script src="site.js?v=20261117-cardinal-formsby" defer></script>
 </head>
 <body>
@@ -32,7 +32,7 @@
       <div class="hero-copy">
         <h1 id="hero-title">Dylan <br>Becchetti</h1>
         <p class="intro">Engineering software. <br>Mechanical design.</p>
-        <p class="hero-story">I’m finishing mechanical engineering at Lehigh. At Cardinal Glass, I built a production tracker my coworkers used every day. I also created Midas to test futures strategies against costs and account rules, and I’m building Operalith around a more personal way to keep work organized.</p>
+        <p class="hero-story">I’m finishing mechanical engineering at Lehigh. I designed gears for a kinetic sculpture and built a production tracker my Cardinal Glass coworkers used every day. Outside school and work, I’m building Midas to test trading ideas and Operalith to keep everyday work connected.</p>
         <div class="hero-cta"><a class="primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="resume.pdf">View résumé ↗</a></div>
         <p class="availability">Seeking U.S. remote work · Available January 2027</p>
       </div>
@@ -80,7 +80,7 @@
     <div class="cardinal-opening">
     <div class="chapter-head">
       <div><h2 id="experience-title">Cardinal Glass</h2><p class="chapter-context">Three summer internships, 2023–2025</p></div>
-      <p class="deck">Across three summers at Cardinal Glass, I worked on how production information reached the people using it. I built a self-directed Excel/VBA tracker that engineers and operators used in the daily R&amp;D shift debrief. Separately, I automated weekly defect reporting from a 10,000+ unit log and connected the Scorecard to production, yield and work-order reports.</p>
+      <p class="deck">I built a production tracker that gave engineers and operators at Cardinal Glass a shared view of the R&amp;D shift. They used it in their daily debrief. I also automated weekly defect reporting from a 10,000+ unit log and connected the Scorecard to production, yield and work-order reports.</p>
     </div>
     <section class="project-explorer cardinal-explorer" id="cardinal-explore" data-explorer aria-labelledby="cardinal-explore-title">
       <div class="explorer-intro">
@@ -155,12 +155,12 @@
     <div class="chapter-head">
       <div><h2 id="capstone-title">Kinetic Wilbur</h2><p class="chapter-context">Year-long Lehigh team capstone, 2026</p></div>
       <div class="case-prose">
-        <p class="deck">Our year-long capstone is a kinetic sculpture for Wilbur Powerhouse: public art that reflects the making, design and engineering happening inside Lehigh’s Design Labs. Six signs spin and orbit beneath an exposed planetary gear train. We’re taking the project from stakeholder interviews and small prototypes to an 80-inch mechanism for installation above a classroom. I did much of the mechanical design and built all the OpenSCAD models.</p><p>We interviewed students, faculty and tour guides to understand what the sculpture should do for the space. Their answers became requirements for placement, noise, maintenance, cost and fabrication with Lehigh’s available tools. We compared mechanisms and tested small assemblies before moving to full-scale plywood and steel.</p>
+        <p class="deck">We wanted visitors at Wilbur Powerhouse to see how the sculpture moves. An exposed planetary gear train spins and orbits six signs that represent the work happening in Lehigh’s Design Labs. I did much of the mechanical design and built all the OpenSCAD models for the 80-inch team capstone, designed to hang above a classroom.</p><p>We interviewed students, faculty and tour guides to understand what the sculpture should do for the space. Their answers became requirements for placement, noise, maintenance, cost and fabrication with Lehigh’s available tools. We compared mechanisms and tested small assemblies before moving to full-scale plywood and steel.</p>
 
       </div>
     </div>
     <div class="fabrication-spread" id="wilbur-fabrication">
-      <figure class="fabrication-photo"><a href="assets/wilbur-cnc-gears.webp"><img src="assets/wilbur-cnc-gears.webp" loading="lazy" width="1500" height="2000" alt="CNC-cut plywood outer ring, central sun and six planet gears laid out on asphalt before assembly."></a><figcaption>Our CNC-cut ring, sun and six planet gears, laid out before assembly. Open the photo to see the full view.</figcaption></figure>
+      <figure class="fabrication-photo"><a href="assets/wilbur-cnc-gears.webp"><picture><source media="(max-width: 760px)" srcset="assets/wilbur-cnc-gears-840.webp"><img src="assets/wilbur-cnc-gears.webp" loading="lazy" width="1500" height="2000" alt="CNC-cut plywood outer ring, central sun and six planet gears laid out on asphalt before assembly."></picture></a><figcaption>Our CNC-cut ring, sun and six planet gears, laid out before assembly. Open the photo to see the full view.</figcaption></figure>
       <div class="fabrication-margin">
         <p>I took the models from small proof-of-concept assemblies to full-scale parts. When roller tests raised noise concerns, I modeled fixed casters and a wider laminated ring, keeping the inner teeth so the planets would still mesh. I updated the CNC profiles and motor position as my team moved into fabrication.</p>
         <figure><a href="assets/wilbur-ring.webp"><img src="assets/wilbur-ring.webp" loading="lazy" width="1500" height="1050" alt="My November OpenSCAD ring and external drive geometry."></a><figcaption>My ring and drive geometry, 2,020 mm (79.5 in) across. Four identical half-cuts form two layers, with upper seams rotated 90 degrees.</figcaption></figure>
@@ -213,11 +213,21 @@
       <h2 id="midas-title">Midas Futures</h2>
       <div class="case-prose">
         <p class="deck">I’m building Midas to answer a question a profitable backtest cannot settle: can a futures strategy still make sense after trading costs, evaluation fees and the rules of a funded account? What began as an equities scheduler has become a Python research platform for comparing strategies, challenging assumptions and modeling the account around the trades.</p>
-        <p>I’ve directed its design and development for about a year: strategy definitions, replay and forward decision rules, batch campaigns, component ablations, Monte Carlo studies and account-lifecycle models. The goal is a repeatable research process that finds out which ideas deserve further testing. Each study keeps its assumptions and results; a separate Practice system handles demo orders and reconciliation.</p>
+        <p>I’ve directed its design and development for about a year. I want to be able to rerun a study, explain why an idea passed or failed, and pick up an experiment after an interruption. I built around reusable strategy definitions, saved study inputs and outputs, and explicit checks before further testing. A separate Practice system handles demo orders and reconciliation.</p>
       </div>
     </div>
+    <section class="midas-restart" id="midas-cloud-campaign" aria-labelledby="midas-cloud-title">
+      <div class="case-prose">
+        <h3 id="midas-cloud-title">A cloud campaign from request to decision</h3>
+        <p>I added a way to submit a registered experiment to the cloud queue with a specific code revision, experiment definition and data identity. The worker kept the campaign plan and results. It recognized a repeat request and returned the recorded status without running it again.</p>
+      </div>
+      <div class="case-prose">
+        <p><strong>1,128 costed historical cases:</strong> eight strategy variants across 141 eligible sessions. The campaign’s screening rules selected no variant in any of the five evaluation blocks, so it stopped before account simulation.</p>
+        <p>Recorded November 18, 2026 · Historical market research · Midas main <code>97fb4e40</code></p>
+      </div>
+    </section>
     <section class="midas-results" id="midas-results" aria-labelledby="midas-results-title">
-      <div class="pipeline-intro"><h3 id="midas-results-title">Research results</h3><p>Four recorded studies show different parts of the system: strategy returns, batch screening, component comparisons and the account around the trades. They answer different questions; they are not four stages automatically completed by every strategy.</p></div>
+      <div class="pipeline-intro"><h3 id="midas-results-title">Research results</h3><p>Four earlier studies show what I measure at different points in the research: trading returns, sensitivity to costs, the effect of adding a component, and the outcome after account fees and rules.</p></div>
       <div class="result-studies">
 <article class="result-study" id="midas-result-backtest"><h4>Historical strategy backtests</h4><p class="study-question">Would a session loss rule preserve a trend strategy’s gains while limiting drawdown?</p><p class="study-scope">Six gold-futures risk-rule variants · One contract · 334 sessions each, March 2025–June 2026</p><table class="evidence-table"><caption>Highest-net variant, with its risk result</caption><thead><tr><th scope="col">Saved measure</th><th scope="col">Modeled result</th></tr></thead><tbody><tr><th scope="row">Net after fees and slippage</th><td>+$24,386.72</td></tr><tr><th scope="row">Maximum minute drawdown</th><td>$6,631.20</td></tr><tr><th scope="row">Declared drawdown limit</th><td>$2,000</td></tr></tbody></table><p>All six variants were net positive under the declared costs. None met the drawdown limit. The complete comparison keeps the positive returns alongside the failed risk checks.</p><details><summary>Compare all six variants and costs</summary><table class="evidence-table"><caption>Same familiar historical sessions and cost model</caption><thead><tr><th scope="col">Variant</th><th scope="col">Net P&amp;L</th><th scope="col">Minute drawdown</th></tr></thead><tbody><tr><th scope="row">Gold variant 1</th><td>$19,762.72</td><td>$8,682.28</td></tr><tr><th scope="row">Gold variant 2</th><td>$24,386.72</td><td>$6,631.20</td></tr><tr><th scope="row">Gold variant 3</th><td>$22,411.72</td><td>$10,648.28</td></tr><tr><th scope="row">Gold variant 4</th><td>$17,943.72</td><td>$6,574.04</td></tr><tr><th scope="row">Gold variant 5</th><td>$21,794.72</td><td>$5,708.88</td></tr><tr><th scope="row">Gold variant 6</th><td>$21,965.72</td><td>$6,797.48</td></tr></tbody></table><p>For the highest-net variant: $26,364 gross − $641.28 fees − $1,336 slippage = $24,386.72 net. Each round trip models $1.92 in fees and two adverse ticks per side at $1 per tick. This is familiar historical data, not held-out performance or an account payout.</p></details><p class="result-source">Committed on main · <code>8152895f</code></p></article>
 <article class="result-study" id="midas-result-batch"><h4>192-variant batch campaign</h4><p class="study-question">Do any gold or crude-oil variants survive higher execution costs and prior-only selection?</p><p class="study-scope">Gold and crude-oil futures · Four product/session groups · Eight completed shards</p><table class="evidence-table"><caption>384 priced comparisons across 192 variants</caption><thead><tr><th scope="col">Full-window test</th><th scope="col">Positive variants</th></tr></thead><tbody><tr><th scope="row">Base cost: $5.22 per trade</th><td>19 / 192</td></tr><tr><th scope="row">Stress cost: $13.22 per trade</th><td>0 / 192</td></tr><tr><th scope="row">Account-research candidates</th><td>0</td></tr></tbody></table><p>The full-window positives did not survive higher execution costs. The saved walk-forward selection used earlier sessions to choose a variant, then evaluated the following window; it advanced no account candidate.</p><details><summary>How the batch was compared</summary><p>I kept the declared variant inventory, shard outputs and prior-only selection together. Selection used 60 earlier sessions and 30 validation sessions. The four groups had different usable history; one had too little for a fold. Missing source coverage was retained rather than silently treated as a completed test. These are familiar development windows, not independent or untouched trials.</p></details><p class="result-source">Completed results retained on research branch · <code>22502810</code></p></article>
@@ -237,7 +247,7 @@
     </section>
     <div class="midas-decisions">
       <div class="case-prose"><h3>Keeping two execution paths consistent</h3><p>Replay and forward evaluation once disagreed on when a bar was complete and which price an exit could use. I put those decisions into a shared state machine. One retained historical strategy comparison matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p></div>
-      <div class="case-prose"><h3>Retrying without duplicating work</h3><p>I built a local queue that ran 288 strategy variants at two cost settings in one recorded campaign. It reused saved results for duplicate work and rejected invalid requests before execution. For cloud jobs, I tested interruptions during handoff: retrying completed the handoff without adding the same job twice. In those tests, if a worker had claimed a job but its completion could not be verified, the queue stopped later work until that run could be reconciled.</p></div>
+      <div class="case-prose"><h3>Retrying without duplicating work</h3><p>An interrupted handoff can leave a job request saved but its final receipt missing. My retry tests check for an existing claim before adding a request. When a worker has claimed a job and the queue cannot verify its completion, the queue holds later work for review.</p></div>
     </div>
     <section class="pipeline-map" id="midas-pipeline" aria-labelledby="midas-pipeline-title">
       <div class="pipeline-intro"><h3 id="midas-pipeline-title">How the research fits together</h3><p>A study declares which tools it uses. I keep its inputs, assumptions and results together, then model the account where the experiment calls for it.</p></div>
@@ -340,7 +350,7 @@
     <div class="chapter-head">
       <h2 id="production-title">Scanned Leverage and Optimized Production</h2>
       <div class="case-prose">
-        <p class="deck">I’m building a way to study what people enjoy in games and turn those observations into original prototypes. Roblox is the first market. The goal is to make each new idea easier to test by reusing the production work around it: game rules, interfaces and world layouts. I built the research and production tools, and I make the design decisions between them.</p>
+        <p class="deck">I’m building a system for deciding which game ideas are worth prototyping, starting with Roblox. I built tools to organize market evidence and break down gameplay I’ve annotated. I use those observations to make design decisions, then build original prototypes from reusable game rules, interfaces and world layouts.</p>
 
       </div>
     </div>
@@ -398,7 +408,7 @@
     <div class="case-grid">
       <figure class="visual product-view"><a href="https://www.operalith.com/"><img src="assets/operalith-home.jpg" width="1440" height="900" loading="lazy" alt="Operalith’s public homepage with its personal workspace, appearance choices and connected tools."></a><figcaption>Operalith.com</figcaption></figure>
       <div class="case-prose">
-        <p>The current tools are a foundation for a broader product. Someone can choose Planner, Projects, Inventory, Equipment Loans or Customers &amp; Enquiries, add compatible features and change the workspace’s appearance while keeping the same work. I want the product to carry more of a person’s recurring responsibilities from the first request to a useful result, with their context and preferences intact.</p>
+        <p>I want someone to start with the tools they need and add more as their work changes. The current workspace offers Planner, Projects, Inventory, Equipment Loans and Customers &amp; Enquiries. People can add compatible features and change the workspace’s appearance while keeping their existing records.</p>
         <p>I built the shared records and connections that make that idea concrete. An enquiry can become a project without losing its customer, site or original request; tasks and supplies can then point back to the same job. Conversion and undo check both sides so an edit in one tool cannot quietly break the work in another.</p>
         <p>Operalith is an independent product I’m developing into a business. I’m still testing which recurring jobs to build it around. The public example saves in the browser; a separate invited solo account beta supports server-saved fictional work.</p>
         <a class="case-link" href="https://www.operalith.com/#try">Open the public workspace →</a>
@@ -449,7 +459,7 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="formsby-title">Formsby</h2>
-      <div class="case-prose"><p class="deck">Formsby started during breaks and lunches at Cardinal. I wanted people to describe what they need and get a useful path through information scattered across websites: a home, a service, a job or local help. I spent months on a shared discovery and matching workflow, then built a housing-search prototype as a first step toward that broader idea.</p><p>The product idea is to turn a person’s requirements into a specific, source-linked shortlist, rather than leave them to compare another pile of search results. The housing build collects location, budget and practical needs, searches existing sources and keeps the results private. The intended paid product has to earn its price by saving the user time and giving them a useful starting point.</p></div>
+      <div class="case-prose"><p class="deck">Formsby started during breaks and lunches at Cardinal. I wanted people to describe what they need and get a useful path through information scattered across websites: a home, a service, a job or local help. I spent months on a shared discovery and matching workflow, then built a housing-search prototype as a first step toward that broader idea.</p><p>The housing prototype starts with location, budget and practical needs. It searches existing sources and turns those requirements into a private shortlist with links people can follow. The bigger idea is to give someone a useful next step when the information they need is scattered across sites.</p></div>
     </div>
     <section class="project-explorer formsby-explorer" id="formsby-explore" data-explorer aria-labelledby="formsby-explore-title">
       <div class="explorer-intro">
@@ -531,7 +541,7 @@
     <h2 id="about-title">About me</h2>
     <div class="case-prose">
       <p class="about-lead">I’m finishing mechanical engineering at Lehigh, after three summers working with engineers and operators at Cardinal Glass.</p>
-      <p>Formsby started during breaks and lunches at Cardinal. I spent months working through the idea and its first build, and I still want to take it further. Midas has been a daily project for about a year.</p><p>I especially enjoyed building the production tracker because it helped my coworkers keep daily work organized. They used it in the end-of-shift meeting.</p>
+      <p>My favorite part of building the Cardinal tracker was seeing it become part of the end-of-shift meeting. I started working on Formsby during breaks and lunches there, and I’ve worked on Midas almost daily for about a year. I like getting far enough into an idea to see how it holds up when someone uses it or when the first test fails.</p>
     </div>
   </div>
 </section>
