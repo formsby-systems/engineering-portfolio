@@ -41,6 +41,7 @@ body{background:var(--ground);color:var(--ink);line-height:1.55}
 .work-strip>nav:first-of-type a{padding:10px 25px 10px 0;border-color:var(--rule)}
 .work-strip small{font-size:.75rem;color:var(--muted)}
 .chapter{padding-block:clamp(55px,7vw,105px);background:var(--ground);color:var(--ink);--muted:#52616a;--accent:#285973;--rule:#1b2b3430;color-scheme:light}
+.chapter[id]{scroll-margin-block-start:var(--bar)}
 .chapter h2{font-size:clamp(2.7rem,4.9vw,4.7rem);letter-spacing:-.057em;line-height:1.02;font-weight:670;overflow-wrap:normal}
 .chapter-head{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:25px 65px;align-items:start}
 .chapter-label,.explorer-note{font-size:.77rem;font-weight:500;text-transform:none;letter-spacing:0}
