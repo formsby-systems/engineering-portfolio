@@ -15,7 +15,7 @@
 <meta name="description" content="Dylan Becchetti's engineering portfolio: Midas Futures, Operalith, Cardinal Glass and mechanical design at Lehigh.">
 <title>Dylan Becchetti · Engineering Portfolio</title>
 <link rel="stylesheet" href="site.css?v=20261111-recruiter">
-<link rel="stylesheet" href="creative.css?v=20261118-campaign">
+<link rel="stylesheet" href="creative.css?v=20261118-final-review">
 <script src="site.js?v=20261117-cardinal-formsby" defer></script>
 </head>
 <body>
@@ -37,7 +37,7 @@
         <p class="availability">Seeking U.S. remote work · Available January 2027</p>
       </div>
       <figure class="hero-figure">
-        <div class="stage-label"><span>Wilbur Powerhouse</span><span>OpenSCAD</span></div>
+        <div class="stage-label"><span>Wilbur Powerhouse</span><span>Nov 2 CAD motion study</span></div>
         <div class="hero-stage" data-stage>
           <img src="assets/wilbur-poster.jpg" alt="Wilbur Powerhouse CAD assembly: a large outer ring surrounding six planet gears with hanging signs." width="1120" height="840" fetchpriority="high">
           <div class="stage-annotations" data-annotations hidden>
@@ -47,10 +47,10 @@
             </svg>
             <span class="part-ring">Outer ring</span><span class="part-drive">Drive pinion</span><span class="part-sign">Hanging sign</span>
           </div>
-          <video data-drive poster="assets/wilbur-poster.jpg" src="assets/wilbur-drive.mp4" muted playsinline preload="none" hidden aria-label="Wilbur Powerhouse ring-driven CAD motion"></video>
+          <video data-drive poster="assets/wilbur-poster.jpg" src="assets/wilbur-drive.mp4" muted playsinline preload="none" hidden aria-label="Ring-driven motion from the November 2 Wilbur CAD model"></video>
         </div>
         <figcaption class="stage-foot">
-          <div class="stage-caption"><span data-note>Scroll to turn the gear assembly</span><a href="#wilbur">How I designed it ↓</a></div>
+          <div class="stage-caption"><span data-note>Scroll to turn the gear assembly</span><a href="#wilbur">Design story and latest CAD ↓</a></div>
           <div class="motion-tools" data-controls hidden><button type="button" data-play>Play</button><details class="motion-settings"><summary>Motion controls</summary><div class="drive"><label for="drive-position">Motion position</label><input type="range" id="drive-position" min="0" max="100" value="0"><output data-position for="drive-position">00%</output><button type="button" data-scroll-mode aria-pressed="true">Scroll sync</button><button type="button" data-label-parts aria-pressed="false">Label gears</button></div></details></div>
         </figcaption>
       </figure>
@@ -155,16 +155,20 @@
     <div class="chapter-head">
       <div><h2 id="capstone-title">Kinetic Wilbur</h2><p class="chapter-context">Year-long Lehigh team capstone, 2026</p></div>
       <div class="case-prose">
-        <p class="deck">We wanted visitors at Wilbur Powerhouse to see how the sculpture moves. An exposed planetary gear train spins and orbits six signs that represent the work happening in Lehigh’s Design Labs. I did much of the mechanical design and built all the OpenSCAD models for the 80-inch team capstone, designed to hang above a classroom.</p><p>We interviewed students, faculty and tour guides to understand what the sculpture should do for the space. Their answers became requirements for placement, noise, maintenance, cost and fabrication with Lehigh’s available tools. We compared mechanisms and tested small assemblies before moving to full-scale plywood and steel.</p>
+        <p class="deck">We wanted visitors at Wilbur Powerhouse to see how the sculpture moves. An exposed planetary gear train spins and orbits six signs that represent the work happening in Lehigh’s Design Labs. I led much of the mechanical design and developed the OpenSCAD models for this team capstone. The outer gear spans about 80 inches in CAD, and the sculpture is designed to hang above a classroom.</p><p>We interviewed students, faculty and tour guides to understand what the sculpture should do for the space. Their answers became requirements for placement, noise, maintenance, cost and fabrication with Lehigh’s available tools. We compared mechanisms and tested small assemblies before moving to full-scale plywood and steel.</p>
 
       </div>
     </div>
     <div class="fabrication-spread" id="wilbur-fabrication">
       <figure class="fabrication-photo"><a href="assets/wilbur-cnc-gears.webp"><picture><source media="(max-width: 760px)" srcset="assets/wilbur-cnc-gears-840.webp"><img src="assets/wilbur-cnc-gears.webp" loading="lazy" width="1500" height="2000" alt="CNC-cut plywood outer ring, central sun and six planet gears laid out on asphalt before assembly."></picture></a><figcaption>Our CNC-cut ring, sun and six planet gears, laid out before assembly. Open the photo to see the full view.</figcaption></figure>
       <div class="fabrication-margin">
-        <p>I took the models from small proof-of-concept assemblies to full-scale parts. When roller tests raised noise concerns, I modeled fixed casters and a wider laminated ring, keeping the inner teeth so the planets would still mesh. I updated the CNC profiles and motor position as my team moved into fabrication.</p>
+        <p>Brian Slocum and the team tried steel and nylon ball transfers. Both made more noise than we wanted. Brian favored wheels and suggested a wider plywood band with staggered seams. I carried those changes into the ring, CNC profiles and motor position.</p>
         <figure><a href="assets/wilbur-ring.webp"><img src="assets/wilbur-ring.webp" loading="lazy" width="1500" height="1050" alt="My November OpenSCAD ring and external drive geometry."></a><figcaption>My ring and drive geometry, 2,020 mm (79.5 in) across. Four identical half-cuts form two layers, with upper seams rotated 90 degrees.</figcaption></figure>
       </div>
+    </div>
+    <div class="artifact-pair wilbur-artifacts" id="wilbur-exploded">
+      <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-review-oblique.webp" aria-label="November 12 rotating CAD review of the Wilbur mechanism"><source src="assets/wilbur-review-turntable.mp4" type="video/mp4"></video><figcaption>November 12 CAD turntable. The camera view rotates around the mechanism.</figcaption></figure>
+      <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-review-exploded.webp" aria-label="November 12 exploded CAD review of the Wilbur mechanism"><source src="assets/wilbur-review-exploded.mp4" type="video/mp4"></video><figcaption>November 12 exploded study showing the major groups and how they fit together.</figcaption></figure>
     </div>
     <section class="project-explorer wilbur-explorer" id="wilbur-explore" data-explorer aria-labelledby="wilbur-explore-title">
       <div class="explorer-intro">
@@ -178,32 +182,37 @@
         <button type="button" aria-controls="wilbur-unit" aria-pressed="false">Unit One</button>
       </div>
       <div id="wilbur-assembly" class="explorer-panel build-panel" data-explorer-panel>
-        <figure class="build-visual"><a href="assets/wilbur-assembly.webp"><img src="assets/wilbur-assembly.webp" loading="lazy" width="1500" height="1050" alt="Complete CAD sculpture with six signs below the planetary gears and steel support structure above."></a><figcaption>Full sculpture and overhead support concept from my November OpenSCAD assembly.</figcaption></figure>
-        <div class="case-prose"><h4>Planetary gear assembly</h4><p>The motor turns an external pinion, which drives the outer ring. The six planet gears mesh between that ring and a fixed sun gear. Each planet spins its sign while the carrier moves all six around the center.</p><p>We kept the gearing visible from below. The hanging figures and lettering give visitors a way into the motion and tie the display back to Wilbur and Lehigh.</p><p><a href="#wilbur-exploded">Watch the exploded CAD view ↓</a></p></div>
+        <figure class="build-visual"><a href="assets/wilbur-review-sculpture.webp"><img src="assets/wilbur-review-sculpture.webp" loading="lazy" width="1600" height="1200" alt="Sculpture concept with six hanging signs under its planetary gears"></a><figcaption>November 12 sculpture concept. The mechanism videos focus on the gears and carrier.</figcaption></figure>
+        <div class="case-prose"><h4>Planetary gear assembly</h4><p>The external pinion drives the outer ring. Six planet gears mesh between that ring and the fixed sun. Each planet turns its sign while the carrier takes all six around the center. We wanted visitors looking up to be able to see where the motion comes from.</p><p><a href="#wilbur-exploded">See the latest rotating and exploded views ↓</a></p></div>
       </div>
       <div id="wilbur-carrier" class="explorer-panel build-panel" data-explorer-panel>
-        <figure class="build-visual"><a href="assets/wilbur-carrier.webp"><img src="assets/wilbur-carrier.webp" loading="lazy" width="1500" height="1050" alt="Six welded steel arms around a central bearing and mast, with cable stays leading to each arm end."></a><figcaption>The six-arm carrier, cable stays and ring contacts in the November CAD.</figcaption></figure>
-        <div class="case-prose"><h4>Carrier and supports</h4><p>I replaced the plywood carrier concept with six paired steel-tube arms welded to a central hub. A thrust bearing supports the rotating carrier at the center. Cable stays run from the carrier’s mast to the ends of the arms. The arm ends roll on the ring, and four fixed support stations carry the ring from below.</p><p>In the team’s analysis of an earlier carrier, adding stays reduced predicted deflection at the planet support from <strong>0.94 mm to 0.41 mm</strong> and shifted more load to the center bearing. The November wheel mounts and installed assembly still need their own checks.</p></div>
+        <figure class="build-visual"><a href="assets/wilbur-review-carrier.webp"><img src="assets/wilbur-review-carrier.webp" loading="lazy" width="1600" height="1200" alt="Paired steel tube arms, welded hub and cable stays"></a><figcaption>November 12 carrier review. The new hub and mast detail replaces the earlier center stack.</figcaption></figure>
+        <div class="case-prose"><h4>Carrier and center support</h4><p>I moved from a plywood carrier to paired steel tubes, welded hub connections and cable stays. In the November 12 review I simplified the center stack so the mast rests on the lower hub and the thrust bearing sits between the sun flange and the rotating carrier.</p><p>The current wheel candidate exceeds the available gap. The model leaves the mount open for a fit check.</p></div>
       </div>
       <div id="wilbur-ring" class="explorer-panel build-panel" data-explorer-panel>
-        <figure class="build-visual"><a href="assets/wilbur-ring.webp"><img src="assets/wilbur-ring.webp" loading="lazy" width="1500" height="1050" alt="Two layers of a large plywood ring gear, offset to show the staggered seams and both sets of teeth."></a><figcaption>Four CNC-cut half-pieces form the two layers of the proposed plywood ring.</figcaption></figure>
-        <div class="case-prose"><h4>Ring gear and drive</h4><p>We tested steel and nylon ball transfers with our sponsor and found both louder than we wanted. I modeled fixed casters and widened the solid plywood band they roll on, keeping the inner gear profile so it would still mesh with the planets.</p><p>I modeled the ring as four identical plywood half-pieces. Two halves make each layer; rotating the top layer 90 degrees staggers the seams while both tooth patterns still line up. One CNC profile can produce all four pieces. The wider ring moved the motor mount 70 mm farther out and changed the external drive reduction to <strong>10:1</strong>.</p></div>
+        <figure class="build-visual"><a href="assets/wilbur-review-ring.webp"><img src="assets/wilbur-review-ring.webp" loading="lazy" width="1600" height="1200" alt="Wide laminated plywood ring with staggered joints"></a><figcaption>Widened plywood ring in the November 12 design review.</figcaption></figure>
+        <div class="case-prose"><h4>Ring gear and drive</h4><p>Two layers of plywood use four identical CNC half-cuts. Rotating one layer 90 degrees staggers the seams. Widening the rolling band kept the interior teeth in place and moved the motor outward in the drive design.</p></div>
       </div>
       <div id="wilbur-unit" class="explorer-panel build-panel" data-explorer-panel>
-        <figure class="build-visual"><a href="assets/wilbur-unit.webp"><img src="assets/wilbur-unit.webp" loading="lazy" width="1500" height="1050" alt="One plywood planet gear around the steel sleeve, flange and bearing stack in OpenSCAD."></a><figcaption>CAD of the first repeatable planet assembly. Each unit carries one hanging sign.</figcaption></figure>
-        <div class="case-prose"><h4>Unit One</h4><p>We CNC-cut the plywood gear, welded the steel sleeve and plates, then fitted the gear into the first assembly. The sleeve measured about 1.02 inches across. We sanded the first bore to fit and allowed more clearance for later cuts.</p><p>The first unit gave the team a full-scale reference for making the other five, including the bearing and shaft fit.</p></div>
+        <figure class="build-visual"><a href="assets/wilbur-review-unit.webp"><img src="assets/wilbur-review-unit.webp" loading="lazy" width="1800" height="1200" alt="Close-up of the planet unit bearing and retainer mounting plates"></a><figcaption>November 12 Unit One mount study, with bearing and retainer detail.</figcaption></figure>
+        <div class="case-prose"><h4>Unit One</h4><p>The team welded the sleeve and flange, cut the gear and fitted the first assembly. That gave us a real reference for the other five. I then revised the CAD to use two welded holder plates and a separate retainer backing disk. The revised bearing stack still needs a physical fit check.</p></div>
       </div>
     </section>
     <div class="case-prose case-summary">
-      <h3>Design and fabrication</h3>
-
-      <p>My first OpenSCAD prototype had a base and a wave cam that moved the figures up and down. For the second I removed the base and vertical motion, moved the support overhead and kept the spin and orbit. We printed small assemblies to work out fit and motion before moving to full-scale plywood and steel in the fall.</p>
-      <p>At full scale we tracked weight and cost alongside fit, noise and shop capacity. We modeled ten years of costs, including electricity, maintenance and replacement parts. The wider ring exceeded the original six-foot target, so we brought the installation envelope back to the sponsor. Final weight depends on the revised parts and installation hardware.</p><details class="historical-results"><summary>Weight through the design revisions</summary><p>An earlier material study estimated about <strong>365 lb for the sculpture</strong> before mounting and drive hardware. The fall review listed 280 lb for a lighter iteration. These are different design revisions; neither is a measured weight of the finished sculpture.</p></details><p class="case-foot">The CNC-cut ring, sun and six planets are shown above. Unit One is assembled; work on the carrier, revised supports and installation continues.</p>
+      <h3>How the design got here</h3>
+      <p>My first OpenSCAD design used a wave cam to move the figures vertically. I dropped that motion and the lower structure, then moved the support overhead so the signs could spin and orbit in view. Small printed assemblies helped us work through motion and fit before working at full scale.</p>
+      <p>Brian’s review pushed us toward a smaller metal center and stays instead of tall gussets. The roller tests and staggered plywood seams changed how we supported and made the ring. Our team fabricated the first planet unit and cut gears. The November 12 review carries the later carrier and bearing changes into CAD. The November 13 build packet sets out the remaining work, including wheel clearance, trial fit and review of the overhead installation.</p>
     </div>
-    <div class="artifact-pair wilbur-artifacts" id="wilbur-exploded">
-      <figure class="visual"><video controls playsinline preload="none" poster="assets/wilbur-explosion.jpg" aria-label="Exploded CAD view of the Wilbur Powerhouse mechanism"><source src="assets/wilbur-explosion.mp4" type="video/mp4"></video><figcaption>Earlier exploded CAD study showing how the major assembly groups fit together.</figcaption></figure>
-    </div>
-    <p class="case-foot">Fall design review · First full-scale gear unit assembled. Remaining carrier, ring and installation work ahead.</p>
+    <details class="historical-results">
+      <summary>More angles and center assembly details</summary>
+      <div class="artifact-pair">
+        <figure class="visual"><a href="assets/wilbur-review-alternate.webp"><img src="assets/wilbur-review-alternate.webp" loading="lazy" width="1600" height="1200" alt="Alternate oblique view of the gears and steel carrier"></a><figcaption>Alternate mechanism angle</figcaption></figure>
+        <figure class="visual"><a href="assets/wilbur-review-above.webp"><img src="assets/wilbur-review-above.webp" loading="lazy" width="1600" height="1200" alt="Upper view of the gear train and cable stays"></a><figcaption>Carrier and gear train from above</figcaption></figure>
+        <figure class="visual"><a href="assets/wilbur-review-center.webp"><img src="assets/wilbur-review-center.webp" loading="lazy" width="1800" height="1200" alt="Fixed center column with rotating hub and mast"></a><figcaption>Center support assembly</figcaption></figure>
+        <figure class="visual"><a href="assets/wilbur-review-cutaway.webp"><img src="assets/wilbur-review-cutaway.webp" loading="lazy" width="1800" height="1200" alt="Cutaway showing the thrust bearing between the fixed sun flange and lower carrier hub"></a><figcaption>Close-up of the modeled center load path</figcaption></figure>
+      </div>
+    </details>
+    <p class="case-foot">The November 12 mechanism clips show the carrier and gear geometry. Wheel mounts and lower supports are pending fit review. The hero shows modeled gear motion from the earlier November 2 design.</p>
   </div>
 </section>
 
@@ -213,21 +222,35 @@
       <h2 id="midas-title">Midas Futures</h2>
       <div class="case-prose">
         <p class="deck">I’m building Midas to answer a question a profitable backtest cannot settle: can a futures strategy still make sense after trading costs, evaluation fees and the rules of a funded account? What began as an equities scheduler has become a Python research platform for comparing strategies, challenging assumptions and modeling the account around the trades.</p>
-        <p>I’ve directed its design and development for about a year. I want to be able to rerun a study, explain why an idea passed or failed, and pick up an experiment after an interruption. I built around reusable strategy definitions, saved study inputs and outputs, and explicit checks before further testing. A separate Practice system handles demo orders and reconciliation.</p>
+        <p>I started with a scheduler and kept running into bigger questions about what to test, how to know the result held up, and how to continue when a job stopped. I’ve spent about a year building the research system around those questions.</p>
       </div>
     </div>
+    <section class="pipeline-map" id="midas-pipeline" aria-labelledby="midas-pipeline-title">
+      <div class="pipeline-intro">
+        <h3 id="midas-pipeline-title">How a strategy moves through Midas</h3>
+        <p>I built the pipeline so I could add new ideas and market data without rebuilding the machinery around every experiment. Each stage keeps the evidence behind its decision, so I can trace what ran and why it stopped or moved forward.</p>
+      </div>
+      <ol class="research-steps">
+        <li><h4>Define the experiment</h4><p>I register the strategy, parameter variants, controls and costs. The request identifies the exact code, experiment definition and historical data. Sessions with missing coverage are recorded separately.</p></li>
+        <li><h4>Run and save the comparisons</h4><p>The cloud queue runs the registered campaign in batches. Each batch saves its results, and the worker checks that every expected case is accounted for. A duplicate request reuses the recorded status.</p></li>
+        <li><h4>Decide what deserves another test</h4><p>For a chronological screen, earlier sessions choose the candidate for the next block. Component comparisons and Monte Carlo studies can test narrower questions about what drove a result and how easily it could occur by chance.</p></li>
+        <li><h4>Model the account around the trades</h4><p>Candidates can enter a separately declared account study. The simulator can apply evaluation fees, loss limits, resets and payouts, and compare multiple strategies sharing one account’s risk limits.</p></li>
+        <li><h4>Review a demo handoff</h4><p>Practice handles a separately authorized demo run, with its own order records and reconciliation. New data sources, longer observation windows and better strategy ideas give the same pipeline more to test.</p></li>
+      </ol>
+    </section>
     <section class="midas-restart" id="midas-cloud-campaign" aria-labelledby="midas-cloud-title">
       <div class="case-prose">
-        <h3 id="midas-cloud-title">A cloud campaign from request to decision</h3>
-        <p>I added a way to submit a registered experiment to the cloud queue with a specific code revision, experiment definition and data identity. The worker kept the campaign plan and results. It recognized a repeat request and returned the recorded status without running it again.</p>
+        <h3 id="midas-cloud-title">One campaign, from idea to decision</h3>
+        <p>I tested whether a premarket move in Micro E-mini S&amp;P 500 futures would reverse after the open. The campaign compared reversal, continuation, always-long and cash controls at two cost settings across 141 eligible historical sessions. The worker recorded all 1,128 priced cases.</p>
       </div>
       <div class="case-prose">
-        <p><strong>1,128 costed historical cases:</strong> eight strategy variants across 141 eligible sessions. The campaign’s screening rules selected no variant in any of the five evaluation blocks, so it stopped before account simulation.</p>
-        <p>Recorded November 18, 2026 · Historical market research · Midas main <code>97fb4e40</code></p>
+        <p>A fixed reversal strategy showed <strong>+$163.98 after base costs</strong> and <strong>−$746.02 under higher costs</strong> across 91 later sessions. The prior-only screen selected no strategy in five blocks. The run finished at that decision, before account simulation.</p>
+        <p>Historical simulation · November 18, 2026 · Midas main <code>97fb4e40</code></p>
       </div>
     </section>
+    <p class="midas-reuse">I reused the same worker and request format for a Micro E-mini Russell 2000 experiment with different strategy rules and data. It completed <strong>4,880 priced comparisons</strong> across 488 eligible sessions. None of its ten evaluation blocks selected a candidate. This is the part I want to keep building on: finding stronger ideas and data, then comparing them under the same checks.</p>
     <section class="midas-results" id="midas-results" aria-labelledby="midas-results-title">
-      <div class="pipeline-intro"><h3 id="midas-results-title">Research results</h3><p>Four earlier studies show what I measure at different points in the research: trading returns, sensitivity to costs, the effect of adding a component, and the outcome after account fees and rules.</p></div>
+      <div class="pipeline-intro"><h3 id="midas-results-title">Research results</h3><p>These four experiments show how the results change as I add harder tests: drawdown limits, higher costs, alternate components and shared account rules.</p></div>
       <div class="result-studies">
 <article class="result-study" id="midas-result-backtest"><h4>Historical strategy backtests</h4><p class="study-question">Would a session loss rule preserve a trend strategy’s gains while limiting drawdown?</p><p class="study-scope">Six gold-futures risk-rule variants · One contract · 334 sessions each, March 2025–June 2026</p><table class="evidence-table"><caption>Highest-net variant, with its risk result</caption><thead><tr><th scope="col">Saved measure</th><th scope="col">Modeled result</th></tr></thead><tbody><tr><th scope="row">Net after fees and slippage</th><td>+$24,386.72</td></tr><tr><th scope="row">Maximum minute drawdown</th><td>$6,631.20</td></tr><tr><th scope="row">Declared drawdown limit</th><td>$2,000</td></tr></tbody></table><p>All six variants were net positive under the declared costs. None met the drawdown limit. The complete comparison keeps the positive returns alongside the failed risk checks.</p><details><summary>Compare all six variants and costs</summary><table class="evidence-table"><caption>Same familiar historical sessions and cost model</caption><thead><tr><th scope="col">Variant</th><th scope="col">Net P&amp;L</th><th scope="col">Minute drawdown</th></tr></thead><tbody><tr><th scope="row">Gold variant 1</th><td>$19,762.72</td><td>$8,682.28</td></tr><tr><th scope="row">Gold variant 2</th><td>$24,386.72</td><td>$6,631.20</td></tr><tr><th scope="row">Gold variant 3</th><td>$22,411.72</td><td>$10,648.28</td></tr><tr><th scope="row">Gold variant 4</th><td>$17,943.72</td><td>$6,574.04</td></tr><tr><th scope="row">Gold variant 5</th><td>$21,794.72</td><td>$5,708.88</td></tr><tr><th scope="row">Gold variant 6</th><td>$21,965.72</td><td>$6,797.48</td></tr></tbody></table><p>For the highest-net variant: $26,364 gross − $641.28 fees − $1,336 slippage = $24,386.72 net. Each round trip models $1.92 in fees and two adverse ticks per side at $1 per tick. This is familiar historical data, not held-out performance or an account payout.</p></details><p class="result-source">Committed on main · <code>8152895f</code></p></article>
 <article class="result-study" id="midas-result-batch"><h4>192-variant batch campaign</h4><p class="study-question">Do any gold or crude-oil variants survive higher execution costs and prior-only selection?</p><p class="study-scope">Gold and crude-oil futures · Four product/session groups · Eight completed shards</p><table class="evidence-table"><caption>384 priced comparisons across 192 variants</caption><thead><tr><th scope="col">Full-window test</th><th scope="col">Positive variants</th></tr></thead><tbody><tr><th scope="row">Base cost: $5.22 per trade</th><td>19 / 192</td></tr><tr><th scope="row">Stress cost: $13.22 per trade</th><td>0 / 192</td></tr><tr><th scope="row">Account-research candidates</th><td>0</td></tr></tbody></table><p>The full-window positives did not survive higher execution costs. The saved walk-forward selection used earlier sessions to choose a variant, then evaluated the following window; it advanced no account candidate.</p><details><summary>How the batch was compared</summary><p>I kept the declared variant inventory, shard outputs and prior-only selection together. Selection used 60 earlier sessions and 30 validation sessions. The four groups had different usable history; one had too little for a fold. Missing source coverage was retained rather than silently treated as a completed test. These are familiar development windows, not independent or untouched trials.</p></details><p class="result-source">Completed results retained on research branch · <code>22502810</code></p></article>
@@ -249,23 +272,6 @@
       <div class="case-prose"><h3>Keeping two execution paths consistent</h3><p>Replay and forward evaluation once disagreed on when a bar was complete and which price an exit could use. I put those decisions into a shared state machine. One retained historical strategy comparison matched <strong>228 session decisions and 225 modeled trade lifecycles</strong> against a frozen reference.</p></div>
       <div class="case-prose"><h3>Retrying without duplicating work</h3><p>An interrupted handoff can leave a job request saved but its final receipt missing. My retry tests check for an existing claim before adding a request. When a worker has claimed a job and the queue cannot verify its completion, the queue holds later work for review.</p></div>
     </div>
-    <section class="pipeline-map" id="midas-pipeline" aria-labelledby="midas-pipeline-title">
-      <div class="pipeline-intro"><h3 id="midas-pipeline-title">How the research fits together</h3><p>A study declares which tools it uses. I keep its inputs, assumptions and results together, then model the account where the experiment calls for it.</p></div>
-      <p class="pipeline-origin">Strategy definitions, parameters &amp; identified data</p>
-      <ul class="pipeline-studies" aria-label="Research methods">
-        <li><details><summary><strong>Batch campaigns</strong><span>Compare variants under a saved experiment plan.</span></summary><p>Seeded runs call a sweep, analysis and validation. Plans, parameter identities, fold results and leakage checks stay with the campaign.</p></details></li>
-        <li><details><summary><strong>Component studies</strong><span>Test what changes when a component is removed or combined.</span></summary><p>I built one-axis ablations and declared interaction studies around retained baselines and common risk budgets. Each adapter defines the combinations it supports.</p></details></li>
-        <li><details><summary><strong>Monte Carlo validation</strong><span>Challenge a specific result under declared null models.</span></summary><p>A retained historical study ran two fixed 100,000-draw circular-shift nulls and reapplied the selection statistic. It reported uncertainty and required human review. This is a named validation study, rather than a step every strategy automatically passes through.</p></details></li>
-      </ul>
-      <p class="pipeline-evidence">Saved comparisons, costs &amp; evidence</p>
-      <div class="pipeline-accounts">
-        <div><h4>Account lifecycle</h4><p>Model evaluation stages, loss limits, fees, resets and payouts.</p></div>
-        <div><h4>Shared-risk account book</h4><p>Joint positions share capacity, margin and account-level liquidation. Developed on a retained research branch.</p></div>
-      </div>
-      <p class="pipeline-account-note">Each account study declares the inputs and retained comparisons it uses.</p>
-      <div class="pipeline-foundation"><h4>Durable execution for admitted research jobs</h4><p>Immutable packet → persistent inbox → bounded worker → retained results</p><p>Retries check prior admissions and claims. An unverifiable claimed completion holds later work for reconciliation.</p></div>
-      <div class="pipeline-practice"><h4>Separate demo execution</h4><p>Reviewed handoffs to Practice require their own authorization, execution ledger and reconciliation.</p></div>
-    </section>
     <details class="historical-results earlier-account"><summary>Earlier checkpointed account experiment</summary>
     <section class="project-explorer midas-explorer" id="midas-explore" data-explorer aria-labelledby="midas-explore-title">
       <div class="explorer-intro">
@@ -408,7 +414,7 @@
     <div class="case-grid">
       <figure class="visual product-view"><a href="https://www.operalith.com/"><img src="assets/operalith-home.jpg" width="1440" height="900" loading="lazy" alt="Operalith’s public homepage with its personal workspace, appearance choices and connected tools."></a><figcaption>Operalith.com</figcaption></figure>
       <div class="case-prose">
-        <p>I want someone to start with the tools they need and add more as their work changes. The current workspace offers Planner, Projects, Inventory, Equipment Loans and Customers &amp; Enquiries. People can add compatible features and change the workspace’s appearance while keeping their existing records.</p>
+        <p>I want someone to start with the tools they need and add more as their work changes. The same record links could support more tools without losing the history of a job. The current workspace offers Planner, Projects, Inventory, Equipment Loans and Customers &amp; Enquiries. People can add compatible features and change the workspace’s appearance while keeping their existing records.</p>
         <p>I built the shared records and connections that make that idea concrete. An enquiry can become a project without losing its customer, site or original request; tasks and supplies can then point back to the same job. Conversion and undo check both sides so an edit in one tool cannot quietly break the work in another.</p>
         <p>Operalith is an independent product I’m developing into a business. I’m still testing which recurring jobs to build it around. The public example saves in the browser; a separate invited solo account beta supports server-saved fictional work.</p>
         <a class="case-link" href="https://www.operalith.com/#try">Open the public workspace →</a>
@@ -459,7 +465,7 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="formsby-title">Formsby</h2>
-      <div class="case-prose"><p class="deck">Formsby started during breaks and lunches at Cardinal. I wanted people to describe what they need and get a useful path through information scattered across websites: a home, a service, a job or local help. I spent months on a shared discovery and matching workflow, then built a housing-search prototype as a first step toward that broader idea.</p><p>The housing prototype starts with location, budget and practical needs. It searches existing sources and turns those requirements into a private shortlist with links people can follow. The bigger idea is to give someone a useful next step when the information they need is scattered across sites.</p></div>
+      <div class="case-prose"><p class="deck">Formsby started during breaks and lunches at Cardinal. I wanted people to describe what they need and get a useful path through information scattered across websites: a home, a service, a job or local help. I spent months on a shared discovery and matching workflow, then built a housing-search prototype as a first step toward that broader idea.</p><p>The housing prototype starts with location, budget and practical needs. It searches existing sources and turns those requirements into a private shortlist with links people can follow. I started with housing because it gave me a concrete problem to build around. The longer-term idea is to carry the same method into service and resource searches, with rules and sources tailored to each need.</p></div>
     </div>
     <section class="project-explorer formsby-explorer" id="formsby-explore" data-explorer aria-labelledby="formsby-explore-title">
       <div class="explorer-intro">
