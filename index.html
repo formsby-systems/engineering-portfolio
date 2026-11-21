@@ -32,7 +32,7 @@
       <div class="hero-copy">
         <h1 id="hero-title">Dylan <br>Becchetti</h1>
         <p class="intro">Engineering software. <br>Mechanical design.</p>
-        <p class="hero-story">I’m finishing mechanical engineering at Lehigh. I designed gears for a kinetic sculpture and built a production tracker my Cardinal Glass coworkers used every day. Outside school and work, I’m building Midas to test trading ideas and Operalith to keep everyday work connected.</p>
+        <p class="hero-story">I’m finishing mechanical engineering at Lehigh. The gears here are from the OpenSCAD model I built for our capstone. At Cardinal Glass, my favorite project was a tracker my coworkers opened at the end of every shift. I’m drawn to work that makes it from my desk into someone else’s hands.</p>
         <div class="hero-cta"><a class="primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="resume.pdf">View résumé ↗</a><a href="mailto:dylanbecc123@gmail.com">Email me</a></div>
         <p class="availability">Seeking U.S. remote work · Available January 2027</p>
       </div>
@@ -50,7 +50,7 @@
           <video data-drive poster="assets/wilbur-poster.jpg" src="assets/wilbur-drive.mp4" muted playsinline preload="none" hidden aria-label="Ring-driven motion from the November 2 Wilbur CAD model"></video>
         </div>
         <figcaption class="stage-foot">
-          <div class="stage-caption"><span data-note>Scroll to turn the gear assembly</span><a href="#wilbur">Design story and latest CAD ↓</a></div>
+          <div class="stage-caption"><span data-note>Scroll to turn the gear assembly</span><a href="#wilbur-fabrication">See the gears we cut ↓</a></div>
           <div class="motion-tools" data-controls hidden><button type="button" data-play>Play</button><details class="motion-settings"><summary>Motion controls</summary><div class="drive"><label for="drive-position">Motion position</label><input type="range" id="drive-position" min="0" max="100" value="0"><output data-position for="drive-position">00%</output><button type="button" data-scroll-mode aria-pressed="true">Scroll sync</button><button type="button" data-label-parts aria-pressed="false">Label gears</button></div></details></div>
         </figcaption>
       </figure>
@@ -80,7 +80,10 @@
     <div class="cardinal-opening">
     <div class="chapter-head">
       <div><h2 id="experience-title">Cardinal Glass</h2><p class="chapter-context">Three summer internships, 2023–2025</p></div>
-      <p class="deck">I built a production tracker that gave engineers and operators at Cardinal Glass a shared view of the R&amp;D shift. They used it in their daily debrief. I also automated weekly defect reporting from a 10,000+ unit log and connected the Scorecard to production, yield and work-order reports.</p>
+      <div class="case-prose">
+        <p class="deck">My coworkers in R&amp;D used the tracker I built in their daily shift debrief. I built a separate weekly Scorecard around the workbooks people already used. Picking a week pulled the right defect records from a log of more than 10,000 units and brought production, yield and work orders into the same review.</p>
+        <p>When a yield lookup skipped readings, I fixed it to use every date in the week. I also changed how people navigated the report so they could open the original cells with their formulas and comments intact.</p>
+      </div>
     </div>
     <section class="project-explorer cardinal-explorer" id="cardinal-explore" data-explorer aria-labelledby="cardinal-explore-title">
       <div class="explorer-intro">
@@ -136,14 +139,13 @@
       <p class="explorer-foot">This reconstructs the weekly system. I built a separate tracker for the daily R&amp;D debrief. <a href="assets/cardinal-demo.html">Open the full reconstruction and source records →</a></p>
     </section>
     </div>
-    <div class="decision-note"><p>I changed the design when copying weekly blocks risked separating values from their formulas and comments: the controls now took people to the selected week in the original worksheet. I also fixed a yield calculation that assumed one source row per week. Matching the actual date range included every reading, and locking the source columns kept the formula correct when copied across the Scorecard.</p></div>
     <ol class="internships" aria-label="Cardinal internships by summer">
       <li><strong>2023</strong><div><h3>Engineering</h3><p>Rotated through maintenance, quality and R&amp;D. Inspected units, analyzed data in Minitab, drafted equipment layouts in AutoCAD and contributed to design failure mode reviews.</p></div></li>
       <li><strong>2024</strong><div><h3>Continuous improvement</h3><p>Wrote illustrated build instructions for customer samples, planned spare-parts organization and signage across 14 warehouse locations, and measured cleanroom airflow with a capture hood and micromanometer.</p></div></li>
       <li><strong>2025</strong><div><h3>Continuous improvement</h3><p>Built Excel/VBA reporting for the R&amp;D line and worked with engineers and operators to bring daily production data into the shift debrief.</p></div></li>
     </ol>
     <div class="artifact-pair cardinal-artifacts">
-      <figure class="visual artifact-view"><a href="assets/cardinal-inventory-view.svg"><img src="assets/cardinal-inventory-view.svg" loading="lazy" width="1480" height="820" alt="Reconstructed purchasing log and inventory master shown side by side."></a><figcaption>Purchasing reconstruction. I connected purchase orders to the parts master in Smartsheet, standardized mismatched part IDs and filled descriptions from the matching inventory record. A separate maintenance report could sort recurring purchases without rearranging the purchasing log. Stock on hand still required receipts and usage records.</figcaption></figure>
+      <figure class="visual artifact-view"><a href="assets/cardinal-inventory-view.svg"><img src="assets/cardinal-inventory-view.svg" loading="lazy" width="1480" height="820" alt="Reconstructed purchasing log and inventory master shown side by side."></a><figcaption>Purchasing reconstruction. I standardized part IDs and flagged duplicates and missing inventory records so the order log could pull the right description. Maintenance could sort recurring purchases in its own view while purchasing kept the original order log.</figcaption></figure>
       <figure class="visual artifact-view"><a href="assets/cardinal-airflow.svg"><img src="assets/cardinal-airflow.svg" loading="lazy" width="1120" height="620" alt="Reconstructed airflow measurements showing increases and decreases across outlets despite a small change in the average."></a><figcaption>Airflow reconstruction. I measured cleanroom outlets with a capture hood and micromanometer and compared follow-up readings with the same outlets’ earlier measurements. I traced a misleading loss reading to blank follow-up cells being treated as zero. The reconstruction leaves untested outlets blank and shows opposing changes that the paired average could hide.</figcaption></figure>
     </div>
     <p class="case-foot">The figures use fictional records. The interactive demo reconstructs the weekly reporting system, which is documented in more detail than the daily debrief tracker.</p>
@@ -155,7 +157,7 @@
     <div class="chapter-head">
       <div><h2 id="capstone-title">Kinetic Wilbur</h2><p class="chapter-context">Year-long Lehigh team capstone, 2026</p></div>
       <div class="case-prose">
-        <p class="deck">We wanted visitors at Wilbur Powerhouse to see how the sculpture moves. An exposed planetary gear train spins and orbits six signs that represent the work happening in Lehigh’s Design Labs. I led much of the mechanical design and developed the OpenSCAD models for this team capstone. The outer gear spans about 80 inches in CAD, and the sculpture is designed to hang above a classroom.</p><p>We interviewed students, faculty and tour guides to understand what the sculpture should do for the space. Their answers became requirements for placement, noise, maintenance, cost and fabrication with Lehigh’s available tools. We compared mechanisms and tested small assemblies before moving to full-scale plywood and steel.</p>
+        <p class="deck">We wanted visitors at Wilbur Powerhouse to see how the sculpture moves. I designed and modeled the exposed planetary gears in OpenSCAD so six signs for Lehigh’s Design Labs can spin and orbit above a classroom. Our team has cut the plywood gears and assembled the first planet unit. The outer gear spans about 80 inches.</p><p>Students, faculty and tour guides helped us turn the idea into requirements for placement, noise, maintenance, cost and what we could make in the shop. When the supports we tried were louder than we wanted, I revised the ring and drive layout around the team’s next design.</p>
 
       </div>
     </div>
@@ -371,7 +373,7 @@
       </div>
     </div>
     <section class="comparison-study" id="signal-break" aria-labelledby="signal-break-title">
-      <div class="study-heading"><h3 id="signal-break-title">Two arenas. Shared game logic.</h3><p>Signal Break · Original two-player prototype</p></div>
+      <div class="study-heading"><h3 id="signal-break-title">Two arenas from the same game logic</h3><p>Signal Break · Original two-player prototype. Both arena builds reproduced byte-for-byte from their configurations.</p></div>
       <div class="image-comparison" data-comparison>
         <div class="comparison-stage">
           <img id="signal-break-build-a" src="assets/signal-break-a.webp" width="1100" height="710" loading="lazy" alt="Signal Break Build A: two storage obstacles and the original pickup and exit positions.">
@@ -419,7 +421,7 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="operalith-title">Operalith</h2>
-      <p class="deck">I started Operalith to help people keep everyday work together: the project they want to finish, the next thing to do, the supplies they need and the customer who asked for it. I’m building a personal workspace that can grow around someone’s life, schoolwork or solo business, without making them rebuild their routine across disconnected tools.</p>
+      <p class="deck">I want people to be able to set up one workspace around the way they already work. In the version I built, a customer enquiry can become a project with its original request, tasks and supplies still connected. My goal is to give people the same freedom to add tools as their work changes.</p>
     </div>
     <div class="case-grid">
       <figure class="visual product-view"><a href="https://www.operalith.com/"><img src="assets/operalith-home.jpg" width="1440" height="900" loading="lazy" alt="Operalith’s public homepage with its personal workspace, appearance choices and connected tools."></a><figcaption>Operalith.com</figcaption></figure>
@@ -464,7 +466,7 @@
     </div>
     <section class="case-prose case-summary" id="operalith-code" aria-labelledby="operalith-code-title">
       <h3 id="operalith-code-title">Retrying a save</h3>
-      <p>A save can succeed even if its response never reaches the caller. An exact retry should return the saved result without writing twice; a new edit from an old version should be refused. This example runs an unchanged method from my local account repository against seven synthetic tests.</p>
+      <p>A save can succeed even if its response never reaches the browser. I built the retry to return the original result, and made a new edit based on an old version fail. The published example runs the method I wrote with fictional data. All seven tests passed, including exact retries, changed requests and stale edits.</p>
       <p><a href="https://github.com/formsby-systems/engineering-portfolio/tree/main/examples/operalith-retries">Read the code and run the tests →</a></p>
       <p class="explorer-foot">Includes source, test inputs, expected results and reproduction instructions. The harness uses in-memory adapters; it does not test PostgreSQL transactions or concurrent requests.</p>
     </section>
@@ -475,7 +477,7 @@
   <div class="frame">
     <div class="chapter-head">
       <h2 id="formsby-title">Formsby</h2>
-      <div class="case-prose"><p class="deck">Formsby started during breaks and lunches at Cardinal. I wanted people to describe what they need and get a useful path through information scattered across websites: a home, a service, a job or local help. I spent months on a shared discovery and matching workflow, then built a housing-search prototype as a first step toward that broader idea.</p><p>The housing prototype starts with location, budget and practical needs. It searches existing sources and turns those requirements into a private shortlist with links people can follow. I started with housing because it gave me a concrete problem to build around. The longer-term idea is to carry the same method into service and resource searches, with rules and sources tailored to each need.</p></div>
+      <div class="case-prose"><p class="deck">I started sketching out Formsby during breaks and lunches at Cardinal. I wanted to describe a need once and get a short list I could check for myself. Housing was the first place I built it. The prototype takes a location, budget and practical needs and turns them into a private shortlist with links to the sources.</p><p>I fixed the results page to show the evaluations from the user’s latest run after I found that it could mix in earlier searches. I also built the processor to keep useful matches if a source fails. I’d like to bring the same approach to services and local resources, where the sources and rules would be different.</p></div>
     </div>
     <section class="project-explorer formsby-explorer" id="formsby-explore" data-explorer aria-labelledby="formsby-explore-title">
       <div class="explorer-intro">
@@ -556,8 +558,9 @@
   <div class="frame about-layout">
     <h2 id="about-title">About me</h2>
     <div class="case-prose">
-      <p class="about-lead">I’m finishing mechanical engineering at Lehigh, after three summers working with engineers and operators at Cardinal Glass.</p>
-      <p>My favorite part of building the Cardinal tracker was seeing it become part of the end-of-shift meeting. I started working on Formsby during breaks and lunches there, and I’ve worked on Midas almost daily for about a year. I like getting far enough into an idea to see how it holds up when someone uses it or when the first test fails.</p>
+      <p class="about-lead">I liked the work at Cardinal best when I could take a problem back to my desk and come back with something the crew could use.</p>
+      <p>Sometimes that meant an Excel tracker we could pull up at the end of a shift. At Lehigh it meant figuring out how to make an 80-inch gear out of pieces we could actually cut in the shop. I like getting far enough into a design that I can see which of my ideas hold up.</p>
+      <p>I’m looking for work where I can build the tools engineers and operators use to do their jobs. I like moving between a spreadsheet, a piece of software and a CAD model to get there.</p>
     </div>
   </div>
 </section>
